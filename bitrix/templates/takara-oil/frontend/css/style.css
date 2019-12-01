@@ -1,0 +1,16 @@
+html {
+    }
+
+body {
+    margin: 0;
+    padding: 0; }
+
+main {
+    overflow: hidden; }
+
+p {
+    margin: 10px 0;
+    color: #000000;
+    font-family: "Intro Light";
+    font-size: 16px;
+    line-height: 26px; }
