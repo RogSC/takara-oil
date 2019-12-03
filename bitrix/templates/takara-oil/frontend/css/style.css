@@ -1,16 +1,413 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Regular.ttf") format("opentype");
+    font-style: normal;
+    font-weight: normal; }
+
+@font-face {
+    font-family: "Days One";
+    src: url("../fonts/DaysOne-Regular.ttf") format("opentype");
+    font-style: normal;
+    font-weight: normal; }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*Main styles*/
+
 html {
     }
 
 body {
-    margin: 0;
-    padding: 0; }
+    background-color: #000;
+    min-width: 1200px;
+    color: #fff;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: normal;
+     }
 
 main {
     overflow: hidden; }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 p {
-    margin: 10px 0;
-    color: #000000;
-    font-family: "Intro Light";
+    color: #fff;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 26px; }
+
+h1 {
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 70px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+}
+
+.container {
+    width: 1200px;
+    padding: 0 45px;
+    margin: 0 auto;
+}
+
+.main-header__row {
+    width: 100%;
+    min-height: 85px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.header__logo {
+    width: 192px;
+    height: 34px;
+    margin-right: 25px;
+}
+
+.header__slogan {
+    width: 128px;
+    margin-right: 20px;
+}
+
+.main-header p {
+    font-family: Days One, serif;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.search-form {
+    position: relative;
+    margin-right: 59px;
+}
+
+.search-form__input {
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    margin: 0;
+    overflow: visible;
+    display: block;
+    width: 100%;
+    padding-left: 20px;
+    /*transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;*/
+    min-width: 438px;
+    min-height: 41px;
+    background-color: #000;
+    color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+}
+
+.search-form__button {
+    position: absolute;
+    box-sizing: border-box;
+    font-size: 100%;
+    margin: 0;
+    overflow: visible;
+    height: 17px;
+    right: 13px;
+    top: 50%;
+    margin-top: -9px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.header__user-menu {
+    width: 135px;
+    min-height: 15px;
+    text-transform: uppercase;
+    margin-right: 40px;
+    position: relative;
+}
+
+.header__user-menu::before {
+    content: "";
+    display: block;
+    background: url("../img/icon-user-menu.svg") no-repeat;
+    width: 11px;
+    height: 15px;
+    position: absolute;
+    left: -21px;
+}
+
+.header__lang-selector {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+
+}
+
+.header__lang-selector p {
+    min-width: 36px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.header__lang-selector p::after {
+    content: "";
+    display: block;
+    background: url("../img/vector-down_small.svg") no-repeat;
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -2.5px;
+}
+
+.main-header__row_down {
+    width: 1110px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-header__navbar {
+
+}
+
+.main-header__navbar a,
+.main-header__callback a {
+    text-transform: uppercase;
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.main-header__navbar ul {
+    min-width: 875px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-header__navbar li {
+
+}
+
+.main-header__navbar-line {
+    min-height: 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-header__callback {
+    /*width: 200px;
+    height: 41px;*/
+}
+
+a.button {
+    border: 2px solid #E60013;
+    box-sizing: border-box;
+    padding: 13px 15px;
+}
+
+a.btn-callback {
+    padding: 13px 15px 13px 37px;
+    position: relative;
+}
+
+a.btn-callback::before {
+    content: "";
+    display: block;
+    background: url("../img/icon-phone.svg") no-repeat;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 15px;
+}
+
+.main-header__navbar img {
+    margin-left: 8px;
+}
+
+.products-catalog .container {
+    min-height: 853px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0px,
+        rgba(0, 0, 0, 0.85) 221px,
+        rgba(0, 0, 0, 0.453125) 391px,
+        rgba(0, 0, 0, 0.4) 457px,
+        rgba(0, 0, 0, 0.4) 100%),
+    url("../img/bg-catalog.jpg");
+    padding-top: 80px;
+    background-size: 100% 100%;
+}
+
+.products-catalog__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 132px;
+    box-shadow: 2px 2px #000;
+}
+
+.product-catalog__sections {
+    width: 930px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.product-catalog__img {
+    width: 232.5px;
+    height: 84.5px;
+    border: 2px solid #FFFFFF;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.product-catalog__section img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.product-catalog__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 306px;
+    margin: 0 10px;
+}
+
+.product-catalog__section p {
+    max-width: 306px;
+    font-family: Days One, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.products-catalog .container {
+    position: relative;
+}
+
+.products-catalog__car-part {
+    position: absolute;
+}
+
+.products-catalog__car-part_motor {
+    top: 503px;
+    left: 242px;
+}
+
+.products-catalog__car-part_akpp {
+    top: 538px;
+    left: 665px;
+}
+
+.products-catalog__car-part_transmission {
+    top: 573px;
+    left: 900px;
+}

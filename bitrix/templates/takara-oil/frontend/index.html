@@ -14,56 +14,51 @@
     <header class="main-header">
         <div class="main-header__top">
             <div class="container">
-                <div class="header__logo logo-wrapper">
-                    <img src="img/logo.svg" alt="TAKARA OIL">
-                </div>
-                <div class="header__slogan">
-                    <p>Производитель японских масел</p>
-                </div>
-                <div class="header__search">
-                    <form class="search-form" method="get" action="/search/">
-                        <input class="search-form__input" name="search" autocomplete="off" placeholder="Поиск"
-                               size="20" pattern="{3,}">
-                        <button class="search-form__button" type="submit" title="Поиск">
-                            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.7567 15.0949L11.8125 10.9927C12.8266 9.78708 13.3823 8.27023 13.3823
-                        6.69113C13.3823 3.0017 10.3806 0 6.69113 0C3.0017 0 0 3.0017 0 6.69113C0 10.3806
-                        3.0017 13.3823 6.69113 13.3823C8.07619 13.3823 9.39609 12.9645 10.5246 12.1715L14.4988
-                        16.3048C14.6649 16.4773 14.8883 16.5725 15.1278 16.5725C15.3544 16.5725 15.5694 16.4861
-                        15.7326 16.329C16.0794 15.9953 16.0904 15.442 15.7567 15.0949ZM6.69113 1.74551C9.4182
-                        1.74551 11.6367 3.96406 11.6367 6.69113C11.6367 9.4182 9.4182 11.6367 6.69113 11.6367C3.96406
-                        11.6367 1.74551 9.4182 1.74551 6.69113C1.74551 3.96406 3.96406 1.74551 6.69113 1.74551Z"
-                                      fill="white" fill-opacity="0.3"></path>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-                <div class="header__user-menu">
-                    <p>Личный кабинет</p>
-                </div>
-                <div class="header__lang-selector">
-                    <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M27.4229 6.00004H0.949219V0.473706C0.949219 0.212116 1.15361 0 1.40568 0H26.9665C27.2185 0 27.4229 0.212116 27.4229 0.473706L27.4229 6.00004Z" fill="#F5F5F5"/>
-                        <path d="M26.9664 17.9997H1.40568C1.15361 17.9997 0.949219 17.7876 0.949219 17.526V11.9998H27.4229V17.526C27.4229 17.7877 27.2185 17.9997 26.9664 17.9997Z" fill="#FF4B55"/>
-                        <path d="M27.4229 5.99976H0.949219V11.9994H27.4229V5.99976Z" fill="#41479B"/>
-                    </svg>
-                    <p>RU</p>
+                <div class="main-header__row">
+                    <div class="header__logo logo-wrapper">
+                        <img src="img/logo.svg" alt="TAKARA OIL">
+                    </div>
+                    <div class="header__slogan">
+                        <p>Производитель японских масел</p>
+                    </div>
+                    <div class="header__search">
+                        <form class="search-form" method="get" action="/search/">
+                            <input class="search-form__input" name="search" autocomplete="off" placeholder="Поиск по сайту"
+                                   size="20" pattern="{3,}">
+                            <button class="search-form__button" type="submit" title="Поиск">
+                                <img src="img/icon-search.svg" alt="Поиск">
+                            </button>
+                        </form>
+                    </div>
+                    <div class="header__user-menu">
+                        <p>Личный кабинет</p>
+                    </div>
+                    <div class="header__lang-selector">
+                        <img src="img/flag-ru.svg" alt="ru">
+                        <p>RU</p>
+                    </div>
                 </div>
             </div>
         </div>
         <nav class="main-header__bottom">
             <div class="container">
-                <div class="main-header__navbar">
-                    <ul>
-                        <li><a href="#">Каталог продукции</a></li>
-                        <li><a href="#">Каталог применяемости</a></li>
-                        <li><a href="#">О бренде TAKARA</a></li>
-                        <li><a href="#">Статьи</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </div>
-                <div class="main-header__callback">
-                    <a class="button" href="#">Связаться с нами</a>
+                <div class="main-header__row main-header__row_down">
+                    <div class="main-header__navbar">
+                        <ul>
+                            <li><a href="#">Каталог продукции<img src="img/vector-down-middle.svg"></a></li>
+                            <li class="main-header__navbar-line"></li>
+                            <li><a href="#">Каталог применяемости<img src="img/vector-down-middle.svg"></a></li>
+                            <li class="main-header__navbar-line"></li>
+                            <li><a href="#">О бренде TAKARA</a></li>
+                            <li class="main-header__navbar-line"></li>
+                            <li><a href="#">Статьи</a></li>
+                            <li class="main-header__navbar-line"></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="main-header__callback">
+                        <a class="button btn-callback" href="#">Связаться с нами</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -73,53 +68,262 @@
 
         </div>
         <section class="products-catalog">
-            <div class="products-catalog__title">
-                <h2>Каталог продукции</h2>
-            </div>
-            <div class="product-catalog__sections">
-                <div class="product-catalog__section">
-                    <img src="img/logo-oil.png" alt="Моторные масла">
-                    <p>Моторные масла</p>
-                </div>
-                <div class="product-catalog__section">
-                    <img src="img/logo-akpp-liquids.png" alt="Жидкости для АКПП">
-                    <p>Жидкости для АКПП</p>
-                </div>
-                <div class="product-catalog__section">
-                    <img src="img/logo_transmission_oil.png" alt="Трансмиссионные масла">
-                    <p>Трансмиссионные масла</p>
-                </div>
-            </div>
-            <div class="products-catalog__car-parts">
-                <div class="products-catalog__car-part">
-                    <img src="img/icon-motor.svg" alt="Двигатель">
-                </div>
-                <div class="products-catalog__car-part">
-                    <img src="img/icon-akpp.svg" alt="Коробка передач">
-                </div>
-                <div class="products-catalog__car-part">
-                    <img src="img/icon-transmission.svg" alt="Трансмиссия">
-                </div>
-            </div>
+           <div class="container">
+               <div class="products-catalog__title">
+                   <h2>Каталог продукции</h2>
+               </div>
+               <div class="product-catalog__sections">
+                   <div class="product-catalog__section">
+                       <div class="product-catalog__img">
+                           <img src="img/logo-oil.png" alt="Моторные масла">
+                       </div>
+                       <p>Моторные<br>масла</p>
+                   </div>
+                   <div class="product-catalog__section">
+                       <div class="product-catalog__img">
+                           <img src="img/logo-akpp-liquids.png" alt="Жидкости для АКПП">
+                       </div>
+                       <p>Жидкости<br>для АКПП</p>
+                   </div>
+                   <div class="product-catalog__section">
+                       <div class="product-catalog__img">
+                           <img src="img/logo_transmission_oil.png" alt="Трансмиссионные масла">
+                       </div>
+                       <p>Трансмиссионные<br>масла</p>
+                   </div>
+               </div>
+               <div class="products-catalog__car-part products-catalog__car-part_motor">
+                   <img src="img/icon-motor.svg" alt="Двигатель">
+               </div>
+               <div class="products-catalog__car-part products-catalog__car-part_akpp">
+                   <img src="img/icon-akpp.svg" alt="Коробка передач">
+               </div>
+               <div class="products-catalog__car-part products-catalog__car-part_transmission">
+                   <img src="img/icon-transmission.svg" alt="Трансмиссия">
+               </div>
+           </div>
         </section>
         <section class="features">
-
+            <div class="container">
+                <div class="features__title">
+                    <h2>Преимущества масла TAKARA</h2>
+                </div>
+                <div class="features__items">
+                    <div class="features__item">
+                        <div class="features__item_icon">
+                            <img src="img/icon-polialfaalefin.svg">
+                        </div>
+                        <div class="features__item_title">
+                            <h3>Элитный вид полиальфаолефинов</h3>
+                        </div>
+                        <div class="features__item_description">
+                            <p>В качестве базового масла используется TAKARA RACING PAO – специально разработанный элитный вид полиальфаолефинов.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <div class="features__item_icon">
+                            <img src="img/icon-used-oil.svg">
+                        </div>
+                        <div class="features__item_title">
+                            <h3>Не используем отработанные масла</h3>
+                        </div>
+                        <div class="features__item_description">
+                            <p>Использование «отработки» в базовом масле значительно снижает его ресурс и приводит к преждевременной выработке качеств масла, его противоизносных свойств.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <div class="features__item_icon">
+                            <img src="img/icon-elite-oil.svg">
+                        </div>
+                        <div class="features__item_title">
+                            <h3>Элитные базовые масла</h3>
+                        </div>
+                        <div class="features__item_description">
+                            <p>Для производства продукции TAKARA используются элитные　синтетические базовые масла «Группы 3 Плюс».</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="pick-up-oil">
-
+           <div class="container">
+               <div class="pick-up-oil__title">
+                   <h2>Подобрать масло</h2>
+               </div>
+               <div class="pick-up-oil__form_container">
+                   <form class="pick-up-oil__form">
+                       <select class="pick-up-oil__select_car-brand" name="car-brand" id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
+                           <option value="0">Марка автомобиля</option>
+                           <option class="car-brand__option" value="10be247fe539bb03">Abarth</option>
+                           <option class="car-brand__option" value="d6b97ba914f0046a">Acura (USA / CAN)</option>
+                           <option class="car-brand__option" value="0607bf0ba7ff948b">Alfa Romeo</option>
+                           <option class="car-brand__option" value="abc74b93c9fe9214">Aro</option>
+                           <option class="car-brand__option" value="8c4799fa000f2ee7">Asia</option>
+                           <option class="car-brand__option" value="68c88ec18723792a">Aston Martin</option>
+                           <option class="car-brand__option" value="d9fe4c31099efeab">Audi</option>
+                           <option class="car-brand__option" value="6f50f44d317b784e">Audi (FAW) (CHN)</option>
+                           <option class="car-brand__option" value="b5232ba66dd2f965">Austin</option>
+                           <option class="car-brand__option" value="cb0999be73659150">Baojun (SGMW) (CHN)</option>
+                           <option class="car-brand__option" value="615adc2573dcfc64">Bentley</option>
+                       </select>
+                       <select class="pick-up-oil__select_car-model" name="car-model" id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
+                           <option value="0">Модель автомобиля</option>
+                           <option class="car-model__option" value="abc74b93c9fe9214">2107</option>
+                           <option class="car-model__option" value="8c4799fa000f2ee7">2108</option>
+                       </select>
+                       <select class="pick-up-oil__select_engine-type" name="engine-type" id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
+                           <option value="0">Тип двигателя</option>
+                           <option class="engine-type__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
+                           <option class="engine-type__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
+                       </select>
+                       <button type="submit" class="pick-up-oil__form_button">Подобрать масло</button>
+                       <button type="reset" class="pick-up-oil__form_reset">Сбросить фильтр</button>
+                   </form>
+               </div>
+           </div>
         </section>
         <section class="about-brand">
-
+           <div class="container">
+               <div class="about-brand__title">
+                   <h2>О бренде</h2>
+               </div>
+               <div class="about-brand__description">
+                   <p>Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.
+                       Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.</p>
+                   <a href="#" class="about-brand__btn btn__more">Подробнее</a>
+               </div>
+           </div>
         </section>
         <section class="articles">
-
+            <div class="container">
+                <div class="articles__title">
+                    <h2>Статьи в блоге</h2>
+                </div>
+                <div class="articles__items">
+                    <div class="articles__item">
+                        <div class="articles__item_logo">
+                            <img src="img/article-logo-1.jpg" alt="Logo article 1">
+                        </div>
+                        <div class="articles__item_date">
+                            <p>10.08.2019</p>
+                        </div>
+                        <div class="articles__item_title">
+                            <h3>как правильно менять масло в двигателе?</h3>
+                        </div>
+                        <div class="articles__item_description">
+                            <p>Обязательно прочтите нашу инструкцию перед реальной заменой масла.</p>
+                        </div>
+                        <div class="articles__item_btn">
+                            <a href="#" class="btn__more">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="articles__item">
+                        <div class="articles__item_logo">
+                            <img src="img/article-logo-2.jpg" alt="Logo article 2">
+                        </div>
+                        <div class="articles__item_date">
+                            <p>10.08.2019</p>
+                        </div>
+                        <div class="articles__item_title">
+                            <h3>как правильно менять масло в двигателе?</h3>
+                        </div>
+                        <div class="articles__item_description">
+                            <p>Обязательно прочтите нашу инструкцию перед реальной заменой масла.</p>
+                        </div>
+                        <div class="articles__item_btn">
+                            <a href="#" class="btn__more">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="articles__item">
+                        <div class="articles__item_logo">
+                            <img src="img/article-logo-3.jpg" alt="Logo article 3">
+                        </div>
+                        <div class="articles__item_date">
+                            <p>10.08.2019</p>
+                        </div>
+                        <div class="articles__item_title">
+                            <h3>как правильно менять масло в двигателе?</h3>
+                        </div>
+                        <div class="articles__item_description">
+                            <p>Обязательно прочтите нашу инструкцию перед реальной заменой масла.</p>
+                        </div>
+                        <div class="articles__item_btn">
+                            <a href="#" class="btn__more">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="articles__btn">
+                    <a href="#" class="button">Показать все стаьи</a>
+                </div>
+            </div>
         </section>
         <section class="callback">
-
+            <div class="container">
+                <div class="callback__container">
+                    <div class="callback__title">
+                        <h1>стань официальным дилером <span class="callback__title_red">takarA oil</span></h1>
+                    </div>
+                    <div class="callback__button">
+                        <a href="#" class="button btn-callback">Связаться с нами</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer class="main-footer">
-
+        <div class="container">
+            <div class="main-footer__left">
+                <div class="main-footer__logo">
+                    <img src="img/logo.svg" alt="TAKARA OIL">
+                </div>
+                <div class="main-footer__mailing">
+                    <h4>Подпишитесь на рассылку</h4>
+                    <form class="main-footer__mailing-form">
+                        <input type="email" class="main-footer__mailing-input">
+                        <button type="submit" class="main-footer__mailing-btn">Подписаться</button>
+                    </form>
+                    <p>Нажимая на кнопку вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></p>
+                </div>
+                <div class="main-footer__copyright">
+                    <h4>(C) TAKARA OIL</h4>
+                </div>
+            </div>
+            <div class="main-footer__center">
+                <div class="main-footer__nav">
+                    <ul>
+                        <li><a href="#">Каталог</a></li>
+                        <li><a href="#">Моторные масла</a></li>
+                        <li><a href="#">Трансмиссионные масла</a></li>
+                        <li><a href="#">Масла для гидроусилителя руля</a></li>
+                        <li><a href="#">Масла для тормозной системы</a></li>
+                        <li><a href="#">Масла для подвески</a></li>
+                    </ul>
+                </div>
+                <div class="main-footer__social">
+                    <ul>
+                        <li><a href="#"><img src="img/icon-social-twitter.svg"></a></li>
+                        <li><a href="#"><img src="img/icon-social-google.svg"></a></li>
+                        <li><a href="#"><img src="img/icon-social-facebook.svg"></a></li>
+                        <li><a href="#"><img src="img/icon-social-dribble.svg"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-footer__right">
+                <div class="main-footer__nav">
+                    <ul>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">О бренде</a></li>
+                        <li><a href="#">Личный кабинет</a></li>
+                        <li><a href="#">Поиск по сайту</a></li>
+                        <li><a href="#">Политика конфеденциальности</a></li>
+                    </ul>
+                </div>
+                <div class="main-footer__dev">
+                    <h4>дизайн и разработка сайта: <span>website96</span></h4>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
