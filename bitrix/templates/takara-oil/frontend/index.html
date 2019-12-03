@@ -7,13 +7,13 @@
     <title>TAKARA Motor OIL</title>
     <!--<link rel="shortcut icon" href="img/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/swiper.min.css"> -->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="main-header">
         <div class="main-header__top">
-            <div class="container">
+            <div class="my-container">
                 <div class="main-header__row">
                     <div class="header__logo logo-wrapper">
                         <img src="img/logo.svg" alt="TAKARA OIL">
@@ -41,7 +41,7 @@
             </div>
         </div>
         <nav class="main-header__bottom">
-            <div class="container">
+            <div class="my-container">
                 <div class="main-header__row main-header__row_down">
                     <div class="main-header__navbar">
                         <ul>
@@ -68,8 +68,8 @@
 
         </div>
         <section class="products-catalog">
-           <div class="container">
-               <div class="products-catalog__title">
+           <div class="my-container">
+               <div class="products-catalog__title section__title">
                    <h2>Каталог продукции</h2>
                </div>
                <div class="product-catalog__sections">
@@ -104,78 +104,90 @@
            </div>
         </section>
         <section class="features">
-            <div class="container">
-                <div class="features__title">
-                    <h2>Преимущества масла TAKARA</h2>
-                </div>
-                <div class="features__items">
-                    <div class="features__item">
-                        <div class="features__item_icon">
-                            <img src="img/icon-polialfaalefin.svg">
-                        </div>
-                        <div class="features__item_title">
-                            <h3>Элитный вид полиальфаолефинов</h3>
-                        </div>
-                        <div class="features__item_description">
-                            <p>В качестве базового масла используется TAKARA RACING PAO – специально разработанный элитный вид полиальфаолефинов.</p>
-                        </div>
+            <div class="my-container">
+                <div class="features__container">
+                    <div class="border-left-top border"></div>
+                    <div class="border-right-top border"></div>
+                    <div class="border-left-bottom border"></div>
+                    <div class="border-right-bottom border"></div>
+                    <div class="features__title">
+                        <h2>Преимущества масла TAKARA</h2>
                     </div>
-                    <div class="features__item">
-                        <div class="features__item_icon">
-                            <img src="img/icon-used-oil.svg">
+                    <div class="features__items row">
+                        <div class="features__item col-4">
+                            <div class="features__item_icon">
+                                <img src="img/icon-polialfaalefin.svg">
+                            </div>
+                            <div class="features__item_title">
+                                <h3>Элитный вид полиальфаолефинов</h3>
+                            </div>
+                            <div class="features__item_description">
+                                <p>В качестве базового масла используется TAKARA RACING PAO – специально разработанный элитный вид полиальфаолефинов.</p>
+                            </div>
                         </div>
-                        <div class="features__item_title">
-                            <h3>Не используем отработанные масла</h3>
+                        <div class="features__item col-4">
+                            <div class="features__item_icon">
+                                <img src="img/icon-used-oil.svg">
+                            </div>
+                            <div class="features__item_title">
+                                <h3>Не используем отработанные масла</h3>
+                            </div>
+                            <div class="features__item_description">
+                                <p>Использование «отработки» в базовом масле значительно снижает его ресурс и приводит к преждевременной выработке качеств масла, его противоизносных свойств.</p>
+                            </div>
                         </div>
-                        <div class="features__item_description">
-                            <p>Использование «отработки» в базовом масле значительно снижает его ресурс и приводит к преждевременной выработке качеств масла, его противоизносных свойств.</p>
-                        </div>
-                    </div>
-                    <div class="features__item">
-                        <div class="features__item_icon">
-                            <img src="img/icon-elite-oil.svg">
-                        </div>
-                        <div class="features__item_title">
-                            <h3>Элитные базовые масла</h3>
-                        </div>
-                        <div class="features__item_description">
-                            <p>Для производства продукции TAKARA используются элитные　синтетические базовые масла «Группы 3 Плюс».</p>
+                        <div class="features__item col-4">
+                            <div class="features__item_icon">
+                                <img src="img/icon-elite-oil.svg">
+                            </div>
+                            <div class="features__item_title">
+                                <h3>Элитные базовые масла</h3>
+                            </div>
+                            <div class="features__item_description">
+                                <p>Для производства продукции TAKARA используются элитные　синтетические базовые масла «Группы 3 Плюс».</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="pick-up-oil">
-           <div class="container">
+           <div class="my-container">
                <div class="pick-up-oil__title">
                    <h2>Подобрать масло</h2>
                </div>
                <div class="pick-up-oil__form_container">
                    <form class="pick-up-oil__form">
-                       <select class="pick-up-oil__select_car-brand" name="car-brand" id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
-                           <option value="0">Марка автомобиля</option>
-                           <option class="car-brand__option" value="10be247fe539bb03">Abarth</option>
-                           <option class="car-brand__option" value="d6b97ba914f0046a">Acura (USA / CAN)</option>
-                           <option class="car-brand__option" value="0607bf0ba7ff948b">Alfa Romeo</option>
-                           <option class="car-brand__option" value="abc74b93c9fe9214">Aro</option>
-                           <option class="car-brand__option" value="8c4799fa000f2ee7">Asia</option>
-                           <option class="car-brand__option" value="68c88ec18723792a">Aston Martin</option>
-                           <option class="car-brand__option" value="d9fe4c31099efeab">Audi</option>
-                           <option class="car-brand__option" value="6f50f44d317b784e">Audi (FAW) (CHN)</option>
-                           <option class="car-brand__option" value="b5232ba66dd2f965">Austin</option>
-                           <option class="car-brand__option" value="cb0999be73659150">Baojun (SGMW) (CHN)</option>
-                           <option class="car-brand__option" value="615adc2573dcfc64">Bentley</option>
-                       </select>
-                       <select class="pick-up-oil__select_car-model" name="car-model" id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
-                           <option value="0">Модель автомобиля</option>
-                           <option class="car-model__option" value="abc74b93c9fe9214">2107</option>
-                           <option class="car-model__option" value="8c4799fa000f2ee7">2108</option>
-                       </select>
-                       <select class="pick-up-oil__select_engine-type" name="engine-type" id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
-                           <option value="0">Тип двигателя</option>
-                           <option class="engine-type__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
-                           <option class="engine-type__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
-                       </select>
+                       <div class="pick-up-oil__select_container">
+                           <select class="pick-up-oil__select pick-up-oil__select_car-brand" name="car-brand" id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
+                               <option class="car-brand__option" value="0">Марка автомобиля</option>
+                               <option class="car-brand__option" value="10be247fe539bb03">Abarth</option>
+                               <option class="car-brand__option" value="d6b97ba914f0046a">Acura (USA / CAN)</option>
+                               <option class="car-brand__option" value="0607bf0ba7ff948b">Alfa Romeo</option>
+                               <option class="car-brand__option" value="abc74b93c9fe9214">Aro</option>
+                               <option class="car-brand__option" value="8c4799fa000f2ee7">Asia</option>
+                               <option class="car-brand__option" value="68c88ec18723792a">Aston Martin</option>
+                               <option class="car-brand__option" value="d9fe4c31099efeab">Audi</option>
+                               <option class="car-brand__option" value="6f50f44d317b784e">Audi (FAW) (CHN)</option>
+                               <option class="car-brand__option" value="b5232ba66dd2f965">Austin</option>
+                               <option class="car-brand__option" value="cb0999be73659150">Baojun (SGMW) (CHN)</option>
+                               <option class="car-brand__option" value="615adc2573dcfc64">Bentley</option>
+                           </select>
+                       </div>
+                       <div class="pick-up-oil__select_container">
+                           <select class="pick-up-oil__select pick-up-oil__select_car-model" name="car-model" id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
+                               <option class="car-model__option" value="0">Модель автомобиля</option>
+                               <option class="car-model__option" value="abc74b93c9fe9214">2107</option>
+                               <option class="car-model__option" value="8c4799fa000f2ee7">2108</option>
+                           </select>
+                       </div>
+                       <div class="pick-up-oil__select_container">
+                           <select class="pick-up-oil__select pick-up-oil__select_engine-type" name="engine-type" id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
+                               <option class="engine-type__option" value="0">Тип двигателя</option>
+                               <option class="engine-type__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
+                               <option class="engine-type__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
+                           </select>
+                       </div>
                        <button type="submit" class="pick-up-oil__form_button">Подобрать масло</button>
                        <button type="reset" class="pick-up-oil__form_reset">Сбросить фильтр</button>
                    </form>
@@ -183,20 +195,30 @@
            </div>
         </section>
         <section class="about-brand">
-           <div class="container">
-               <div class="about-brand__title">
-                   <h2>О бренде</h2>
-               </div>
-               <div class="about-brand__description">
-                   <p>Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.
-                       Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.</p>
-                   <a href="#" class="about-brand__btn btn__more">Подробнее</a>
+           <div class="my-container">
+               <div class="about-brand__container">
+                   <div class="border-top border"></div>
+                   <div class="border-center border"></div>
+                   <div class="border-left-bottom border"></div>
+                   <div class="border-right-bottom border"></div>
+                   <div class="about-brand__title">
+                       <h2>О бренде</h2>
+                   </div>
+                   <div class="about-brand__description">
+                       <p>Полностью синтетическая основа и специальный пакет противоизносных присадок
+                           образуют прочную защитную пленку.<br><br>
+                           Полностью синтетическая основа и специальный пакет противоизносных присадок
+                           образуют прочную защитную пленку.</p>
+                       <div class="about-brand__btn">
+                           <a href="#" class="btn__more">Подробнее</a>
+                       </div>
+                   </div>
                </div>
            </div>
         </section>
         <section class="articles">
-            <div class="container">
-                <div class="articles__title">
+            <div class="my-container">
+                <div class="articles__title section__title">
                     <h2>Статьи в блоге</h2>
                 </div>
                 <div class="articles__items">
@@ -217,7 +239,7 @@
                             <a href="#" class="btn__more">Подробнее</a>
                         </div>
                     </div>
-                    <div class="articles__item">
+                    <div class="articles__item articles__item_center">
                         <div class="articles__item_logo">
                             <img src="img/article-logo-2.jpg" alt="Logo article 2">
                         </div>
@@ -253,12 +275,12 @@
                     </div>
                 </div>
                 <div class="articles__btn">
-                    <a href="#" class="button">Показать все стаьи</a>
+                    <a href="#" class="button">Показать все статьи</a>
                 </div>
             </div>
         </section>
         <section class="callback">
-            <div class="container">
+            <div class="my-container">
                 <div class="callback__container">
                     <div class="callback__title">
                         <h1>стань официальным дилером <span class="callback__title_red">takarA oil</span></h1>
@@ -271,7 +293,7 @@
         </section>
     </main>
     <footer class="main-footer">
-        <div class="container">
+        <div class="my-container">
             <div class="main-footer__left">
                 <div class="main-footer__logo">
                     <img src="img/logo.svg" alt="TAKARA OIL">
