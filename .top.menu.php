@@ -1,43 +1,36 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Главная", 
-		"/", 
+		"Каталог продукции", 
+		"/catalog/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Профиль", 
-		"/personal/", 
+		"Каталог применяемости", 
+		"/applicability-catalog/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Контент", 
-		"/content/", 
+		"О бренде TAKARA", 
+		"/about/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Магазин", 
-		"/e-store/", 
+		"Статьи", 
+		"/articles/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Общение", 
-		"/communication/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Типовые примеры", 
-		"/examples/", 
+		"Контакты", 
+		"/contacts/", 
 		Array(), 
 		Array(), 
 		"" 

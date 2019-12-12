@@ -85,6 +85,4 @@ $(document).ready(function () {
         }
         itemsClass();
     });
-
-
 });
