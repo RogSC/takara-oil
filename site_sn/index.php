@@ -1,0 +1,1 @@
+<?define("WIZARD_DEFAULT_SITE_ID", "sn");require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/wizard.php");$wizard = new CWizard("bitrix:corp_furniture");$wizard->Install();require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>
