@@ -85,6 +85,11 @@ for (let i = 0; i < outputs.length; i++) {
     outputs[i].value = inputsRy.theValue[i];
 }
 
+/**debugging**/
+window.onload = function () {
+    console.log(inputsRy.theValue[0]);
+}
+
 //events
 
 thumbs[0].addEventListener("mousedown", function (evt) {
@@ -211,3 +216,4 @@ let submitBtn = document.querySelector(".filter__btn-submit");
 submitBtn.addEventListener("click", function (evt) {
     myForm.submit();
 });
+

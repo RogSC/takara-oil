@@ -1406,11 +1406,13 @@ a.btn-callback::before {
     width: 255px;
     height: 41px;
     margin-top: 60px;
-    padding: 13px 0;
     border: 1px solid #5D5B5A;
     box-sizing: border-box;
     text-align: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .catalog__filter-p:after {
