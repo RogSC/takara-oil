@@ -6,7 +6,7 @@ IncludeTemplateLangFile(__FILE__);
 
 </main>
 <footer class="main-footer">
-    <div class="my-container">
+    <div class="my-container main-footer__container">
         <div class="main-footer__col main-footer__left">
             <a href="<?=SITE_DIR?>">
                 <div class="main-footer__logo">
@@ -17,7 +17,7 @@ IncludeTemplateLangFile(__FILE__);
                 <h4>Подпишитесь на рассылку</h4>
                 <form class="main-footer__mailing-form">
                     <fieldset class="main-footer__mailing-form_fieldset">
-                        <legend>E-MAIL</legend>
+                        <legend class="standard-paragraph">E-MAIL</legend>
                         <input type="email" class="main-footer__mailing-input standard-paragraph">
                     </fieldset>
                     <button type="submit" class="main-footer__mailing-btn standard-paragraph">Подписаться</button>
@@ -70,5 +70,6 @@ IncludeTemplateLangFile(__FILE__);
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/slider.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/filter.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/search.js"></script>
+<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/productCatalog.js"></script>
 </body>
 </html>

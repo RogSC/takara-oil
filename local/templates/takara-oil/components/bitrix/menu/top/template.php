@@ -16,14 +16,14 @@
                 <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/svg/vector-down-middle.svg">
                 <ul class="main-header__navbar_hide">
                     <div class="main-header__navbar_hide-item-title">
-                        <a href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
+                        <a class="standard-paragraph" href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
                         <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/svg/vector-down-middle.svg">
                     </div>
                     <? foreach ($arResult as $indexChild => $arItemChild): ?>
                         <? if ($arItemChild["DEPTH_LEVEL"] === 2 &&
                                 $arItemChild["CHAIN"][0] === $arItem["CHAIN"][0]): ?>
                         <li class="main-header__navbar_hide-item">
-                            <a href="<?= $arItemChild["LINK"] ?>"><?= $arItemChild["TEXT"] ?></a>
+                            <a class="standard-paragraph" href="<?= $arItemChild["LINK"] ?>"><?= $arItemChild["TEXT"] ?></a>
                         </li>
                         <? endif ?>
                     <? endforeach ?>

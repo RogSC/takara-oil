@@ -365,7 +365,7 @@ $APPLICATION->SetTitle("О бренде");
                     <div class="filter__checkbox personal-policy">
                         <label><input class="filter__checkbox-input" type="checkbox"><p class="filter__checkbox-input-p">Я согласен с <a href="#" class="element__questions-author-p_red">Политикой обработки персональных данных</a></p></label>
                     </div>
-                    <button type="submit" class="question__form_button">Задать вопрос</button>
+                    <button type="submit" class="question__form_button standard-paragraph">Задать вопрос</button>
                 </form>
             </div>
         </div>

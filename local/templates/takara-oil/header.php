@@ -53,7 +53,7 @@ $aMenuLinksExt = array();
                 </div>
                 <div class="header__search">
                     <form class="search-form" method="get" action="/search/">
-                        <input class="search-form__input" name="search" autocomplete="off" placeholder="Поиск по сайту"
+                        <input class="search-form__input standard-paragraph" name="search" autocomplete="off" placeholder="Поиск по сайту"
                                size="20" minlength="3">
                         <button class="search-form__button" type="submit" title="Поиск">
                             <?= GetContentSvgIcon('icon-search') ?>
@@ -95,7 +95,7 @@ $aMenuLinksExt = array();
 );?>
                 </div>
                 <div class="main-header__callback">
-                    <a class="button btn-callback" href="#">Связаться с нами</a>
+                    <a class="button btn-callback standard-paragraph" href="#">Связаться с нами</a>
                 </div>
             </div>
         </div>

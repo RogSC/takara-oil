@@ -1,6 +1,8 @@
+if (document.querySelector(".catalog__filter-btn")) {
+
+
 /**Show filter**/
 
-if (document.querySelector(".catalog__filter-btn")) {
     let myFilterBtn = document.querySelector(".catalog__filter-btn");
     let myFilterCloseBtn = document.querySelector(".filter__close-btn");
     let myFilter = document.querySelector(".filter");
@@ -44,7 +46,7 @@ if (document.querySelector(".catalog__filter-btn")) {
         }
     });
 
-}
+
 
 
 /**Price range selector**/
@@ -83,11 +85,6 @@ for (let i = 0; i < thumbs.length; i++) {
 let outputs = document.querySelectorAll(".filter__price-input");
 for (let i = 0; i < outputs.length; i++) {
     outputs[i].value = inputsRy.theValue[i];
-}
-
-/**debugging**/
-window.onload = function () {
-    console.log(inputsRy.theValue[0]);
 }
 
 //events
@@ -217,3 +214,4 @@ submitBtn.addEventListener("click", function (evt) {
     myForm.submit();
 });
 
+}

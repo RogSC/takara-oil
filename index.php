@@ -5,7 +5,7 @@ $APPLICATION->SetPageProperty("description", "Моторные масла TAKARA
 $APPLICATION->SetTitle("TAKARA OIL");
 ?>
     <section class="slider" id="slider">
-        <div class="my-container">
+        <div class="my-container slider__container">
             <div id="block-for-slider">
                 <div class="main-page__nav">
                     <div class="main-page__nav-block">
@@ -37,16 +37,69 @@ $APPLICATION->SetTitle("TAKARA OIL");
                                     <a href="#" class="btn__more">Подробнее</a>
                                 </div>
                             </div>
-                            <div class="slider__logo">
-                            </div>
                         </li>
                         <li class="slide"><img alt="2" src="/local/templates/takara-oil/frontend/img/bg-slide-2.jpg"
-                                               class="slide-img"></li>
+                                               class="slide-img">
+                            <div class="slider__frame">
+                                <div class="slider__border slider__border_top">
+                                </div>
+                                <div class="slider__border slider__border_right">
+                                </div>
+                                <div class="slider__border slider__border_bottom">
+                                </div>
+                                <p class="slider__title">
+                                    Takara Oil -
+                                </p>
+                                <p class="slider__description">
+                                    Японский производитель высокотехнологичных синтетических масел
+                                </p>
+                                <div class="slider__btn">
+                                    <a href="#" class="btn__more">Подробнее</a>
+                                </div>
+                            </div></li>
                         <li class="slide"><img alt="3" src="/local/templates/takara-oil/frontend/img/bg-slide-3.jpg"
-                                               class="slide-img"></li>
+                                               class="slide-img">
+                            <div class="slider__frame">
+                                <div class="slider__border slider__border_top">
+                                </div>
+                                <div class="slider__border slider__border_right">
+                                </div>
+                                <div class="slider__border slider__border_bottom">
+                                </div>
+                                <p class="slider__title">
+                                    Takara Oil -
+                                </p>
+                                <p class="slider__description">
+                                    Японский производитель высокотехнологичных синтетических масел
+                                </p>
+                                <div class="slider__btn">
+                                    <a href="#" class="btn__more">Подробнее</a>
+                                </div>
+                            </div></li>
                         <li class="slide"><img alt="4" src="/local/templates/takara-oil/frontend/img/bg-slide-4.jpg"
-                                               class="slide-img"></li>
+                                               class="slide-img">
+                            <div class="slider__frame">
+                                <div class="slider__border slider__border_top">
+                                </div>
+                                <div class="slider__border slider__border_right">
+                                </div>
+                                <div class="slider__border slider__border_bottom">
+                                </div>
+                                <p class="slider__title">
+                                    Takara Oil -
+                                </p>
+                                <p class="slider__description">
+                                    Японский производитель высокотехнологичных синтетических масел
+                                </p>
+                                <div class="slider__btn">
+                                    <a href="#" class="btn__more">Подробнее</a>
+                                </div>
+                            </div></li>
                     </ul>
+                    <div class="slider__logo">
+                        <?= GetContentSvgIcon('logo-slider') ?>
+                    </div>
+                    <div class="slider__pagination-border-right"></div>
                     <ul class="slider__pagination pagination">
                         <li class="pag__left-arrow pag__arrow"></li>
                         <li class="pag__item pag__item_active">01</li>
@@ -55,6 +108,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         <li class="pag__item">04</li>
                         <li class="pag__right-arrow pag__arrow pag__arrow_active"></li>
                     </ul>
+                    <div class="slider__pagination-border-left"></div>
                 </div>
             </div>
         </div>
@@ -87,7 +141,10 @@ $APPLICATION->SetTitle("TAKARA OIL");
             <div class="product-catalog__sections">
                 <div class="product-catalog__section">
                     <div class="product-catalog__img">
-                        <img alt="Моторные масла" src="/local/templates/takara-oil/frontend/img/logo-oil.png">
+                        <div class="product-catalog__border-left"></div>
+                        <div class="product-catalog__border-right"></div>
+                        <img class="product-catalog__image" alt="Моторные масла"
+                             src="/local/templates/takara-oil/frontend/img/logo-oil.png">
                     </div>
                     <p>
                         Моторные<br>
@@ -96,6 +153,8 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
                 <div class="product-catalog__section">
                     <div class="product-catalog__img">
+                        <div class="product-catalog__border-left"></div>
+                        <div class="product-catalog__border-right"></div>
                         <img alt="Жидкости для АКПП"
                              src="/local/templates/takara-oil/frontend/img/logo-akpp-liquids.png">
                     </div>
@@ -106,6 +165,8 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
                 <div class="product-catalog__section">
                     <div class="product-catalog__img">
+                        <div class="product-catalog__border-left"></div>
+                        <div class="product-catalog__border-right"></div>
                         <img alt="Трансмиссионные масла"
                              src="/local/templates/takara-oil/frontend/img/logo_transmission_oil.png">
                     </div>
@@ -211,7 +272,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
         </div>
     </section>
     <section class="pick-up-oil" id="pick-up-oil">
-        <div class="my-container">
+        <div class="my-container pick-up-oil__container">
             <div class="main-page__nav">
                 <a href="#features">
                     <div class="main-page__nav-block main-page__nav-block_no-active">
@@ -240,7 +301,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
             <div class="pick-up-oil__form_container">
                 <form class="pick-up-oil__form">
                     <div class="pick-up-oil__select_container">
-                        <select class="pick-up-oil__select pick-up-oil__select_car-brand" name="car-brand"
+                        <select class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph" name="car-brand"
                                 id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
                             <option class="car-brand__option" value="0">Марка автомобиля</option>
                             <option class="car-brand__option" value="10be247fe539bb03">Abarth</option>
@@ -257,7 +318,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         </select>
                     </div>
                     <div class="pick-up-oil__select_container">
-                        <select class="pick-up-oil__select pick-up-oil__select_car-model" name="car-model"
+                        <select class="pick-up-oil__select pick-up-oil__select_car-model hight-paragraph" name="car-model"
                                 id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
                             <option class="car-model__option" value="0">Модель автомобиля</option>
                             <option class="car-model__option" value="abc74b93c9fe9214">2107</option>
@@ -265,15 +326,15 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         </select>
                     </div>
                     <div class="pick-up-oil__select_container">
-                        <select class="pick-up-oil__select pick-up-oil__select_engine-type" name="engine-type"
+                        <select class="pick-up-oil__select pick-up-oil__select_engine-type hight-paragraph" name="engine-type"
                                 id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
                             <option class="engine-type__option" value="0">Тип двигателя</option>
                             <option class="engine-type__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
                             <option class="engine-type__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
                         </select>
                     </div>
-                    <button type="submit" class="pick-up-oil__form_button">Подобрать масло</button>
-                    <button type="reset" class="pick-up-oil__form_reset">Сбросить фильтр</button>
+                    <button type="submit" class="pick-up-oil__form_button hight-paragraph">Подобрать масло</button>
+                    <button type="reset" class="pick-up-oil__form_reset  hight-paragraph">Сбросить фильтр</button>
                 </form>
             </div>
         </div>
@@ -331,7 +392,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
         </div>
     </section>
     <section class="articles">
-        <div class="my-container">
+        <div class="my-container articles__container">
             <div class="main-page__mouse-contain">
             </div>
             <div class="articles__title section__title">
@@ -403,7 +464,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
             </div>
             <div class="articles__btn">
-                <a href="#" class="button">Показать все статьи</a>
+                <a class="button standard-paragraph" href="#">Показать все статьи</a>
             </div>
         </div>
     </section>
@@ -424,7 +485,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         <span class="callback__title_red">takarA oil</span></h1>
                 </div>
                 <div class="callback__button">
-                    <a href="#" class="button btn-callback">Связаться с нами</a>
+                    <a class="button btn-callback standard-paragraph" href="#" >Связаться с нами</a>
                 </div>
             </div>
         </div>
