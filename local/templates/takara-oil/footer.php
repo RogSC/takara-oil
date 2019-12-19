@@ -70,6 +70,9 @@ IncludeTemplateLangFile(__FILE__);
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/slider.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/filter.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/search.js"></script>
+<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/pickUpOilForm.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/productCatalog.js"></script>
+<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/auth.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>

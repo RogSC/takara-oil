@@ -60,10 +60,13 @@ $APPLICATION->SetTitle("Каталог продукции");
 		),
 		"FILTER_HIDE_ON_MOBILE" => "N",
 		"FILTER_NAME" => "",
-		"FILTER_PRICE_CODE" => "",
+		"FILTER_PRICE_CODE" => array(
+		),
 		"FILTER_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "PRODUCT_PRICE",
+			1 => "PRODUCT_CATEGORY",
+			2 => "PRODUCT_TYPE",
+			3 => "",
 		),
 		"FILTER_VIEW_MODE" => "HORIZONTAL",
 		"IBLOCK_ID" => "14",
@@ -155,7 +158,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"USE_COMPARE" => "N",
 		"USE_ELEMENT_COUNTER" => "Y",
 		"USE_ENHANCED_ECOMMERCE" => "N",
-		"USE_FILTER" => "N",
+		"USE_FILTER" => "Y",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",
 		"USE_PRODUCT_QUANTITY" => "N",
@@ -615,25 +618,15 @@ $APPLICATION->SetTitle("Каталог продукции");
             </div>
         </div>
     </section>
-    <section class="callback">
-        <div class="my-container">
-            <div class="callback__container">
-                <div class="frame frame_1">
-                </div>
-                <div class="frame frame_2">
-                </div>
-                <div class="frame frame_3">
-                </div>
-                <div class="frame frame_4">
-                </div>
-                <div class="callback__title">
-                    <h1>стань<br>
-                        официальным дилером<br>
-                        <span class="callback__title_red">takarA oil</span></h1>
-                </div>
-                <div class="callback__button">
-                    <a href="#" class="button btn-callback">Связаться с нами</a>
-                </div>
-            </div>
-        </div>
-    </section> <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?
+$APPLICATION->IncludeFile(
+    "views/callback.php",
+    array(),
+    array(
+        "SHOW_BORDER" => false,
+        "MODE" => "php",
+    )
+);
+?>
+
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

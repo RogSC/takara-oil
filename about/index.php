@@ -360,10 +360,16 @@ $APPLICATION->SetTitle("О бренде");
                         </fieldset>
                     </div>
 
-                    <div class="captcha"></div>
+                    <div class="g-recaptcha" data-sitekey="6LdhTcgUAAAAACiErQzLi6t0Jye9llR8uZC_ef57"></div>
 
                     <div class="filter__checkbox personal-policy">
-                        <label><input class="filter__checkbox-input" type="checkbox"><p class="filter__checkbox-input-p">Я согласен с <a href="#" class="element__questions-author-p_red">Политикой обработки персональных данных</a></p></label>
+                        <label>
+                            <input class="filter__checkbox-input" type="checkbox">
+                            <p class="filter__checkbox-input-p">
+                                Я согласен с <a href="#" class="element__questions-author-p_red">
+                                    Политикой обработки персональных данных</a
+                            </p>
+                        </label>
                     </div>
                     <button type="submit" class="question__form_button standard-paragraph">Задать вопрос</button>
                 </form>
@@ -414,26 +420,14 @@ $APPLICATION->SetTitle("О бренде");
             </div>
         </div>
     </section>
-    <section class="callback">
-        <div class="my-container">
-            <div class="callback__container">
-                <div class="frame frame_1">
-                </div>
-                <div class="frame frame_2">
-                </div>
-                <div class="frame frame_3">
-                </div>
-                <div class="frame frame_4">
-                </div>
-                <div class="callback__title">
-                    <h1>стань<br>
-                        официальным дилером<br>
-                        <span class="callback__title_red">takarA oil</span></h1>
-                </div>
-                <div class="callback__button">
-                    <a href="#" class="button btn-callback">Связаться с нами</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<?
+$APPLICATION->IncludeFile(
+    "views/callback.php",
+    array(),
+    array(
+        "SHOW_BORDER" => false,
+        "MODE" => "php",
+    )
+);
+?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

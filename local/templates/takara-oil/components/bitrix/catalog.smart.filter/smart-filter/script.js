@@ -424,7 +424,7 @@ JCSmartFilter.prototype.selectDropDownItem = function(element, controlId)
 {
 	this.keyup(BX(controlId));
 
-	var wrapContainer = BX.findParent(BX(controlId), {className:"bx-filter-select-container"}, false);
+	var wrapContainer = BX.findParent(BX(controlId), {className:"filter__dropdown"}, false);
 
 	var currentOption = wrapContainer.querySelector('[data-role="currentOption"]');
 	currentOption.innerHTML = element.innerHTML;

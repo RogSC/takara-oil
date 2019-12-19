@@ -4,115 +4,73 @@ $APPLICATION->SetPageProperty("title", "TAKARA OIL");
 $APPLICATION->SetPageProperty("description", "Моторные масла TAKARA");
 $APPLICATION->SetTitle("TAKARA OIL");
 ?>
-    <section class="slider" id="slider">
-        <div class="my-container slider__container">
-            <div id="block-for-slider">
-                <div class="main-page__nav">
-                    <div class="main-page__nav-block">
-                        <div class="main-page__nav-rectangle main-page__nav-rectangle_active">
-                        </div>
-                        <p class="standard-paragraph">
-                            01
-                        </p>
-                    </div>
-                </div>
-                <div id="viewport">
-                    <ul id="slide-wrapper">
-                        <li class="slide"><img alt="1" src="/local/templates/takara-oil/frontend/img/bg-slide-1.jpg"
-                                               class="slide-img">
-                            <div class="slider__frame">
-                                <div class="slider__border slider__border_top">
-                                </div>
-                                <div class="slider__border slider__border_right">
-                                </div>
-                                <div class="slider__border slider__border_bottom">
-                                </div>
-                                <p class="slider__title">
-                                    Takara Oil -
-                                </p>
-                                <p class="slider__description">
-                                    Японский производитель высокотехнологичных синтетических масел
-                                </p>
-                                <div class="slider__btn">
-                                    <a href="#" class="btn__more">Подробнее</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="slide"><img alt="2" src="/local/templates/takara-oil/frontend/img/bg-slide-2.jpg"
-                                               class="slide-img">
-                            <div class="slider__frame">
-                                <div class="slider__border slider__border_top">
-                                </div>
-                                <div class="slider__border slider__border_right">
-                                </div>
-                                <div class="slider__border slider__border_bottom">
-                                </div>
-                                <p class="slider__title">
-                                    Takara Oil -
-                                </p>
-                                <p class="slider__description">
-                                    Японский производитель высокотехнологичных синтетических масел
-                                </p>
-                                <div class="slider__btn">
-                                    <a href="#" class="btn__more">Подробнее</a>
-                                </div>
-                            </div></li>
-                        <li class="slide"><img alt="3" src="/local/templates/takara-oil/frontend/img/bg-slide-3.jpg"
-                                               class="slide-img">
-                            <div class="slider__frame">
-                                <div class="slider__border slider__border_top">
-                                </div>
-                                <div class="slider__border slider__border_right">
-                                </div>
-                                <div class="slider__border slider__border_bottom">
-                                </div>
-                                <p class="slider__title">
-                                    Takara Oil -
-                                </p>
-                                <p class="slider__description">
-                                    Японский производитель высокотехнологичных синтетических масел
-                                </p>
-                                <div class="slider__btn">
-                                    <a href="#" class="btn__more">Подробнее</a>
-                                </div>
-                            </div></li>
-                        <li class="slide"><img alt="4" src="/local/templates/takara-oil/frontend/img/bg-slide-4.jpg"
-                                               class="slide-img">
-                            <div class="slider__frame">
-                                <div class="slider__border slider__border_top">
-                                </div>
-                                <div class="slider__border slider__border_right">
-                                </div>
-                                <div class="slider__border slider__border_bottom">
-                                </div>
-                                <p class="slider__title">
-                                    Takara Oil -
-                                </p>
-                                <p class="slider__description">
-                                    Японский производитель высокотехнологичных синтетических масел
-                                </p>
-                                <div class="slider__btn">
-                                    <a href="#" class="btn__more">Подробнее</a>
-                                </div>
-                            </div></li>
-                    </ul>
-                    <div class="slider__logo">
-                        <?= GetContentSvgIcon('logo-slider') ?>
-                    </div>
-                    <div class="slider__pagination-border-right"></div>
-                    <ul class="slider__pagination pagination">
-                        <li class="pag__left-arrow pag__arrow"></li>
-                        <li class="pag__item pag__item_active">01</li>
-                        <li class="pag__item">02</li>
-                        <li class="pag__item">03</li>
-                        <li class="pag__item">04</li>
-                        <li class="pag__right-arrow pag__arrow pag__arrow_active"></li>
-                    </ul>
-                    <div class="slider__pagination-border-left"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "slider",
+    array(
+        "COMPONENT_TEMPLATE" => "slider",
+        "IBLOCK_TYPE" => "news",
+        "IBLOCK_ID" => "15",
+        "NEWS_COUNT" => "20",
+        "SORT_BY1" => "SORT",
+        "SORT_ORDER1" => "ASC",
+        "SORT_BY2" => "ACTIVE_FROM",
+        "SORT_ORDER2" => "ASC",
+        "FILTER_NAME" => "",
+        "FIELD_CODE" => array(
+            0 => "NAME",
+            1 => "PREVIEW_TEXT",
+            2 => "PREVIEW_PICTURE",
+            3 => "",
+        ),
+        "PROPERTY_CODE" => array(
+            0 => "url",
+            1 => "",
+        ),
+        "CHECK_DATES" => "Y",
+        "DETAIL_URL" => "",
+        "AJAX_MODE" => "N",
+        "AJAX_OPTION_JUMP" => "N",
+        "AJAX_OPTION_STYLE" => "Y",
+        "AJAX_OPTION_HISTORY" => "N",
+        "AJAX_OPTION_ADDITIONAL" => "",
+        "CACHE_TYPE" => "A",
+        "CACHE_TIME" => "36000000",
+        "CACHE_FILTER" => "N",
+        "CACHE_GROUPS" => "Y",
+        "PREVIEW_TRUNCATE_LEN" => "62",
+        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+        "SET_TITLE" => "N",
+        "SET_BROWSER_TITLE" => "N",
+        "SET_META_KEYWORDS" => "N",
+        "SET_META_DESCRIPTION" => "N",
+        "SET_LAST_MODIFIED" => "N",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "ADD_SECTIONS_CHAIN" => "N",
+        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+        "PARENT_SECTION" => "",
+        "PARENT_SECTION_CODE" => "",
+        "INCLUDE_SUBSECTIONS" => "N",
+        "STRICT_SECTION_CHECK" => "N",
+        "DISPLAY_DATE" => "N",
+        "DISPLAY_NAME" => "Y",
+        "DISPLAY_PICTURE" => "Y",
+        "DISPLAY_PREVIEW_TEXT" => "Y",
+        "PAGER_TEMPLATE" => ".default",
+        "DISPLAY_TOP_PAGER" => "N",
+        "DISPLAY_BOTTOM_PAGER" => "N",
+        "PAGER_TITLE" => "Новости",
+        "PAGER_SHOW_ALWAYS" => "N",
+        "PAGER_DESC_NUMBERING" => "N",
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+        "PAGER_SHOW_ALL" => "N",
+        "PAGER_BASE_LINK_ENABLE" => "N",
+        "SET_STATUS_404" => "N",
+        "SHOW_404" => "N",
+        "MESSAGE_404" => ""
+    ),
+    false
+);?>
     <section class="products-catalog" id="products-catalog">
         <div class="my-container">
             <div class="main-page__nav">
@@ -136,54 +94,74 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
             </div>
             <div class="products-catalog__title section__title">
-                <h2>Каталог продукции</h2>
+                <h2><?
+                    $APPLICATION->IncludeFile(
+                        "views/catalog-title.php",
+                        array(),
+                        array(
+                            "MODE" => "text",
+                        )
+                    );
+                    ?></h2>
             </div>
             <div class="product-catalog__sections">
-                <div class="product-catalog__section">
-                    <div class="product-catalog__img">
-                        <div class="product-catalog__border-left"></div>
-                        <div class="product-catalog__border-right"></div>
-                        <img class="product-catalog__image" alt="Моторные масла"
-                             src="/local/templates/takara-oil/frontend/img/logo-oil.png">
+                <a href="/catalog/?SECTION_ID=95/">
+                    <div class="product-catalog__section">
+                        <div class="product-catalog__img">
+                            <div class="product-catalog__border-left"></div>
+                            <div class="product-catalog__border-right"></div>
+                            <img class="product-catalog__image" alt="Моторные масла"
+                                 src="<?=SITE_TEMPLATE_PATH?>/frontend/img/logo-oil.png">
+                        </div>
+                        <p>
+                            Моторные<br>
+                            масла
+                        </p>
                     </div>
-                    <p>
-                        Моторные<br>
-                        масла
-                    </p>
-                </div>
-                <div class="product-catalog__section">
-                    <div class="product-catalog__img">
-                        <div class="product-catalog__border-left"></div>
-                        <div class="product-catalog__border-right"></div>
-                        <img alt="Жидкости для АКПП"
-                             src="/local/templates/takara-oil/frontend/img/logo-akpp-liquids.png">
+                </a>
+                <a href="/catalog/?SECTION_ID=97/">
+                    <div class="product-catalog__section">
+                        <div class="product-catalog__img">
+                            <div class="product-catalog__border-left"></div>
+                            <div class="product-catalog__border-right"></div>
+                            <img alt="Жидкости для АКПП"
+                                 src="<?=SITE_TEMPLATE_PATH?>/frontend/img/logo-akpp-liquids.png">
+                        </div>
+                        <p>
+                            Жидкости<br>
+                            для АКПП
+                        </p>
                     </div>
-                    <p>
-                        Жидкости<br>
-                        для АКПП
-                    </p>
-                </div>
-                <div class="product-catalog__section">
-                    <div class="product-catalog__img">
-                        <div class="product-catalog__border-left"></div>
-                        <div class="product-catalog__border-right"></div>
-                        <img alt="Трансмиссионные масла"
-                             src="/local/templates/takara-oil/frontend/img/logo_transmission_oil.png">
+                </a>
+                <a href="/catalog/?SECTION_ID=96/">
+                    <div class="product-catalog__section">
+                        <div class="product-catalog__img">
+                            <div class="product-catalog__border-left"></div>
+                            <div class="product-catalog__border-right"></div>
+                            <img alt="Трансмиссионные масла"
+                                 src="<?=SITE_TEMPLATE_PATH?>/frontend/img/logo_transmission_oil.png">
+                        </div>
+                        <p>
+                            Трансмиссионные<br>
+                            масла
+                        </p>
                     </div>
-                    <p>
-                        Трансмиссионные<br>
-                        масла
-                    </p>
-                </div>
+                </a>
             </div>
             <div class="products-catalog__car-part products-catalog__car-part_motor">
-                <img src="/local/templates/takara-oil/frontend/img/icon-motor.svg" alt="Двигатель">
+                <a href="/catalog/?SECTION_ID=95/">
+                    <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-motor.svg" alt="Двигатель">
+                </a>
             </div>
             <div class="products-catalog__car-part products-catalog__car-part_akpp">
-                <img alt="Коробка передач" src="/local/templates/takara-oil/frontend/img/icon-akpp.svg">
+                <a href="/catalog/?SECTION_ID=97/">
+                    <img alt="Коробка передач" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-akpp.svg">
+                </a>
             </div>
             <div class="products-catalog__car-part products-catalog__car-part_transmission">
-                <img src="/local/templates/takara-oil/frontend/img/icon-transmission.svg" alt="Трансмиссия">
+                <a href="/catalog/?SECTION_ID=96/">
+                    <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-transmission.svg" alt="Трансмиссия">
+                </a>
             </div>
         </div>
     </section>
@@ -210,7 +188,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
             </div>
             <div class="main-page__mouse">
-                <img src="/local/templates/takara-oil/frontend/img/mouse.svg">
+                <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/mouse.svg">
             </div>
             <div class="features__container">
                 <div class="border-left-top border">
@@ -222,12 +200,20 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 <div class="border-right-bottom border">
                 </div>
                 <div class="features__title">
-                    <h2>Преимущества масла TAKARA</h2>
+                    <h2><?
+                        $APPLICATION->IncludeFile(
+                            "views/features-include.php",
+                            array(),
+                            array(
+                                "MODE" => "text",
+                            )
+                        );
+                        ?></h2>
                 </div>
                 <div class="features__items row">
                     <div class="features__item col-4">
                         <div class="features__item_icon">
-                            <img src="/local/templates/takara-oil/frontend/img/icon-polialfaalefin.svg">
+                            <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-polialfaalefin.svg">
                         </div>
                         <div class="features__item_title">
                             <h3>Элитный вид полиальфаолефинов</h3>
@@ -241,7 +227,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                     </div>
                     <div class="features__item col-4">
                         <div class="features__item_icon">
-                            <img src="/local/templates/takara-oil/frontend/img/icon-used-oil.svg">
+                            <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-used-oil.svg">
                         </div>
                         <div class="features__item_title">
                             <h3>Не используем отработанные масла</h3>
@@ -255,7 +241,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                     </div>
                     <div class="features__item col-4">
                         <div class="features__item_icon">
-                            <img src="/local/templates/takara-oil/frontend/img/icon-elite-oil.svg">
+                            <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-elite-oil.svg">
                         </div>
                         <div class="features__item_title">
                             <h3>Элитные базовые масла</h3>
@@ -300,41 +286,56 @@ $APPLICATION->SetTitle("TAKARA OIL");
             </div>
             <div class="pick-up-oil__form_container">
                 <form class="pick-up-oil__form">
+                    <div class="pick-up-oil__select-unfocus">
+                        <p class="hight-paragraph">Марка автомобиля</p>
+                    </div>
+                    <div class="pick-up-oil__select-unfocus">
+                        <p class="hight-paragraph">Модель автомобиля</p>
+                    </div>
+                    <div class="pick-up-oil__select-unfocus">
+                        <p class="hight-paragraph">Тип двигателя</p>
+                    </div>
                     <div class="pick-up-oil__select_container">
-                        <select class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph" name="car-brand"
+                        <div class="pick-up-oil__select-title ">
+                            <p class="hight-paragraph">Марка автомобиля</p>
+                        </div>
+                        <select size="15" class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph" name="car-brand"
                                 id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
-                            <option class="car-brand__option" value="0">Марка автомобиля</option>
-                            <option class="car-brand__option" value="10be247fe539bb03">Abarth</option>
-                            <option class="car-brand__option" value="d6b97ba914f0046a">Acura (USA / CAN)</option>
-                            <option class="car-brand__option" value="0607bf0ba7ff948b">Alfa Romeo</option>
-                            <option class="car-brand__option" value="abc74b93c9fe9214">Aro</option>
-                            <option class="car-brand__option" value="8c4799fa000f2ee7">Asia</option>
-                            <option class="car-brand__option" value="68c88ec18723792a">Aston Martin</option>
-                            <option class="car-brand__option" value="d9fe4c31099efeab">Audi</option>
-                            <option class="car-brand__option" value="6f50f44d317b784e">Audi (FAW) (CHN)</option>
-                            <option class="car-brand__option" value="b5232ba66dd2f965">Austin</option>
-                            <option class="car-brand__option" value="cb0999be73659150">Baojun (SGMW) (CHN)</option>
-                            <option class="car-brand__option" value="615adc2573dcfc64">Bentley</option>
+                            <option class="pick-up-oil__option" value="10be247fe539bb03">Abarth</option>
+                            <option class="pick-up-oil__option" value="d6b97ba914f0046a">Acura (USA / CAN)</option>
+                            <option class="pick-up-oil__option" value="0607bf0ba7ff948b">Alfa Romeo</option>
+                            <option class="pick-up-oil__option" value="abc74b93c9fe9214">Aro</option>
+                            <option class="pick-up-oil__option" value="8c4799fa000f2ee7">Asia</option>
+                            <option class="pick-up-oil__option" value="68c88ec18723792a">Aston Martin</option>
+                            <option class="pick-up-oil__option" value="d9fe4c31099efeab">Audi</option>
+                            <option class="pick-up-oil__option" value="6f50f44d317b784e">Audi (FAW) (CHN)</option>
+                            <option class="pick-up-oil__option" value="b5232ba66dd2f965">Austin</option>
+                            <option class="pick-up-oil__option" value="cb0999be73659150">Baojun (SGMW) (CHN)</option>
+                            <option class="pick-up-oil__option" value="615adc2573dcfc64">Bentley</option>
                         </select>
                     </div>
                     <div class="pick-up-oil__select_container">
-                        <select class="pick-up-oil__select pick-up-oil__select_car-model hight-paragraph" name="car-model"
+                        <div class="pick-up-oil__select-title ">
+                            <p class="hight-paragraph">Модель автомобиля</p>
+                        </div>
+                        <select size="15" class="pick-up-oil__select pick-up-oil__select_car-model hight-paragraph" name="car-model"
                                 id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
-                            <option class="car-model__option" value="0">Модель автомобиля</option>
-                            <option class="car-model__option" value="abc74b93c9fe9214">2107</option>
-                            <option class="car-model__option" value="8c4799fa000f2ee7">2108</option>
+                            <option class="pick-up-oil__option" value="abc74b93c9fe9214">2107</option>
+                            <option class="pick-up-oil__option" value="8c4799fa000f2ee7">2108</option>
                         </select>
                     </div>
                     <div class="pick-up-oil__select_container">
-                        <select class="pick-up-oil__select pick-up-oil__select_engine-type hight-paragraph" name="engine-type"
+                        <div class="pick-up-oil__select-title ">
+                            <p class="hight-paragraph">Тип двигателя</p>
+                        </div>
+                        <select size="15" class="pick-up-oil__select pick-up-oil__select_engine-type hight-paragraph" name="engine-type"
                                 id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
-                            <option class="engine-type__option" value="0">Тип двигателя</option>
-                            <option class="engine-type__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
-                            <option class="engine-type__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
+                            <option class="pick-up-oil__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
+                            <option class="pick-up-oil__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
                         </select>
                     </div>
                     <button type="submit" class="pick-up-oil__form_button hight-paragraph">Подобрать масло</button>
-                    <button type="reset" class="pick-up-oil__form_reset  hight-paragraph">Сбросить фильтр</button>
+                    <button type="reset" class="pick-up-oil__form_reset hight-paragraph">Сбросить фильтр</button>
                 </form>
             </div>
         </div>
@@ -362,7 +363,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
             </div>
             <div class="main-page__mouse">
-                <img src="/local/templates/takara-oil/frontend/img/mouse.svg">
+                <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/mouse.svg">
             </div>
             <div class="about-brand__container">
                 <div class="border-top border">
@@ -401,7 +402,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
             <div class="articles__items">
                 <div class="articles__item">
                     <div class="articles__item_logo">
-                        <img alt="Logo article 1" src="/local/templates/takara-oil/frontend/img/article-logo-1.jpg">
+                        <img alt="Logo article 1" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/article-logo-1.jpg">
                     </div>
                     <div class="articles__item_date">
                         <p>
@@ -422,7 +423,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
                 <div class="articles__item articles__item_center">
                     <div class="articles__item_logo">
-                        <img alt="Logo article 2" src="/local/templates/takara-oil/frontend/img/article-logo-2.jpg">
+                        <img alt="Logo article 2" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/article-logo-2.jpg">
                     </div>
                     <div class="articles__item_date">
                         <p>
@@ -443,7 +444,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 </div>
                 <div class="articles__item">
                     <div class="articles__item_logo">
-                        <img alt="Logo article 3" src="/local/templates/takara-oil/frontend/img/article-logo-3.jpg">
+                        <img alt="Logo article 3" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/article-logo-3.jpg">
                     </div>
                     <div class="articles__item_date">
                         <p>
@@ -468,25 +469,14 @@ $APPLICATION->SetTitle("TAKARA OIL");
             </div>
         </div>
     </section>
-    <section class="callback">
-        <div class="my-container">
-            <div class="callback__container">
-                <div class="frame frame_1">
-                </div>
-                <div class="frame frame_2">
-                </div>
-                <div class="frame frame_3">
-                </div>
-                <div class="frame frame_4">
-                </div>
-                <div class="callback__title">
-                    <h1>стань<br>
-                        официальным дилером<br>
-                        <span class="callback__title_red">takarA oil</span></h1>
-                </div>
-                <div class="callback__button">
-                    <a class="button btn-callback standard-paragraph" href="#" >Связаться с нами</a>
-                </div>
-            </div>
-        </div>
-    </section> <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?
+$APPLICATION->IncludeFile(
+    "views/callback.php",
+    array(),
+    array(
+        "SHOW_BORDER" => false,
+        "MODE" => "php",
+    )
+);
+?>
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

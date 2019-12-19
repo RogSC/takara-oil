@@ -22,9 +22,14 @@ $aMenuLinksExt = array();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <? $APPLICATION->ShowHead() ?>
     <title><?= $APPLICATION->ShowTitle() ?></title>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/jquery.js"></script>
     <link rel="icon" type="image/x-icon" href="<?=$APPLICATION->GetTemplatePath("frontend/favicon.ico")?>" />
 </head>
 <body>
+<?
+// grab recaptcha library
+//require_once "auth/recaptchalib.php";
+?>
 <div id="panel"><? $APPLICATION->ShowPanel() ?></div>
 <header class="main-header">
     <div class="main-header__top">
@@ -36,32 +41,90 @@ $aMenuLinksExt = array();
                     </div>
                 </a>
                 <div class="header__slogan">
-                    <p><!--Производитель японских масел-->
-                        <? $APPLICATION->IncludeComponent(
-	"bitrix:main.include", 
-	".default", 
-	array(
-		"COMPONENT_TEMPLATE" => ".default",
-		"AREA_FILE_SHOW" => "sect",
-		"AREA_FILE_SUFFIX" => "inc",
-		"AREA_FILE_RECURSIVE" => "Y",
-		"EDIT_TEMPLATE" => ""
-	),
-	false
-);?>
+                    <p>
+                        <?
+                        $APPLICATION->IncludeFile(
+                            "views/slogan.php",
+                            array(),
+                            array(
+                                "MODE" => "text",
+                            )
+                        );
+                        ?>
                     </p>
                 </div>
-                <div class="header__search">
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:catalog.search",
+                    ".default",
+                    array(
+                        "ACTION_VARIABLE" => "action",
+                        "AJAX_MODE" => "Y",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "Y",
+                        "BASKET_URL" => "/personal/basket.php",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_TYPE" => "A",
+                        "CHECK_DATES" => "N",
+                        "DETAIL_URL" => "",
+                        "DISPLAY_BOTTOM_PAGER" => "Y",
+                        "DISPLAY_COMPARE" => "N",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "ELEMENT_SORT_FIELD" => "sort",
+                        "ELEMENT_SORT_FIELD2" => "id",
+                        "ELEMENT_SORT_ORDER" => "asc",
+                        "ELEMENT_SORT_ORDER2" => "desc",
+                        "IBLOCK_ID" => "14",
+                        "IBLOCK_TYPE" => "catalog",
+                        "LINE_ELEMENT_COUNT" => "5",
+                        "NO_WORD_LOGIC" => "N",
+                        "OFFERS_LIMIT" => "5",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_TEMPLATE" => ".default",
+                        "PAGER_TITLE" => "Товары",
+                        "PAGE_ELEMENT_COUNT" => "20",
+                        "PRICE_CODE" => array(
+                        ),
+                        "PRICE_VAT_INCLUDE" => "Y",
+                        "PRODUCT_ID_VARIABLE" => "id",
+                        "PRODUCT_PROPERTIES" => array(
+                        ),
+                        "PRODUCT_PROPS_VARIABLE" => "prop",
+                        "PRODUCT_QUANTITY_VARIABLE" => "quantity",
+                        "PROPERTY_CODE" => array(
+                            0 => "PRODUCT_NAME",
+                            1 => "",
+                        ),
+                        "RESTART" => "N",
+                        "SECTION_ID_VARIABLE" => "SECTION_ID",
+                        "SECTION_URL" => "",
+                        "SHOW_PRICE_COUNT" => "1",
+                        "USE_LANGUAGE_GUESS" => "Y",
+                        "USE_PRICE_COUNT" => "N",
+                        "USE_PRODUCT_QUANTITY" => "N",
+                        "USE_SEARCH_RESULT_ORDER" => "N",
+                        "USE_TITLE_RANK" => "N",
+                        "COMPONENT_TEMPLATE" => ".default"
+                    ),
+                    false
+                );?>
+                <!--<div class="header__search">
                     <form class="search-form" method="get" action="/search/">
                         <input class="search-form__input standard-paragraph" name="search" autocomplete="off" placeholder="Поиск по сайту"
                                size="20" minlength="3">
                         <button class="search-form__button" type="submit" title="Поиск">
-                            <?= GetContentSvgIcon('icon-search') ?>
+                            <?/*= GetContentSvgIcon('icon-search') */?>
                         </button>
                     </form>
-                </div>
+                </div>-->
                 <div class="header__user-menu">
-                    <p>Личный кабинет</p>
+                    <a href="<?= $USER->IsAuthorized() ? "/profile/" : "#auth-form" ?>">
+                        <p>Личный кабинет</p>
+                    </a>
                 </div>
                 <div class="header__lang-selector">
                     <?= GetContentSvgIcon('flag-ru') ?>
@@ -95,10 +158,13 @@ $aMenuLinksExt = array();
 );?>
                 </div>
                 <div class="main-header__callback">
-                    <a class="button btn-callback standard-paragraph" href="#">Связаться с нами</a>
+                    <a class="button btn-callback standard-paragraph" href="#callback-form">Связаться с нами</a>
                 </div>
             </div>
         </div>
     </nav>
 </header>
 <main class="main-page">
+<?require($_SERVER["DOCUMENT_ROOT"]."/callback.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/auth.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/forgot-pass.php");?>

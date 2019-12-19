@@ -72,9 +72,6 @@ if ($isFilter)
 ?>
 <div class="row">
 <?
-if ($isVerticalFilter)
-	include($_SERVER["DOCUMENT_ROOT"]."/".$this->GetFolder()."/section_vertical.php");
-else
-	include($_SERVER["DOCUMENT_ROOT"]."/".$this->GetFolder()."/section_horizontal.php");
+	include($_SERVER["DOCUMENT_ROOT"]."/".$this->GetFolder()."/section_standard.php");
 ?>
 </div>

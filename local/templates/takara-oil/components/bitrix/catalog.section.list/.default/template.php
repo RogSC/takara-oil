@@ -4,12 +4,12 @@
 <div class="catalog__title title-red-line">
     <h2><?= $arResult['SECTION']['NAME'] ?></h2>
 </div>
-<button class="catalog__filter-btn">
+<!--<button class="catalog__filter-btn">
     <p class="catalog__filter-p standard-paragraph">
         Фильтр
     </p>
     <div class="filter">
-        <?$APPLICATION->IncludeComponent(
+        <?/*$APPLICATION->IncludeComponent(
 	"bitrix:catalog.smart.filter", 
 	"smart-filter", 
 	array(
@@ -34,6 +34,6 @@
 		"COMPONENT_TEMPLATE" => "smart-filter"
 	),
 	false
-);?>
+);*/?>
     </div>
-</button>
+</button>-->

@@ -6,15 +6,15 @@ CHTTP::SetStatus("404 Not Found");
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
-$APPLICATION->SetTitle("404 Not Found");
+$APPLICATION->SetTitle("404 Not Found");?>
 
-$APPLICATION->IncludeComponent("bitrix:main.map", ".default", Array(
-	"LEVEL"	=>	"3",
-	"COL_NUM"	=>	"2",
-	"SHOW_DESCRIPTION"	=>	"Y",
-	"SET_TITLE"	=>	"Y",
-	"CACHE_TIME"	=>	"3600"
-	)
-);
+<section class="not-found">
+    <div class="my-container not-found__container">
+        <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/404.jpg">
+        <div class="not-found__btn-container">
+            <a class="not-found__btn button standard-paragraph" href="<?=SITE_DIR?>">вернуться на главную</a>
+        </div>
+    </div>
+</section>
 
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
