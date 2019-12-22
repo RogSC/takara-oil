@@ -17,7 +17,7 @@ require_once $_SERVER["DOCUMENT_ROOT"]. "/local/php_interface/include/parseHighL
 	)
 );*/?>
 
-<? dump($GLOBALS['cars']["Acura"]["CL"]) ?>
+<?// dump($GLOBALS['cars']["Acura"]["CL"]) ?>
 <?/* foreach ($cars as $key => $item): */?><!--
 <?/* dump($key) */?>
 --><?/* endforeach */?>

@@ -3,6 +3,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 require_once $_SERVER["DOCUMENT_ROOT"]. "/local/php_interface/include/parseHighLoadBlockCars.php";
 
+
 use Bitrix\Main\Engine\Contract\Controllerable;
 use Bitrix\Main\Engine\ActionFilter;
 
