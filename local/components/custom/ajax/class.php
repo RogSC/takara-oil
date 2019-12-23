@@ -1,11 +1,10 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-require_once $_SERVER["DOCUMENT_ROOT"]. "/local/php_interface/include/parseHighLoadBlockCars.php";
 
 
 use Bitrix\Main\Engine\Contract\Controllerable;
 use Bitrix\Main\Engine\ActionFilter;
+
 
 
 class CCustomAjax extends CBitrixComponent implements Controllerable
@@ -41,18 +40,17 @@ class CCustomAjax extends CBitrixComponent implements Controllerable
      */
     public function testAction($param2 = 'qwe', $param1 = '')
     {
+        $carsResult = $GLOBALS['cars'];
         //$ajaxResult = [$cars["Acura"]["CL"] => "1"];
         $ajaxResult = array();
-        foreach($cars as $key => $car) {
+        foreach($carsResult as $key => $car) {
             $ajaxResult[$key] = $car;
         };
         $ajaxResult[] = "Hi";
-        return $cars;
-            //$GLOBALS['cars'];
-        /*[
-            'asd' => $param1,
+        return [
+            'asd' => $ajaxResult[1],
             'count' => 200
-        ];*/
+        ];
     }
 
 }

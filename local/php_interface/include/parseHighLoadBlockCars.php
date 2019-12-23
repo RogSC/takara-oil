@@ -37,7 +37,7 @@ while($el = $rsData->fetch()){
     $cars[$el["UF_BRAND"]][$el["UF_MODEL"]][] = $el["UF_ENGINE"];*/
 }
 global $cars;
-//$GLOBALS['cars'] = $cars;
+$GLOBALS['cars'] = $cars;
 //dump($GLOBALS['cars']);
 //header('Content-type: application/json');
 /*if (isset($_POST["pick-up-car"])) {

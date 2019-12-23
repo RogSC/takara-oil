@@ -1,7 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("");
-require_once $_SERVER["DOCUMENT_ROOT"]. "/local/php_interface/include/parseHighLoadBlockCars.php";
 ?>
 
 
@@ -17,10 +16,6 @@ require_once $_SERVER["DOCUMENT_ROOT"]. "/local/php_interface/include/parseHighL
 	)
 );*/?>
 
-<?// dump($GLOBALS['cars']["Acura"]["CL"]) ?>
-<?/* foreach ($cars as $key => $item): */?><!--
-<?/* dump($key) */?>
---><?/* endforeach */?>
 	<form class="pick-up-oil__form">
 		<div class="pick-up-oil__select-unfocus">
 			<p class="hight-paragraph">Марка автомобиля</p>
@@ -37,9 +32,6 @@ require_once $_SERVER["DOCUMENT_ROOT"]. "/local/php_interface/include/parseHighL
 			</div>
 			<select size="15" class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph" name="car-brand"
 					id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
-				<? foreach ($cars as $key => $item): ?>
-				<option class="pick-up-oil__option" id="pick-up-brand-option" value="<?=$key?>"><?=$key?></option>
-				<? endforeach ?>
 			</select>
 		</div>
 		<div class="pick-up-oil__select_container">
