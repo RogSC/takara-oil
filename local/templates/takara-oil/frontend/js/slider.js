@@ -3,7 +3,7 @@ if ($("#slider")) {
     var slideNow = 1;
     var slideCount = $('#slide-wrapper').children().length;
     var translateWidth = 0;
-    var slideInterval = $("#slider").data("slideInterval");
+    var slideInterval = $("#slider").data("slideinterval");
     var navBtnId = 0;
     var stopSlide = false;
 

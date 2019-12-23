@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 
-<section class="slider" id="slider" data-slideInterval="<?= $arResult["SORT"] ?>">
+<section class="slider" id="slider" data-slideinterval="<?= $arResult["SORT"] ?>">
     <div class="my-container slider__container">
         <? //dump($arResult["ITEMS"]) ?>
         <div id="block-for-slider">
