@@ -8,11 +8,9 @@ IncludeTemplateLangFile(__FILE__);
 <footer class="main-footer">
     <div class="my-container main-footer__container">
         <div class="main-footer__col main-footer__left">
-            <a href="<?=SITE_DIR?>">
                 <div class="main-footer__logo">
                     <?= GetContentSvgIcon('logo') ?>
                 </div>
-            </a>
             <div class="main-footer__mailing">
                 <h4>Подпишитесь на рассылку</h4>
                 <form class="main-footer__mailing-form">
@@ -31,12 +29,25 @@ IncludeTemplateLangFile(__FILE__);
         <div class="main-footer__col main-footer__center">
             <div class="main-footer__nav">
                 <ul>
-                    <li class="standard-paragraph"><a href="#">Каталог</a></li>
-                    <li class="standard-paragraph"><a href="#">Моторные масла</a></li>
-                    <li class="standard-paragraph"><a href="#">Трансмиссионные масла</a></li>
-                    <li class="standard-paragraph"><a href="#">Масла для гидроусилителя руля</a></li>
-                    <li class="standard-paragraph"><a href="#">Масла для тормозной системы</a></li>
-                    <li class="standard-paragraph"><a href="#">Масла для подвески</a></li>
+                    <?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"bottom",
+	array(
+		"ROOT_MENU_TYPE" => "bottom-left",
+		"MAX_LEVEL" => "1",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => "bottom",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_USE_GROUPS" => "N",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left"
+	),
+	false
+);?>
                 </ul>
             </div>
             <div class="main-footer__social">
@@ -51,16 +62,29 @@ IncludeTemplateLangFile(__FILE__);
         <div class="main-footer__col main-footer__right">
             <div class="main-footer__nav">
                 <ul>
-                    <li class="standard-paragraph"><a href="#">Контакты</a></li>
-                    <li class="standard-paragraph"><a href="#">Блог</a></li>
-                    <li class="standard-paragraph"><a href="#">О бренде</a></li>
-                    <li class="standard-paragraph"><a href="#">Личный кабинет</a></li>
-                    <li class="standard-paragraph"><a href="#">Поиск по сайту</a></li>
-                    <li class="standard-paragraph"><a href="#">Политика конфеденциальности</a></li>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "bottom",
+                        array(
+                            "ROOT_MENU_TYPE" => "bottom-right",
+                            "MAX_LEVEL" => "1",
+                            "USE_EXT" => "N",
+                            "COMPONENT_TEMPLATE" => "bottom",
+                            "MENU_CACHE_TYPE" => "N",
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_USE_GROUPS" => "N",
+                            "MENU_CACHE_GET_VARS" => array(
+                            ),
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "CHILD_MENU_TYPE" => "left"
+                        ),
+                        false
+                    );?>
                 </ul>
             </div>
             <div class="main-footer__dev">
-                <h4>дизайн и разработка сайта: <span>website96</span></h4>
+                <h4>дизайн и разработка сайта: <a href="https://website96.ru/" target="_blank"><span>website96</span></a></h4>
             </div>
         </div>
     </div>

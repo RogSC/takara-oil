@@ -679,7 +679,8 @@ h4 {
     padding-left: 148px;
     background: linear-gradient(270deg, rgba(0, 0, 0, 0.15) 34.47%, rgba(0, 0, 0, 0.87) 53.52%,
     rgba(0, 0, 0, 0.954941) 76.99%, #010101 89.43%),
-    url(../img/bg-select-oil.jpg);
+    url(../img/bg-select-oil.jpg) no-repeat;
+    background-size: cover;
 }
 
 .pick-up-oil__title {
@@ -908,10 +909,12 @@ h4 {
     justify-content: center;
     align-items: flex-start;
     text-align: center;
+    z-index: 5;
 }
 
 .about-brand__description {
     width: 433px;
+    z-index: 5;
 }
 
 .about-brand__btn {
@@ -1102,6 +1105,7 @@ h4 {
     width: 100%;
     background: none;
     border: none;
+    padding-left: 10px;
 }
 
 .main-footer__mailing-btn {
@@ -1405,6 +1409,12 @@ h4 {
     background: url("../img/vector-right.svg") center no-repeat;
     background-size: 60%;
     opacity: 0.5;
+}
+
+.pag__arrow a {
+    display: block;
+    width: 13px;
+    height: 23px;
 }
 
 .pag__item {
@@ -1853,6 +1863,38 @@ h4 {
     margin-top: 20px;
 }
 
+.catalog-element__top-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.catalog-element__left-section {
+    width: 60%;
+    margin-right: 20px;
+}
+
+.catalog-element__right-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-element__button-pick-up-oil {
+    width: 300px;
+    padding-left: 38px;
+}
+
+.catalog-element__button-pick-up-oil:after {
+    right: 38px;
+}
+
+.catalog-element__logo {
+    margin-bottom: 30px;
+}
+
 .catalog-element__title {
     max-width: 645px;
 }
@@ -1915,7 +1957,7 @@ h4 {
 }
 
 .catalog-element__btn {
-    margin-top: 25px;
+    margin-top: 45px;
     margin-bottom: 15px;
 }
 
@@ -2222,7 +2264,12 @@ margin-bottom: 30px;
 }
 
 .articles__items-container {
+    position: relative;
     margin-bottom: 100px;
+}
+
+.articles__pagination {
+    bottom: -120px;
 }
 
 .modal-window {

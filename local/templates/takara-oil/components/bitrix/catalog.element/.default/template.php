@@ -16,6 +16,373 @@ use \Bitrix\Main\Localization\Loc;
 $this->setFrameMode(true);
 $this->addExternalCss('/bitrix/css/main/bootstrap.css');
 
+$i = 0;?>
+
+<?//dump($arResult)?>
+
+  <section class="catalog-element">
+        <div class="my-container catalog-element__container">
+            <div class="catalog-element__top-section">
+                <div class="catalog-element_left-section">
+                    <div class="bread-crumb">
+                        <p class="bread-crumb-p standard-paragraph">
+                            главная — <span class="bread-crumb-p_select">takara Race master 0W-40</span>
+                        </p>
+                    </div>
+                    <div class="catalog__title catalog-element__title title-red-line">
+                        <h2><?=$arResult['NAME']?></h2>
+                    </div>
+                    <div class="catalog-element__section catalog-element__chars">
+                        <div class="catalog-element__section-title">
+                            <p class="catalog-element__section-title-p">Характеристики:</p>
+                        </div>
+                        <? foreach ($arResult['PROPERTIES'] as $arProperty): ?>
+                            <? if ($arProperty['ID'] >= 70 && $arProperty['ID'] <= 75): ?>
+                                <div class="catalog-element__chars-element">
+                                    <div class="catalog-element__chars-element-title">
+                                        <p class="catalog-element__chars-element-title-p
+                        catalog-element__chars-element-p"><?=$arProperty["NAME"]?></p>
+                                    </div>
+                                    <div class="catalog-element__chars-element-description">
+                                        <p class="catalog-element__chars-element-description-p
+                        catalog-element__chars-element-p"><?=$arProperty['VALUE']?></p>
+                                    </div>
+                                </div>
+                            <? endif ?>
+                            <? if($i > 4) break;?>
+                            <? $i++ ?>
+                        <?endforeach?>
+
+                        <div class="catalog-element__btn">
+                            <a href="#" class="button">Все характеристики</a>
+                        </div>
+                    </div>
+                    <div class="catalog-element__section catalog-element__description">
+                        <div class="catalog-element__section-title">
+                            <p class="catalog-element__section-title-p"><?=$arResult['PROPERTIES']['PRODUCT_DESCRIPTION']['NAME']?>:</p>
+                        </div>
+                        <div class="catalog-element__description-text">
+                            <p class="catalog-element__description-text-p">
+                                <?=$arResult['PROPERTIES']['PRODUCT_DESCRIPTION']['VALUE']?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-element__right-section">
+                    <div class="catalog-element__logo">
+                        <img alt="<? echo $arResult["NAME"] ?>"
+                             src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>"
+                             width="<?= $arResult["DETAIL_PICTURE"]["WIDTH"] ?>"
+                             height="<?= $arResult["DETAIL_PICTURE"]["HEIGHT"] ?>">
+                    </div>
+                    <div class="catalog-element__button-pick-up-oil-container">
+                        <button type="submit" class="pick-up-oil__form_button catalog-element__button-pick-up-oil hight-paragraph">Подобрать масло</button>
+                    </div>
+                </div>
+            </div>
+            <div class="catalog-element__section catalog-element__features">
+                <div class="catalog-element__section-title">
+                    <p class="catalog-element__section-title-p"><?=$arResult['PROPERTIES']['PRODUCT_FEATURES']['NAME']?>:</p>
+                </div>
+                <ul class="catalog-element__features-items">
+                    <?foreach ($arResult['PROPERTIES']['PRODUCT_FEATURES']['VALUE'] as $arFeature):?>
+                    <li class="catalog-element__features-item">
+                        <p><?=$arFeature?></p>
+                    </li>
+                    <?endforeach?>
+                </ul>
+            </div>
+            <div class="catalog-element__section catalog-element__packing">
+                <div class="catalog-element__section-title">
+                    <p class="catalog-element__section-title-p">Варианты фасовок:</p>
+                </div>
+                <ul class="catalog-element__packing-items">
+                    <li class="catalog-element__packing-item">
+                        <img alt="<? echo $arResult["NAME"] ?>"
+                             src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>"
+                             width="<?= $arResult["DETAIL_PICTURE"]["WIDTH"] ?>"
+                             height="<?= $arResult["DETAIL_PICTURE"]["HEIGHT"] ?>">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/catalog-item.png">
+                        <p class="standard-paragraph catalog-element__packing-item-p">200 Л</p>
+                    </li>
+                    <li class="catalog-element__packing-item">
+                        <img width="99" height="144"
+                             src="<?=SITE_TEMPLATE_PATH?>/frontend/img/catalog-item.png">
+                        <p class="standard-paragraph catalog-element__packing-item-p">20 Л</p>
+                    </li>
+                    <li class="catalog-element__packing-item">
+                        <img width="73" height="106"
+                             src="<?=SITE_TEMPLATE_PATH?>/frontend/img/catalog-item.png">
+                        <p class="standard-paragraph catalog-element__packing-item-p">4 Л</p>
+                    </li>
+                    <li class="catalog-element__packing-item">
+                        <img width="53" height="77"
+                             src="<?=SITE_TEMPLATE_PATH?>/frontend/img/catalog-item.png">
+                        <p class="standard-paragraph catalog-element__packing-item-p">1 Л</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="catalog-element__section catalog-element__buttons">
+                <ul class="catalog-element__buttons-list">
+                    <li class="catalog-element__buttons-item">
+                        <p class="standard-paragraph">Описание</p>
+                    </li>
+                    <li class="catalog-element__buttons-item catalog-element__buttons-item_active">
+                        <p class="standard-paragraph">Характеристики</p>
+                    </li>
+                    <li class="catalog-element__buttons-item">
+                        <p class="standard-paragraph">Вопросы</p>
+                    </li>
+                    <li class="catalog-element__buttons-item">
+                        <p class="standard-paragraph">название пункта</p>
+                    </li>
+                    <li class="catalog-element__buttons-item">
+                        <p class="standard-paragraph">название пункта</p>
+                    </li>
+                </ul>
+                <div class="catalog-element__buttons-visible-section">
+                    <div class="catalog-element__section catalog-element__questions-container">
+                        <div class="catalog-element__questions">
+                            <div class="catalog-element__question">
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:42</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p">
+                                    <span class="element__questions-author-p_red">
+                                        автор:</span> vladlen pimenov
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        подскажите, пожалуйста, сколько стоит 1 литр этого
+                                        великолепного японского масла?
+                                    </p>
+                                </div>
+                                <div class="img__redline"></div>
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:50</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p element__questions-author-p_red">
+                                        Ответ:
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        добрый день! 1 литр нашего чудесного японского масла
+                                        будет стоить 100$
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="catalog-element__question">
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:42</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p">
+                                    <span class="element__questions-author-p_red">
+                                        автор:</span> vladlen pimenov
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        подскажите, пожалуйста, сколько стоит 1 литр этого
+                                        великолепного японского масла?
+                                    </p>
+                                </div>
+                                <div class="img__redline"></div>
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:50</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p element__questions-author-p_red">
+                                        Ответ:
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        добрый день! 1 литр нашего чудесного японского масла
+                                        будет стоить 100$
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="catalog-element__question">
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:42</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p">
+                                    <span class="element__questions-author-p_red">
+                                        автор:</span> vladlen pimenov
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        подскажите, пожалуйста, сколько стоит 1 литр этого
+                                        великолепного японского масла?
+                                    </p>
+                                </div>
+                                <div class="img__redline"></div>
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:50</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p element__questions-author-p_red">
+                                        Ответ:
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        добрый день! 1 литр нашего чудесного японского масла
+                                        будет стоить 100$
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="catalog-element__question">
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:42</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p">
+                                    <span class="element__questions-author-p_red">
+                                        автор:</span> vladlen pimenov
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        подскажите, пожалуйста, сколько стоит 1 литр этого
+                                        великолепного японского масла?
+                                    </p>
+                                </div>
+                                <div class="img__redline"></div>
+                                <div class="element__questions-time">
+                                    <time>10.08.2019, 15:50</time>
+                                </div>
+                                <div class="element__questions-author">
+                                    <p class="element__questions-author-p element__questions-author-p_red">
+                                        Ответ:
+                                    </p>
+                                </div>
+                                <div class="element__question">
+                                    <p class="element__question-p">
+                                        добрый день! 1 литр нашего чудесного японского масла
+                                        будет стоить 100$
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog__nav">
+                            <div class="catalog__nav-row">
+                                <ul class="pagination">
+                                    <li class="pag__left-arrow pag__arrow"></li>
+                                    <li class="pag__item pag__item_active">01</li>
+                                    <li class="pag__item">02</li>
+                                    <li class="pag__item">03</li>
+                                    <li class="pag__item">04</li>
+                                    <li class="pag__item">...</li>
+                                    <li class="pag__item">25</li>
+                                    <li class="pag__right-arrow pag__arrow pag__arrow_active"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pick-up-oil" id="pick-up-oil">
+        <div class="my-container">
+            <div class="pick-up-oil__title question__title title-red-line">
+                <h2>Задайте вопрос</h2>
+            </div>
+            <div class="questions__form_container">
+                <form class="questions__form">
+                    <div class="questions__form-item-container">
+                        <fieldset class="questions__form-item">
+                            <legend>Ваше имя</legend>
+                            <input type="text" class="main-footer__mailing-input standard-paragraph">
+                        </fieldset>
+                    </div>
+                    <div class="questions__form-item-container">
+                        <fieldset class="questions__form-item">
+                            <legend>E-MAIL</legend>
+                            <input type="email" class="main-footer__mailing-input standard-paragraph">
+                        </fieldset>
+                    </div>
+                    <div class="questions__form-item-container">
+                        <fieldset class="questions__form-item questions__form-textarea">
+                            <legend>Вопрос</legend>
+                            <textarea rows="4"  class="main-footer__mailing-input standard-paragraph"></textarea>
+                        </fieldset>
+                    </div>
+
+                    <div class="g-recaptcha" data-sitekey="6LdhTcgUAAAAACiErQzLi6t0Jye9llR8uZC_ef57"></div>
+
+                    <div class="filter__checkbox personal-policy">
+                        <label>
+                            <input class="filter__checkbox-input" type="checkbox">
+                            <p class="filter__checkbox-input-p">
+                                Я согласен с <a href="#" class="element__questions-author-p_red">
+                                    Политикой обработки персональных данных</a
+                            </p>
+                        </label>
+                    </div>
+                    <button type="submit" class="question__form_button standard-paragraph">Задать вопрос</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-brand">
+        <div class="my-container">
+            <div class="about-brand__container">
+                <div class="border-top border">
+                </div>
+                <div class="border-center border">
+                </div>
+                <div class="border-left-bottom border">
+                </div>
+                <div class="border-right-bottom border">
+                </div>
+                <div class="about-brand__description">
+                    <p>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку. <br>
+                        <br>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку. <br>
+                        <br>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку. <br>
+                        <br>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку.
+                    </p>
+                </div>
+                <div class="about-brand__description">
+                    <p>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку. <br>
+                        <br>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку. <br>
+                        <br>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку. <br>
+                        <br>
+                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
+                        защитную пленку.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+<?
 $templateLibrary = array('popup', 'fx');
 $currencyList = '';
 

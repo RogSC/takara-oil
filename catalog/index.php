@@ -173,7 +173,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 ); ?>
     </div>
     </section>
-    <section class="catalog">
+    <!--<section class="catalog">
         <div class="my-container catalog-container">
             <div class="bread-crumb">
                 <p class="bread-crumb-p standard-paragraph">
@@ -192,7 +192,7 @@ $APPLICATION->SetTitle("Каталог продукции");
                         <div class="filter__title">
                             <h3>Фильтр</h3>
                             <div class="filter__close-btn">
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/icon-close.svg">
+                                <img src="<?/*= SITE_TEMPLATE_PATH */?>/frontend/img/icon-close.svg">
                             </div>
                         </div>
                         <div class="filter__sections">
@@ -200,7 +200,7 @@ $APPLICATION->SetTitle("Каталог продукции");
                                 <div class="filter__price-title filter__section-title">
                                     <p class="filter__paragraph">Цена:</p>
                                     <div class="filter__price-sort">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/icon-vector-up.svg">
+                                        <img src="<?/*= SITE_TEMPLATE_PATH */?>/frontend/img/icon-vector-up.svg">
                                     </div>
                                 </div>
                                 <div class="filter__price-inputs">
@@ -222,7 +222,7 @@ $APPLICATION->SetTitle("Каталог продукции");
                                 </div>
                                 <div class="filter__dropdown-btn filter__dropdown-select">
                                     <p class="filter__dropdown-btn-text">Текст</p>
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/icon-vector-up.svg">
+                                    <img src="<?/*= SITE_TEMPLATE_PATH */?>/frontend/img/icon-vector-up.svg">
                                 </div>
                                 <ul class="filter__dropdown-selector">
                                     <li class="filter__dropdown-select">
@@ -242,7 +242,7 @@ $APPLICATION->SetTitle("Каталог продукции");
                                 </div>
                                 <div class="filter__dropdown-btn filter__dropdown-select">
                                     <p class="filter__dropdown-btn-text">Текст2</p>
-                                    <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/icon-vector-up.svg">
+                                    <img src="<?/*= SITE_TEMPLATE_PATH */?>/frontend/img/icon-vector-up.svg">
                                 </div>
                                 <ul class="filter__dropdown-selector">
                                     <li class="filter__dropdown-select">
@@ -573,7 +573,7 @@ $APPLICATION->SetTitle("Каталог продукции");
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <section class="about-brand">
         <div class="my-container">
             <div class="about-brand__container">

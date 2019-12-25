@@ -1,19 +1,22 @@
 if ($("#slider")) {
 
-    var slideNow = 1;
-    var slideCount = $('#slide-wrapper').children().length;
-    var translateWidth = 0;
-    var slideInterval = $("#slider").data("slideinterval");
-    var navBtnId = 0;
-    var stopSlide = false;
+    let slideNow = 1;
+    let slideCount = $('#slide-wrapper').children().length;
+    let translateWidth = 0;
+    let slideInterval = $("#slider").data("slideinterval");
+    let navBtnId = 0;
+    let stopSlide = false;
+    let leftArrow = $('.slider_pag_left_arrow');
+    let rightArrow = $('.slider_pag_right_arrow');
+    let pagItem = $('.slider_pag_item');
 
     function itemsClass() {
-        $('.pag__left-arrow').removeClass('pag__arrow_active');
-        $('.pag__right-arrow').removeClass('pag__arrow_active');
-        $('.pag__item').removeClass('pag__item_active');
-        if (slideNow !== 1) $('.pag__left-arrow').addClass('pag__arrow_active');
-        if (slideNow !== slideCount) $('.pag__right-arrow').addClass('pag__arrow_active');
-        $('.pag__item:nth-child(' + (slideNow + 1) + ')').addClass('pag__item_active');
+        leftArrow.removeClass('pag__arrow_active');
+        rightArrow.removeClass('pag__arrow_active');
+        pagItem.removeClass('pag__item_active');
+        if (slideNow !== 1) leftArrow.addClass('pag__arrow_active');
+        if (slideNow !== slideCount) rightArrow.addClass('pag__arrow_active');
+        $('.slider_pag_item:nth-child(' + (slideNow + 1) + ')').addClass('pag__item_active');
     }
 
     function nextSlide() {
@@ -63,19 +66,18 @@ if ($("#slider")) {
             switchItemsClass = setInterval(itemsClass, slideInterval);
         });
 
-        $('.pag__right-arrow').click(function () {
+        rightArrow.click(function () {
             nextSlide();
             itemsClass();
         });
 
-        $('.pag__left-arrow').click(function () {
+        leftArrow.click(function () {
             prevSlide();
             itemsClass();
         });
 
-        $('.pag__item').click(function () {
+        pagItem.click(function () {
             navBtnId = $(this).index() - 1;
-
             if (navBtnId + 1 != slideNow) {
                 translateWidth = -$('#viewport').width() * (navBtnId);
                 $('#slide-wrapper').css({

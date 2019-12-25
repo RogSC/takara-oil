@@ -1,10 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("");
-?>
-
-
-<?/*$APPLICATION->IncludeComponent(
+?><?/*$APPLICATION->IncludeComponent(
 	"bitrix:subscribe.form",
 	"",
 	Array(
@@ -14,48 +11,94 @@ $APPLICATION->SetTitle("");
 		"SHOW_HIDDEN" => "N",
 		"USE_PERSONALIZATION" => "Y"
 	)
-);*/?>
-
-	<form class="pick-up-oil__form">
-		<div class="pick-up-oil__select-unfocus">
-			<p class="hight-paragraph">Марка автомобиля</p>
-		</div>
-		<div class="pick-up-oil__select-unfocus">
-			<p class="hight-paragraph">Модель автомобиля</p>
-		</div>
-		<div class="pick-up-oil__select-unfocus">
-			<p class="hight-paragraph">Тип двигателя</p>
-		</div>
-		<div class="pick-up-oil__select_container">
-			<div class="pick-up-oil__select-title ">
-				<p class="hight-paragraph">Марка автомобиля</p>
-			</div>
-			<select size="15" class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph" name="car-brand"
-					id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
-			</select>
-		</div>
-		<div class="pick-up-oil__select_container">
-			<div class="pick-up-oil__select-title ">
-				<p class="hight-paragraph">Модель автомобиля</p>
-			</div>
-			<select size="15" class="pick-up-oil__select pick-up-oil__select_car-model hight-paragraph" name="car-model"
-					id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
-				<option class="pick-up-oil__option" value="abc74b93c9fe9214">2107</option>
-				<option class="pick-up-oil__option" value="8c4799fa000f2ee7">2108</option>
-			</select>
-		</div>
-		<div class="pick-up-oil__select_container">
-			<div class="pick-up-oil__select-title ">
-				<p class="hight-paragraph">Тип двигателя</p>
-			</div>
-			<select size="15" class="pick-up-oil__select pick-up-oil__select_engine-type hight-paragraph" name="engine-type"
-					id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
-				<option class="pick-up-oil__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
-				<option class="pick-up-oil__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
-			</select>
-		</div>
-		<button type="submit" class="pick-up-oil__form_button hight-paragraph">Подобрать масло</button>
-		<button type="reset" class="pick-up-oil__form_reset hight-paragraph">Сбросить фильтр</button>
-	</form>
-
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+);*/?> <br>
+ <br>
+ <?$APPLICATION->IncludeComponent(
+	"bitrix:news", 
+	".default", 
+	array(
+		"COMPONENT_TEMPLATE" => ".default",
+		"IBLOCK_TYPE" => "articles",
+		"IBLOCK_ID" => "2",
+		"NEWS_COUNT" => "20",
+		"USE_SEARCH" => "N",
+		"USE_RSS" => "N",
+		"USE_RATING" => "N",
+		"USE_CATEGORIES" => "N",
+		"USE_REVIEW" => "N",
+		"USE_FILTER" => "N",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_ORDER1" => "DESC",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER2" => "ASC",
+		"CHECK_DATES" => "Y",
+		"SEF_MODE" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "36000000",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_TITLE" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"ADD_ELEMENT_CHAIN" => "N",
+		"USE_PERMISSIONS" => "N",
+		"STRICT_SECTION_CHECK" => "N",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"USE_SHARE" => "N",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"LIST_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"LIST_PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"DISPLAY_NAME" => "Y",
+		"META_KEYWORDS" => "-",
+		"META_DESCRIPTION" => "-",
+		"BROWSER_TITLE" => "-",
+		"DETAIL_SET_CANONICAL_URL" => "N",
+		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"DETAIL_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"DETAIL_PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"DETAIL_DISPLAY_TOP_PAGER" => "N",
+		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
+		"DETAIL_PAGER_TITLE" => "Страница",
+		"DETAIL_PAGER_TEMPLATE" => "",
+		"DETAIL_PAGER_SHOW_ALL" => "Y",
+		"PAGER_TEMPLATE" => ".default",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
+		"PAGER_TITLE" => "Новости",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SET_STATUS_404" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"VARIABLE_ALIASES" => array(
+			"SECTION_ID" => "SECTION_ID",
+			"ELEMENT_ID" => "ELEMENT_ID",
+		)
+	),
+	false
+);?><br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

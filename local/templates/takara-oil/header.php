@@ -112,15 +112,6 @@ $aMenuLinksExt = array();
                     ),
                     false
                 );?>
-                <!--<div class="header__search">
-                    <form class="search-form" method="get" action="/search/">
-                        <input class="search-form__input standard-paragraph" name="search" autocomplete="off" placeholder="Поиск по сайту"
-                               size="20" minlength="3">
-                        <button class="search-form__button" type="submit" title="Поиск">
-                            <?/*= GetContentSvgIcon('icon-search') */?>
-                        </button>
-                    </form>
-                </div>-->
                 <div class="header__user-menu">
                     <a href="<?= $USER->IsAuthorized() ? "/profile/" : "#auth-form" ?>">
                         <p>Личный кабинет</p>

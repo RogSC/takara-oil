@@ -5,71 +5,72 @@ $APPLICATION->SetPageProperty("description", "Моторные масла TAKARA
 $APPLICATION->SetTitle("TAKARA OIL");
 ?>
 <?$APPLICATION->IncludeComponent(
-    "bitrix:news.list",
-    "slider",
-    array(
-        "COMPONENT_TEMPLATE" => "slider",
-        "IBLOCK_TYPE" => "news",
-        "IBLOCK_ID" => "15",
-        "NEWS_COUNT" => "20",
-        "SORT_BY1" => "SORT",
-        "SORT_ORDER1" => "ASC",
-        "SORT_BY2" => "ACTIVE_FROM",
-        "SORT_ORDER2" => "ASC",
-        "FILTER_NAME" => "",
-        "FIELD_CODE" => array(
-            0 => "NAME",
-            1 => "PREVIEW_TEXT",
-            2 => "PREVIEW_PICTURE",
-            3 => "",
-        ),
-        "PROPERTY_CODE" => array(
-            0 => "url",
-            1 => "",
-        ),
-        "CHECK_DATES" => "Y",
-        "DETAIL_URL" => "",
-        "AJAX_MODE" => "N",
-        "AJAX_OPTION_JUMP" => "N",
-        "AJAX_OPTION_STYLE" => "Y",
-        "AJAX_OPTION_HISTORY" => "N",
-        "AJAX_OPTION_ADDITIONAL" => "",
-        "CACHE_TYPE" => "A",
-        "CACHE_TIME" => "36000000",
-        "CACHE_FILTER" => "N",
-        "CACHE_GROUPS" => "Y",
-        "PREVIEW_TRUNCATE_LEN" => "62",
-        "ACTIVE_DATE_FORMAT" => "d.m.Y",
-        "SET_TITLE" => "N",
-        "SET_BROWSER_TITLE" => "N",
-        "SET_META_KEYWORDS" => "N",
-        "SET_META_DESCRIPTION" => "N",
-        "SET_LAST_MODIFIED" => "N",
-        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-        "ADD_SECTIONS_CHAIN" => "N",
-        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-        "PARENT_SECTION" => "",
-        "PARENT_SECTION_CODE" => "",
-        "INCLUDE_SUBSECTIONS" => "N",
-        "STRICT_SECTION_CHECK" => "N",
-        "DISPLAY_DATE" => "N",
-        "DISPLAY_NAME" => "Y",
-        "DISPLAY_PICTURE" => "Y",
-        "DISPLAY_PREVIEW_TEXT" => "Y",
-        "PAGER_TEMPLATE" => ".default",
-        "DISPLAY_TOP_PAGER" => "N",
-        "DISPLAY_BOTTOM_PAGER" => "N",
-        "PAGER_TITLE" => "Новости",
-        "PAGER_SHOW_ALWAYS" => "N",
-        "PAGER_DESC_NUMBERING" => "N",
-        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-        "PAGER_SHOW_ALL" => "N",
-        "PAGER_BASE_LINK_ENABLE" => "N",
-        "SET_STATUS_404" => "N",
-        "SHOW_404" => "N",
-        "MESSAGE_404" => ""
-    ),
-    false
+	"bitrix:news.list", 
+	"slider", 
+	array(
+		"COMPONENT_TEMPLATE" => "slider",
+		"IBLOCK_TYPE" => "news",
+		"IBLOCK_ID" => "15",
+		"NEWS_COUNT" => "20",
+		"SORT_BY1" => "SORT",
+		"SORT_ORDER1" => "ASC",
+		"SORT_BY2" => "ACTIVE_FROM",
+		"SORT_ORDER2" => "ASC",
+		"FILTER_NAME" => "",
+		"FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "PREVIEW_TEXT",
+			2 => "PREVIEW_PICTURE",
+			3 => "",
+		),
+		"PROPERTY_CODE" => array(
+			0 => "url",
+			1 => "",
+		),
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "36000000",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"PREVIEW_TRUNCATE_LEN" => "62",
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"SET_TITLE" => "N",
+		"SET_BROWSER_TITLE" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"INCLUDE_SUBSECTIONS" => "N",
+		"STRICT_SECTION_CHECK" => "N",
+		"DISPLAY_DATE" => "N",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"PAGER_TEMPLATE" => ".default",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"PAGER_TITLE" => "Новости",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SET_STATUS_404" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"SLIDER_TIME" => "5000"
+	),
+	false
 );?>
     <section class="products-catalog" id="products-catalog">
         <div class="my-container">
@@ -202,7 +203,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 <div class="features__title">
                     <h2><?
                         $APPLICATION->IncludeFile(
-                            "views/features-include.php",
+                            "views/features-title.php",
                             array(),
                             array(
                                 "MODE" => "text",
@@ -211,48 +212,75 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         ?></h2>
                 </div>
                 <div class="features__items row">
-                    <div class="features__item col-4">
-                        <div class="features__item_icon">
-                            <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-polialfaalefin.svg">
-                        </div>
-                        <div class="features__item_title">
-                            <h3>Элитный вид полиальфаолефинов</h3>
-                        </div>
-                        <div class="features__item_description">
-                            <p>
-                                В качестве базового масла используется TAKARA RACING PAO – специально разработанный
-                                элитный вид полиальфаолефинов.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="features__item col-4">
-                        <div class="features__item_icon">
-                            <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-used-oil.svg">
-                        </div>
-                        <div class="features__item_title">
-                            <h3>Не используем отработанные масла</h3>
-                        </div>
-                        <div class="features__item_description">
-                            <p>
-                                Использование «отработки» в базовом масле значительно снижает его ресурс и приводит к
-                                преждевременной выработке качеств масла, его противоизносных свойств.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="features__item col-4">
-                        <div class="features__item_icon">
-                            <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/icon-elite-oil.svg">
-                        </div>
-                        <div class="features__item_title">
-                            <h3>Элитные базовые масла</h3>
-                        </div>
-                        <div class="features__item_description">
-                            <p>
-                                Для производства продукции TAKARA используются элитные синтетические базовые масла
-                                «Группы 3 Плюс».
-                            </p>
-                        </div>
-                    </div>
+                    <?$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"features", 
+	array(
+		"COMPONENT_TEMPLATE" => "features",
+		"IBLOCK_TYPE" => "features",
+		"IBLOCK_ID" => "16",
+		"NEWS_COUNT" => "3",
+		"SORT_BY1" => "TIMESTAMP_X",
+		"SORT_ORDER1" => "ASC",
+		"SORT_BY2" => "ACTIVE_FROM",
+		"SORT_ORDER2" => "ASC",
+		"FILTER_NAME" => "",
+		"FIELD_CODE" => array(
+			0 => "NAME",
+			1 => "PREVIEW_TEXT",
+			2 => "PREVIEW_PICTURE",
+			3 => "",
+		),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "url",
+			2 => "",
+		),
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "36000000",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"PREVIEW_TRUNCATE_LEN" => "200",
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"SET_TITLE" => "N",
+		"SET_BROWSER_TITLE" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"INCLUDE_SUBSECTIONS" => "N",
+		"STRICT_SECTION_CHECK" => "N",
+		"DISPLAY_DATE" => "N",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"PAGER_TEMPLATE" => ".default",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"PAGER_TITLE" => "Новости",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"SET_STATUS_404" => "N",
+		"SHOW_404" => "N",
+		"MESSAGE_404" => "",
+		"SLIDER_TIME" => "5000"
+	),
+	false
+);?>
                 </div>
             </div>
         </div>
@@ -282,7 +310,15 @@ $APPLICATION->SetTitle("TAKARA OIL");
             <div class="main-page__mouse-contain">
             </div>
             <div class="pick-up-oil__title title-red-line">
-                <h2>Подобрать масло</h2>
+                <h2><?
+                    $APPLICATION->IncludeFile(
+                        "views/pick-up-oil-title.php",
+                        array(),
+                        array(
+                            "MODE" => "text",
+                        )
+                    );
+                    ?></h2>
             </div>
             <div class="pick-up-oil__form_container">
                 <form class="pick-up-oil__form">
@@ -301,17 +337,6 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         </div>
                         <select size="15" class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph" name="car-brand"
                                 id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
-                            <option class="pick-up-oil__option" value="10be247fe539bb03">Abarth</option>
-                            <option class="pick-up-oil__option" value="d6b97ba914f0046a">Acura (USA / CAN)</option>
-                            <option class="pick-up-oil__option" value="0607bf0ba7ff948b">Alfa Romeo</option>
-                            <option class="pick-up-oil__option" value="abc74b93c9fe9214">Aro</option>
-                            <option class="pick-up-oil__option" value="8c4799fa000f2ee7">Asia</option>
-                            <option class="pick-up-oil__option" value="68c88ec18723792a">Aston Martin</option>
-                            <option class="pick-up-oil__option" value="d9fe4c31099efeab">Audi</option>
-                            <option class="pick-up-oil__option" value="6f50f44d317b784e">Audi (FAW) (CHN)</option>
-                            <option class="pick-up-oil__option" value="b5232ba66dd2f965">Austin</option>
-                            <option class="pick-up-oil__option" value="cb0999be73659150">Baojun (SGMW) (CHN)</option>
-                            <option class="pick-up-oil__option" value="615adc2573dcfc64">Bentley</option>
                         </select>
                     </div>
                     <div class="pick-up-oil__select_container">
@@ -320,8 +345,6 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         </div>
                         <select size="15" class="pick-up-oil__select pick-up-oil__select_car-model hight-paragraph" name="car-model"
                                 id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
-                            <option class="pick-up-oil__option" value="abc74b93c9fe9214">2107</option>
-                            <option class="pick-up-oil__option" value="8c4799fa000f2ee7">2108</option>
                         </select>
                     </div>
                     <div class="pick-up-oil__select_container">
@@ -330,8 +353,6 @@ $APPLICATION->SetTitle("TAKARA OIL");
                         </div>
                         <select size="15" class="pick-up-oil__select pick-up-oil__select_engine-type hight-paragraph" name="engine-type"
                                 id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
-                            <option class="pick-up-oil__option" value="abc74b93c9fe9214">Бензиновый двигатель</option>
-                            <option class="pick-up-oil__option" value="8c4799fa000f2ee7">Дизельный двигатель</option>
                         </select>
                     </div>
                     <button type="submit" class="pick-up-oil__form_button hight-paragraph">Подобрать масло</button>
@@ -375,18 +396,38 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 <div class="border-right-bottom border">
                 </div>
                 <div class="about-brand__title">
-                    <h2>О бренде</h2>
+                    <h2><?
+                        $APPLICATION->IncludeFile(
+                            "views/about-title.php",
+                            array(),
+                            array(
+                                "MODE" => "text",
+                            )
+                        );
+                        ?></h2>
                 </div>
                 <div class="about-brand__description">
                     <p>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку.<br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку.
+                        <?
+                        $APPLICATION->IncludeFile(
+                            "views/about-description.php",
+                            array(),
+                            array(
+                                "MODE" => "text",
+                            )
+                        );
+                        ?>
                     </p>
                     <div class="about-brand__btn">
-                        <a href="#" class="btn__more">Подробнее</a>
+                        <a href="/about/" class="btn__more"><?
+                            $APPLICATION->IncludeFile(
+                                "views/about-link-text.php",
+                                array(),
+                                array(
+                                    "MODE" => "text",
+                                )
+                            );
+                            ?></a>
                     </div>
                 </div>
             </div>
@@ -397,75 +438,95 @@ $APPLICATION->SetTitle("TAKARA OIL");
             <div class="main-page__mouse-contain">
             </div>
             <div class="articles__title section__title">
-                <h2>Статьи в блоге</h2>
+                <h2><?
+                    $APPLICATION->IncludeFile(
+                        "views/articles-title.php",
+                        array(),
+                        array(
+                            "MODE" => "text",
+                        )
+                    );
+                    ?></h2>
             </div>
-            <div class="articles__items">
-                <div class="articles__item">
-                    <div class="articles__item_logo">
-                        <img alt="Logo article 1" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/article-logo-1.jpg">
-                    </div>
-                    <div class="articles__item_date">
-                        <p>
-                            10.08.2019
-                        </p>
-                    </div>
-                    <div class="articles__item_title">
-                        <h3>как правильно менять масло в двигателе?</h3>
-                    </div>
-                    <div class="articles__item_description">
-                        <p>
-                            Обязательно прочтите нашу инструкцию перед реальной заменой масла.
-                        </p>
-                    </div>
-                    <div class="articles__item_btn">
-                        <a href="#" class="btn__more">Подробнее</a>
-                    </div>
-                </div>
-                <div class="articles__item articles__item_center">
-                    <div class="articles__item_logo">
-                        <img alt="Logo article 2" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/article-logo-2.jpg">
-                    </div>
-                    <div class="articles__item_date">
-                        <p>
-                            10.08.2019
-                        </p>
-                    </div>
-                    <div class="articles__item_title">
-                        <h3>как правильно менять масло в двигателе?</h3>
-                    </div>
-                    <div class="articles__item_description">
-                        <p>
-                            Обязательно прочтите нашу инструкцию перед реальной заменой масла.
-                        </p>
-                    </div>
-                    <div class="articles__item_btn">
-                        <a href="#" class="btn__more">Подробнее</a>
-                    </div>
-                </div>
-                <div class="articles__item">
-                    <div class="articles__item_logo">
-                        <img alt="Logo article 3" src="<?=SITE_TEMPLATE_PATH?>/frontend/img/article-logo-3.jpg">
-                    </div>
-                    <div class="articles__item_date">
-                        <p>
-                            10.08.2019
-                        </p>
-                    </div>
-                    <div class="articles__item_title">
-                        <h3>как правильно менять масло в двигателе?</h3>
-                    </div>
-                    <div class="articles__item_description">
-                        <p>
-                            Обязательно прочтите нашу инструкцию перед реальной заменой масла.
-                        </p>
-                    </div>
-                    <div class="articles__item_btn">
-                        <a href="#" class="btn__more">Подробнее</a>
-                    </div>
-                </div>
-            </div>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:news.list",
+                    "articles",
+                    array(
+                        "COMPONENT_TEMPLATE" => "articles",
+                        "IBLOCK_TYPE" => "articles",
+                        "IBLOCK_ID" => "2",
+                        "NEWS_COUNT" => "3",
+                        "SORT_BY1" => "TIMESTAMP_X",
+                        "SORT_ORDER1" => "ASC",
+                        "SORT_BY2" => "ACTIVE_FROM",
+                        "SORT_ORDER2" => "ASC",
+                        "FILTER_NAME" => "",
+                        "FIELD_CODE" => array(
+                            0 => "NAME",
+                            1 => "PREVIEW_TEXT",
+                            2 => "PREVIEW_PICTURE",
+                            3 => "",
+                        ),
+                        "PROPERTY_CODE" => array(
+                            0 => "",
+                            1 => "url",
+                            2 => "",
+                        ),
+                        "CHECK_DATES" => "Y",
+                        "DETAIL_URL" => "",
+                        "AJAX_MODE" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "N",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "Y",
+                        "PREVIEW_TRUNCATE_LEN" => "200",
+                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                        "SET_TITLE" => "N",
+                        "SET_BROWSER_TITLE" => "N",
+                        "SET_META_KEYWORDS" => "N",
+                        "SET_META_DESCRIPTION" => "N",
+                        "SET_LAST_MODIFIED" => "N",
+                        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                        "ADD_SECTIONS_CHAIN" => "N",
+                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                        "PARENT_SECTION" => "",
+                        "PARENT_SECTION_CODE" => "",
+                        "INCLUDE_SUBSECTIONS" => "N",
+                        "STRICT_SECTION_CHECK" => "N",
+                        "DISPLAY_DATE" => "N",
+                        "DISPLAY_NAME" => "Y",
+                        "DISPLAY_PICTURE" => "Y",
+                        "DISPLAY_PREVIEW_TEXT" => "Y",
+                        "PAGER_TEMPLATE" => ".default",
+                        "DISPLAY_TOP_PAGER" => "N",
+                        "DISPLAY_BOTTOM_PAGER" => "N",
+                        "PAGER_TITLE" => "Новости",
+                        "PAGER_SHOW_ALWAYS" => "N",
+                        "PAGER_DESC_NUMBERING" => "N",
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                        "PAGER_SHOW_ALL" => "N",
+                        "PAGER_BASE_LINK_ENABLE" => "N",
+                        "SET_STATUS_404" => "N",
+                        "SHOW_404" => "N",
+                        "MESSAGE_404" => "",
+                        "SLIDER_TIME" => "5000"
+                    ),
+                    false
+                );?>
             <div class="articles__btn">
-                <a class="button standard-paragraph" href="#">Показать все статьи</a>
+                <a class="button standard-paragraph" href="/articles/"><?
+                    $APPLICATION->IncludeFile(
+                        "views/articles-link-text.php",
+                        array(),
+                        array(
+                            "MODE" => "text",
+                        )
+                    );
+                    ?></a>
             </div>
         </div>
     </section>
