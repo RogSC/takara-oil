@@ -1,4 +1,4 @@
-function formValid() {
+/*function formValid() {
     var $this = $('#auth-form__form');
     var $form = {
         action: $this.attr('action'),
@@ -21,7 +21,7 @@ function formValid() {
     }, 'json');
     console.log();
     return false;
-}
+}*/
 
 
     /*let valid = true;

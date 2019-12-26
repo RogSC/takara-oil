@@ -317,7 +317,7 @@ $APPLICATION->SetTitle("О бренде");
                         </div>
                         <div class="catalog__nav">
                             <div class="catalog__nav-row">
-                                <ul class="pagination">
+                                <ul class="my-pagination">
                                     <li class="pag__left-arrow pag__arrow"></li>
                                     <li class="pag__item pag__item_active">01</li>
                                     <li class="pag__item">02</li>

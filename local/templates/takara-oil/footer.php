@@ -91,6 +91,7 @@ IncludeTemplateLangFile(__FILE__);
 </footer>
 
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/jquery.js"></script>
+<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/jquery.arcticmodal-0.3.min.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/slider.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/filter.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/search.js"></script>

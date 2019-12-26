@@ -38,7 +38,11 @@ if (document.querySelector(".catalog__filter-btn")) {
             return false;
         };
 
-        let filter_is_active = myFilter.classList.contains("filter_active");
+        let filter_is_active;
+
+        if(myFilter) {
+            filter_is_active = myFilter.classList.contains("filter_active");
+        }
 
         if (its_myFilterBtn() || (!its_myFilter() && !its_myFilterBtn() && filter_is_active) || its_myCloseFilterButton()) {
             toggleFilter();

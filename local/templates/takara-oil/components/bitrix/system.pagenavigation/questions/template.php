@@ -35,7 +35,7 @@ if ($arResult["NavPageNomer"] > 1) {
 ?>
 <div class="catalog__nav">
     <div class="catalog__nav-row">
-        <ul class="my-pagination articles__pagination">
+        <ul class="my-pagination questions__pagination">
 
             <li class="pag__left-arrow pag__arrow <?= $arResult["NavPageNomer"] != 1 ? "pag__arrow_active" : "" ?>">
                 <? if ($arResult["NavPageNomer"] != 1): ?>
