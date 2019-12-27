@@ -62,8 +62,12 @@ if ($("#slider")) {
             clearInterval(switchInterval);
             clearInterval(switchItemsClass);
         }, function () {
-            switchInterval = setInterval(nextSlide, slideInterval);
-            switchItemsClass = setInterval(itemsClass, slideInterval);
+            if (!switchInterval) {
+                switchInterval = setInterval(nextSlide, slideInterval);
+            }
+            if (!switchItemsClass) {
+                switchItemsClass = setInterval(itemsClass, slideInterval);
+            }
         });
 
         rightArrow.click(function () {

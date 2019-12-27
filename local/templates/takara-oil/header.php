@@ -7,6 +7,8 @@ IncludeTemplateLangFile(__FILE__);
 
 global $APPLICATION;
 $aMenuLinksExt = array();
+CJSCore::Init('jquery');
+
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +18,17 @@ $aMenuLinksExt = array();
     use Bitrix\Main\Page\Asset;
     Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/style.css"));
     Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/bootstrap-grid.css"));
+    Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.css"));
+    Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.min.js"));
+    Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/arcticmodal/jquery.arcticmodal-0.3.min.js"));
+    Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/app.js"));
+    Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/arcticmodal/jquery.arcticmodal-0.3.css"));
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <? $APPLICATION->ShowHead() ?>
-    <title><?= $APPLICATION->ShowTitle() ?></title>
-    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/jquery.js"></script>
+    <title><?$APPLICATION->ShowTitle() ?></title>
     <link rel="icon" type="image/x-icon" href="<?=$APPLICATION->GetTemplatePath("frontend/favicon.ico")?>" />
 </head>
 <body>
@@ -149,7 +155,7 @@ $aMenuLinksExt = array();
 );?>
                 </div>
                 <div class="main-header__callback">
-                    <a class="button btn-callback standard-paragraph" href="#callback-form">Связаться с нами</a>
+                    <a class="button btn-callback standard-paragraph js-init-modal" href="#callback-form">Связаться с нами</a>
                 </div>
             </div>
         </div>
