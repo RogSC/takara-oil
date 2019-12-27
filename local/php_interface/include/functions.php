@@ -13,6 +13,21 @@ function GetContentSvgIcon($filename)
     }
 }
 
+function showPreviewImage($url)
+{
+    if (!empty($url)) {
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $url)) {
+            return $url;
+        }
+    }
+    return getNoPhoto();
+}
+
+function getNoPhoto()
+{
+    return SITE_TEMPLATE_PATH . '/frontend/img/noPhoto.png';
+}
+
 /**
  * Dump переменой, с дополнительной стилизацией
  *

@@ -1,15 +1,14 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог продукции");
-?>
-    <section class="catalog">
-    <div class="my-container catalog-container">
-        <? $APPLICATION->IncludeComponent(
+?><section class="catalog">
+<div class="my-container catalog-container">
+	 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	"catalog-template", 
 	array(
 		"ACTION_VARIABLE" => "action",
-		"ADD_ELEMENT_CHAIN" => "N",
+		"ADD_ELEMENT_CHAIN" => "Y",
 		"ADD_PICT_PROP" => "-",
 		"ADD_PROPERTIES_TO_BASKET" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -24,7 +23,6 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COMPATIBLE_MODE" => "Y",
-		"COMPONENT_TEMPLATE" => "catalog-template",
 		"DETAIL_ADD_DETAIL_TO_SLIDER" => "N",
 		"DETAIL_BACKGROUND_IMAGE" => "-",
 		"DETAIL_BRAND_USE" => "N",
@@ -47,7 +45,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"DETAIL_STRICT_SECTION_CHECK" => "N",
 		"DETAIL_USE_COMMENTS" => "N",
 		"DETAIL_USE_VOTE_RATING" => "N",
-		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "Y",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
 		"ELEMENT_SORT_FIELD" => "sort",
@@ -126,7 +124,8 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"SECTION_COUNT_ELEMENTS" => "N",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_TOP_DEPTH" => "2",
-		"SEF_MODE" => "N",
+		"SEF_FOLDER" => "/catalog/",
+		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
@@ -164,59 +163,71 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"USE_PRODUCT_QUANTITY" => "N",
 		"USE_REVIEW" => "N",
 		"USE_STORE" => "N",
+		"COMPONENT_TEMPLATE" => "catalog-template",
+		"DETAIL_PROPERTY_CODE" => array(
+			0 => "PRODUCT_NAME",
+			1 => "PRODUCT_CATEGORY",
+			2 => "PRODUCT_TYPE",
+			3 => "PRODUCT_USE",
+			4 => "PRODUCT_CLASS",
+			5 => "PRODUCT_VISCOSITY",
+			6 => "PRODUCT_DESCRIPTION_SHORT",
+			7 => "PRODUCT_FEATURES",
+			8 => "PRODUCT_PACKING",
+			9 => "PRODUCT_DESCRIPTION",
+		),
+		"SEF_URL_TEMPLATES" => array(
+			"sections" => "",
+			"section" => "#SECTION_CODE_PATH#/",
+			"element" => "#ELEMENT_ID#-#ELEMENT_CODE#.html",
+			"compare" => "compare.php?action=#ACTION_CODE#",
+			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
+		),
 		"VARIABLE_ALIASES" => array(
-			"ELEMENT_ID" => "ELEMENT_ID",
-			"SECTION_ID" => "SECTION_ID",
+			"compare" => array(
+				"ACTION_CODE" => "action",
+			),
 		)
 	),
 	false
-); ?>
-    </div>
-    </section>
-    <section class="about-brand">
-        <div class="my-container">
-            <div class="about-brand__container">
-                <div class="border-top border">
-                </div>
-                <div class="border-center border">
-                </div>
-                <div class="border-left-bottom border">
-                </div>
-                <div class="border-right-bottom border">
-                </div>
-                <div class="about-brand__description">
-                    <p>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку. <br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку. <br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку. <br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку.
-                    </p>
-                </div>
-                <div class="about-brand__description">
-                    <p>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку. <br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку. <br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку. <br>
-                        <br>
-                        Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-                        защитную пленку.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+);?>
+</div>
+ </section> <section class="about-brand">
+<div class="my-container">
+	<div class="about-brand__container">
+		<div class="border-top border">
+		</div>
+		<div class="border-center border">
+		</div>
+		<div class="border-left-bottom border">
+		</div>
+		<div class="border-right-bottom border">
+		</div>
+		<div class="about-brand__description">
+			<p>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
+ <br>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
+ <br>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
+ <br>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.
+			</p>
+		</div>
+		<div class="about-brand__description">
+			<p>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
+ <br>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
+ <br>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
+ <br>
+				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.
+			</p>
+		</div>
+	</div>
+</div>
+ </section>
 <?
 $APPLICATION->IncludeFile(
     "views/callback.php",
@@ -226,6 +237,4 @@ $APPLICATION->IncludeFile(
         "MODE" => "php",
     )
 );
-?>
-
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

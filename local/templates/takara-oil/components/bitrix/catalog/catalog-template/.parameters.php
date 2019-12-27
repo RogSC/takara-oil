@@ -1316,4 +1316,24 @@ $arTemplateParameters['DETAIL_SHOW_VIEWED'] = array(
 
 // hack to hide component parameters by templates
 $arTemplateParameters['HIDE_USE_ALSO_BUY'] = array();
+
+
+if (0 < intval($arCurrentValues['IBLOCK_ID']))
+{
+    $arPropList = array();
+    $rsProps = CIBlockProperty::GetList(array(),array('IBLOCK_ID' => $arCurrentValues['IBLOCK_ID']));
+    while ($arProp = $rsProps->Fetch())
+    {
+        if ($arProp['PROPERTY_TYPE'] == 'S') {
+            $arPropList[$arProp['CODE']] = $arProp['NAME'];
+        }
+    }
+    $arTemplateParameters['DETAIL_PROPERTY_CODE'] = array(
+        'PARENT' => 'DETAIL_SETTINGS',
+        'NAME' => 'Отображаемые характеристики',
+        'TYPE' => 'LIST',
+        'MULTIPLE' => 'Y',
+        'VALUES' => $arPropList,
+    );
+}
 ?>

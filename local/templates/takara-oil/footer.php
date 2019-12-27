@@ -31,9 +31,9 @@ IncludeTemplateLangFile(__FILE__);
                 <ul>
                     <?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
-	"bottom",
+	"bottom", 
 	array(
-		"ROOT_MENU_TYPE" => "bottom-left",
+		"ROOT_MENU_TYPE" => "footer-left",
 		"MAX_LEVEL" => "1",
 		"USE_EXT" => "N",
 		"COMPONENT_TEMPLATE" => "bottom",
@@ -63,24 +63,24 @@ IncludeTemplateLangFile(__FILE__);
             <div class="main-footer__nav">
                 <ul>
                     <?$APPLICATION->IncludeComponent(
-                        "bitrix:menu",
-                        "bottom",
-                        array(
-                            "ROOT_MENU_TYPE" => "bottom-right",
-                            "MAX_LEVEL" => "1",
-                            "USE_EXT" => "N",
-                            "COMPONENT_TEMPLATE" => "bottom",
-                            "MENU_CACHE_TYPE" => "N",
-                            "MENU_CACHE_TIME" => "3600",
-                            "MENU_CACHE_USE_GROUPS" => "N",
-                            "MENU_CACHE_GET_VARS" => array(
-                            ),
-                            "DELAY" => "N",
-                            "ALLOW_MULTI_SELECT" => "N",
-                            "CHILD_MENU_TYPE" => "left"
-                        ),
-                        false
-                    );?>
+	"bitrix:menu", 
+	"bottom", 
+	array(
+		"ROOT_MENU_TYPE" => "bottom-right",
+		"MAX_LEVEL" => "1",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => "bottom",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_USE_GROUPS" => "N",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left"
+	),
+	false
+);?>
                 </ul>
             </div>
             <div class="main-footer__dev">

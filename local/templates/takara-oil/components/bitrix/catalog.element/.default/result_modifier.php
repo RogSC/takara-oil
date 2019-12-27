@@ -5,5 +5,7 @@
  * @var CatalogElementComponent $component
  */
 
-$component = $this->getComponent();
-$arParams = $component->applyTemplateModifications();
+$rs = CIBlockElement::GetList([], ['IBLOCK_ID'=>20, 'PROPERTY_PRODUCT'=>$arResult['ID']], false,false,['ID', 'DATE_CREATE', 'DETAIL_TEXT', 'PREVIEW_TEXT', 'PROPERTY_AUTHOR', 'PROPERTY_DATE']);
+while ($ar = $rs->Fetch()) {
+$arResult['QUESTION'][] =  $ar;
+}
