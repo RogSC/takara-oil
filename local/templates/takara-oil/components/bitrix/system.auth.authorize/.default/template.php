@@ -107,44 +107,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                     return false;
                 });
             </script>
-
-            <!--<script type="text/javascript">
-                <?/*
-                if (strlen($arResult["LAST_LOGIN"])>0)
-                {
-                */?>
-                try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
-                <?/*
-                }
-                else
-                {
-                */?>
-                try{document.form_auth.USER_LOGIN.focus();}catch(e){}
-                <?/*
-                }
-                */?>
-            </script>-->
-
-            <?/*
-            if (strlen($_POST['ajax_key']) && $_POST['ajax_key'] == "123") {
-                $APPLICATION->RestartBuffer();
-                if (!defined('PUBLIC_AJAX_MODE')) {
-                    define('PUBLIC_AJAX_MODE', true);
-                }
-                header('Content-type: application/json');
-                if ($arResult['ERROR']) {
-                    echo json_encode(array(
-                        'type' => 'error',
-                        'message' => strip_tags($arResult['ERROR_MESSAGE']['MESSAGE']),
-                    ));
-                } else {
-                    echo json_encode(array('type' => 'ok'));
-                }
-                require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
-                die();
-            }
-            */?>
-
         </form>
     </div>
 </section>

@@ -26,8 +26,8 @@ $APPLICATION->IncludeComponent("bitrix:system.auth.authorize",
 		"REGISTER_URL" => "/auth/registration.php",
 		"SHOW_ERRORS" => "Y"
 	)
-);?><br>
-<!-- --><?/*$APPLICATION->IncludeComponent(
+);?>
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:system.auth.confirmation",
 	"",
 	Array(

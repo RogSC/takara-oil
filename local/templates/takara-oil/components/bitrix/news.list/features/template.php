@@ -15,16 +15,16 @@ $this->setFrameMode(true);
 
 <?foreach($arResult["ITEMS"] as $arItem):?>
 <div class="features__item col-4">
-    <div class="features__item_icon">
+    <div class="features__item-icon">
         <img alt="<?echo $arItem["NAME"]?>"
              src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
              width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
              height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>">
     </div>
-    <div class="features__item_title">
-        <h3><?=$arItem["NAME"]?></h3>
+    <div class="features__item-title">
+        <?=$arItem["NAME"]?>
     </div>
-    <div class="features__item_description">
+    <div class="features__item-description">
         <p><?=$arItem["PREVIEW_TEXT"]?></p>
     </div>
 </div>

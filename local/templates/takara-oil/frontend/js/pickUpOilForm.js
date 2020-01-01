@@ -52,39 +52,39 @@ $(window).load(function () {
         selectBrand.change(function () {
             selectCar.empty();
             getCars(selectCar, selectBrand.val());
-            selectTitle.item(1).firstElementChild.textContent = "Модель автомобиля";
-            selectTitle.item(2).firstElementChild.textContent = "Тип двигателя";
+            selectTitle.eq(1).text("Модель автомобиля");
+            selectTitle.eq(2).text("Тип двигателя");
         });
 
         selectCar.change(function () {
             selectEngine.empty();
             getCars(selectEngine, selectBrand.val(), selectCar.val());
-            selectTitle.item(2).firstElementChild.textContent = "Тип двигателя";
+            selectTitle.eq(2).text("Тип двигателя");
         });
 
 
         /** dropDawn Show **/
 
-        selectTitle.forEach(function (evt, index) {
-            evt.addEventListener("click", function () {
-                selectItems.item(index).classList.add("pick-up-oil__select_container_active");
+        selectTitle.each(function (index, evt) {
+            $(this).on("click", function () {
+                selectItems.eq(index).addClass("pick-up-oil__select_container_active");
             });
         });
 
-        select.forEach(function (evt, index) {
-            evt.addEventListener("change", function () {
-                selectTitle.item(index).firstElementChild.textContent = evt.value;
-                evt.parentElement.classList.remove("pick-up-oil__select_container_active");
+        select.each(function (index, evt) {
+            $(this).on("change", function () {
+                selectTitle.eq(index).text($(this).val());
+                $(this).parent().removeClass("pick-up-oil__select_container_active");
             })
         });
 
 
         /** resetButton **/
 
-        resetBtn.addEventListener("click", function (evt) {
-            selectTitle.item(0).firstElementChild.textContent = "Марка автомобиля";
-            selectTitle.item(1).firstElementChild.textContent = "Модель автомобиля";
-            selectTitle.item(2).firstElementChild.textContent = "Тип двигателя";
+        resetBtn.on("click", function (evt) {
+            selectTitle.eq(0).text("Марка автомобиля");
+            selectTitle.eq(1).text("Модель автомобиля");
+            selectTitle.eq(2).text("Тип двигателя");
         });
     }
 });

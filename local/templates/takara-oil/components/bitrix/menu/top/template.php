@@ -13,17 +13,17 @@
             <li class="main-header__navbar-item">
                 <a href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
                 <? if($arItem[IS_PARENT]): ?>
-                <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/svg/vector-down-middle.svg">
-                <ul class="main-header__navbar_hide">
-                    <div class="main-header__navbar_hide-item-title">
-                        <a class="standard-paragraph" href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/svg/vector-down-middle.svg">
+                    <?= GetContentSvgIcon('vector-down-middle') ?>
+                <ul class="main-header__navbar-nested">
+                    <div class="main-header__navbar-nested-item-title">
+                        <a href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
+                        <?= GetContentSvgIcon('vector-down-middle') ?>
                     </div>
                     <? foreach ($arResult as $indexChild => $arItemChild): ?>
                         <? if ($arItemChild["DEPTH_LEVEL"] === 2 &&
                                 $arItemChild["CHAIN"][0] === $arItem["CHAIN"][0]): ?>
-                        <li class="main-header__navbar_hide-item">
-                            <a class="standard-paragraph" href="<?= $arItemChild["LINK"] ?>"><?= $arItemChild["TEXT"] ?></a>
+                        <li class="main-header__navbar-nested-item">
+                            <a href="<?= $arItemChild["LINK"] ?>"><?= $arItemChild["TEXT"] ?></a>
                         </li>
                         <? endif ?>
                     <? endforeach ?>

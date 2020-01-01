@@ -37,7 +37,7 @@ IncludeTemplateLangFile(__FILE__);
 		"MAX_LEVEL" => "1",
 		"USE_EXT" => "N",
 		"COMPONENT_TEMPLATE" => "bottom",
-		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TYPE" => "A",
 		"MENU_CACHE_TIME" => "3600",
 		"MENU_CACHE_USE_GROUPS" => "N",
 		"MENU_CACHE_GET_VARS" => array(
@@ -66,7 +66,7 @@ IncludeTemplateLangFile(__FILE__);
 	"bitrix:menu", 
 	"bottom", 
 	array(
-		"ROOT_MENU_TYPE" => "bottom-right",
+		"ROOT_MENU_TYPE" => "footer-right",
 		"MAX_LEVEL" => "1",
 		"USE_EXT" => "N",
 		"COMPONENT_TEMPLATE" => "bottom",
@@ -90,10 +90,8 @@ IncludeTemplateLangFile(__FILE__);
     </div>
 </footer>
 
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/jquery.js"></script>
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/jquery.arcticmodal-0.3.min.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/slider.js"></script>
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/filter.js"></script>
+<!--<script type="text/javascript" src="<?/*=SITE_TEMPLATE_PATH*/?>/frontend/js/filter.js"></script>-->
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/search.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/pickUpOilForm.js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/productCatalog.js"></script>

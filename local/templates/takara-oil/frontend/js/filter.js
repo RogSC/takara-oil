@@ -154,11 +154,11 @@ $(window).load(function () {
         /**Dropdawn selector**/
 
         function dropDawnShow(element) {
-            element.nextElementSibling.classList.add("filter__dropdown-selector_active");
+            element.next().addClass("filter__dropdown-selector_active");
 
             document.on("click", ".filter__dropdown-btn", function (el) {
                 el.next().addClass("filter__dropdown-selector_active");
-            })
+            });
 
 
             /*document.$(".filter__dropdown-btn").forEach(function (el) {
@@ -169,7 +169,9 @@ $(window).load(function () {
                 }
             });*/
 
-            document.querySelectorAll(".filter__dropdown-btn").forEach(function (el) {
+
+
+            $(".filter__dropdown-btn").forEach(function (el) {
                 document.addEventListener("click", function (evt) {
                     for (let i = el.firstElementChild; i !== null; i = i.nextElementSibling) {
                         if (evt.target !== i && evt.target !== el) {

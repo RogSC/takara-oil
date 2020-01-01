@@ -1,3 +1,4 @@
+/*
 if (document.querySelector(".product-catalog__sections")) {
     let catalogSection = document.querySelectorAll(".product-catalog__img");
 
@@ -14,4 +15,4 @@ if (document.querySelector(".product-catalog__sections")) {
             rightSectionBorder.style.width = leftSectionBorder.style.width;
         })
     }
-}
+}*/

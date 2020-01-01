@@ -5,10 +5,11 @@ if ($("#slider")) {
     let translateWidth = 0;
     let slideInterval = $("#slider").data("slideinterval");
     let navBtnId = 0;
-    let stopSlide = false;
     let leftArrow = $('.slider_pag_left_arrow');
     let rightArrow = $('.slider_pag_right_arrow');
     let pagItem = $('.slider_pag_item');
+    let sliderWidth = $('.slider__viewport').width();
+    let sliderBorder = $('.slider__frame');
 
     function itemsClass() {
         leftArrow.removeClass('pag__arrow_active');
@@ -24,7 +25,7 @@ if ($("#slider")) {
             $('#slide-wrapper').css('transform', 'translate(0, 0)');
             slideNow = 1;
         } else {
-            translateWidth = -$('#viewport').width() * (slideNow);
+            translateWidth = -sliderWidth * (slideNow);
             $('#slide-wrapper').css({
                 'transform': 'translate(' + translateWidth + 'px, 0)',
                 '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
@@ -36,7 +37,7 @@ if ($("#slider")) {
 
     function prevSlide() {
         if (slideNow == 1 || slideNow <= 0 || slideNow > slideCount) {
-            translateWidth = -$('#viewport').width() * (slideCount - 1);
+            translateWidth = -sliderWidth * (slideCount - 1);
             $('#slide-wrapper').css({
                 'transform': 'translate(' + translateWidth + 'px, 0)',
                 '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
@@ -44,7 +45,7 @@ if ($("#slider")) {
             });
             slideNow = slideCount;
         } else {
-            translateWidth = -$('#viewport').width() * (slideNow - 2);
+            translateWidth = -sliderWidth * (slideNow - 2);
             $('#slide-wrapper').css({
                 'transform': 'translate(' + translateWidth + 'px, 0)',
                 '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
@@ -55,10 +56,10 @@ if ($("#slider")) {
     }
 
     $(document).ready(function () {
-        var switchInterval = setInterval(nextSlide, slideInterval);
-        var switchItemsClass = setInterval(itemsClass, slideInterval);
+        let switchInterval = setInterval(nextSlide, slideInterval);
+        let switchItemsClass = setInterval(itemsClass, slideInterval);
 
-        $('#viewport').hover(function () {
+        $('.slider__viewport').hover(function () {
             clearInterval(switchInterval);
             clearInterval(switchItemsClass);
         }, function () {
@@ -83,7 +84,7 @@ if ($("#slider")) {
         pagItem.click(function () {
             navBtnId = $(this).index() - 1;
             if (navBtnId + 1 != slideNow) {
-                translateWidth = -$('#viewport').width() * (navBtnId);
+                translateWidth = -sliderWidth * (navBtnId);
                 $('#slide-wrapper').css({
                     'transform': 'translate(' + translateWidth + 'px, 0)',
                     '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
@@ -93,6 +94,12 @@ if ($("#slider")) {
             }
             itemsClass();
         });
+    });
+
+    $(document).ready(function () {
+        sliderBorder.each(function () {
+            $(this).children().eq(2).height($(this).height()*0.88 - $(this).children().eq(3).height());
+        })
     });
 
 }
