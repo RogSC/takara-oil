@@ -1,6 +1,11 @@
 <?
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
-IncludeTemplateLangFile(__FILE__);
+
+use Bitrix\Main\Page\Asset,
+    Bitrix\Main\Localization\Loc;
+
+Loc::loadMessages(__FILE__);
+
 ?>
 
 
@@ -11,7 +16,35 @@ IncludeTemplateLangFile(__FILE__);
                 <div class="main-footer__logo">
                     <?= GetContentSvgIcon('logo') ?>
                 </div>
-            <div class="main-footer__mailing">
+            <?$APPLICATION->IncludeComponent(
+	"bitrix:form.result.new", 
+	".default", 
+	array(
+		"COMPONENT_TEMPLATE" => ".default",
+		"WEB_FORM_ID" => "5",
+		"IGNORE_CUSTOM_TEMPLATE" => "N",
+		"BUTTON_SUBMIT_TYPE" => "not_fill",
+		"BUTTON_SUBMIT_SIZE" => "big",
+		"BUTTON_SUBMIT_ICON" => "no_icon",
+		"MODAL_FORM" => "N",
+		"SEF_MODE" => "N",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"USE_EXTENDED_ERRORS" => "",
+		"LIST_URL" => "",
+		"EDIT_URL" => "",
+		"SUCCESS_URL" => "",
+		"CHAIN_ITEM_TEXT" => "",
+		"CHAIN_ITEM_LINK" => "",
+		"USE_GOOGLE_CAPTCHA" => "N",
+		"VARIABLE_ALIASES" => array(
+			"WEB_FORM_ID" => "WEB_FORM_ID",
+			"RESULT_ID" => "RESULT_ID",
+		)
+	),
+	false
+);?>
+            <div style="display: none;" class="main-footer__mailing">
                 <h4>Подпишитесь на рассылку</h4>
                 <form class="main-footer__mailing-form">
                     <fieldset class="main-footer__mailing-form_fieldset">
@@ -89,13 +122,14 @@ IncludeTemplateLangFile(__FILE__);
         </div>
     </div>
 </footer>
+<?php
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/slider.js"));
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/search.js"));
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/pickUpOilForm.js"));
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/productCatalog.js"));
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/auth.js"));
+?>
 
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/slider.js"></script>
-<!--<script type="text/javascript" src="<?/*=SITE_TEMPLATE_PATH*/?>/frontend/js/filter.js"></script>-->
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/search.js"></script>
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/pickUpOilForm.js"></script>
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/productCatalog.js"></script>
-<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/frontend/js/auth.js"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </body>
 </html>

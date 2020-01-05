@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 
 <section class="article">
-    <div class="my-container article__container">
+    <div class="container article__container">
         <div class="bread-crumb">
             <p class="bread-crumb-p standard-paragraph">
                 главная — <span class="bread-crumb-p_select">статьи</span>

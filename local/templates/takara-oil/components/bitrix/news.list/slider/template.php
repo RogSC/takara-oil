@@ -14,15 +14,6 @@ $this->setFrameMode(true);
 ?>
 
 <section class="slider container" id="slider" data-slideinterval="<?= $arParams["SLIDER_TIME"] ?>">
-    <div class="main-page__nav">
-        <div class="main-page__nav-block">
-            <div class="main-page__nav-rectangle main-page__nav-rectangle_active">
-            </div>
-            <p>
-                01
-            </p>
-        </div>
-    </div>
     <div class="slider__viewport" id="viewport">
         <ul id="slide-wrapper"
             style="width: calc(100% * <?= count($arResult["ITEMS"]) ?> + 1px);">
