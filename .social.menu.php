@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"icon-social-twitter", 
+		"https://twitter.com/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"icon-social-google", 
+		"https://google.com/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"icon-social-facebook", 
+		"https://facebook.com/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"icon-social-dribble", 
+		"https://gribble.com/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
