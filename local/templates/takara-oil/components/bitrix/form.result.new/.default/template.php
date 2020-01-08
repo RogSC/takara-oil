@@ -15,7 +15,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
     ?>
 <? if ($arResult["RENDER_FORM"] == "Y"){?>
     <? require_once __DIR__ . "/form.php"; ?>
-
 <? } else {?>
     <button class="btn <?=$arParams['BUTTON_INIT_TYPE'] ? 'btn-' . $arParams['BUTTON_INIT_TYPE'] . ' ' : ''?>
 <?=$arParams['BUTTON_INIT_ICON'] != 'no_icon' ? 'btn-icon__' . $arParams['BUTTON_INIT_ICON'] . ' ' : '' ?>

@@ -32,16 +32,6 @@ $(window).load(function () {
                 $('.nav-list__items').slick('slickGoTo',arr['current']);
                 slide.attr('data-current-slide', arr['current']);
             }
-
-
-
-
-
-
-            console.log('----');
-            console.log(curSlide);
-            console.log(arr['current']);
-            console.log($('.nav-list__items').slick('slickCurrentSlide'));
         });
     }
 });

@@ -7,6 +7,7 @@ $(window).load(function () {
         let selectBrand = $(".pick-up-oil__select_car-brand");
         let selectCar = $(".pick-up-oil__select_car-model");
         let selectEngine = $(".pick-up-oil__select_engine-type");
+        let submitBtn = $(".pick-up-oil__form_button");
 
         /** get array cars **/
 
@@ -79,12 +80,35 @@ $(window).load(function () {
         });
 
 
+        /** dropDawn Close **/
+
+        $(document).on("click", function (evt) {
+            let target = $(evt.target);
+            selectItems.each(function (index, e) {
+                if (target.is(e) || target.is(selectTitle.eq(index))) {
+                    return;
+                } else {
+                    $(this).removeClass("pick-up-oil__select_container_active");
+                }
+            });
+        });
+
+
         /** resetButton **/
 
-        resetBtn.on("click", function (evt) {
+        resetBtn.on("click", function () {
             selectTitle.eq(0).text("Марка автомобиля");
             selectTitle.eq(1).text("Модель автомобиля");
             selectTitle.eq(2).text("Тип двигателя");
         });
+
+
+        /** submitButton **/
+
+        submitBtn.on("click", function (e) {
+            e.preventDefault();
+        });
+
+
     }
 });

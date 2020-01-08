@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 <section class="slider container" id="slider" data-slideinterval="<?= $arParams["SLIDER_TIME"] ?>">
     <div class="slider__viewport" id="viewport">
         <ul id="slide-wrapper"
-            style="width: calc(100% * <?= count($arResult["ITEMS"]) ?> + 1px);">
+            style="width: calc(100% * <?= count($arResult["ITEMS"]) ?>);">
             <? foreach ($arResult["ITEMS"] as $arItem) { ?>
                 <?
                 $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -41,7 +41,7 @@ $this->setFrameMode(true);
                         <div class="slider__border slider__border-bottom">
                         </div>
                         <div class="slider__title-container">
-                            <div class="slider__title">
+                            <div class="slider__title red-font">
                                 <?= $arItem["PREVIEW_TEXT"] ? substr($arItem["NAME"], 0, 15) : $arItem["NAME"] ?>
                             </div>
                             <div class="slider__description">

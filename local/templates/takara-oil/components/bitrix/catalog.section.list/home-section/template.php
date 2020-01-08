@@ -2,19 +2,6 @@
 
 <? if ($arResult['SECTIONS']) { ?>
     <section class="products-catalog container">
-        <!--<div class="main-page__nav js-init-slide-screen__nav">
-            <? /* $i = 1 */ ?>
-            <? /* foreach ($arResult['SECTIONS'] as $SECTIONS) { */ ?>
-                <div class="main-page__nav-block <? /*= $i == 1 ? 'main-page__nav-block_no-active' : '' */ ?>">
-                    <div class="main-page__nav-rectangle"></div>
-                    <div>
-                        <? /*= $i */ ?>
-                    </div>
-                    <span class="main-page__nav-separator"></span>
-                </div>
-                <? /* $i++ */ ?>
-            <? /* } */ ?>
-        </div>-->
         <div class="products-catalog__title section__title">
             <h2><?
                 $APPLICATION->IncludeFile(
@@ -29,9 +16,9 @@
         <div class="js-init-slide-screen">
             <? foreach ($arResult['SECTIONS'] as $SECTIONS) { ?>
                 <div class="product-catalog__sections-list">
-                    <div class="product-catalog__sections">
+                    <div class="product-catalog__sections row">
                         <? foreach ($SECTIONS as $SECTION) { ?>
-                            <a href="<?= $SECTION['SECTION_PAGE_URL'] ?>">
+                            <a href="<?= $SECTION['SECTION_PAGE_URL'] ?>" class="col-12 col-lg-4">
                                 <div class="product-catalog__section">
                                     <div class="product-catalog__img">
                                         <div class="product-catalog__border-left"></div>

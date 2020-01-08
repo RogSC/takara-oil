@@ -1,52 +1,24 @@
 $(window).load(function () {
-    if ($(".catalog__filter-btn").length > 0) {
+    if ($(".js-init-filter-btn").length > 0) {
+        let myFilterBtn = $(".js-init-filter-btn");
+        let myFilterCloseBtn = $(".js-init-filter-close-btn");
+        let myFilter = $(".filter");
 
         /**Show filter**/
 
+        myFilterBtn.on("click", function () {
+            myFilter.addClass("filter_active");
+        });
+
         $(document).on("click", function (evt) {
-            let myFilterBtn = $(".catalog__filter-btn");
-            let myFilterCloseBtn = $(".filter__close-btn");
-            let myFilter = $(".filter");
-            const toggleFilter = () => {
-                myFilter.classList.toggle("filter_active");
-            };
+            let target = $(evt.target);
 
-            let target = evt.target;
-            let its_myFilter = function () {
-                for (let i = myFilter.firstElementChild; i !== null; i = i.nextElementSibling) {
-                    if (target === i || target === myFilter || myFilter.contains(target)) {
-                        return true;
-                    }
+            if (target.is(myFilterBtn) || target.is(myFilterBtn.find('*'))) {
+                if (target.is(myFilterCloseBtn.find('*')) || target.is(myFilterCloseBtn)) {
+                    myFilter.removeClass("filter_active");
                 }
-                return false;
-            };
-
-            let its_myFilterBtn = function () {
-                for (let i = myFilterBtn.firstElementChild; i !== null; i = i.nextElementSibling) {
-                    if (target === i || target === myFilterBtn) {
-                        return true;
-                    }
-                }
-                return false;
-            };
-
-            let its_myCloseFilterButton = function () {
-                for (let i = myFilterCloseBtn.firstElementChild; i !== null; i = i.nextElementSibling) {
-                    if (target === i || target === myFilterCloseBtn) {
-                        return true;
-                    }
-                }
-                return false;
-            };
-
-            let filter_is_active;
-
-            if (myFilter) {
-                filter_is_active = myFilter.classList.contains("filter_active");
-            }
-
-            if (its_myFilterBtn() || (!its_myFilter() && !its_myFilterBtn() && filter_is_active) || its_myCloseFilterButton()) {
-                toggleFilter();
+            } else {
+                myFilter.removeClass("filter_active");
             }
         });
 
@@ -77,37 +49,38 @@ $(window).load(function () {
 
 // styles
                 let slider = $(".filter__price-slider");
-                slider.style.paddingLeft = (inputsRy.theValue[0] - inputsRy.minRange) * rangeK + "px";
-                slider.style.paddingRight = inputsRy.sliderWidth - inputsRy.theValue[1] * rangeK + "px";
+                slider.css('padding-left', (inputsRy.theValue[0] - inputsRy.minRange) * rangeK + "px");
+                slider.css('padding-right', inputsRy.sliderWidth - inputsRy.theValue[1] * rangeK + "px");
 
                 let track = $(".filter__price-slider-area");
-                track.style.width = inputsRy.theValue[1] * rangeK - inputsRy.theValue[0] * rangeK + "px";
+                track.width(inputsRy.theValue[1] * rangeK - inputsRy.theValue[0] * rangeK + "px");
 
                 let thumbs = $(".filter__price-slider-thumb");
-                for (let i = 0; i < thumbs.length; i++) {
-                    thumbs[i].style.left = (inputsRy.theValue[i] - inputsRy.minRange) * rangeK - (inputsRy.thumbWidth / 2) + "px";
-                }
+                thumbs.each(function (i, e) {
+                    thumbs.eq(i).css('left', (inputsRy.theValue[i] - inputsRy.minRange) * rangeK - (inputsRy.thumbWidth / 2) + "px");
+                });
+
                 let outputs = $(".filter__price-input");
-                for (let i = 0; i < outputs.length; i++) {
-                    outputs[i].value = inputsRy.theValue[i];
-                }
+                outputs.each(function (i, e) {
+                    outputs.eq(i).val(inputsRy.theValue[i]);
+                });
 
 //events
 
-                thumbs[0].on("mousedown", function (evt) {
+                thumbs.eq(0).on("mousedown", function (evt) {
                     isDragging0 = true;
-                }, false);
-                thumbs[1].on("mousedown", function (evt) {
+                });
+                thumbs.eq(1).on("mousedown", function (evt) {
                     isDragging1 = true;
-                }, false);
+                });
                 container.on("mouseup", function (evt) {
                     isDragging0 = false;
                     isDragging1 = false;
-                }, false);
-                container.on("mouseout", function (evt) {
+                });
+                myFilter.on("mouseout", function (evt) {
                     isDragging0 = false;
                     isDragging1 = false;
-                }, false);
+                });
 
                 container.on("mousemove", function (evt) {
                     let mousePos = oMousePos(this, evt);
@@ -119,29 +92,28 @@ $(window).load(function () {
                         if (theValue0 < theValue1 - (inputsRy.thumbWidth / 2) &&
                             theValue0 >= inputsRy.minRange) {
                             inputsRy.theValue[0] = theValue0;
-                            thumbs[0].style.left = (theValue0 - inputsRy.minRange) * rangeK - (inputsRy.thumbWidth / 2) + "px";
-                            outputs[0].value = theValue0;
-                            slider.style.paddingLeft = (theValue0 - inputsRy.minRange) * rangeK + "px";
-                            track.style.width = (theValue1 - theValue0) * rangeK + "px";
+                            thumbs.eq(0).css('left', (theValue0 - inputsRy.minRange) * rangeK - (inputsRy.thumbWidth / 2) + "px");
+                            outputs.eq(0).val(theValue0);
+                            slider.css('padding-left', (theValue0 - inputsRy.minRange) * rangeK + "px");
+                            track.width((theValue1 - theValue0) * rangeK + "px");
                         }
                     } else if (isDragging1) {
 
                         if (theValue1 > theValue0 + (inputsRy.thumbWidth / 2) &&
                             theValue1 <= inputsRy.maxRange) {
                             inputsRy.theValue[1] = theValue1;
-                            thumbs[1].style.left = (theValue1 - inputsRy.minRange) * rangeK - (inputsRy.thumbWidth / 2) + "px";
-                            outputs[1].value = theValue1;
-                            slider.style.paddingRight = (inputsRy.maxRange - theValue1) * rangeK + "px";
-                            track.style.width = (theValue1 - theValue0) * rangeK + "px";
+                            thumbs.eq(1).css('left', (theValue1 - inputsRy.minRange) * rangeK - (inputsRy.thumbWidth / 2) + "px");
+                            outputs.eq(1).val(theValue1);
+                            slider.css('padding-right', (inputsRy.maxRange - theValue1) * rangeK + "px");
+                            track.width((theValue1 - theValue0) * rangeK + "px");
                         }
                     }
-
-                }, false);
+                });
 
 // helpers
 
-                function oMousePos(elmt, evt) {
-                    let ClientRect = elmt.getBoundingClientRect();
+                function oMousePos(el, evt) {
+                    let ClientRect = el.getBoundingClientRect();
                     return { //objeto
                         x: Math.round(evt.clientX - ClientRect.left),
                         y: Math.round(evt.clientY - ClientRect.top)
@@ -150,49 +122,28 @@ $(window).load(function () {
             }
         });
 
-
         /**Dropdawn selector**/
 
-        function dropDawnShow(element) {
-            element.next().addClass("filter__dropdown-selector_active");
+        let dropDawnBtn = $('.js-init-filter__dropdown-btn'),
+            dropDawn = $('.filter__dropdown-selector');
 
-            document.on("click", ".filter__dropdown-btn", function (el) {
-                el.next().addClass("filter__dropdown-selector_active");
-            });
+        dropDawnBtn.on('click', function () {
+            dropDawn.addClass("filter__dropdown-selector_active");
+        });
 
+        $(document).on("click", function (evt) {
+            let target = $(evt.target);
 
-            /*document.$(".filter__dropdown-btn").forEach(function (el) {
-                for (let i = el.firstElementChild; i !== null; i = i.nextElementSibling) {
-                    el.on("click", function () {
-                        el.nextElementSibling.classList.add("filter__dropdown-selector_active");
-                    });
-                }
-            });*/
+            if (target.is(dropDawnBtn) || target.is(dropDawn) || target.is(dropDawn.find('*'))) {
+                return;
+            } else {
+                dropDawn.removeClass("filter__dropdown-selector_active");
+            }
+        });
 
-
-
-            $(".filter__dropdown-btn").forEach(function (el) {
-                document.addEventListener("click", function (evt) {
-                    for (let i = el.firstElementChild; i !== null; i = i.nextElementSibling) {
-                        if (evt.target !== i && evt.target !== el) {
-                            el.nextElementSibling.classList.remove("filter__dropdown-selector_active");
-                            break;
-                        }
-                    }
-                });
-            });
-
-            let selectorWrapper = document.querySelectorAll(".filter__dropdown-selector");
-
-            selectorWrapper.forEach(function (selectors) {
-                let selectWrapper = selectors.querySelectorAll(".filter__dropdown-select");
-                selectWrapper.forEach(function (selects) {
-                    selects.addEventListener("click", function () {
-                        this.parentElement.previousElementSibling.querySelector("p").textContent = this.textContent;
-                    });
-                });
-            });
-
-        }
+        dropDawn.on('click', 'filter__dropdown-select', function () {
+            dropDawnBtn.find('p').text($(this).find('p').text());
+            dropDawn.removeClass("filter__dropdown-selector_active");
+        });
     }
-}
+});

@@ -58,15 +58,6 @@ $arFilterViewModeList = array(
 );
 
 $arTemplateParameters = array(
-	"SECTIONS_VIEW_MODE" => array(
-		"PARENT" => "SECTIONS_SETTINGS",
-		"NAME" => GetMessage('CPT_BC_SECTIONS_VIEW_MODE'),
-		"TYPE" => "LIST",
-		"VALUES" => $arViewModeList,
-		"MULTIPLE" => "N",
-		"DEFAULT" => "LIST",
-		"REFRESH" => "Y"
-	),
 	"SECTIONS_SHOW_PARENT_NAME" => array(
 		"PARENT" => "SECTIONS_SETTINGS",
 		"NAME" => GetMessage('CPT_BC_SECTIONS_SHOW_PARENT_NAME'),
@@ -75,24 +66,6 @@ $arTemplateParameters = array(
 	)
 );
 
-if (isset($arCurrentValues['SECTIONS_VIEW_MODE']) && 'TILE' == $arCurrentValues['SECTIONS_VIEW_MODE'])
-{
-	$arTemplateParameters['SECTIONS_HIDE_SECTION_NAME'] = array(
-		'PARENT' => 'SECTIONS_SETTINGS',
-		'NAME' => GetMessage('CPT_BC_SECTIONS_HIDE_SECTION_NAME'),
-		'TYPE' => 'CHECKBOX',
-		'DEFAULT' => 'N'
-	);
-}
-
-$arTemplateParameters["FILTER_VIEW_MODE"] = array(
-	"PARENT" => "FILTER_SETTINGS",
-	"NAME" => GetMessage('CPT_BC_FILTER_VIEW_MODE'),
-	"TYPE" => "LIST",
-	"VALUES" => $arFilterViewModeList,
-	"DEFAULT" => "VERTICAL",
-	"HIDDEN" => (!isset($arCurrentValues['USE_FILTER']) || 'N' == $arCurrentValues['USE_FILTER'])
-);
 $arTemplateParameters["FILTER_HIDE_ON_MOBILE"] = array(
 	"PARENT" => "FILTER_SETTINGS",
 	"NAME" => GetMessage("CPT_BC_FILTER_HIDE_ON_MOBILE"),

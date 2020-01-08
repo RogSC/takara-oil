@@ -8,14 +8,17 @@ if (empty($arResult)) {
 }
 ob_start();
 ?>
-<? foreach ($arResult as $key => $arLink): ?>
-    <? if ($key != 0): ?>
-        <span class="sep">/</span>
-    <? endif; ?>
-    <? if ($key == count($arResult) - 1): ?>
-        <span><?= $arLink["TITLE"]; ?></span>
-    <? else: ?>
-        <a href="<?= $arLink["LINK"]; ?>"><?= $arLink["TITLE"]; ?></a>
-    <? endif; ?>
-<? endforeach; ?>
+<div class="bread-crumb col">
+<? foreach ($arResult as $key => $arLink) { ?>
+    <? if ($key == count($arResult) - 1) { ?>
+        <span class="bread-crumb-p_select"><?= $arLink["TITLE"] ?></span>
+    <?}?>
+    <? if($key == 0) {?>
+        <a href="<?= $arLink["LINK"] ?>"><?= $arLink["TITLE"] ?></a>
+        <span class="sep"> — </span>
+    <? } ?>
+<? } ?>
+</div>
 <? return ob_get_clean(); ?>
+
+

@@ -1,9 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог продукции");
-?><section class="catalog">
-<div class="my-container catalog-container">
-	 <?$APPLICATION->IncludeComponent(
+?>
+        <? $APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	"catalog-template", 
 	array(
@@ -46,7 +45,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"DETAIL_USE_COMMENTS" => "N",
 		"DETAIL_USE_VOTE_RATING" => "N",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "Y",
-		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"ELEMENT_SORT_FIELD" => "sort",
 		"ELEMENT_SORT_FIELD2" => "id",
@@ -84,7 +83,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"LIST_META_DESCRIPTION" => "-",
 		"LIST_META_KEYWORDS" => "-",
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false}]",
 		"LIST_SHOW_SLIDER" => "N",
 		"LIST_SLIDER_INTERVAL" => "3000",
 		"LIST_SLIDER_PROGRESS" => "N",
@@ -103,7 +102,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "20",
+		"PAGE_ELEMENT_COUNT" => "4",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
 			0 => "PRODUCT_PRICE",
@@ -132,12 +131,12 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"SHOW_404" => "N",
 		"SHOW_DEACTIVATED" => "N",
 		"SHOW_PRICE_COUNT" => "1",
-		"SHOW_TOP_ELEMENTS" => "N",
+		"SHOW_TOP_ELEMENTS" => "Y",
 		"SIDEBAR_DETAIL_SHOW" => "N",
 		"SIDEBAR_PATH" => "",
 		"SIDEBAR_SECTION_SHOW" => "N",
 		"TEMPLATE_THEME" => "blue",
-		"TOP_ELEMENT_COUNT" => "9",
+		"TOP_ELEMENT_COUNT" => "20",
 		"TOP_ELEMENT_SORT_FIELD" => "sort",
 		"TOP_ELEMENT_SORT_FIELD2" => "id",
 		"TOP_ELEMENT_SORT_ORDER" => "asc",
@@ -145,8 +144,8 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"TOP_ENLARGE_PRODUCT" => "STRICT",
 		"TOP_LINE_ELEMENT_COUNT" => "3",
 		"TOP_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-		"TOP_SHOW_SLIDER" => "Y",
+		"TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"TOP_SHOW_SLIDER" => "N",
 		"TOP_SLIDER_INTERVAL" => "3000",
 		"TOP_SLIDER_PROGRESS" => "N",
 		"TOP_VIEW_MODE" => "SECTION",
@@ -171,7 +170,6 @@ $APPLICATION->SetTitle("Каталог продукции");
 			3 => "PRODUCT_USE",
 			4 => "PRODUCT_CLASS",
 			5 => "PRODUCT_VISCOSITY",
-			6 => "PRODUCT_PACKING",
 		),
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
@@ -187,44 +185,49 @@ $APPLICATION->SetTitle("Каталог продукции");
 		)
 	),
 	false
-);?>
-</div>
- </section> <section class="about-brand">
-<div class="my-container">
-	<div class="about-brand__container">
-		<div class="border-top border">
-		</div>
-		<div class="border-center border">
-		</div>
-		<div class="border-left-bottom border">
-		</div>
-		<div class="border-right-bottom border">
-		</div>
-		<div class="about-brand__description">
-			<p>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
- <br>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
- <br>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
- <br>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.
-			</p>
-		</div>
-		<div class="about-brand__description">
-			<p>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
- <br>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
- <br>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку. <br>
- <br>
-				 Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную защитную пленку.
-			</p>
-		</div>
-	</div>
-</div>
- </section>
+); ?>
+    <section class="about-brand container">
+        <div class="about-brand__container row no-gutters">
+            <div class="border-top border">
+            </div>
+            <div class="border-center border">
+            </div>
+            <div class="border-left-bottom border">
+            </div>
+            <div class="border-right-bottom border">
+            </div>
+            <div class="col">
+                <div class="about-brand__description">
+                    <p>
+                        <?
+                        $APPLICATION->IncludeFile(
+                            "/include/" . SITE_ID . "/catalog/seo_left.php",
+                            array(),
+                            array(
+                                "MODE" => "html",
+                            )
+                        );
+                        ?>
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="about-brand__description">
+                    <p>
+                        <?
+                        $APPLICATION->IncludeFile(
+                            "/include/" . SITE_ID . "/catalog/seo_right.php",
+                            array(),
+                            array(
+                                "MODE" => "html",
+                            )
+                        );
+                        ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 <?
 $APPLICATION->IncludeFile(
     "views/callback.php",
@@ -234,4 +237,6 @@ $APPLICATION->IncludeFile(
         "MODE" => "php",
     )
 );
-?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+?>
+
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

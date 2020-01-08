@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 
 <?foreach($arResult["ITEMS"] as $arItem):?>
-<div class="features__item col-4">
+<div class="features__item col-12 col-md-4">
     <div class="features__item-icon">
         <img alt="<?echo $arItem["NAME"]?>"
              src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"

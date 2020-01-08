@@ -18,7 +18,6 @@ Loc::loadMessages(__FILE__);
 ?>
 
 <? foreach ($arResult['ITEMS'] as $arItem) { ?>
-    <? //dump($arItem['PROPERTIES']['AUTHOR']['VALUE']) ?>
     <div class="catalog-element__question">
         <div class="element__questions-time">
             <time><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></time>

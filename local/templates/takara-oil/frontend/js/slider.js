@@ -98,7 +98,7 @@ if ($("#slider")) {
 
     $(document).ready(function () {
         sliderBorder.each(function () {
-            $(this).children().eq(2).height($(this).height()*0.88 - $(this).children().eq(3).height());
+            $(this).children().eq(2).height($(this).height()*0.94 - $(this).children().eq(0).height() - $(this).children().eq(3).height());
         })
     });
 

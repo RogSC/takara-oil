@@ -1,7 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "TAKARA OIL");
-$APPLICATION->SetPageProperty("description", "Моторные масла TAKARA");
 $APPLICATION->SetTitle("TAKARA OIL");
 ?>
 <? $APPLICATION->IncludeComponent(
@@ -104,7 +102,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
 ); ?>
     <section class="features container">
         <div class="main-page__mouse">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/mouse.svg">
+            <?= GetContentSvgIcon('mouse') ?>
         </div>
         <div class="features__container">
             <div class="border-left-top border">
@@ -230,7 +228,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                     <div class="pick-up-oil__select-title ">
                         Марка автомобиля
                     </div>
-                    <select size="15" class="pick-up-oil__select pick-up-oil__select_car-brand hight-paragraph"
+                    <select size="15" class="pick-up-oil__select pick-up-oil__select_car-brand"
                             name="car-brand"
                             id="car-brand" data-placeholder="Марка автомобиля" tabindex="-1" aria-hidden="true">
                     </select>
@@ -239,7 +237,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
                     <div class="pick-up-oil__select-title ">
                         Модель автомобиля
                     </div>
-                    <select size="15" class="pick-up-oil__select pick-up-oil__select_car-model hight-paragraph"
+                    <select size="15" class="pick-up-oil__select pick-up-oil__select_car-model"
                             name="car-model"
                             id="car-model" data-placeholder="Модель автомобиля" tabindex="0">
                     </select>
@@ -248,21 +246,22 @@ $APPLICATION->SetTitle("TAKARA OIL");
                     <div class="pick-up-oil__select-title">
                         Тип двигателя
                     </div>
-                    <select size="15" class="pick-up-oil__select pick-up-oil__select_engine-type hight-paragraph"
+                    <select size="15" class="pick-up-oil__select pick-up-oil__select_engine-type"
                             name="engine-type"
                             id="engine-type" data-placeholder="Тип двигателя" tabindex="1">
                     </select>
                 </div>
-                <button type="submit" class="pick-up-oil__form_button hight-paragraph">Подобрать масло</button>
-                <button type="reset" class="pick-up-oil__form_reset hight-paragraph">Сбросить фильтр</button>
+                <button type="submit" class="pick-up-oil__form_button btn btn-small btn_large btn_fill btn_left">Подобрать масло</button>
+                <button type="reset" class="pick-up-oil__form_reset btn_large">Сбросить фильтр</button>
             </form>
         </div>
     </section>
+
     <section class="about-brand container">
         <div class="main-page__mouse">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/mouse.svg">
+            <?= GetContentSvgIcon('mouse') ?>
         </div>
-        <div class="about-brand__container">
+        <div class="about-brand__container row no-gutters">
             <div class="border-top border">
             </div>
             <div class="border-center border">
@@ -271,7 +270,7 @@ $APPLICATION->SetTitle("TAKARA OIL");
             </div>
             <div class="border-right-bottom border">
             </div>
-            <div class="about-brand__title">
+            <div class="about-brand__title col">
                 <h2><?
                     $APPLICATION->IncludeFile(
                         "views/about-title.php",
@@ -282,33 +281,36 @@ $APPLICATION->SetTitle("TAKARA OIL");
                     );
                     ?></h2>
             </div>
-            <div class="about-brand__description">
-                <p>
-                    <?
-                    $APPLICATION->IncludeFile(
-                        "views/about-description.php",
-                        array(),
-                        array(
-                            "MODE" => "text",
-                        )
-                    );
-                    ?>
-                </p>
-                <div class="about-brand__btn">
-                    <a href="/about/" class="btn__more"><?
+            <div class="col">
+                <div class="about-brand__description">
+                    <p>
+                        <?
                         $APPLICATION->IncludeFile(
-                            "views/about-link-text.php",
+                            "views/about-description.php",
                             array(),
                             array(
                                 "MODE" => "text",
                             )
                         );
-                        ?></a>
+                        ?>
+                    </p>
+                    <div class="about-brand__btn">
+                        <a href="/about/" class="btn__more"><?
+                            $APPLICATION->IncludeFile(
+                                "views/about-link-text.php",
+                                array(),
+                                array(
+                                    "MODE" => "text",
+                                )
+                            );
+                            ?></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="articles container articles__container">
+
+    <section class="articles container">
         <div class="main-page__mouse-contain">
         </div>
         <div class="articles__title section__title">
@@ -392,15 +394,17 @@ $APPLICATION->SetTitle("TAKARA OIL");
             false
         ); ?>
         <div class="articles__btn">
-            <a class="button standard-paragraph" href="/articles/"><?
-                $APPLICATION->IncludeFile(
-                    "views/articles-link-text.php",
-                    array(),
-                    array(
-                        "MODE" => "text",
-                    )
-                );
-                ?></a>
+            <a href="/articles/">
+                <button class="btn btn-small"><?
+                    $APPLICATION->IncludeFile(
+                        "views/articles-link-text.php",
+                        array(),
+                        array(
+                            "MODE" => "text",
+                        )
+                    );
+                    ?></button>
+            </a>
         </div>
     </section>
 <?

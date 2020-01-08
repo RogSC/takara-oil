@@ -1,0 +1,1 @@
+(C) TAKARA OIL

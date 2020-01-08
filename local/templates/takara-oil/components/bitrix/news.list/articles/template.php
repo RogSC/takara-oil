@@ -12,43 +12,37 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
-<? $i = 0 ?>
-<? foreach ($arResult["ITEMS"] as $arItem): ?>
-    <?= $i == 0 ? "<div class='articles__items'>" : "" ?>
-    <div class="articles__item <?= $i == 1 ? "articles__item_center" : "" ?>">
-        <div class="articles__item_logo">
-            <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
-                <img alt="<? echo $arItem["NAME"] ?>"
-                     src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
-                     width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>"
-                     height="<?= $arItem["PREVIEW_PICTURE"]["HEIGHT"] ?>">
-            </a>
+<div class="articles__items row">
+    <? foreach ($arResult["ITEMS"] as $arItem) { ?>
+        <div class="col-12 col-md-4">
+            <div class="articles__item">
+                <a class="articles__item_logo" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+                    <img alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
+                         src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>">
+                </a>
+                <div class="articles__item_date">
+                    <p>
+                        <?= $arItem["DISPLAY_ACTIVE_FROM"] ?>
+                    </p>
+                </div>
+                <div class="articles__item_title">
+                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+                        <h3><?= $arItem["NAME"] ?></h3>
+                    </a>
+                </div>
+                <div class="articles__item_description">
+                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+                        <p><?= $arItem["PREVIEW_TEXT"] ?></p>
+                    </a>
+                </div>
+                <div class="articles__item_btn">
+                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn__more">Подробнее</a>
+                </div>
+            </div>
         </div>
-        <div class="articles__item_date">
-            <p>
-                <?= substr($arItem["TIMESTAMP_X"], 0, 10) ?>
-            </p>
-        </div>
-        <div class="articles__item_title">
-            <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
-                <h3><?= $arItem["NAME"] ?></h3>
-            </a>
-        </div>
-        <div class="articles__item_description">
-            <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
-                <p><?= $arItem["PREVIEW_TEXT"] ?></p>
-            </a>
-        </div>
-        <div class="articles__item_btn">
-            <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn__more">Подробнее</a>
-        </div>
-    </div>
-    <?= $i == 2 ? "</div>" : "" ?>
-    <? $i++ ?>
-    <? if ($i == 3) $i = 0 ?>
-<? endforeach ?>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-    <?=$arResult["NAV_STRING"]?>
-<?endif?>
+    <? } ?>
+</div>
+<? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>
+    <?= $arResult["NAV_STRING"] ?>
+<? } ?>
 
