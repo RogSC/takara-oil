@@ -77,6 +77,7 @@ function clearResult(type = 'remove') {
         }
     }
 }
+
 function getResult(value) {
     let cont = $('.search-form');
     clearResult();

@@ -17,35 +17,41 @@ use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 ?>
 
-<? foreach ($arResult['ITEMS'] as $arItem) { ?>
-    <div class="catalog-element__question">
-        <div class="element__questions-time">
-            <time><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></time>
-        </div>
-        <?if ($arItem['PROPERTIES']['AUTHOR']['VALUE']) {?>
-        <div class="element__questions-author">
-            <p class="element__questions-author-p">
-                <span class="element__questions-author-p_red"><?= Loc::getMessage('AUTHOR') ?>: </span><?= $arItem['PROPERTIES']['AUTHOR']['VALUE'] ?>
-            </p>
-        </div>
-        <?}?>
-        <div class="element__question">
-            <p class="element__question-p"><?= $arItem["PREVIEW_TEXT"] ?></p>
-        </div>
-        <?if ($arItem["DETAIL_TEXT"]) {?>
-        <div class="img__redline"></div>
-        <div class="element__questions-time">
-            <time><?= date('d.m.Y H:i', strtotime($arItem['PROPERTIES']['DATE']['VALUE']))?></time>
-        </div>
-        <div class="element__questions-author">
-            <p class="element__questions-author-p element__questions-author-p_red">
-                <?=Loc::getMessage('ANSWER')?>:
-            </p>
-        </div>
-        <div class="element__question">
-            <p class="element__question-p"><?= $arItem["DETAIL_TEXT"] ?></p>
-        </div>
-        <?}?>
+
+    <div class="catalog-el__questions row">
+        <? foreach ($arResult['ITEMS'] as $arItem) { ?>
+            <div class="col-12 col-md-6">
+                <div class="catalog-el__q">
+                    <div class="el__q-time">
+                        <p><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></p>
+                    </div>
+                    <? if ($arItem['PROPERTIES']['AUTHOR']['VALUE']) { ?>
+                        <div class="el__q-author">
+                <span class="red-font">
+                    <?= Loc::getMessage('AUTHOR') ?>:
+                </span>
+                            <?= $arItem['PROPERTIES']['AUTHOR']['VALUE'] ?>
+                        </div>
+                    <? } ?>
+                    <div class="el__q">
+                        <?= $arItem["PREVIEW_TEXT"] ?>
+                    </div>
+                    <? if ($arItem["DETAIL_TEXT"]) { ?>
+                        <div class="img__redline"></div>
+                        <div class="el__q-time">
+                            <p><?= date('d.m.Y H:i', strtotime($arItem['PROPERTIES']['DATE']['VALUE'])) ?></p>
+                        </div>
+                        <div class="el__q-author">
+                            <p class="red-font">
+                                <?= Loc::getMessage('ANSWER') ?>:
+                            </p>
+                        </div>
+                        <div class="el__q">
+                            <?= $arItem["DETAIL_TEXT"] ?>
+                        </div>
+                    <? } ?>
+                </div>
+            </div>
+        <? } ?>
+        <?= $arResult["NAV_STRING"] ?>
     </div>
-<? } ?>
-    <?=$arResult["NAV_STRING"]?>

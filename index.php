@@ -213,7 +213,6 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 );
                 ?></h2>
         </div>
-        <div class="pick-up-oil__form_container">
             <form class="pick-up-oil__form">
                 <div class="pick-up-oil__select-unfocus">
                     Марка автомобиля
@@ -254,7 +253,6 @@ $APPLICATION->SetTitle("TAKARA OIL");
                 <button type="submit" class="pick-up-oil__form_button btn btn-small btn_large btn_fill btn_left">Подобрать масло</button>
                 <button type="reset" class="pick-up-oil__form_reset btn_large">Сбросить фильтр</button>
             </form>
-        </div>
     </section>
 
     <section class="about-brand container">
