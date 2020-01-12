@@ -16,7 +16,7 @@ CModule::IncludeModule("iblock");
 $rs = CIBlockElement::GetList(array(), array(
     'IBLOCK_ID' => 14,
     '?NAME' => urldecode($_REQUEST['q'])
-), false, array('nTopCount' => 5), array('ID', 'NAME', 'DETAIL_PAGE_URL')
+), false, array('nTopCount' => 6), array('ID', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE')
 );
 
 $arResult = array();
@@ -24,6 +24,11 @@ $arResult = array();
 while ($ar_res = $rs->GetNext()) {
     if ($ar_res['DETAIL_PAGE_URL']) {
         $ar_res['URL'] = $ar_res['DETAIL_PAGE_URL'];
+    }
+    if ($ar_res['PREVIEW_PICTURE']) {
+        $ar_res['PREVIEW_PICTURE'] = CFile::GetPath($ar_res['PREVIEW_PICTURE']);
+    } else {
+        $ar_res['PREVIEW_PICTURE'] = '/local/templates/takara-oil/frontend/img/noPhoto.png';
     }
     if ($ar_res['NAME']) {
         $ar_res['TITLE_FORMATED'] = $ar_res['NAME'];

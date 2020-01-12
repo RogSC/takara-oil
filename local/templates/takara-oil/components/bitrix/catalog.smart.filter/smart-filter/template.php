@@ -1,6 +1,7 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
-$this->setFrameMode(true); ?>
+$this->setFrameMode(true);
+?>
 
 <form class="filter__form"
       name="<?= $arResult["FILTER_NAME"] . "_form" ?>"
@@ -29,15 +30,15 @@ $this->setFrameMode(true); ?>
                             </div>
                         </div>
                         <div class="filter__price-inputs">
-                            <input class="filter__price-min filter__price-input" type="text"
+                            <input class="filter__price-min filter__price-input inp filter__font" type="text"
                                    value="<?= $arFilterItem["VALUES"]["MIN"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MIN"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
                                    size="5"
                                    data-minpricerange="<?= $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>"
                                    onkeyup="smartFilter.keyup(this)">
-                            <span> - </span>
-                            <input class="filter__price-max filter__price-input" type="text"
+                            <span class="filter__font"> - </span>
+                            <input class="filter__price-max filter__price-input inp filter__font" type="text"
                                    value="<?= $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
@@ -76,7 +77,7 @@ $this->setFrameMode(true); ?>
                             <p class="filter__paragraph"><?= $arFilterItem["NAME"] ?></p>
                         </div>
                         <div class="filter__dropdown-btn filter__dropdown-select js-init-filter__dropdown-btn">
-                            <p class="filter__dropdown-btn-text" data-role="currentOption">
+                            <p class="filter__font" data-role="currentOption">
                                 <?
                                 foreach ($arFilterItem["VALUES"] as $val => $ar) {
                                     if ($ar["CHECKED"]) {
@@ -116,7 +117,7 @@ $this->setFrameMode(true); ?>
                         <div class="filter__checkbox-container">
                             <? foreach ($arFilterItem['VALUES'] as $value) { ?>
                                 <div class="filter__checkbox">
-                                    <label>
+                                    <label class="filter__font">
                                         <input class="filter__checkbox-input" type="checkbox"
                                                name="<?= $value['CONTROL_NAME'] ?>"
                                                id="<?= $value['CONTROL_ID'] ?>"
@@ -139,7 +140,7 @@ $this->setFrameMode(true); ?>
                         <div class="filter__radio-container">
                             <? foreach ($arFilterItem['VALUES'] as $value) { ?>
                                 <div class="filter__radio">
-                                    <label>
+                                    <label class="filter__font">
                                         <input class="filter__radio-input" type="radio"
                                                id="<?= $value["CONTROL_ID"] ?>"
                                                value="<?= $value["HTML_VALUE_ALT"] ?>"
@@ -157,11 +158,11 @@ $this->setFrameMode(true); ?>
     </div>
     <div class="filter__btn-container">
         <input type="submit" name="del_filter" value="Сбросить фильтр" onclick="resetForm()"
-               class="filter__btn-reset"/>
+               class="inp filter__btn-reset btn btn_large"/>
     </div>
     <div class="filter__btn-container filter__btn-submit-container">
         <input type="submit" name="set_filter" value="Применить"
-               class="filter__btn-submit"/>
+               class="inp filter__btn-submit btn btn_large"/>
     </div>
     <div class="bx-filter-popup-result <?= $arParams["FILTER_VIEW_MODE"] == "VERTICAL" ? $arParams["POPUP_POSITION"] : '' ?>"
          id="modef" style="display:<?= !isset($arResult["ELEMENT_COUNT"]) ? 'none' : 'inline-block' ?>">

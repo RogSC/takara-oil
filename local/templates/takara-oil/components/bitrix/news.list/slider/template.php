@@ -17,16 +17,20 @@ $this->setFrameMode(true);
     <div class="slider__viewport" id="viewport">
         <ul id="slide-wrapper"
             style="width: calc(100% * <?= count($arResult["ITEMS"]) ?>);">
-            <? foreach ($arResult["ITEMS"] as $arItem) { ?>
+            <? foreach ($arResult["ITEMS"] as $key => $arItem) { ?>
                 <?
                 $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
                 $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
                 ?>
                 <li class="slide"
-                    style="width: calc(100%/<?= count($arResult["ITEMS"]) ?>);">
-                    <? if (!empty($arItem["PROPERTIES"]["movie"]["VALUE"])) { ?>
+                    <? if($key < 6) { ?>
+                    style="width: calc(100%/<?= count($arResult["ITEMS"]) ?> + 1 px);">
+                    <?} else {?>
+                        style="width: calc(100%/<?= count($arResult["ITEMS"]) ?>);">
+                    <?}?>
+                    <? if (!empty($arItem["PROPERTIES"]["SLIDER_MOVIE"]["VALUE"])) { ?>
                         <video width="100%" height="100%" autoplay loop muted>
-                            <source src="<?= $arItem["PROPERTIES"]["movie"]["VALUE"]["path"] ?>" type='video/mp4'>
+                            <source src="<?= $arItem["PROPERTIES"]["SLIDER_MOVIE"]["VALUE"]["path"] ?>" type='video/mp4'>
                         </video>
                     <? } else { ?>
                         <img alt="<? echo $arItem["NAME"] ?>"
@@ -48,9 +52,9 @@ $this->setFrameMode(true);
                                 <?= $arItem["PREVIEW_TEXT"] ?>
                             </div>
                         </div>
-                        <? if ($arItem["PROPERTIES"]["url"]["VALUE"]) { ?>
+                        <? if ($arItem["PROPERTIES"]["SLIDER_URL"]["VALUE"]) { ?>
                             <div class="slider__btn">
-                                <a href="<?= $arItem["PROPERTIES"]["url"]["VALUE"] ?>"
+                                <a href="<?= $arItem["PROPERTIES"]["SLIDER_URL"]["VALUE"] ?>"
                                    class="btn__more">Подробнее</a>
                             </div>
                         <? } ?>

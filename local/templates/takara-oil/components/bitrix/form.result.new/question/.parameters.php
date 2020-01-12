@@ -44,6 +44,12 @@ $arTemplateParameters = array(
         ),
         "DEFAULT" => '-'
     ),
+    'BUTTON_SUBMIT_TEXT' => array(
+        'PARENT' => 'VISUAL',
+        'TYPE' => 'STRING',
+        'NAME' => 'Текст на кнопке "Отправки"',
+        "DEFAULT" => 'Отправить'
+    ),
     "MODAL_FORM" => array(
         "PARENT" => "VISUAL",
         "TYPE" => "CHECKBOX",

@@ -29,7 +29,7 @@ $(window).load(function () {
                 hBl += vl['height'];
             });
             if (arr['current'] != curSlide || $('.nav-list__items').slick('slickCurrentSlide') != arr['current']) {
-                $('.nav-list__items').slick('slickGoTo',arr['current']);
+                $('.nav-list__items').slick('slickGoTo', arr['current']);
                 slide.attr('data-current-slide', arr['current']);
             }
         });
@@ -70,37 +70,44 @@ $('.js-init-fast__search').live('keyup', function (e) {
 function clearResult(type = 'remove') {
     let res = $('.search-result__list');
     if (res.length > 0) {
-        if (type === 'remove') {
-            res.remove();
-        } else {
-            res.empty();
-        }
+        res.empty();
+        $('.search-btn').remove();
     }
 }
 
 function getResult(value) {
-    let cont = $('.search-form');
+    let cont = $('.header__search');
     clearResult();
     $.ajax({
-       url: '/local/tools/ajax.search.php?q=' + value,
-       type: 'GET',
+        url: '/local/tools/ajax.search.php?q=' + value,
+        type: 'GET',
         dataType: 'json',
         success: function (responce) {
-            let h = '<ul class="search-result__list"></ul>';
-            cont.append(h);
             if (typeof responce === 'object') {
                 if (responce['COUNT'] > 0) {
                     $.each(responce['ITEMS'], function (k, vl) {
                         if (typeof vl['ID'] !== 'undefined') {
-                            cont.find('.search-result__list').append('<li class="result__item"><a href="' + vl["DETAIL_PAGE_URL"] + '">' + vl["NAME"] + '</a></li>')
+                            cont.find('.search-result__list').append('<li class="result__item col-12 col-md-6">' +
+                                '<a href="' + vl["DETAIL_PAGE_URL"] + '"><img src="' + vl["PREVIEW_PICTURE"] + '">' +
+                                '<div class="result__item-text">' + vl["NAME"] + '</div></a></li>')
                         }
                     });
+                    cont.find('.search-result__cont').append('<button type="submit" form="search" class="btn btn-small search-btn">' +
+                        'показать все результаты<img src="/local/templates/takara-oil/frontend/img/svg/arrow.svg"></button>');
                 } else {
                     clearResult('empty');
-                    cont.find('.search-result__list').append('<p class="no-result">Ничего не найдено</p>')
+                    cont.find('.search-result__list').append('<li class="result__item col-12">Ничего не найдено</li>')
                 }
-
             }
         }
     });
 }
+
+$('.js-init-change-questions').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('div.questions__cont').removeClass('active').eq($(this).index()).addClass('active');
+});
+
+$('body').on('click', '.js-init-modal__close', function () {
+    $.arcticmodal('close');
+});

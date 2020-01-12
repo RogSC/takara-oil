@@ -14,9 +14,6 @@ if (!$arResult["NavShowAlways"]) {
 $navQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryString"] . "&amp;" : "");
 $navQueryStringFull = ($arResult["NavQueryString"] != "" ? "?" . $arResult["NavQueryString"] : "");
 
-/*$arResult["nStartPage"] = $arResult["NavPageCount"];
-$arResult["nEndPage"] = 1;*/
-
 $sNextHref = '';
 if ($arResult["NavPageNomer"] < $arResult["NavPageCount"]) {
     $bNextDisabled = false;
@@ -35,29 +32,29 @@ if ($arResult["NavPageNomer"] > 1) {
 ?>
 <ul class="pag">
     <li class="pag__left-arrow pag__arrow <?= $arResult["NavPageNomer"] != 1 ? "pag__arrow_active" : "" ?>">
-        <? if ($arResult["NavPageNomer"] != 1): ?>
+        <? if ($arResult["NavPageNomer"] != 1) { ?>
             <a href="<?= $sPrevHref ?>"></a>
-        <? endif ?>
+        <? } ?>
     </li>
-    <? while ($arResult["nStartPage"] <= $arResult["nEndPage"]): ?>
-        <? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]): ?>
+    <? while ($arResult["nStartPage"] <= $arResult["nEndPage"]) { ?>
+        <? if ($arResult["nStartPage"] == $arResult["NavPageNomer"]) { ?>
             <li class="pag__item pag__item_active"><?= strlen(strval($arResult["nStartPage"])) < 2 ? "0" : "" ?><?= $arResult["nStartPage"] ?></li>
-        <? elseif ((1 == $arResult["nStartPage"]) && (false == $arResult["bSavePage"])) : ?>
+        <? } elseif ((1 == $arResult["nStartPage"]) && (false == $arResult["bSavePage"])) { ?>
             <li class="pag__item"><a
                         href="<?= $arResult["sUrlPath"] ?><?= $navQueryStringFull ?>">
                     <?= strlen(strval($arResult["nStartPage"])) < 2 ? "0" : "" ?><?= $arResult["nStartPage"] ?>
                 </a></li>
-        <? else: ?>
+        <? } else { ?>
             <li class="pag__item"><a
                         href="<?= $arResult["sUrlPath"] ?>?<?= $navQueryString ?>PAGEN_<?= $arResult["NavNum"] ?>=<?= $arResult["nStartPage"] ?>">
                     <?= strlen(strval($arResult["nStartPage"])) < 2 ? "0" : "" ?><?= $arResult["nStartPage"] ?>
                 </a></li>
-        <? endif ?>
+        <? } ?>
         <? $arResult["nStartPage"]++ ?>
-    <? endwhile ?>
+    <? } ?>
     <li class="pag__right-arrow pag__arrow <?= $arResult["NavPageNomer"] != $arResult["nEndPage"] ? "pag__arrow_active" : "" ?>">
-        <? if ($arResult["NavPageNomer"] != $arResult["nEndPage"]): ?>
+        <? if ($arResult["NavPageNomer"] != $arResult["nEndPage"]) { ?>
             <a href="<?= $sNextHref ?>"></a>
-        <? endif ?>
+        <? } ?>
     </li>
 </ul>

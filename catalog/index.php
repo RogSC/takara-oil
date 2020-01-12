@@ -83,7 +83,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"LIST_META_DESCRIPTION" => "-",
 		"LIST_META_KEYWORDS" => "-",
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 		"LIST_SHOW_SLIDER" => "N",
 		"LIST_SLIDER_INTERVAL" => "3000",
 		"LIST_SLIDER_PROGRESS" => "N",
@@ -102,7 +102,7 @@ $APPLICATION->SetTitle("Каталог продукции");
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "4",
+		"PAGE_ELEMENT_COUNT" => "20",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
 			0 => "PRODUCT_PRICE",

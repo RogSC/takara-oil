@@ -11,6 +11,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
 ?>
 <div class="articles__items row">
     <? foreach ($arResult["ITEMS"] as $arItem) { ?>
@@ -31,18 +34,18 @@ $this->setFrameMode(true);
                     </a>
                 </div>
                 <div class="articles__item_description">
-                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
                         <p><?= $arItem["PREVIEW_TEXT"] ?></p>
-                    </a>
                 </div>
                 <div class="articles__item_btn">
-                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn__more">Подробнее</a>
+                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn__more"><?=Loc::getMessage('BTN_MORE')?></a>
                 </div>
             </div>
         </div>
     <? } ?>
 </div>
+
+<div class="articles__pagination">
 <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>
     <?= $arResult["NAV_STRING"] ?>
 <? } ?>
-
+</div>

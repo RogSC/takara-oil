@@ -5,7 +5,7 @@
         <div class="products-catalog__title section__title">
             <h2><?
                 $APPLICATION->IncludeFile(
-                    "views/catalog-title.php",
+                    "/include/" . SITE_ID . "/catalog-title.php",
                     array(),
                     array(
                         "MODE" => "text",

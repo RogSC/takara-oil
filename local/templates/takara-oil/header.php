@@ -23,6 +23,7 @@ Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/auth.js")
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/slider.js"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/search.js"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/filter.js"));
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/profile.js"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/pickUpOilForm.js"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/productCatalog.js"));
 
@@ -81,11 +82,33 @@ Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|M
                 )
             ); ?>
         </div>
-        <a class="header__user-menu col-6 col-md-2 col-lg-2 col-xl-2 <?= !$USER->IsAuthorized() ? "js-init-auth_form" : "" ?>"
-           href="<?= $USER->IsAuthorized() ? "/profile/" : "" ?>">
-            <?= GetContentSvgIcon('icon-user-menu') ?>
-            <?= Loc::getMessage('BTN_AUTH_FORM') ?>
-        </a>
+        <div class="header__user-menu col-6 col-md-2 col-lg-2 col-xl-2 <?= !$USER->IsAuthorized() ? "js-init-auth_form" : "us-menu" ?>">
+            <ul class="us-menu__list">
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "user",
+                    array(
+                        "ROOT_MENU_TYPE" => "user",
+                        "MAX_LEVEL" => "1",
+                        "USE_EXT" => "N",
+                        "COMPONENT_TEMPLATE" => "user",
+                        "MENU_CACHE_TYPE" => "A",
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_USE_GROUPS" => "N",
+                        "MENU_CACHE_GET_VARS" => array(
+                        ),
+                        "DELAY" => "N",
+                        "ALLOW_MULTI_SELECT" => "N",
+                        "CHILD_MENU_TYPE" => "left"
+                    ),
+                    false
+                );?>
+            </ul>
+            <a class="" href="<?= $USER->IsAuthorized() ? "/profile/" : "" ?>">
+                <?= GetContentSvgIcon('icon-user-menu') ?>
+                <?= Loc::getMessage('BTN_AUTH_FORM') ?>
+            </a>
+        </div>
         <? $APPLICATION->IncludeComponent(
             "bitrix:main.site.selector",
             "",
@@ -120,9 +143,9 @@ Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|M
         <div class="main-header__btn">
             <? $APPLICATION->IncludeComponent(
                 "bitrix:form.result.new",
-                ".default",
+                "callback",
                 array(
-                    "COMPONENT_TEMPLATE" => ".default",
+                    "COMPONENT_TEMPLATE" => "callback",
                     "WEB_FORM_ID" => "4",
                     "IGNORE_CUSTOM_TEMPLATE" => "N",
                     "USE_EXTENDED_ERRORS" => "N",
@@ -143,6 +166,7 @@ Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|M
                     "CHAIN_ITEM_TEXT" => "",
                     "CHAIN_ITEM_LINK" => "",
                     "USE_GOOGLE_CAPTCHA" => "Y",
+                    "BUTTON_SUBMIT_TEXT" => "Отправить",
                     "VARIABLE_ALIASES" => array(
                         "WEB_FORM_ID" => "WEB_FORM_ID",
                         "RESULT_ID" => "RESULT_ID",
@@ -153,4 +177,19 @@ Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|M
         </div>
     </nav>
 </header>
+<?
+
+$pagePath = explode('/', $APPLICATION->GetCurPage(false));
+
+if ($APPLICATION->GetCurPage(false) != SITE_DIR && $pagePath[1] != 'catalog') {
+    $APPLICATION->IncludeFile(
+        "views/floating-block.php",
+        array(),
+        array(
+            "SHOW_BORDER" => false,
+            "MODE" => "php",
+        )
+    );
+}
+?>
 <main class="main-page <?= $APPLICATION->GetCurPage(false) == SITE_DIR ? 'home-page' : '' ?>">

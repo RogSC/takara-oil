@@ -48,7 +48,7 @@ Loc::loadMessages(__FILE__);
                         } ?>
                         <? if (count($arResult['OPTIONS']) > 5) { ?>
                             <div class="catalog-el__btn">
-                                <button class="btn btn_large btn-small" data-name="tab_options">
+                                <button class="btn btn_large btn-small js-init-btn-chars" data-name="tab_options">
                                     Все характеристики
                                 </button>
                             </div>
@@ -168,7 +168,7 @@ Loc::loadMessages(__FILE__);
         <div class="tab__item-content" data-name="tab_questions">
                 <?
                 $GLOBALS['arrFilter'] = array(
-                    'PRODUCT' => $arResult['ID']
+                    'PROPERTY_PRODUCT' => $arResult['ID']
                 );
                 $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
@@ -225,7 +225,7 @@ Loc::loadMessages(__FILE__);
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
-		"PAGER_TEMPLATE" => "questions",
+		"PAGER_TEMPLATE" => ".default",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"PAGER_TITLE" => "Новости",
@@ -256,30 +256,31 @@ Loc::loadMessages(__FILE__);
 </section>
 
 <? $APPLICATION->IncludeComponent(
-    "bitrix:form.result.new",
-    "question",
-    array(
-        "COMPONENT_TEMPLATE" => "question",
-        "USE_GOOGLE_CAPTCHA" => "Y",
-        "WEB_FORM_ID" => "6",
-        "IGNORE_CUSTOM_TEMPLATE" => "N",
-        "BUTTON_SUBMIT_TYPE" => "fill",
-        "BUTTON_SUBMIT_SIZE" => "big",
-        "BUTTON_SUBMIT_ICON" => "icon_question",
-        "MODAL_FORM" => "N",
-        "SEF_MODE" => "N",
-        "CACHE_TYPE" => "A",
-        "CACHE_TIME" => "3600",
-        "USE_EXTENDED_ERRORS" => "",
-        "LIST_URL" => "result_list.php",
-        "EDIT_URL" => "result_edit.php",
-        "SUCCESS_URL" => "",
-        "CHAIN_ITEM_TEXT" => "",
-        "CHAIN_ITEM_LINK" => "",
-        "VARIABLE_ALIASES" => array(
-            "WEB_FORM_ID" => "WEB_FORM_ID",
-            "RESULT_ID" => "RESULT_ID",
-        )
-    ),
-    false
+	"bitrix:form.result.new", 
+	"question", 
+	array(
+		"COMPONENT_TEMPLATE" => "question",
+		"USE_GOOGLE_CAPTCHA" => "Y",
+		"WEB_FORM_ID" => "6",
+		"IGNORE_CUSTOM_TEMPLATE" => "N",
+		"BUTTON_SUBMIT_TYPE" => "fill",
+		"BUTTON_SUBMIT_SIZE" => "big",
+		"BUTTON_SUBMIT_ICON" => "icon_question",
+		"MODAL_FORM" => "N",
+		"SEF_MODE" => "N",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"USE_EXTENDED_ERRORS" => "",
+		"LIST_URL" => "",
+		"EDIT_URL" => "",
+		"SUCCESS_URL" => "",
+		"CHAIN_ITEM_TEXT" => "",
+		"CHAIN_ITEM_LINK" => "",
+		"BUTTON_SUBMIT_TEXT" => "задать вопрос",
+		"VARIABLE_ALIASES" => array(
+			"WEB_FORM_ID" => "WEB_FORM_ID",
+			"RESULT_ID" => "RESULT_ID",
+		)
+	),
+	false
 ); ?>

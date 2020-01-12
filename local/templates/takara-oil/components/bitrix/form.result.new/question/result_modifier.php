@@ -16,7 +16,6 @@ $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_A
 
 if (isset($_REQUEST['web_worm_submit']) && $_REQUEST['web_worm_submit'] == 'Y' && $arResult["isUseCaptcha"]) {
 
-
     $arResponse = array(
         'result' => true
     );

@@ -96,7 +96,15 @@ $arUrlRewrite=array (
     'PATH' => '/content/faq/index.php',
     'SORT' => 100,
   ),
-  13 => 
+  14 => 
+  array (
+    'CONDITION' => '#^/articles/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/articles/index.php',
+    'SORT' => 100,
+  ),
+  15 => 
   array (
     'CONDITION' => '#^/catalog/#',
     'RULE' => '',

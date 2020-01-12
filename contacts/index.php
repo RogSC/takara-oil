@@ -60,7 +60,6 @@ foreach ($arResult['BRANCHES'] as $key => $arBranch) {
     $arResult['POSITION'][$key]['LON'] = $arBranch['LONGITUDE'];
 }
 ?>
-
     <section class="contacts container">
         <div class="row">
             <? $APPLICATION->IncludeComponent('bitrix:breadcrumb', '', array()) ?>
@@ -102,7 +101,7 @@ foreach ($arResult['BRANCHES'] as $key => $arBranch) {
     <section class="contacts-img container">
         <div class="contacts-img__container">
             <? $APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", Array(
-                "API_KEY" => "AIzaSyAycwAK8HGgieHhUcwMolXebbq39FWLChw",    // Ключ JavaScript API https://developers.google.com/maps/documentation/javascript/get-api-key
+                "API_KEY" => API_KEY,    // Ключ JavaScript API https://developers.google.com/maps/documentation/javascript/get-api-key
                 "INIT_MAP_TYPE" => "ROADMAP",    // Стартовый тип карты
                 "POSITION" => $arResult['POSITION'],
                 "MAP_HEIGHT" => "500",    // Высота карты

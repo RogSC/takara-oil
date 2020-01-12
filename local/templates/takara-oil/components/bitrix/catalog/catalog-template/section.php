@@ -16,6 +16,8 @@ use Bitrix\Main\ModuleManager;
 
 $this->addExternalCss("/bitrix/css/main/bootstrap.css");?>
 
+
+
 <section class="catalog container">
     <div class="catalog-container">
 <?

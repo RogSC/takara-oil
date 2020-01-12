@@ -1,5 +1,6 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
+
 <? if (!empty($arResult)) {?>
         <?
         foreach ($arResult as $index => $arItem) {
@@ -7,7 +8,7 @@
                 continue;
             } ?>
             <? if($arItem["DEPTH_LEVEL"] === 1) { ?>
-            <li class="main-header__navbar-item">
+            <li class="main-header__navbar-item <?= $arItem['SELECTED'] == true ? 'active' : '' ?> ">
                 <a href="<?= $arItem["LINK"] ?>"><?= $arItem["TEXT"] ?></a>
                 <? if($arItem[IS_PARENT]) { ?>
                     <?= GetContentSvgIcon('vector-down-middle') ?>

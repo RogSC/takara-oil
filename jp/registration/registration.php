@@ -76,8 +76,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
             <div class="filter__checkbox personal-policy">
                 <label>
                     <input class="filter__checkbox-input" type="checkbox">
-                    <p class="filter__checkbox-input-p">
-                        Я согласен с <a href="#" class="element__questions-author-p_red">
+                    <p>
+                        Я согласен с <a href="#" class="red-font">
                             Политикой обработки персональных данных</a
                     </p>
                 </label>

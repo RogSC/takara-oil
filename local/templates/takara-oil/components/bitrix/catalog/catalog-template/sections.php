@@ -14,7 +14,13 @@
 
 $this->setFrameMode(true);
 $this->addExternalCss("/bitrix/css/main/bootstrap.css");
+?>
 
+
+<section class="catalog container">
+    <div class="catalog-container">
+
+        <?
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
@@ -35,27 +41,6 @@ $APPLICATION->IncludeComponent(
 	$component,
 	($arParams["SHOW_TOP_ELEMENTS"] !== "N" ? array("HIDE_ICONS" => "Y") : array())
 );
-
-if ($arParams["USE_COMPARE"] === "Y")
-{
-	$APPLICATION->IncludeComponent(
-		"bitrix:catalog.compare.list",
-		"",
-		array(
-			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-			"NAME" => $arParams["COMPARE_NAME"],
-			"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
-			"COMPARE_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["compare"],
-			"ACTION_VARIABLE" => (!empty($arParams["ACTION_VARIABLE"]) ? $arParams["ACTION_VARIABLE"] : "action"),
-			"PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
-			'POSITION_FIXED' => isset($arParams['COMPARE_POSITION_FIXED']) ? $arParams['COMPARE_POSITION_FIXED'] : '',
-			'POSITION' => isset($arParams['COMPARE_POSITION']) ? $arParams['COMPARE_POSITION'] : ''
-		),
-		$component,
-		array("HIDE_ICONS" => "Y")
-	);
-}
 
 if ($arParams["SHOW_TOP_ELEMENTS"] !== "N")
 {
@@ -151,4 +136,6 @@ if ($arParams["SHOW_TOP_ELEMENTS"] !== "N")
 		$component
 	);
 	unset($basketAction);
-}
+}?>
+    </div>
+</section>

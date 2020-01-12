@@ -22,8 +22,8 @@ $APPLICATION->SetTitle("Статьи");
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER2" => "ASC",
 		"CHECK_DATES" => "Y",
-		"SEF_MODE" => "N",
-		"AJAX_MODE" => "Y",
+		"SEF_MODE" => "Y",
+		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "N",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -65,8 +65,10 @@ $APPLICATION->SetTitle("Статьи");
 			1 => "",
 		),
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "ADD_DESC",
+			1 => "VIDEO_LINK",
+			2 => "PHOTO_GALLERY",
+			3 => "",
 		),
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
@@ -85,9 +87,11 @@ $APPLICATION->SetTitle("Статьи");
 		"SET_STATUS_404" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
-		"VARIABLE_ALIASES" => array(
-			"SECTION_ID" => "SECTION_ID",
-			"ELEMENT_ID" => "ELEMENT_ID",
+		"SEF_FOLDER" => "/articles/",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "",
+			"section" => "",
+			"detail" => "#ELEMENT_ID#/",
 		)
 	),
 	false
