@@ -1,2 +1,2 @@
 <?
-$MESS["CATALOG_PERSONAL_RECOM"] = "Персональные рекомендации";
+$MESS["FILTER"] = "Фильтр";

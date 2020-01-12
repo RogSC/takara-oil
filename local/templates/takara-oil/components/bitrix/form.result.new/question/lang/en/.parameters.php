@@ -1,0 +1,21 @@
+<?php
+$MESS['USE_CAPTCHA'] = 'Use Google Recaptcha?';
+$MESS['BTN_SUBMIT_TYPE'] = 'Submit button type';
+$MESS['FILL'] = 'With fill';
+$MESS['NO_FILL'] = 'Without fill';
+$MESS['BTN_SUBMIT_SIZE'] = 'Submit button size';
+$MESS['SMALL'] = 'Small';
+$MESS['MEDIUM'] = 'Standard';
+$MESS['LARGE'] = 'Large';
+$MESS['BTN_SUBMIT_ICON'] = 'Icon on the Submit button';
+$MESS['ICON_PHONE'] = 'With phone icon';
+$MESS['ICON_QUEST_MARK'] = 'With icon "?"';
+$MESS['NO_ICON'] = 'Without icon';
+$MESS['BTN_SUBMIT_TEXT'] = 'Submit button text';
+$MESS['SUBMIT_TEXT'] = 'Submit';
+$MESS['FORM_MODAL'] = 'Form in modal window?';
+$MESS['BTN_MODAL_TEXT'] = 'Text on the "Call modal window" button';
+$MESS['CALLBACK'] = 'Feedback';
+$MESS['BTN_MODAL_TYPE'] = 'Button type "Call modal window"';
+$MESS['BTN_MODAL_ICON'] = 'Icon on the "Call modal window" button';
+$MESS['BTN_MODAL_SIZE'] = 'The size of the "Call modal window" button';

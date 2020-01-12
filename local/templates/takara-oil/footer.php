@@ -1,8 +1,7 @@
 <?
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
-use Bitrix\Main\Page\Asset,
-    Bitrix\Main\Localization\Loc;
+use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 
@@ -45,7 +44,7 @@ Loc::loadMessages(__FILE__);
 	false
 );?>
                 <p class="agreement"><?= Loc::getMessage('FOOTER_AGREEMENT') ?>
-                    <a class="red-font" href="#"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
+                    <a class="red-font" href="<?= SITE_DIR ?>/politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
                 <div class="main-footer__copyright">
                     <h4><?
                         $APPLICATION->IncludeFile(

@@ -19,7 +19,7 @@ $json = array();
 if ($arData['authorize'] == 'Y') {
 
     if (strlen($arData['g-recaptcha-response']) == 0) {
-        $error["captcha"] = 'Подтвердите, что вы не робот';
+        $error["captcha"] = Loc::getMessage('ERROR_RECAPTCHA');
     } else {
         $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
         $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
@@ -33,38 +33,33 @@ if ($arData['authorize'] == 'Y') {
     }
 
     if (strlen($arData['login']) <= 0) {
-        $error['login'] = 'Укажите Ваш email';
+        $error['login'] = Loc::getMessage('ERROR_EMPTY_EMAIL');
     } elseif (urldecode($arData['login']) != 'admin') {
         if (!check_email(urldecode($arData['login']))) {
             $error['login'] = Loc::getMessage('ERROR_INCORRECT_EMAIL');
         }
     }
     if (strlen($arData['pass']) <= 0) {
-        $error['pass'] = 'Укажите Ваш пароль';
+        $error['pass'] = Loc::getMessage('ERROR_EMPTY_PASS');
     } else {
         $filter = array("ACTIVE" => "Y", "LOGIN" => urldecode($arData['login']));
         $rsUsers = $us->GetList($by = "NAME", $order = "desc", $filter);
         while ($ar_res = $rsUsers->Fetch()) {
             $arUser = $ar_res;
         }
-        /*if (intval($arUser['ID']) > 0) {
-            if (!isUserPassword($arUser['ID'], $arData['pass'])) {
-                $error['pass'] = 'Неверный пароль';
-            }
-        }*/
     }
     if (!$error) {
         $user = CUser::GetList($by, $order, array('EMAIL' => urldecode($arData['login'])), array())->Fetch();
         if ($user['EMAIL']) {
             $arAuthResult = $USER->Login($user['LOGIN'], $arData['pass'], "Y");
             if (!is_array($arAuthResult) && $arAuthResult == true) {
-                $json['success'] = 'Вы успешно авторизованны! Через несколько секунд Вы будете перенаправлены в Личный кабинет.';
+                $json['success'] = Loc::getMessage('SUCCESS');
             } else {
-                $json['error']['auth'] = 'Неверный email или пароль';
+                $json['error']['auth'] = Loc::getMessage('ERROR_EMAIL_OR_PASS');
             }
             $json['result'] = $arAuthResult;
         } else {
-            $json['error']['auth'] = 'Неверный email или пароль';
+            $json['error']['auth'] = Loc::getMessage('ERROR_EMAIL_OR_PASS');
         }
 
     } else {
@@ -79,7 +74,7 @@ if ($arData['authorize'] == 'Y') {
             <button class="js-init-modal__close"><?= GetContentSvgIcon('icon-close') ?></button>
         </div>
         <div class="auth__title">
-            <h2 class="title-red-line">Войти<br>в личный кабинет</h2>
+            <h2 class="title-red-line"><?= Loc::getMessage('SIGN') ?><br><?= Loc::getMessage('IN_PROFILE') ?></h2>
         </div>
 
         <div class="modal__errors">
@@ -89,29 +84,29 @@ if ($arData['authorize'] == 'Y') {
             <input type="hidden" name="authorize" value="Y"/>
             <?= bitrix_sessid_post() ?>
             <fieldset class="q__form-item">
-                <legend>E-MAIL</legend>
+                <legend><?= Loc::getMessage('EMAIL') ?></legend>
                 <input type="email" class="inp" name="login" id="login">
             </fieldset>
             <fieldset class="q__form-item">
-                <legend>Пароль</legend>
+                <legend><?= Loc::getMessage('PASS') ?></legend>
                 <input type="password" class="inp" name="pass" id="pass">
             </fieldset>
 
             <div class="g-recaptcha-13" data-sitekey="<?= RE_SITE_KEY ?>"></div>
             <div id="g-recaptcha-13" class="g-recaptcha"></div>
 
-            <button type="submit" class="auth-form__button btn btn_fill">Войти</button>
+            <button type="submit" class="auth-form__button btn btn_fill"><?= Loc::getMessage('SIGN') ?></button>
 
             <div class="auth-form__forgot-pass">
-                <span class="js-init-forgot_form">забыли пароль?</span>
+                <span class="js-init-forgot_form"><?= Loc::getMessage('FORGOT_PASS') ?></span>
             </div>
 
             <div class="modal-window_sep">
-                <span>ИЛИ</span>
+                <span><?= Loc::getMessage('OR') ?></span>
             </div>
 
             <a href="<?= SITE_DIR ?>registration/" class="auth-form__button_reg btn btn-small">
-                зарегистрироваться
+                <?= Loc::getMessage('REG') ?>
             </a>
         </form>
     </section>

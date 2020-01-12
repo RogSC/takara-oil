@@ -17,13 +17,13 @@ use Bitrix\Main\Page\Asset; ?>
                             </p>
                         </div>
                         <div class="catalog-item__btn">
-                            <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="btn__more">Подробнее</a>
+                            <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="btn__more"><?= Loc::getMessage('BTN_MORE') ?></a>
                         </div>
                     </div>
                 </div>
             <? } ?>
         <? } else { ?>
-            <p style="padding-top: 40px" class="standard-paragraph">К сожалению в данном разделе товаров нет</p>
+            <p style="padding-top: 40px" class="standard-paragraph"><?= Loc::getMessage('NO_PRODUCTS') ?></p>
         <? } ?>
     </div>
 <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>

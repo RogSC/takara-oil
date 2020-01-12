@@ -1,7 +1,8 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
-use Bitrix\Main\Page\Asset; ?>
+Loc::loadMessages(__FILE__);
+?>
 
 <div class="catalog__items row">
     <? if ($arResult['ITEMS']) {
@@ -18,13 +19,13 @@ use Bitrix\Main\Page\Asset; ?>
                         </a>
                     </div>
                     <div class="catalog-item__btn">
-                        <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="btn__more">Подробнее</a>
+                        <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="btn__more"><?= Loc::getMessage('BTN_MORE') ?></a>
                     </div>
                 </div>
             </div>
         <? } ?>
     <? } else { ?>
-        <p style="padding-top: 40px" class="standard-paragraph">К сожалению в данном разделе товаров нет</p>
+        <p style="padding-top: 40px"><?= Loc::getMessage('NO_PRODUCTS') ?></p>
     <? } ?>
 </div>
 <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>

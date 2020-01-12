@@ -9,35 +9,35 @@ $aMenuLinks = Array(
     ),
     Array(
         "Моторные масла",
-        "/catalog/?SECTION_ID=95/",
+        "/catalog/motor-oils/",
         Array(),
         Array(),
         ""
     ),
     Array(
         "Трансмиссионные масла",
-        "/catalog/?SECTION_ID=96/",
+        "/catalog/gear-oils/",
         Array(),
         Array(),
         ""
     ),
     Array(
         "Масла для гидроусилителя руля",
-        "/catalog/?SECTION_ID=100/",
+        "/catalog/steering-oils/",
         Array(),
         Array(),
         ""
     ),
     Array(
         "Масла для тормозной системы",
-        "/catalog/?SECTION_ID=99/",
+        "/catalog/oils-brake/",
         Array(),
         Array(),
         ""
     ),
     Array(
         "Масла для подвески",
-        "/catalog/?SECTION_ID=97/",
+        "/catalog/suspension-oils/",
         Array(),
         Array(),
         ""

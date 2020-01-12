@@ -2,11 +2,15 @@
 /**
  * @author Danil Syromolotov <ds@itex.ru>
  */
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+
 $arTemplateParameters = array(
     'USE_GOOGLE_CAPTCHA' => array(
         'PARENT' => 'BASE',
         'TYPE' => 'CHECKBOX',
-        'NAME' => 'Использовать Google Recaptcha?',
+        'NAME' => Loc::getMessage('USE_CAPTCHA'),
         "DEFAULT" => 'N'
     ),
     'USE_EXTENDED_ERRORS' => array(
@@ -15,45 +19,45 @@ $arTemplateParameters = array(
     'BUTTON_SUBMIT_TYPE' => array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'LIST',
-        'NAME' => 'Тип кнопки "Отправки"',
+        'NAME' => Loc::getMessage('BTN_SUBMIT_TYPE'),
         'VALUES' => array(
-            'fill' => "С заливкой",
-            'not_fill' => "Без заливки",
+            'fill' => Loc::getMessage('FILL'),
+            'not_fill' => Loc::getMessage('NO_FILL'),
         ),
         "DEFAULT" => '-'
     ),
     'BUTTON_SUBMIT_SIZE' => array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'LIST',
-        'NAME' => 'Размер кнопки "Отправки"',
+        'NAME' => Loc::getMessage('BTN_SUBMIT_SIZE'),
         'VALUES' => array(
-            'small' => "Маленький",
-            'middle' => 'Стандартный',
-            'big' => "Большой"
+            'small' => Loc::getMessage('SMALL'),
+            'middle' => Loc::getMessage('MEDIUM'),
+            'big' => Loc::getMessage('LARGE')
         ),
         "DEFAULT" => '-'
     ),
     'BUTTON_SUBMIT_ICON' => array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'LIST',
-        'NAME' => 'Иконка на кнопке "Отправки"',
+        'NAME' => Loc::getMessage('BTN_SUBMIT_ICON'),
         'VALUES' => array(
-            'icon_phone' => "С иконкой телефона",
-            'icon_question' => 'С иконкой "?"',
-            'no_icon' => "Без иконки"
+            'icon_phone' => Loc::getMessage('ICON_PHONE'),
+            'icon_question' => Loc::getMessage('ICON_QUEST_MARK'),
+            'no_icon' => Loc::getMessage('NO_ICON')
         ),
         "DEFAULT" => '-'
     ),
     'BUTTON_SUBMIT_TEXT' => array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'STRING',
-        'NAME' => 'Текст на кнопке "Отправки"',
-        "DEFAULT" => 'Отправить'
+        'NAME' => Loc::getMessage('BTN_SUBMIT_TEXT'),
+        "DEFAULT" => Loc::getMessage('SUBMIT_TEXT')
     ),
     "MODAL_FORM" => array(
         "PARENT" => "VISUAL",
         "TYPE" => "CHECKBOX",
-        "NAME" => "Форма в модальном окне?",
+        "NAME" => Loc::getMessage('FORM_MODAL'),
         "DEFAULT" => 'N',
         'REFRESH' => 'Y',
         'SORT' => '990',
@@ -64,17 +68,17 @@ if (isset($arCurrentValues['MODAL_FORM']) && $arCurrentValues['MODAL_FORM'] == '
     $arTemplateParameters['BUTTON_INIT_TITLE'] = array(
         "PARENT" => "VISUAL",
         "TYPE" => "STRING",
-        "NAME" => 'Текст на кнопке "Вызова модального окна"',
-        "DEFAULT" => 'Обратная связь',
+        "NAME" => Loc::getMessage('BTN_MODAL_TEXT'),
+        "DEFAULT" => Loc::getMessage('CALLBACK'),
         'SORT' => '1000',
     );
     $arTemplateParameters['BUTTON_INIT_TYPE'] = array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'LIST',
-        'NAME' => 'Тип кнопки "Вызова модального окна"',
+        'NAME' => Loc::getMessage('BTN_MODAL_TYPE'),
         'VALUES' => array(
-            'fill' => "С заливкой",
-            'not_fill' => "Без заливки",
+            'fill' => Loc::getMessage('FILL'),
+            'not_fill' => Loc::getMessage('NO_FILL'),
         ),
         'SORT' => '1100',
         "DEFAULT" => '-'
@@ -82,11 +86,11 @@ if (isset($arCurrentValues['MODAL_FORM']) && $arCurrentValues['MODAL_FORM'] == '
     $arTemplateParameters['BUTTON_INIT_ICON'] = array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'LIST',
-        'NAME' => 'Иконка на кнопке "Вызова модального окна"',
+        'NAME' => Loc::getMessage('BTN_MODAL_ICON'),
         'VALUES' => array(
-            'icon_phone' => "С иконкой телефона",
-            'icon_question' => 'С иконкой "?"',
-            'no_icon' => "Без иконки"
+            'icon_phone' => Loc::getMessage('ICON_PHONE'),
+            'icon_question' => Loc::getMessage('ICON_QUEST_MARK'),
+            'no_icon' => Loc::getMessage('NO_ICON')
         ),
         'SORT' => '1200',
         "DEFAULT" => '-'
@@ -94,11 +98,11 @@ if (isset($arCurrentValues['MODAL_FORM']) && $arCurrentValues['MODAL_FORM'] == '
     $arTemplateParameters['BUTTON_INIT_SIZE'] = array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'LIST',
-        'NAME' => 'Размер кнопки',
+        'NAME' => Loc::getMessage('BTN_MODAL_SIZE'),
         'VALUES' => array(
-            'small' => "Маленький",
-            'middle' => 'Стандартный',
-            'big' => "Большой"
+            'small' => Loc::getMessage('SMALL'),
+            'middle' => Loc::getMessage('MEDIUM'),
+            'big' => Loc::getMessage('LARGE')
         ),
         'SORT' => '991',
         "DEFAULT" => '-'

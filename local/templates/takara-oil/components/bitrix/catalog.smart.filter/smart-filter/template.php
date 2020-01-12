@@ -1,4 +1,6 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
 
 $this->setFrameMode(true);
 ?>
@@ -12,7 +14,7 @@ $this->setFrameMode(true);
                value="<?= $arItem["HTML_VALUE"] ?>"/>
     <? } ?>
     <div class="filter__title">
-        <h3>Фильтр</h3>
+        <h3><?= Loc::getMessage('FILTER') ?></h3>
         <div class="filter__close-btn js-init-filter-close-btn">
             <?= GetContentSvgIcon('icon-close') ?>
         </div>
@@ -24,7 +26,7 @@ $this->setFrameMode(true);
                     ?>
                     <div class="filter__section filter__price">
                         <div class="filter__price-title filter__section-title">
-                            <p class="filter__paragraph">Цена</p>
+                            <p class="filter__paragraph"><?= Loc::getMessage('PRICE') ?></p>
                             <div class="filter__price-sort">
                                 <?= GetContentSvgIcon('icon-vector-up') ?>
                             </div>
@@ -86,7 +88,7 @@ $this->setFrameMode(true);
                                     }
                                 }
                                 if (!$checkedItemExist) { ?>
-                                    Не выбрано
+                                    <?= Loc::getMessage('NOT_CHOOSE') ?>
                                 <? } ?>
                             </p>
                             <?= GetContentSvgIcon('icon-vector-up') ?>
@@ -157,19 +159,17 @@ $this->setFrameMode(true);
         <? } ?>
     </div>
     <div class="filter__btn-container">
-        <input type="submit" name="del_filter" value="Сбросить фильтр" onclick="resetForm()"
+        <input type="submit" name="del_filter" value="<?= Loc::getMessage('BTN_RESET') ?>" onclick="resetForm()"
                class="inp filter__btn-reset btn btn_large"/>
     </div>
     <div class="filter__btn-container filter__btn-submit-container">
-        <input type="submit" name="set_filter" value="Применить"
+        <input type="submit" name="set_filter" value="<?= Loc::getMessage('BTN_SUBMIT') ?>"
                class="inp filter__btn-submit btn btn_large"/>
     </div>
-    <div class="bx-filter-popup-result <?= $arParams["FILTER_VIEW_MODE"] == "VERTICAL" ? $arParams["POPUP_POSITION"] : '' ?>"
-         id="modef" style="display:<?= !isset($arResult["ELEMENT_COUNT"]) ? 'none' : 'inline-block' ?>">
-        <?= GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">' . intval($arResult["ELEMENT_COUNT"]) . '</span>')); ?>
-        <span class="arrow"></span>
+    <div class="bx-filter-popup-result" id="modef" style="display:<?= !isset($arResult["ELEMENT_COUNT"]) ? 'none' : 'inline-block' ?>">
+        <?= Loc::getMessage('CHOOSE') ?>: <span id="modef_num"><?= intval($arResult["ELEMENT_COUNT"]) ?></span>
         <br/>
-        <a href="<?= $arResult["FILTER_URL"] ?>" target=""><?= GetMessage("CT_BCSF_FILTER_SHOW") ?></a>
+        <a href="<?= $arResult["FILTER_URL"] ?>" target=""><?= Loc::getMessage('SHOW') ?></a>
     </div>
 </form>
 <script type="text/javascript">

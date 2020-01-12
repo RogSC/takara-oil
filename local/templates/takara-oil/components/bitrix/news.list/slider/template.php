@@ -55,7 +55,7 @@ $this->setFrameMode(true);
                         <? if ($arItem["PROPERTIES"]["SLIDER_URL"]["VALUE"]) { ?>
                             <div class="slider__btn">
                                 <a href="<?= $arItem["PROPERTIES"]["SLIDER_URL"]["VALUE"] ?>"
-                                   class="btn__more">Подробнее</a>
+                                   class="btn__more"><?= GetMessage('BTN_MORE') ?></a>
                             </div>
                         <? } ?>
                     </div>

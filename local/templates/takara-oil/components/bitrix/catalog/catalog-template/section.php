@@ -10,9 +10,8 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-use Bitrix\Main\Loader;
-use Bitrix\Main\ModuleManager;
-
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
 
 $this->addExternalCss("/bitrix/css/main/bootstrap.css");?>
 
@@ -47,7 +46,7 @@ $APPLICATION->IncludeComponent(
 ); ?>
     <div class="col-xs-12<?= (isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '') ?>">
         <button class="catalog__filter-btn js-init-filter-btn">
-            <span class="catalog__filter-text">Фильтр</span>
+            <span class="catalog__filter-text"><?= Loc::getMessage('FILTER') ?></span>
             <div class="filter">
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:catalog.smart.filter",

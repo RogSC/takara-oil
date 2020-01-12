@@ -10,6 +10,10 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+
 $this->setFrameMode(true);
 ?>
 <section class="article container">
@@ -25,7 +29,7 @@ $this->setFrameMode(true);
                     <? if ($arResult["IBLOCK_CODE"] == "promotions") { ?>
                         <div class="promotions__btn-cont">
                             <a href="/promotions/" class="promotions__btn">
-                                <?= GetContentSvgIcon('arrow') ?> Вернуться к акциям
+                                <?= GetContentSvgIcon('arrow') ?> <?= Loc::getMessage('BACK_TO_PROMOTIONS') ?>
                             </a>
                         </div>
                         <div class="row">
@@ -36,9 +40,7 @@ $this->setFrameMode(true);
                         <h2><?= $arResult['NAME'] ?></h2>
                     </div>
                     <div class="articles__item_date">
-                        <p>
-                            <?= $arResult["DISPLAY_ACTIVE_FROM"] ?>
-                        </p>
+                        <p><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></p>
                     </div>
                 </div>
                 <div class="article__header-right col-12 col-md-6">
@@ -54,7 +56,7 @@ $this->setFrameMode(true);
             <div class="article__desc">
                 <p><?= $arResult['DETAIL_TEXT'] ?></p>
             </div>
-            <? if(count($arResult['PROPERTIES']['PHOTO_GALLERY']['VALUE']) > 0) { ?>
+            <? if($arResult['PROPERTIES']['PHOTO_GALLERY']['VALUE'] && count($arResult['PROPERTIES']['PHOTO_GALLERY']['VALUE']) > 0) { ?>
             <div class="article__img-list row">
                 <div class="big-picture col-12 col-lg-7">
                         <img src="">

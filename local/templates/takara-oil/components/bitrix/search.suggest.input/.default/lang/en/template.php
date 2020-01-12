@@ -1,0 +1,3 @@
+<?php
+$MESS['SEARCH_PLACEHOLDER'] = 'Search';
+$MESS['SEARCH_PLACEHOLDER_FULL'] = 'Site search';

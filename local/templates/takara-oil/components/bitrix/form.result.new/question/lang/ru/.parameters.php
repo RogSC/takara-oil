@@ -1,0 +1,21 @@
+<?php
+$MESS['USE_CAPTCHA'] = 'Использовать Google Recaptcha?';
+$MESS['BTN_SUBMIT_TYPE'] = 'Тип кнопки "Отправки"';
+$MESS['FILL'] = 'С заливкой';
+$MESS['NO_FILL'] = 'Без заливки';
+$MESS['BTN_SUBMIT_SIZE'] = 'Размер кнопки "Отправки"';
+$MESS['SMALL'] = 'Маленький';
+$MESS['MEDIUM'] = 'Стандартный';
+$MESS['LARGE'] = 'Большой';
+$MESS['BTN_SUBMIT_ICON'] = 'Иконка на кнопке "Отправки"';
+$MESS['ICON_PHONE'] = 'С иконкой телефона';
+$MESS['ICON_QUEST_MARK'] = 'С иконкой "?"';
+$MESS['NO_ICON'] = 'Без иконки';
+$MESS['BTN_SUBMIT_TEXT'] = 'Текст на кнопке "Отправки"';
+$MESS['SUBMIT_TEXT'] = 'Отправить';
+$MESS['FORM_MODAL'] = 'Форма в модальном окне?';
+$MESS['BTN_MODAL_TEXT'] = 'Текст на кнопке "Вызова модального окна"';
+$MESS['CALLBACK'] = 'Обратная связь';
+$MESS['BTN_MODAL_TYPE'] = 'Тип кнопки "Вызова модального окна"';
+$MESS['BTN_MODAL_ICON'] = 'Иконка на кнопке "Вызова модального окна"';
+$MESS['BTN_MODAL_SIZE'] = 'Размер кнопки';

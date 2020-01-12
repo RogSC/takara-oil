@@ -23,9 +23,9 @@ if ($arData['data-change'] == 'Y') {
         switch ($name) {
             case 'email':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите Ваш email';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_EMAIL');
                 } elseif (!check_email(urldecode($value), true)) {
-                    $error[$name] = 'Некорректный email адрес';
+                    $error[$name] = Loc::getMessage('ERROR_INCORRECT_EMAIL');
                 } else {
                     $arFields['LOGIN'] = urldecode($value);
                     $arFields['EMAIL'] = urldecode($value);
@@ -33,44 +33,44 @@ if ($arData['data-change'] == 'Y') {
                 break;
             case 'phone':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите Ваш телефон';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_PHONE');
                 } elseif (strlen(str_replace('_', '', urldecode($arData['phone']))) < 11) {
-                    $error[$name] = 'Некорректный номер телефона';
+                    $error[$name] = Loc::getMessage('ERROR_INCORRECT_PHONE');
                 } else {
                     $arFields['PERSONAL_PHONE'] = urldecode($value);
                 }
                 break;
             case 'name':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите ваше имя';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_NAME');
                 } else {
                     $arFields['NAME'] = urldecode($value);
                 }
                 break;
             case 'last-name':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите вашу фамилию';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_LAST_NAME');
                 } else {
                     $arFields['LAST_NAME'] = urldecode($value);
                 }
                 break;
             case 'city':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите город';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_CITY');
                 } else {
                     $arFields['PERSONAL_CITY'] = urldecode($value);
                 }
                 break;
             case 'company':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите компанию';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_COMPANY');
                 } else {
                     $arFields['WORK_COMPANY'] = urldecode($value);
                 }
                 break;
             case 'website':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите адрес сайта';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_WEBSITE');
                 } else {
                     $arFields['WORK_WWW'] = urldecode($value);
                 }
@@ -80,7 +80,7 @@ if ($arData['data-change'] == 'Y') {
     if (!$error) {
         $ID = $us->Update($USER->GetID(), $arFields);
         if (intval($ID) > 0) {
-            $json['success'] = 'Ваши данные успешно изменены';
+            $json['success'] = Loc::getMessage('SUCCESS_DATA');
         } else {
             $json['error']['warning'] = explode('<br>', $us->LAST_ERROR)[0];
         }
@@ -93,18 +93,18 @@ if ($arData['pass-change'] == 'Y') {
         switch ($name) {
             case 'password':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Укажите Ваш пароль';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_PASS');
                 } elseif (strlen($value) < 6) {
-                    $error[$name] = 'Пароль не должен быть меньше 6-ти символов';
+                    $error[$name] = Loc::getMessage('ERROR_PASS_LENGTH');
                 } else {
                     $arFields['PASSWORD'] = urldecode($value);
                 }
                 break;
             case 're-password':
                 if (strlen($value) <= 0) {
-                    $error[$name] = 'Повторите Ваш пароль';
+                    $error[$name] = Loc::getMessage('ERROR_EMPTY_RE_PASS');
                 } elseif ($arFields['PASSWORD'] && $arFields['PASSWORD'] != urldecode($value)) {
-                    $error[$name] = 'Пароли не совпадают';
+                    $error[$name] = Loc::getMessage('ERROR_PASS_NOT_MATCH');
                 } else {
                     $arFields['CONFIRM_PASSWORD'] = urldecode($value);
                 }
@@ -114,7 +114,7 @@ if ($arData['pass-change'] == 'Y') {
     if (!$error) {
         $ID = $us->Update($USER->GetID(), $arFields);
         if (intval($ID) > 0) {
-            $json['success'] = 'Ваш пароль успешно изменен';
+            $json['success'] = Loc::getMessage('SUCCESS_PASS');
         } else {
             $json['error']['warning'] = explode('<br>', $us->LAST_ERROR)[0];
         }

@@ -30,7 +30,7 @@ Loc::loadMessages(__FILE__);
                 <? if ($arResult['OPTIONS']) { ?>
                     <div class="catalog-el__chars">
                         <div class="catalog-el__section-title">
-                            Характеристики:
+                            <?= Loc::getMessage('TAB_OPTIONS_TITLE') ?>:
                         </div>
                         <?
                         $i = 1;
@@ -49,7 +49,7 @@ Loc::loadMessages(__FILE__);
                         <? if (count($arResult['OPTIONS']) > 5) { ?>
                             <div class="catalog-el__btn">
                                 <button class="btn btn_large btn-small js-init-btn-chars" data-name="tab_options">
-                                    Все характеристики
+                                    <?= Loc::getMessage('ALL_OPTIONS_BTN') ?>
                                 </button>
                             </div>
                         <? } ?>
@@ -58,7 +58,7 @@ Loc::loadMessages(__FILE__);
                 <? if ($arResult['PREVIEW_TEXT'] || $arResult['DETAIL_TEXT']) { ?>
                     <div class="catalog-el__section catalog-el__desc">
                         <div class="catalog-el__section-title">
-                            Описание:
+                            <?= Loc::getMessage('TAB_DESCRIPTION_TITLE') ?>:
                         </div>
                         <p>
                             <?= $arResult['PREVIEW_TEXT'] ?: substr($arResult['DETAIL_TEXT'], 0, 300) . '...' ?>
@@ -74,7 +74,7 @@ Loc::loadMessages(__FILE__);
                 </div>
                 <div class="catalog-el__btn-pick">
                     <button type="submit" class="btn btn_fill btn-small pick-up-oil__form_button btn-font">
-                        Подобрать масло
+                        <?= Loc::getMessage('PICK_OIL_BTN') ?>
                     </button>
                 </div>
             </div>

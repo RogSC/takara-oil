@@ -19,10 +19,10 @@ $json = array();
 
 if ($arData['forgot'] == 'Y') {
     if (strlen($arData['email']) <= 0) {
-        $error['email'] = 'Укажите Ваш email';
+        $error['email'] = Loc::getMessage('ERROR_EMPTY_EMAIL');
     } elseif (urldecode($arData['email']) != 'admin') {
         if (!check_email(urldecode($arData['email']))) {
-            $error['email'] = 'Некорректный email адрес';
+            $error['email'] = Loc::getMessage('ERROR_INCORRECT_EMAIL');
         }
     }
     if (!$error) {
@@ -30,10 +30,10 @@ if ($arData['forgot'] == 'Y') {
         if ($res['LOGIN']) {
             $arResult = $USER->SendPassword($res['LOGIN'], urldecode($arData['email']));
             if ($arResult["TYPE"] == "OK") {
-                $json['success'] = 'На указанный email было отправлено письмо, пожалуйста проверьте Вашу почту.';
+                $json['success'] = Loc::getMessage('SUCCESS');
             }
         } else {
-            $json['error']['warning'] = 'Введенный email не найден.';
+            $json['error']['warning'] = Loc::getMessage('ERROR_EMAIL_NOT_FOUND');
         }
     } else {
         $json['error'] = $error;
@@ -46,7 +46,7 @@ if ($arData['forgot'] == 'Y') {
             <button class="js-init-modal__close"><?= GetContentSvgIcon('icon-close') ?></button>
         </div>
         <div class="forgot__title">
-            <h2 class="title-red-line">восстановление пароля</h2>
+            <h2 class="title-red-line"><?= Loc::getMessage('RECOVERY_PASS') ?></h2>
         </div>
 
         <div class="modal__errors">
@@ -55,13 +55,14 @@ if ($arData['forgot'] == 'Y') {
         <form name="forgot-form__form">
             <input name="forgot" value="Y" type="hidden">
             <fieldset class="q__form-item">
-                <legend>E-MAIL</legend>
+                <legend><?= Loc::getMessage('EMAIL') ?></legend>
                 <input type="email" name="email" id="email" class="inp">
             </fieldset>
             <div class="forgot-pass__desc">
-                инструкция по восстановлению пароля будет отправлена на ваш e-mail
+                <?= Loc::getMessage('RECOVERY_INSTRUCTION') ?>
             </div>
-            <button type="submit" class="auth-form__button btn btn_fill js-init-forgot_send">восстановить пароль
+            <button type="submit" class="auth-form__button btn btn_fill js-init-forgot_send">
+                <?= Loc::getMessage('RECOVER_PASS') ?>
             </button>
         </form>
     </section>

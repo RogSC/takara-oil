@@ -1,0 +1,1 @@
+<img width="308" src="/local/templates/takara-oil/frontend/img/article-logo-1.jpg" height="205">
