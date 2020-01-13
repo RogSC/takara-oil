@@ -1020,17 +1020,17 @@ button {
     position: absolute;
 }
 
-.products-catalog__motornye-masla {
+.products-catalog__motor-oils {
     top: 371px;
     left: 216px;
 }
 
-.products-catalog__reduktornye-masla {
+.products-catalog__gearbox-oils {
     top: 409px;
     left: 625px;
 }
 
-.products-catalog__transmissionnye-masla {
+.products-catalog__gear-oils {
     top: 454px;
     left: 845px;
 }

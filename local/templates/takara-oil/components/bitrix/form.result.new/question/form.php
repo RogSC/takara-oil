@@ -15,6 +15,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 
+$BUTTON_SUBMIT_TEXT = 'BUTTON_SUBMIT_TEXT_'.strtoupper(LANGUAGE_ID);
+
 if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == '6' || isset($_REQUEST['formresult'])) {
 
     $APPLICATION->RestartBuffer();
@@ -33,7 +35,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
     die();
 } else { ?>
     <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
                 defer></script>
     <? } ?>
 
@@ -120,7 +122,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                         <?= $arParams['MODAL_FORM'] == 'Y' ? 'btn-modal__submit ' : '' ?>
                         js-init-modal__submit">
                     <?= $arParams['BUTTON_SUBMIT_ICON'] ? GetContentSvgIcon($arParams['BUTTON_SUBMIT_ICON']) : '' ?>
-                    <?= $arParams['BUTTON_SUBMIT_TEXT'] ?>
+                    <?= $arParams[$BUTTON_SUBMIT_TEXT] ?>
                 </button>
             </form>
         </div>

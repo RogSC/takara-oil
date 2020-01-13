@@ -9,7 +9,7 @@ $arrFilter = array(
 );
 
 $rs = CIBlockElement::GetList(array(), array(
-    'IBLOCK_ID' => 14,
+    'IBLOCK_ID' => 25,
     '?NAME' => urldecode($_REQUEST['q'])
 ), false, false, array('ID')
 );
@@ -44,7 +44,7 @@ while ($ar_res = $rs->GetNext()) {
                                 "DISPLAY_ELEMENT_COUNT" => "Y",
                                 "FILTER_NAME" => "arrFilter",
                                 "FILTER_VIEW_MODE" => "horizontal",
-                                "IBLOCK_ID" => "14",
+                                "IBLOCK_ID" => "43",
                                 "IBLOCK_TYPE" => "catalog",
                                 "PAGER_PARAMS_NAME" => "arrPager",
                                 "PREFILTER_NAME" => "arrFilter",
@@ -105,7 +105,7 @@ while ($ar_res = $rs->GetNext()) {
                 "FILTER_NAME" => "arrFilter",
                 "HIDE_NOT_AVAILABLE" => $arParams["HIDE_NOT_AVAILABLE"],
                 "HIDE_NOT_AVAILABLE_OFFERS" => isset($arParams["HIDE_NOT_AVAILABLE_OFFERS"]) ? $arParams["HIDE_NOT_AVAILABLE_OFFERS"] : '',
-                "IBLOCK_ID" => "14",
+                "IBLOCK_ID" => "25",
                 "IBLOCK_TYPE" => "catalog",
                 "INCLUDE_SUBSECTIONS" => "Y",
                 "LABEL_PROP" => array(),

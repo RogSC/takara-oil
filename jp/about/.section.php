@@ -1,6 +1,6 @@
 <?
-$sSectionName = "О бренде";
+$sSectionName = 'ブランドについて';
 $arDirProperties = Array(
-
+    "description" => "ブランドについて",
+    "title" => "ブランドについて"
 );
-?>

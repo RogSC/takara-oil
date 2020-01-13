@@ -180,7 +180,7 @@ $this->setFrameMode(true);
         <a href="/articles/">
             <button class="btn btn-small"><?
                 $APPLICATION->IncludeFile(
-                    "views/articles-link-text.php",
+                    "/include/" . SITE_ID . "/articles-link-text.php",
                     array(),
                     array(
                         "MODE" => "text",

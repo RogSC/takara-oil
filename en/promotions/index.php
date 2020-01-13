@@ -11,7 +11,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "Content",
-		"IBLOCK_ID" => "22",
+		"IBLOCK_ID" => "32",
 		"NEWS_COUNT" => "6",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",

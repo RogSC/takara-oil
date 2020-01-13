@@ -1,6 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Регистрация");
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+$APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 ?>
 <?$APPLICATION->IncludeComponent(
 	"b24.tech:inline.value", 

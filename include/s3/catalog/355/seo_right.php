@@ -1,11 +1,7 @@
-    Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-    защитную пленку. <br>
-    <br>
-    Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-    защитную пленку. <br>
-    <br>
-    Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-    защитную пленку. <br>
-    <br>
-    Полностью синтетическая основа и специальный пакет противоизносных присадок образуют прочную
-    защитную пленку.
+The fully synthetic base and special antiwear additive package form a strong protective film. <br>
+<br>
+The fully synthetic base and special antiwear additive package form a strong protective film. <br>
+<br>
+The fully synthetic base and special antiwear additive package form a strong protective film. <br>
+<br>
+The fully synthetic base and special antiwear additive package form a strong protective film.

@@ -1,7 +1,7 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Prodile",
+		"Profile",
 		"/en/profile/profile.php",
 		Array(), 
 		Array(), 

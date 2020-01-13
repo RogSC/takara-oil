@@ -13,8 +13,8 @@ Loc::loadMessages(__FILE__);
     array(
         "COMPONENT_TEMPLATE" => "slider",
         "IBLOCK_TYPE" => "news",
-        "IBLOCK_ID" => "15",
-        "NEWS_COUNT" => "20",
+        "IBLOCK_ID" => "25",
+        "NEWS_COUNT" => "10",
         "SORT_BY1" => "SORT",
         "SORT_ORDER1" => "ASC",
         "SORT_BY2" => "ACTIVE_FROM",
@@ -81,21 +81,12 @@ Loc::loadMessages(__FILE__);
     array(
         "COMPONENT_TEMPLATE" => "home-section",
         "IBLOCK_TYPE" => "catalog",
-        "IBLOCK_ID" => "14",
-        "SECTION_ID" => $_REQUEST["SECTION_ID"],
+        "IBLOCK_ID" => "43",
+        "SECTION_ID" => "",
         "SECTION_CODE" => "",
         "COUNT_ELEMENTS" => "Y",
         "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
         "TOP_DEPTH" => "2",
-        "SECTION_FIELDS" => array(
-            0 => "",
-            1 => "",
-        ),
-        "SECTION_USER_FIELDS" => array(
-            0 => "",
-            1 => "",
-        ),
-        "FILTER_NAME" => "sectionsFilter",
         "SECTION_URL" => "",
         "CACHE_TYPE" => "A",
         "CACHE_TIME" => "36000000",
@@ -138,7 +129,7 @@ Loc::loadMessages(__FILE__);
                     array(
                         "COMPONENT_TEMPLATE" => "features",
                         "IBLOCK_TYPE" => "features",
-                        "IBLOCK_ID" => "16",
+                        "IBLOCK_ID" => "39",
                         "NEWS_COUNT" => "3",
                         "SORT_BY1" => "TIMESTAMP_X",
                         "SORT_ORDER1" => "ASC",
@@ -337,7 +328,7 @@ Loc::loadMessages(__FILE__);
 	array(
 		"COMPONENT_TEMPLATE" => "articles",
 		"IBLOCK_TYPE" => "articles",
-		"IBLOCK_ID" => "2",
+		"IBLOCK_ID" => "27",
 		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "TIMESTAMP_X",
 		"SORT_ORDER1" => "DESC",

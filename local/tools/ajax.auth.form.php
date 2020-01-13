@@ -66,8 +66,9 @@ if ($arData['authorize'] == 'Y') {
         $json['error'] = $error;
     }
 } elseif (isset($arData['show_form']) && $arData['show_form'] == 'Y') {
+    dump(SITE_ID)
     ?>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
             defer></script>
     <section class="modal-window">
         <div class="modal-window__close">

@@ -1,5 +1,5 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?=$arParams['API_KEY']?>&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?=$arParams['API_KEY']?>&callback=initMap&language=<?=LANGUAGE_ID?>"
             async defer></script>
 
     <div id="map"></div>

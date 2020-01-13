@@ -1,7 +1,16 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Каталог применяемости");
-?>Text here....<?$APPLICATION->IncludeComponent(
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+$APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
+
+?>
+<section class="container">
+    <?= Loc::getMessage('SEC_NAME') ?>
+</section>
+
+<?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb",
 	"breadcrumb",
 	Array(

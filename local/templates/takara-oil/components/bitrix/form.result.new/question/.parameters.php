@@ -48,11 +48,23 @@ $arTemplateParameters = array(
         ),
         "DEFAULT" => '-'
     ),
-    'BUTTON_SUBMIT_TEXT' => array(
+    'BUTTON_SUBMIT_TEXT_RU' => array(
         'PARENT' => 'VISUAL',
         'TYPE' => 'STRING',
-        'NAME' => Loc::getMessage('BTN_SUBMIT_TEXT'),
-        "DEFAULT" => Loc::getMessage('SUBMIT_TEXT')
+        'NAME' => Loc::getMessage('BTN_SUBMIT_TEXT_RU'),
+        "DEFAULT" => Loc::getMessage('SUBMIT_TEXT_RU')
+    ),
+    'BUTTON_SUBMIT_TEXT_EN' => array(
+        'PARENT' => 'VISUAL',
+        'TYPE' => 'STRING',
+        'NAME' => Loc::getMessage('BTN_SUBMIT_TEXT_EN'),
+        "DEFAULT" => Loc::getMessage('SUBMIT_TEXT_EN')
+    ),
+    'BUTTON_SUBMIT_TEXT_JA' => array(
+        'PARENT' => 'VISUAL',
+        'TYPE' => 'STRING',
+        'NAME' => Loc::getMessage('BTN_SUBMIT_TEXT_JA'),
+        "DEFAULT" => Loc::getMessage('SUBMIT_TEXT_JA')
     ),
     "MODAL_FORM" => array(
         "PARENT" => "VISUAL",

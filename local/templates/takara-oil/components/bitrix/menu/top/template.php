@@ -21,7 +21,7 @@
                         <? if ($arItemChild["DEPTH_LEVEL"] === 2 &&
                                 $arItemChild["CHAIN"][0] === $arItem["CHAIN"][0]) { ?>
                         <li class="main-header__navbar-nested-item">
-                            <a href="<?= $arItemChild["LINK"] ?>"><?= $arItemChild["TEXT"] ?></a>
+                            <a href="<?= SITE_ID == 's1' ? $arItemChild["LINK"] : SITE_DIR.'/catalog/?SECTION_ID='.$arItemChild['ADDITIONAL_LINKS'][0] ?>"><?= $arItemChild["TEXT"] ?></a>
                         </li>
                         <? } ?>
                     <? } ?>

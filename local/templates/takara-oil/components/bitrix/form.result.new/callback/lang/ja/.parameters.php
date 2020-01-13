@@ -1,0 +1,21 @@
+<?php
+$MESS['USE_CAPTCHA'] = 'Google Recaptchaを使用しますか？';
+$MESS['BTN_SUBMIT_TYPE'] = 'ボタンタイプを送信';
+$MESS['FILL'] = 'フィルあり';
+$MESS['NO_FILL'] = '塗りつぶしなし';
+$MESS['BTN_SUBMIT_SIZE'] = '送信ボタンサイズ';
+$MESS['SMALL'] = 'Small';
+$MESS['MEDIUM'] = '標準';
+$MESS['LARGE'] = 'Large';
+$MESS['BTN_SUBMIT_ICON'] = '送信ボタンのアイコン';
+$MESS['ICON_PHONE'] = '電話アイコン付き';
+$MESS['ICON_QUEST_MARK'] = 'アイコン「？」あり';
+$MESS['NO_ICON'] = 'アイコンなし';
+$MESS['BTN_SUBMIT_TEXT'] = 'ボタンテキストを送信';
+$MESS['SUBMIT_TEXT'] = '送信';
+$MESS['FORM_MODAL'] = 'モーダルウィンドウのフォーム？';
+$MESS['BTN_MODAL_TEXT'] = '[モーダルウィンドウの呼び出し]ボタンのテキスト';
+$MESS['CALLBACK'] = 'フィードバック';
+$MESS['BTN_MODAL_TYPE'] = 'ボタンタイプ「モーダルウィンドウを呼び出す」';
+$MESS['BTN_MODAL_ICON'] = '[モーダルウィンドウの呼び出し]ボタンのアイコン';
+$MESS['BTN_MODAL_SIZE'] = '[モーダルウィンドウの呼び出し]ボタンのサイズ';

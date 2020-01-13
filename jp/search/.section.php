@@ -1,6 +1,6 @@
 <?
-$sSectionName = "Страница поиска";
+$sSectionName = '検索ページ';
 $arDirProperties = Array(
-    'PAGE_LAYOUT' => 'search'
+    "description" => "検索ページ",
+    "title" => "検索ページ"
 );
-?>

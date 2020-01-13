@@ -1,0 +1,39 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"製品カタログ",
+		"/jp/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"適用カタログ",
+		"/jp/applicability-catalog/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"タカラブランドについて",
+		"/jp/about/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"記事",
+		"/jp/articles/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"連絡先",
+		"/jp/contacts/",
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

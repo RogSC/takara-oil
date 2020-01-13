@@ -29,7 +29,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
     die();
 } else { ?>
     <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
                 defer></script>
     <? } ?>
     <div class="<?= $arParams['MODAL_FORM'] == 'Y' ? 'modal-window' : '' ?>" id="callback-form">

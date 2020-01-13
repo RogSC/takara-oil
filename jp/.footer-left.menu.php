@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "カタログ",
+        "/jp/catalog/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "モーター・オイル",
+        "/jp/catalog/motor-oils/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "ギアオイル",
+        "/jp/catalog/gear-oils/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "パワーステアリングオイル",
+        "/jp/catalog/steering-oils/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "ブレーキシステム用オイル",
+        "/jp/catalog/oils-brake/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "サスペンション用オイル",
+        "/jp/catalog/suspension-oils/",
+        Array(),
+        Array(),
+        ""
+    )
+);
+?>

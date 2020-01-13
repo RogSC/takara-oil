@@ -8,7 +8,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 ?>
 
 <?
-$res = CIBlockElement::GetList(array(), array('IBLOCK_ID' => '24'), false, false, array('ID', 'NAME', 'PREVIEW_PICTURE', 'DETAIL_TEXT'));
+$res = CIBlockElement::GetList(array(), array('IBLOCK_ID' => '41'), false, false, array('ID', 'NAME', 'PREVIEW_PICTURE', 'DETAIL_TEXT'));
 
 while($ob = $res->GetNextElement())
 {

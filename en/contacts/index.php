@@ -22,7 +22,7 @@ function ShowBranchAttr($class, $attr_type, $isSpan = false)
 
 $rs = CIBlockElement::GetList(
     array(),
-    array('IBLOCK_ID' => 21),
+    array('IBLOCK_ID' => 37),
     false, false,
     array(
         "ID",

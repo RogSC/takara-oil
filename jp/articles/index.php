@@ -1,6 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Статьи");
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+$APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 ?>
 
             <?$APPLICATION->IncludeComponent(
@@ -9,7 +12,7 @@ $APPLICATION->SetTitle("Статьи");
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "articles",
-		"IBLOCK_ID" => "2",
+		"IBLOCK_ID" => "28",
 		"NEWS_COUNT" => "6",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",
@@ -23,7 +26,7 @@ $APPLICATION->SetTitle("Статьи");
 		"SORT_ORDER2" => "ASC",
 		"CHECK_DATES" => "Y",
 		"SEF_MODE" => "N",
-		"AJAX_MODE" => "Y",
+		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "N",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -65,8 +68,10 @@ $APPLICATION->SetTitle("Статьи");
 			1 => "",
 		),
 		"DETAIL_PROPERTY_CODE" => array(
-			0 => "",
-			1 => "",
+			0 => "ADD_DESC",
+			1 => "VIDEO_LINK",
+			2 => "PHOTO_GALLERY",
+			3 => "",
 		),
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
@@ -85,6 +90,7 @@ $APPLICATION->SetTitle("Статьи");
 		"SET_STATUS_404" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
+		"SEF_FOLDER" => "en/articles",
 		"VARIABLE_ALIASES" => array(
 			"SECTION_ID" => "SECTION_ID",
 			"ELEMENT_ID" => "ELEMENT_ID",

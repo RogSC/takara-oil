@@ -20,9 +20,23 @@ if(is_array($arParams['PROPERTY_CODE']) && !empty($arParams['PROPERTY_CODE'])) {
     }
 }
 
+if(SITE_ID == "s1") {
+    $arParams['QUESTIONS']['IBLOCK_ID'] = 20;
+    $arParams['QUESTIONS']['WEB_FORM_ID'] = 6;
+} elseif (SITE_ID == "s2") {
+    $arParams['QUESTIONS']['IBLOCK_ID'] = 30;
+    $arParams['QUESTIONS']['WEB_FORM_ID'] = 12;
+} else {
+    $arParams['QUESTIONS']['IBLOCK_ID'] = 29;
+    $arParams['QUESTIONS']['WEB_FORM_ID'] = 9;
+}
+
 $rs = CIBlockElement::GetList(
     array(),
-    array('PROPERTY_PRODUCT' => $arResult['ID']),
+    array(
+        'PROPERTY_PRODUCT' => $arResult['ID'],
+        'IBLOCK_ID' => $arParams['QUESTIONS']['IBLOCK_ID']
+    ),
     false, false,
     array()
 );

@@ -5,7 +5,7 @@ use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 ?>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
         defer></script>
 
 <section class="registration container">

@@ -1,48 +1,48 @@
 <?
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php"); ?>
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
-<section class="profile-cabinet">
-    <div class="my-container profile-cabinet__container">
-        <div class="bread-crumb profile-cabinet__bread-crumb">
-            <p class="bread-crumb-p standard-paragraph">
-                главная — <span class="bread-crumb-p_select">Личный кабинет</span>
-            </p>
-        </div>
-        <div class="section__title products-catalog__title profile-cabinet__title">
-            <h2>Личный кабинет</h2>
-        </div>
-        <div class="articles__items">
-            <div class="articles__item profile-cabinet__item">
-                <div class="articles__item_logo profile-cabinet__item_logo">
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+$APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
+?>
+
+<section class="lk container">
+    <div class="row lk__breadcrumb">
+        <? $APPLICATION->IncludeComponent('bitrix:breadcrumb', '', array()) ?>
+    </div>
+    <div class="section__title products-catalog__title lk__title">
+        <h2><?= Loc::getMessage('SEC_NAME') ?></h2>
+    </div>
+    <div class="articles__items row">
+        <div class="col-12 col-md-4">
+            <div class="articles__item lk__item">
+                <a href="profile.php" class="articles__item_logo lk__item_logo">
                     <img alt="Logo article 1" src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/profile-logo-1.jpg">
-                </div>
-                <div class="articles__item_title">
-                    <p class="profile-cabinet__item-title">Профиль</p>
-                </div>
+                </a>
+                <a href="profile.php" class="articles__item_title lk__item-title"><?= Loc::getMessage('PROFILE_TITLE') ?></a>
                 <div class="articles__item_btn">
-                    <a href="profile.php" class="btn__more">Перейти</a>
+                    <a href="profile.php" class="btn__more"><?= Loc::getMessage('BTN_LINK') ?></a>
                 </div>
             </div>
-            <div class="articles__item profile-cabinet__item profile-cabinet__item_center">
-                <div class="articles__item_logo profile-cabinet__item_logo">
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="articles__item lk__item">
+                <a href="/promotions/" class="articles__item_logo lk__item_logo">
                     <img alt="Logo article 2" src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/profile-logo-2.jpg">
-                </div>
-                <div class="articles__item_title">
-                    <p class="profile-cabinet__item-title">Акции</p>
-                </div>
+                </a>
+                <a href="/promotions/" class="articles__item_title lk__item-title"><?= Loc::getMessage('PROMOTIONS_TITLE') ?></a>
                 <div class="articles__item_btn">
-                    <a href="#" class="btn__more">Перейти</a>
+                    <a href="/promotions/" class="btn__more"><?= Loc::getMessage('BTN_LINK') ?></a>
                 </div>
             </div>
-            <div class="articles__item profile-cabinet__item profile-cabinet__item_right">
-                <div class="articles__item_logo profile-cabinet__item_logo">
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="articles__item lk__item lk__item_right">
+                <a  href="/questions/" class="articles__item_logo lk__item_logo">
                     <img alt="Logo article 3" src="<?= SITE_TEMPLATE_PATH ?>/frontend/img/profile-logo-3.jpg">
-                </div>
-                <div class="articles__item_title">
-                    <p class="profile-cabinet__item-title">Вопросы о товарах</p>
-                </div>
-                    <a href="#" class="btn__more">Перейти</a>
-                </div>
+                </a>
+                <a href="/questions/" class="articles__item_title lk__item-title"><?= Loc::getMessage('QUESTIONS_TITLE') ?></a>
+                <a href="/questions/" class="btn__more"><?= Loc::getMessage('BTN_LINK') ?></a>
             </div>
         </div>
     </div>

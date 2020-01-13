@@ -1,66 +1,128 @@
 <?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Контакты");
-?>
+require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 
-<section class="contacts">
-    <div class="my-container contacts__container">
-        <div class="bread-crumb">
-            <p class="bread-crumb-p standard-paragraph">
-                главная — <span class="bread-crumb-p_select">контакты</span>
-            </p>
+use Bitrix\Main\Page\Asset,
+    Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
+$APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
+
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/choose_addr.js"));
+
+function ShowBranchAttr($class, $attr_type, $isSpan = false)
+{
+    global $arResult;
+    $isFirstEl = true;
+    foreach ($arResult['BRANCHES'] as $arBranch) { ?>
+        <<?= $isSpan ? 'span' : 'div' ?> class="<?= $isFirstEl ? $class.' active' : $class ?>">
+        <?= $arBranch[$attr_type] ?>
+        </<?= $isSpan ? 'span' : 'div' ?>>
+        <?$isFirstEl = false?>
+    <? }
+}
+
+$rs = CIBlockElement::GetList(
+    array(),
+    array('IBLOCK_ID' => 38),
+    false, false,
+    array(
+        "ID",
+        "IBLOCK_ID",
+        "NAME",
+        "PROPERTY_ADDRESS",
+        "PROPERTY_WORK_TIME",
+        "PROPERTY_PHONE",
+        "PROPERTY_EMAIL",
+        "PROPERTY_LATITUDE",
+        "PROPERTY_LONGITUDE"
+    )
+);
+
+$firstBranch = null;
+
+while ($ar_res = $rs->GetNext()) {
+    if (!$firstBranch) {
+        $firstBranch['LATITUDE'] = $ar_res['PROPERTY_LATITUDE_VALUE'];
+        $firstBranch['LONGITUDE'] = $ar_res['PROPERTY_LONGITUDE_VALUE'];
+    }
+
+    $arResult['BRANCHES'][$ar_res['ID']]['NAME'] = $ar_res['NAME'];
+    $arResult['BRANCHES'][$ar_res['ID']]['ADDRESS'] = $ar_res['PROPERTY_ADDRESS_VALUE'];
+    $arResult['BRANCHES'][$ar_res['ID']]['WORK_TIME'] = $ar_res['PROPERTY_WORK_TIME_VALUE'];
+    $arResult['BRANCHES'][$ar_res['ID']]['PHONE'] = $ar_res['PROPERTY_PHONE_VALUE'];
+    $arResult['BRANCHES'][$ar_res['ID']]['EMAIL'] = $ar_res['PROPERTY_EMAIL_VALUE'];
+    $arResult['BRANCHES'][$ar_res['ID']]['LATITUDE'] = $ar_res['PROPERTY_LATITUDE_VALUE'];
+    $arResult['BRANCHES'][$ar_res['ID']]['LONGITUDE'] = $ar_res['PROPERTY_LONGITUDE_VALUE'];
+}
+
+foreach ($arResult['BRANCHES'] as $key => $arBranch) {
+    $arResult['POSITION'][$key]['TEXT'] = $arBranch['ADDRESS'];
+    $arResult['POSITION'][$key]['LAT'] = $arBranch['LATITUDE'];
+    $arResult['POSITION'][$key]['LON'] = $arBranch['LONGITUDE'];
+}
+?>
+    <section class="contacts container">
+        <div class="row">
+            <? $APPLICATION->IncludeComponent('bitrix:breadcrumb', '', array()) ?>
         </div>
         <div class="catalog__title catalog-element__title title-red-line">
-            <h2>Контакты</h2>
+            <h2><?=Loc::getMessage('CONTACTS_TITLE')?></h2>
         </div>
-        <div class="contacts__description">
-            <div class="contacts__description-section">
-                <div class="contacts__description-title">
-                    <p class="contacts__description-title-p">Адрес</p>
+        <div class="row">
+            <div class="contacts__desc-section col-12 col-md-6">
+                <div class="contacts__title">
+                    <?=Loc::getMessage('CONTACTS_ADDR')?>
                 </div>
-                <p class="hight-paragraph contacts__description-p contacts_addr-choose">
-                    <span class="select-addr selected-addr">Екатеринбург</span>
-                    <span class="select-addr">Москва</span>
-                </p>
-                <p class="hight-paragraph contacts__description-p">
-                    620014, Екатеринбург, Генеральская, 3, офис 208
-                </p>
+                <div class="contacts_addr-choose">
+                    <? ShowBranchAttr('select-addr', 'NAME', true) ?>
+                </div>
+                <? ShowBranchAttr('addr', 'ADDRESS') ?>
             </div>
-            <div class="contacts__description-section">
-                <div class="contacts__description-title">
-                    <p class="contacts__description-title-p">Время работы</p>
+            <div class="contacts__desc-section col-12 col-md-6">
+                <div class="contacts__title">
+                    <?=Loc::getMessage('CONTACTS_WORK_TIME')?>
                 </div>
-                <p class="hight-paragraph contacts__description-p">
-                    с понедельника по четверг с 10:00 до 19:00<br>
-                    в пятницу с 10:00 до 19:00
-                </p>
+                <? ShowBranchAttr('w-time', 'WORK_TIME') ?>
             </div>
-            <div class="contacts__description-section">
-                <div class="contacts__description-title">
-                    <p class="contacts__description-title-p">Телефон</p>
+            <div class="contacts__desc-section col-12 col-md-6">
+                <div class="contacts__title">
+                    <?=Loc::getMessage('CONTACTS_PHONE')?>
                 </div>
-                <p class="hight-paragraph contacts__description-p">
-                    8 (800) 500-50-50 — телефон для всех регионов<br>
-                    +7 343 111 11 11 — телефон в Екатеринбурге
-                </p>
+                <? ShowBranchAttr('phone', 'PHONE') ?>
             </div>
-            <div class="contacts__description-section">
-                <div class="contacts__description-title">
-                    <p class="contacts__description-title-p">Электронная почта</p>
+            <div class="contacts__desc-section col-12 col-md-6">
+                <div class="contacts__title">
+                    <?=Loc::getMessage('CONTACTS_EMAIL')?>
                 </div>
-                <p class="hight-paragraph contacts__description-p">
-                    <span class="red">info@website96.ru</span>
-                </p>
+                <? ShowBranchAttr('red-font e-mail', 'EMAIL') ?>
             </div>
         </div>
-    </div>
+    </section>
 
-</section>
-<section class="contacts-img">
-    <div class="my-container contacts-img__container">
-        <img src="<?=SITE_TEMPLATE_PATH?>/frontend/img/bg-contacts.jpg">
-    </div>
-</section>
+    <section class="contacts-img container">
+        <div class="contacts-img__container">
+            <? $APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", Array(
+                "API_KEY" => API_KEY,    // Key JavaScript API https://developers.google.com/maps/documentation/javascript/get-api-key
+                "INIT_MAP_TYPE" => "ROADMAP",
+                "POSITION" => $arResult['POSITION'],
+                "MAP_HEIGHT" => "500",
+                "CONTROLS" => array(
+                    0 => "SMALL_ZOOM_CONTROL",
+                    1 => "TYPECONTROL",
+                    2 => "SCALELINE",
+                ),
+                "OPTIONS" => array(
+                    0 => "ENABLE_SCROLL_ZOOM",
+                    1 => "ENABLE_DBLCLICK_ZOOM",
+                    2 => "ENABLE_DRAGGING",
+                    3 => "ENABLE_KEYBOARD",
+                ),
+                "MAP_ID" => "gm_1",
+                "COMPONENT_TEMPLATE" => ".default"
+            ),
+                false
+            ); ?>
+        </div>
+    </section>
 <?
 $APPLICATION->IncludeFile(
     "views/callback.php",
@@ -72,4 +134,4 @@ $APPLICATION->IncludeFile(
 );
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
