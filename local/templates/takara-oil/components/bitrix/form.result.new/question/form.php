@@ -41,7 +41,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
 
     <section class="pick-up-oil container" id="pick-up-oil">
         <div class="pick-up-oil__title question__title title-red-line">
-            <h2><?= Loc::getMessage('FORM_TITLE') ?></h2>
+            <h2><?= Loc::getMessage('Q_FORM_TITLE') ?></h2>
         </div>
 
         <div class="quest-error__cont">

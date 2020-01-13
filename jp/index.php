@@ -392,7 +392,7 @@ Loc::loadMessages(__FILE__);
 	false
 ); ?>
         <div class="articles__btn">
-            <a href="/articles/">
+            <a href="<?= SITE_DIR ?>/articles/">
                 <button class="btn btn-small"><?
                     $APPLICATION->IncludeFile(
                         "/include/" . SITE_ID . "/articles-link-text.php",

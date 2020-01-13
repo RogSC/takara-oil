@@ -1,2 +1,2 @@
 <?php
-$MESS['FORM_TITLE'] = '質問する';
+$MESS['Q_FORM_TITLE'] = '質問する';

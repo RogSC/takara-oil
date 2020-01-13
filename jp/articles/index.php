@@ -6,9 +6,9 @@ Loc::loadMessages(__FILE__);
 $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 ?>
 
-            <?$APPLICATION->IncludeComponent(
-	"bitrix:news", 
-	".default", 
+<?$APPLICATION->IncludeComponent(
+	"bitrix:news",
+	".default",
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "articles",
@@ -101,12 +101,12 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 
 <?
 $APPLICATION->IncludeFile(
-    "views/callback.php",
-    array(),
-    array(
-        "SHOW_BORDER" => false,
-        "MODE" => "php",
-    )
+	"views/callback.php",
+	array(),
+	array(
+		"SHOW_BORDER" => false,
+		"MODE" => "php",
+	)
 );
 ?>
 

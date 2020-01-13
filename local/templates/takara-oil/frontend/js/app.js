@@ -93,7 +93,7 @@ function getResult(value) {
                         }
                     });
                     cont.find('.search-result__cont').append('<button type="submit" form="search" class="btn btn-small search-btn">' +
-                        'показать все результаты<img src="/local/templates/takara-oil/frontend/img/svg/arrow.svg"></button>');
+                        responce["SHOW_ALL"] + '<img src="/local/templates/takara-oil/frontend/img/svg/arrow.svg"></button>');
                 } else {
                     clearResult('empty');
                     cont.find('.search-result__list').append('<li class="result__item col-12">Ничего не найдено</li>')

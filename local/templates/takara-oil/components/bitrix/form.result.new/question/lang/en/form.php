@@ -1,2 +1,2 @@
 <?php
-$MESS['FORM_TITLE'] = 'Ask a question';
+$MESS['Q_FORM_TITLE'] = 'Ask a question';

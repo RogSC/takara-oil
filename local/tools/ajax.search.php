@@ -13,8 +13,19 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_be
 
 CModule::IncludeModule("iblock");
 
+if(SITE_ID == "s1") {
+    $arParams['CATALOG']['IBLOCK_ID'] = 14;
+    $arResult['SHOW_ALL'] = 'Показать все результаты';
+} elseif (SITE_ID == "s2") {
+    $arParams['CATALOG']['IBLOCK_ID'] = 44;
+    $arResult['SHOW_ALL'] = 'すべての結果を表示';
+} else {
+    $arParams['CATALOG']['IBLOCK_ID'] = 43;
+    $arResult['SHOW_ALL'] = 'Show all results';
+}
+
 $rs = CIBlockElement::GetList(array(), array(
-    'IBLOCK_ID' => 14,
+    'IBLOCK_ID' => $arParams['CATALOG']['IBLOCK_ID'],
     '?NAME' => urldecode($_REQUEST['q'])
 ), false, array('nTopCount' => 6), array('ID', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE')
 );
@@ -34,7 +45,6 @@ while ($ar_res = $rs->GetNext()) {
         $ar_res['TITLE_FORMATED'] = $ar_res['NAME'];
     }
     $arResult['ITEMS'][] = $ar_res;
-
 }
 $arResult['COUNT'] = count($arResult['ITEMS']);
 echo json_encode($arResult);
