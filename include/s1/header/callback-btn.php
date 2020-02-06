@@ -1,4 +1,4 @@
-<?$APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
     "bitrix:form.result.new",
     "callback",
     array(
@@ -30,4 +30,4 @@
         )
     ),
     false
-);?>
+); ?>

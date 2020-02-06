@@ -1,16 +1,16 @@
-<?$APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
     "bitrix:form.result.new",
     "callback",
     array(
         "COMPONENT_TEMPLATE" => "callback",
-        "WEB_FORM_ID" => "4",
+        "WEB_FORM_ID" => "10",
         "IGNORE_CUSTOM_TEMPLATE" => "N",
         "USE_EXTENDED_ERRORS" => "N",
         "BUTTON_SUBMIT_TYPE" => "fill",
         "BUTTON_SUBMIT_SIZE" => "middle",
         "BUTTON_SUBMIT_ICON" => "no_icon",
         "MODAL_FORM" => "Y",
-        "BUTTON_INIT_TITLE" => "Связаться с нами",
+        "BUTTON_INIT_TITLE" => "お問い合わせ",
         "BUTTON_INIT_TYPE" => "not_fill",
         "BUTTON_INIT_ICON" => "icon_phone",
         "BUTTON_INIT_SIZE" => "small",
@@ -23,11 +23,11 @@
         "CHAIN_ITEM_TEXT" => "",
         "CHAIN_ITEM_LINK" => "",
         "USE_GOOGLE_CAPTCHA" => "Y",
-        "BUTTON_SUBMIT_TEXT" => "Отправить",
+        "BUTTON_SUBMIT_TEXT" => "参加する",
         "VARIABLE_ALIASES" => array(
             "WEB_FORM_ID" => "WEB_FORM_ID",
             "RESULT_ID" => "RESULT_ID",
         )
     ),
     false
-);?>
+); ?>

@@ -120,8 +120,8 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 		"SECTION_COUNT_ELEMENTS" => "N",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_TOP_DEPTH" => "2",
-		"SEF_FOLDER" => "/catalog/",
-		"SEF_MODE" => "N",
+		"SEF_FOLDER" => "/en/catalog/",
+		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
@@ -174,9 +174,12 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 		"MESS_BTN_DETAIL" => "Details",
 		"MESS_NOT_AVAILABLE" => "Item not available",
 		"MESS_BTN_SUBSCRIBE" => "Subscribe",
-		"VARIABLE_ALIASES" => array(
-			"ELEMENT_ID" => "ELEMENT_ID",
-			"SECTION_ID" => "SECTION_ID",
+		"SEF_URL_TEMPLATES" => array(
+			"sections" => "",
+			"section" => "#SECTION_CODE_PATH#/",
+			"element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
+			"compare" => "",
+			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
 		)
 	),
 	false

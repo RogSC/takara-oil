@@ -7,8 +7,8 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 ?>
 
 <?$APPLICATION->IncludeComponent(
-	"bitrix:news",
-	".default",
+	"bitrix:news", 
+	".default", 
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "articles",
@@ -25,7 +25,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER2" => "ASC",
 		"CHECK_DATES" => "Y",
-		"SEF_MODE" => "N",
+		"SEF_MODE" => "Y",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "N",
@@ -90,10 +90,11 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 		"SET_STATUS_404" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
-		"SEF_FOLDER" => "en/articles",
-		"VARIABLE_ALIASES" => array(
-			"SECTION_ID" => "SECTION_ID",
-			"ELEMENT_ID" => "ELEMENT_ID",
+		"SEF_FOLDER" => "/jp/articles/",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "",
+			"section" => "",
+			"detail" => "#ELEMENT_CODE#/",
 		)
 	),
 	false

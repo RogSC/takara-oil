@@ -2,6 +2,8 @@
 /**
  * @author Lukmanov Mikhail <lukmanof92@gmail.com>
  */
+
+define('SITE_ID', $_REQUEST['site_id']);
 define('STOP_STATISTICS', true);
 define('NO_KEEP_STATISTIC', 'Y');
 define('NO_AGENT_STATISTIC', 'Y');
@@ -10,6 +12,9 @@ define('BX_SECURITY_SHOW_MESSAGE', true);
 define('XHR_REQUEST', true);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");
+
+use Bitrix\Main\Localization\Loc;
+Loc::loadMessages(__FILE__);
 
 CModule::IncludeModule("iblock");
 
@@ -24,13 +29,16 @@ if(SITE_ID == "s1") {
     $arResult['SHOW_ALL'] = 'Show all results';
 }
 
+$arResult = array();
+
+$arResult['SHOW_ALL'] = Loc::getMessage('SHOW_ALL');
+$arResult['NOT_FOUND'] = Loc::getMessage('NOT_FOUND');
+
 $rs = CIBlockElement::GetList(array(), array(
     'IBLOCK_ID' => $arParams['CATALOG']['IBLOCK_ID'],
     '?NAME' => urldecode($_REQUEST['q'])
 ), false, array('nTopCount' => 6), array('ID', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE')
 );
-
-$arResult = array();
 
 while ($ar_res = $rs->GetNext()) {
     if ($ar_res['DETAIL_PAGE_URL']) {

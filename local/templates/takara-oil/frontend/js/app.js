@@ -37,10 +37,10 @@ $(window).load(function () {
 });
 
 $('.js-init-fast__search').live('keyup', function (e) {
-    elm = $(this);
-    value = $(this).val();
-    time = (new Date()).getTime();
-    delay = 1000; /* Количество мксек. для определения окончания печати */
+    let elm = $(this);
+    let value = $(this).val();
+    let time = (new Date()).getTime();
+    let delay = 1000; /* Количество мксек. для определения окончания печати */
 
     elm.attr({'keyup': time});
     elm.off('keydown');
@@ -54,7 +54,7 @@ $('.js-init-fast__search').live('keyup', function (e) {
 
     if ($(this).val().length >= 3) {
         setTimeout(function () {
-            oldtime = parseFloat(elm.attr('keyup'));
+            let oldtime = parseFloat(elm.attr('keyup'));
             if (oldtime <= (new Date()).getTime() - delay & oldtime > 0 & elm.attr('keyup') != '' & typeof elm.attr('keyup') !== 'undefined') {
                 getResult(value);
                 elm.removeAttr('keyup');
@@ -79,7 +79,7 @@ function getResult(value) {
     let cont = $('.header__search');
     clearResult();
     $.ajax({
-        url: '/local/tools/ajax.search.php?q=' + value,
+        url: '/local/tools/ajax.search.php?q=' + value + '&site_id=' + cont.attr('data-site-id'),
         type: 'GET',
         dataType: 'json',
         success: function (responce) {
@@ -92,11 +92,11 @@ function getResult(value) {
                                 '<div class="result__item-text">' + vl["NAME"] + '</div></a></li>')
                         }
                     });
-                    cont.find('.search-result__cont').append('<button type="submit" form="search" class="btn btn-small search-btn">' +
+                    cont.find('.search-result__scroll').append('<button type="submit" form="search" class="btn btn-small search-btn">' +
                         responce["SHOW_ALL"] + '<img src="/local/templates/takara-oil/frontend/img/svg/arrow.svg"></button>');
                 } else {
                     clearResult('empty');
-                    cont.find('.search-result__list').append('<li class="result__item col-12">Ничего не найдено</li>')
+                    cont.find('.search-result__list').append('<li class="result__item col-12">' + responce["NOT_FOUND"] + '</li>')
                 }
             }
         }
