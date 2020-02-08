@@ -9,7 +9,7 @@ $arrFilter = array(
 );
 
 $rs = CIBlockElement::GetList(array(), array(
-    'IBLOCK_ID' => 25,
+    'IBLOCK_ID' => 44,
     '?NAME' => urldecode($_REQUEST['q'])
 ), false, false, array('ID')
 );

@@ -178,6 +178,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 			"sections" => "",
 			"section" => "#SECTION_CODE_PATH#/",
 			"element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
+<<<<<<< HEAD
 			"compare" => "compare.php?action=#ACTION_CODE#",
 			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
 		),
@@ -185,6 +186,10 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 			"compare" => array(
 				"ACTION_CODE" => "action",
 			),
+=======
+			"compare" => "",
+			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
+>>>>>>> 39cf35da3306bde316e79cb44791dc054c22ff06
 		)
 	),
 	false

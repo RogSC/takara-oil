@@ -2,14 +2,22 @@
 
 
 <?
-$res = CIBlockElement::GetList(array(), array('IBLOCK_ID' => '23'), false, false, array('ID', 'NAME', 'PROPERTY_LINK', 'PROPERTY_ICON'));
+if (SIITE_ID == 's1') {
+    $arParams['IBLOCK_ID'] = 23;
+} elseif (SITE_ID == 's2') {
+    $arParams['IBLOCK_ID'] = 36;
+} else {
+    $arParams['IBLOCK_ID'] = 35;
+}
+
+$res = CIBlockElement::GetList(array(), array('IBLOCK_ID' => $arParams['IBLOCK_ID']), false, false, array('ID', 'NAME', 'PROPERTY_LINK', 'PROPERTY_ICON'));
 
 while($ob = $res->GetNextElement())
 {
     $arResult['FLOAT_MENU'][] = $ob->GetFields();
 }
 
-$pagePath = explode('/', $APPLICATION->GetCurPage(false));
+$pagePath = $APPLICATION->GetCurPage(false);
 ?>
 <div class="float-block__cont">
     <div class="float-block">
@@ -17,9 +25,9 @@ $pagePath = explode('/', $APPLICATION->GetCurPage(false));
             <? foreach ($arResult['FLOAT_MENU'] as $arItem) { ?>
                 <? $linkPath = explode('/', $arItem["PROPERTY_LINK_VALUE"]) ?>
                 <li class="float-menu__el">
-                    <a href="<?= $arItem["PROPERTY_LINK_VALUE"] ?>">
+                    <a href="<?= SITE_DIR.$arItem["PROPERTY_LINK_VALUE"] ?>">
                         <img src="<?= CFile::GetPath($arItem["PROPERTY_ICON_VALUE"]) ?: SITE_TEMPLATE_PATH.'/frontend/img/float-menu-el.svg' ?>">
-                        <div class="float-menu__title <?= $pagePath[1] == $linkPath[1] ? 'active' : '' ?>">
+                        <div class="float-menu__title <?= strpos($pagePath, $linkPath[1]) !== false ? 'active' : '' ?>">
                             <?= $arItem["NAME"] ?>
                         </div>
                     </a>

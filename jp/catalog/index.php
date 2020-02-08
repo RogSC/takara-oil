@@ -174,18 +174,13 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 		"MESS_BTN_DETAIL" => "Details",
 		"MESS_NOT_AVAILABLE" => "Item not available",
 		"MESS_BTN_SUBSCRIBE" => "Subscribe",
-		"SEF_URL_TEMPLATES" => array(
-			"sections" => "",
-			"section" => "#SECTION_CODE_PATH#/",
-			"element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
-			"compare" => "compare.php?action=#ACTION_CODE#",
-			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
-		),
-		"VARIABLE_ALIASES" => array(
-			"compare" => array(
-				"ACTION_CODE" => "action",
-			),
-		)
+        "SEF_URL_TEMPLATES" => array(
+            "sections" => "",
+            "section" => "#SECTION_CODE_PATH#/",
+            "element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
+            "compare" => "",
+            "smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
+        )
 	),
 	false
 ); ?>

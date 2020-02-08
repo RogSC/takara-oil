@@ -3,6 +3,7 @@ use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 
 $this->setFrameMode(true);
+
 ?>
 
 <form class="filter__form"
