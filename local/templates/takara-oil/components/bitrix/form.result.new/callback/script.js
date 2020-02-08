@@ -26,6 +26,11 @@ $(document).ready(function() {
                             success: function (res) {
                                 $('#callback__errors').children().remove();
                                 if(typeof res !== 'undefined') {
+                                    if (typeof res['message'] !== 'undefined') {
+                                        $.each(res['message'], function (code, value) {
+                                           $('[name="' + code + '"]').before('<div class="sobaka">' + value + '</div>')
+                                        });
+                                    }
                                     if (res.hasOwnProperty('message')) {
                                         $('#callback__errors').append("<div class='modal__error'>" + res['message'] + "</div>");
                                     }

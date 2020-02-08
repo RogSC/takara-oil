@@ -11,14 +11,35 @@
  */
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
+use Bitrix\Main\PhoneNumber\Format,
+    Bitrix\Main\PhoneNumber\Parser;
+
 if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID']  || isset($_REQUEST['formresult'])) {
 
     $APPLICATION->RestartBuffer();
     if ($arResult['FORM_ERRORS']) {
+        $arErrors = array();
+        foreach ($arResult['arrVALUES'] as $code => $arrVALUE) {
+            foreach ($arResult["arAnswers"] as $SID => $arAnswer) {
+                if('form_'.$arAnswer[0]['FIELD_TYPE'].'_'.$arAnswer[0]['ID'] == $code) {
+                    //dump($arResult['QUESTIONS'][$SID]);
+                    if($arResult['QUESTIONS'][$SID]['REQUIRED'] == 'Y') {
+                        if(strpos($SID, 'PHONE') !== false) {
+                            if (!preg_match('/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/', $arrVALUE)) {
+                                $arErrors[$code] = 'Некорректный номер телефона, собака';
+                            }
+                        } elseif (strlen($arrVALUE) <= 0) {
+                            $arErrors[$code] = 'Поле обязательно для заполнения';
+                        }
+                    }
+                }
+            }
+        }
+
         $arResponse = array(
             'error' => true,
             'result' => false,
-            'message' => $arResult['FORM_ERRORS']
+            'message' => $arErrors
         );
     } else {
         $arResponse = array(
