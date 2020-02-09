@@ -9,6 +9,7 @@ $MESS['LAST_NAME'] = 'Last name';
 $MESS['EMAIL'] = 'e-mail';
 $MESS['CITY'] = 'City';
 $MESS['SAVE'] = 'Save';
+$MESS['CHANGE'] = 'Change contact details';
 $MESS['CHANGES_PASS'] = 'Change password';
 $MESS['NEW_PASS'] = 'Enter a new password';
 $MESS['RE_PASS'] = 'Confirm password';

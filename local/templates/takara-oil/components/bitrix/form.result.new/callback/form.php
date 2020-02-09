@@ -12,34 +12,19 @@
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\PhoneNumber\Format,
-    Bitrix\Main\PhoneNumber\Parser;
+    Bitrix\Main\PhoneNumber\Parser,
+    Bitrix\Main\Localization\Loc;
+
+Loc::loadMessages(__FILE__);
 
 if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID']  || isset($_REQUEST['formresult'])) {
 
     $APPLICATION->RestartBuffer();
-    if ($arResult['FORM_ERRORS']) {
-        $arErrors = array();
-        foreach ($arResult['arrVALUES'] as $code => $arrVALUE) {
-            foreach ($arResult["arAnswers"] as $SID => $arAnswer) {
-                if('form_'.$arAnswer[0]['FIELD_TYPE'].'_'.$arAnswer[0]['ID'] == $code) {
-                    //dump($arResult['QUESTIONS'][$SID]);
-                    if($arResult['QUESTIONS'][$SID]['REQUIRED'] == 'Y') {
-                        if(strpos($SID, 'PHONE') !== false) {
-                            if (!preg_match('/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/', $arrVALUE)) {
-                                $arErrors[$code] = 'Некорректный номер телефона, собака';
-                            }
-                        } elseif (strlen($arrVALUE) <= 0) {
-                            $arErrors[$code] = 'Поле обязательно для заполнения';
-                        }
-                    }
-                }
-            }
-        }
-
+    if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && strlen($arData['g-recaptcha-response']) == 0) {
         $arResponse = array(
             'error' => true,
             'result' => false,
-            'message' => $arErrors
+            'message' => Loc::getMessage('ERROR_RECAPTCHA')
         );
     } else {
         $arResponse = array(
@@ -62,9 +47,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
             </div>
         <? } ?>
         <? if ($arParams['MODAL_FORM'] == 'Y') { ?>
-            <h2 class="title-red-line"><?= $arResult['arForm']['NAME'] ?></h2>
-            <div class="modal__errors" id="callback__errors">
-            </div>
+            <h2 class="title-red-line left-font"><?= $arResult['arForm']['NAME'] ?></h2>
         <? } else { ?>
             <?= $arResult['arForm']['NAME'] ?>
         <? } ?>
@@ -86,6 +69,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                         <input id="<?= $SID ?>"
                                type="<?= $SID == 'PHONE' ? 'tel' : 'text' ?>"
                                name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
+                               data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
                                class="inp">
                         <?
                         break;
@@ -93,6 +77,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                         ?>
                         <textarea rows="4"
                                   name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
+                                  data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
                                   class="textarea inp"></textarea>
                         <?
                         break;
@@ -127,6 +112,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                 <div class="g-recaptcha-<?= $arResult['arForm']['ID'] ?>"
                      data-sitekey="<?= RE_SITE_KEY ?>"></div>
                 <div id="g-recaptcha-<?= $arResult['arForm']['ID'] ?>" class="g-recaptcha"></div>
+                <div class="modal__errors" id="callback__errors"></div>
             <? } ?>
             <button type="submit"
                     class="btn

@@ -8,6 +8,7 @@ $MESS['WEBSITE'] = 'адрес сайта';
 $MESS['LAST_NAME'] = 'фамилия';
 $MESS['EMAIL'] = 'e-mail';
 $MESS['CITY'] = 'город';
+$MESS['CHANGE'] = 'Изменить контактные данные';
 $MESS['SAVE'] = 'сохранить';
 $MESS['CHANGES_PASS'] = 'Изменение пароля';
 $MESS['NEW_PASS'] = 'введите новый пароль';

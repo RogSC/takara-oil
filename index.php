@@ -131,7 +131,6 @@ Loc::loadMessages(__FILE__);
                     );
                     ?></h2>
             </div>
-            <div class="features__items row">
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
                     "features",

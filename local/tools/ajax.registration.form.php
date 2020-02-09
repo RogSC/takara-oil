@@ -5,6 +5,13 @@ define('NO_AGENT_STATISTIC', 'Y');
 define('DisableEventsCheck', true);
 define('BX_SECURITY_SHOW_MESSAGE', true);
 define('XHR_REQUEST', true);
+define('LANGUAGE_ID', $_REQUEST['lang']);
+
+if (LANGUAGE_ID == 'en') {
+    define('SITE_DIR', '/en/');
+} elseif (LANGUAGE_ID == 'ja') {
+    define('SITE_DIR', '/jp/');
+}
 
 use Bitrix\Main\Localization\Loc;
 
@@ -32,7 +39,7 @@ if ($arData['registration'] == 'Y') {
         }
     }
     if (!isset($arData['agree']) && $arData['agree'] != 'on') {
-        $error['agree'] = Loc::getMessage('ERROR_POLICY');
+        $error['policy'] = Loc::getMessage('ERROR_POLICY');
     }
     $arFields = array();
     foreach ($arData as $name => $value) {
@@ -50,7 +57,7 @@ if ($arData['registration'] == 'Y') {
             case 'phone':
                 if (strlen($value) <= 0) {
                     $error[$name] = Loc::getMessage('ERROR_EMPTY_PHONE');
-                } elseif (strlen(str_replace('_', '', urldecode($arData['phone']))) < 11) {
+                } elseif (strlen(preg_replace('/[^0-9]/', '', urldecode($arData['phone']))) < 11) {
                     $error[$name] = Loc::getMessage('ERROR_INCORRECT_PHONE');
                 } else {
                     $arFields['PERSONAL_PHONE'] = urldecode($value);

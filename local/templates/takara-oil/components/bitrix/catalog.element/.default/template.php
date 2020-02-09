@@ -168,6 +168,7 @@ Loc::loadMessages(__FILE__);
             <div class="tab__item-content" data-name="tab_questions">
                 <?
                 $GLOBALS['arrFilter'] = array(
+                    '!DETAIL_TEXT' => false,
                     'PROPERTY_PRODUCT' => $arResult['ID']
                 );
 
@@ -263,6 +264,8 @@ Loc::loadMessages(__FILE__);
 		"COMPONENT_TEMPLATE" => "question",
 		"USE_GOOGLE_CAPTCHA" => "Y",
 		"WEB_FORM_ID" => $arParams["QUESTIONS"]["WEB_FORM_ID"],
+        "QUESTIONS_IBLOCK_ID" => $arParams['QUESTIONS']['IBLOCK_ID'],
+		"PRODUCT_ID" => $arResult['ID'],
 		"IGNORE_CUSTOM_TEMPLATE" => "N",
 		"BUTTON_SUBMIT_TYPE" => "fill",
 		"BUTTON_SUBMIT_SIZE" => "big",

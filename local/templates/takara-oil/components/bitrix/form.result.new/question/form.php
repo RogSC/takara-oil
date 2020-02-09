@@ -13,29 +13,54 @@
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
+
 Loc::loadMessages(__FILE__);
 
-$BUTTON_SUBMIT_TEXT = 'BUTTON_SUBMIT_TEXT_'.strtoupper(LANGUAGE_ID);
+$BUTTON_SUBMIT_TEXT = 'BUTTON_SUBMIT_TEXT_' . strtoupper(LANGUAGE_ID);
 
 if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == '6' || isset($_REQUEST['formresult'])) {
 
+    $arData = $_REQUEST;
+
     $APPLICATION->RestartBuffer();
-    if ($arResult['FORM_ERRORS']) {
+
+    /*if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && empty($_REQUEST['g-recaptcha-response'])) {
         $arResponse = array(
             'error' => true,
             'result' => false,
-            'message' => $arResult['FORM_ERRORS']
+            'message' => Loc::getMessage('ERROR_RECAPTCHA')
         );
-    } else {
+    } else {*/
+        if ($USER->IsAuthorized()) {
+            $el = new CIBlockElement;
+            $PROP = array();
+            $PROP[88] = $USER->GetID();
+            $PROP[92] = $arParams['PRODUCT_ID'];
+
+            $arLoadProductArray = Array(
+                "MODIFIED_BY" => $USER->GetID(),
+                "IBLOCK_SECTION_ID" => false,
+                "IBLOCK_ID" => $arParams["QUESTIONS_IBLOCK_ID"],
+                "PROPERTY_VALUES" => $PROP,
+                "NAME" => $arData['form_textarea_42'],
+                "ACTIVE" => "Y",
+                "ACTIVE_FROM" => date('d.m.Y'),
+                "PREVIEW_TEXT" => $arData['form_textarea_42'],
+            );
+
+            $PRODUCT_ID = $el->Add($arLoadProductArray);
+        }
+
         $arResponse = array(
             'result' => true
         );
-    }
+    //}
     echo json_encode($arResponse);
     die();
 } else { ?>
     <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>"
+                async
                 defer></script>
     <? } ?>
 
@@ -71,13 +96,15 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                                    name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
                                    placeholder="<?= $arParams['MODAL_FORM'] == 'Y' ? $arResult["arQuestions"][$SID]['TITLE'] : '' ?>"
                                    class="inp"
-                                    value="<?= $arResult["arQuestions"][$SID]['ID'] == '27' ? $USER->GetParam('NAME') : $USER->GetParam('EMAIL') ?>">
+                                   data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
+                                   value="<?= $arResult["arQuestions"][$SID]['ID'] == '27' ? $USER->GetParam('NAME') : $USER->GetParam('EMAIL') ?>">
                             <?
                             break;
                         case 'textarea':
                             ?>
                             <textarea rows="4"
                                       name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
+                                      data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
                                       class="textarea inp"></textarea>
                             <?
                             break;
@@ -96,8 +123,9 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                     <div class="g-recaptcha-<?= $arResult['arForm']['ID'] ?>"
                          data-sitekey="<?= RE_SITE_KEY ?>"></div>
                     <div id="g-recaptcha-<?= $arResult['arForm']['ID'] ?>" class="g-recaptcha"></div>
+                    <div class="modal__errors" id="callback__errors"></div>
                 <? } ?>
-                <? if (isset($checkbox)) {?>
+                <? if (isset($checkbox)) { ?>
                     <div class="filter__checkbox">
                         <label for="<?= $checkbox['SID'] ?>">
                             <input class="filter__checkbox-input"
@@ -105,14 +133,13 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                                    checked="checked"
                                    id="<?= $checkbox['SID'] ?>"
                                    name="form_checkbox_<?= $checkbox['SID'] ?>[]"
-                                   value="<?= $checkbox['ID'] ?>"
-                            >
+                                   value="<?= $checkbox['ID'] ?>">
                             <p class="personal-policy__font">
                                 <?= $checkbox['TITLE'] ?>
                             </p>
                         </label>
                     </div>
-                <?}?>
+                <? } ?>
                 <button type="submit"
                         class="btn q__form_btn
                         <?= $arParams['MODAL_FORM'] == 'N' ? 'main-footer__btn' : '' ?>

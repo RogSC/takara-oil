@@ -18,12 +18,7 @@ $this->setFrameMode(true);
         <ul id="slide-wrapper"
             style="width: calc(100% * <?= count($arResult["ITEMS"]) ?>);">
             <? foreach ($arResult["ITEMS"] as $key => $arItem) { ?>
-                <li class="slide"
-                    <? if($key < 6) { ?>
-                    style="width: calc(100%/<?= count($arResult["ITEMS"]) ?> + 1 px);">
-                    <?} else {?>
-                        style="width: calc(100%/<?= count($arResult["ITEMS"]) ?>);">
-                    <?}?>
+                <li class="slide">
                     <? if (!empty($arItem["PROPERTIES"]["SLIDER_MOVIE"]["VALUE"])) { ?>
                         <video width="100%" height="100%" autoplay loop muted>
                             <source src="<?= $arItem["PROPERTIES"]["SLIDER_MOVIE"]["VALUE"]["path"] ?>" type='video/mp4'>

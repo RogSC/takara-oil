@@ -85,6 +85,9 @@ textarea {
     outline: none;
 }
 
+textarea {
+    resize: none;
+}
 
 button {
     background: none;
@@ -152,6 +155,9 @@ button {
 
 .red-font {
     color: #E60013;
+}
+.left-font {
+    text-align: left;
 }
 
 .pag_cont {
@@ -275,6 +281,7 @@ button {
 }
 
 .search-form__close {
+    display: none;
     width: 16px;
     height: 16px;
     margin-right: -400px;
@@ -285,6 +292,7 @@ button {
 }
 
 .search-form__close.active {
+    display: block;
     width: 16px;
     height: 16px;
     margin-right: 10px;
@@ -586,6 +594,7 @@ button {
 /**------------------main header bottom row-----------------------**/
 
 .main-header__bottom {
+    position: relative;
     justify-content: space-between;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -699,9 +708,31 @@ button {
     margin-left: 8px;
 }
 
+.btn-show-menu {
+    display: none;
+}
+
 @media screen and (max-width: 991px) {
+    .btn-show-menu {
+        display: block;
+    }
     .main-header__navbar-items {
         display: none;
+    }
+    .main-header__navbar-line {
+        display: none;
+    }
+    .main-header__navbar-items {
+        width: 100%;
+        flex-direction: column;
+        align-content: flex-start;
+        align-items: flex-start;
+        justify-content: flex-start;
+        z-index: 9999;
+    }
+    .main-header__navbar-item {
+        margin: 7px;
+        text-align: left;
     }
 }
 
@@ -709,6 +740,7 @@ button {
     .main-header__bottom {
         border-top: none;
         padding-top: 0!important;
+        padding: 0 15px;
     }
     .main-header__btn {
         margin-bottom: 10px;
@@ -719,6 +751,8 @@ button {
 .main-header__btn {
     margin-left: 15px;
 }
+
+
 
 /**-----------------btn styles------------------------**/
 
@@ -811,7 +845,19 @@ button {
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-    height: 100vh;
+    height: 749px;
+}
+
+@media screen and (max-width: 767px) {
+    .slider__viewport {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .slider__viewport {
+        height: 600px;
+    }
 }
 
 #slide-wrapper {
@@ -838,7 +884,7 @@ button {
 }
 
 .slider__img {
-    width: calc(100vw);
+    width: 100%;
     max-width: 1140px;
     height: 100%;
     object-fit: cover;
@@ -850,7 +896,7 @@ button {
     transform: translateY(-60%);
     left: 22%;
     width: 63%;
-    height: 62vh;
+    height: 67%;
     max-height: 400px;
 }
 
@@ -887,10 +933,16 @@ button {
     position: absolute;
     top: 10%;
     left: -80px;
-    max-width: 100%;
+    max-width: 110%;
     max-height: 70%;
     overflow: hidden;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 425px) {
+    .slider__title-container {
+        max-width: 130%;
+    }
 }
 
 .slider__title {
@@ -1002,16 +1054,12 @@ button {
 
 @media screen and (max-width: 1199px) {
     .slider__frame {
-        left: 13%;
+        left: 21%;
         width: 63%;
     }
 }
 
 @media screen and (max-width: 991px) {
-    .slider__frame {
-        left: 13%;
-    }
-
     .slider__title {
         font-size: 3.3em;
         line-height: 1.1;
@@ -1023,25 +1071,34 @@ button {
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
+    .slider__frame {
+        left: 30%;
+    }
     .slider__title {
         font-size: 2em;
         line-height: 1.1;
     }
-
     .slider__description {
         font-size: 1.3em;
         line-height: 1.4;
     }
-
     .slider__title-container {
         top: 30%;
     }
-
     .slider__border-top {
         height: 28%;
     }
 }
+
+/*@media screen and (max-width: 425px) {
+    .slider__title {
+        font-size: 1.5em;
+    }
+    .slider__description {
+        font-size: 1em;
+    }
+}*/
 
 /**-----------------products-catalog styles------------------------**/
 
@@ -1057,6 +1114,10 @@ button {
     padding: 6% 0 0;
     height: 70vw;
     max-height: 853px;
+}
+
+.products-catalog a {
+    outline: none;
 }
 
 .products-catalog__title {
@@ -1358,6 +1419,12 @@ button {
 
     .features__container {
         margin: 0;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .features__item-title {
+        font-size: 1.8em;
     }
 }
 
@@ -1724,11 +1791,12 @@ button {
 .articles__item_logo {
     position: relative;
     width: 100%;
-    height: 206px;
+    height: 100%;
     margin-bottom: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .articles__item_logo img {
@@ -1782,13 +1850,20 @@ button {
 /**-----------------callback styles------------------------**/
 
 .callback {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 6% 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) top,
-    url(../img/bg-callback.jpg) top;
-    background-size: cover;
+    overflow: hidden;
+}
+
+.callback img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
 
 .frames__container {
@@ -2712,6 +2787,7 @@ button {
 }
 
 .q__form-item {
+    position: relative;
     width: 100%;
     height: 65px;
     padding: 5px 15px 40px;
@@ -2725,10 +2801,14 @@ button {
     font-family: Days One, serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 1.33em;
+    line-height: 1.375;
     text-transform: uppercase;
     color: #FFF;
+}
+.q__form-item input {
+    font-size: 1.33em;
+    line-height: 1.375;
 }
 
 .small-fieldset {
@@ -2776,6 +2856,7 @@ button {
 }
 
 .personal-policy__font {
+    margin-top: 2px;
     font-size: 1em;
     line-height: 1.5;
 }
@@ -3354,8 +3435,11 @@ a.lk__item-title {
 }
 
 .modal__errors {
-    margin-top: 20px;
+    font-size: 1.33em;
     color: #E60013;
+}
+.modal__error {
+    margin: 20px 0;
 }
 
 @media screen and (max-width: 575px) {
@@ -3575,6 +3659,7 @@ a.lk__item-title {
     padding: 10px 0;
     margin-bottom: 35px;
     background: transparent;
+    outline: none;
 }
 
 .nav__item span:before {
@@ -3626,4 +3711,33 @@ a.lk__item-title {
 
 .catalog-container {
     min-height: 1000px;
+}
+.input-error {
+    position: absolute;
+    min-height: 26px;
+    user-select: none;
+    color: #E60013;
+}
+.main-footer .input-error {
+    font-size: 0.8em;
+}
+.main-footer input {
+    font-size: inherit;
+    line-height: inherit;
+}
+.checkbox-error {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+}
+.to-top-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+}
+.to-top-btn svg {
+    width: 100%;
+    height: 100%;
 }

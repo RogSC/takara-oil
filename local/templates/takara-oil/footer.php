@@ -33,6 +33,9 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
     );
 }
 ?>
+<div class="to-top-btn">
+    <?= GetContentSvgIcon('to-top') ?>
+</div>
 <footer class="main-footer container">
     <div class="row">
         <div class="main-footer__col main-footer__left col-12 col-lg-4 col-xl-4">
@@ -50,7 +53,7 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
                 );
                 ?>
                 <p class="agreement"><?= Loc::getMessage('FOOTER_AGREEMENT') ?>
-                    <a class="red-font" href="<?= SITE_DIR ?>/politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
+                    <a class="red-font" href="<?= $_SERVER['REMOTE_ADDR'] ?>/politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
                 <div class="main-footer__copyright">
                     <h4><?
                         $APPLICATION->IncludeFile(

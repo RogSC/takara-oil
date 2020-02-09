@@ -9,6 +9,14 @@ define('DisableEventsCheck', true);
 define('BX_SECURITY_SHOW_MESSAGE', true);
 define("NOT_CHECK_PERMISSIONS", true);
 define('XHR_REQUEST', true);
+define('LANGUAGE_ID', $_REQUEST['lang']);
+
+if (LANGUAGE_ID == 'en') {
+    define('SITE_DIR', '/en/');
+} elseif (LANGUAGE_ID == 'ja') {
+    define('SITE_DIR', '/jp/');
+}
+
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");
 

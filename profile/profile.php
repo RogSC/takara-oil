@@ -28,35 +28,36 @@ $userFields = $authUser->arResult[0];
                 <div class="col-12 col-md-6">
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('NAME') ?></legend>
-                        <input type="text" class="inp" name="name" id="name" value="<?= $userFields["NAME"] ?>">
+                        <input type="text" class="inp" name="name" id="name" value="<?= $userFields["NAME"] ?>" disabled="disabled">
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('PHONE') ?></legend>
-                        <input type="tel" class="inp" name="phone" id="phone" value="<?= $userFields["PERSONAL_PHONE"] ?>">
+                        <input type="tel" class="inp" name="phone" id="phone" value="<?= $userFields["PERSONAL_PHONE"] ?>" disabled="disabled">
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('COMPANY') ?></legend>
-                        <input type="text" class="inp" name="company" id="company" value="<?= $userFields["WORK_COMPANY"] ?>">
+                        <input type="text" class="inp" name="company" id="company" value="<?= $userFields["WORK_COMPANY"] ?>" disabled="disabled">
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('WEBSITE') ?></legend>
-                        <input type="text" class="inp" name="website" id="website" value="<?= $userFields["WORK_WWW"] ?>">
+                        <input type="text" class="inp" name="website" id="website" value="<?= $userFields["WORK_WWW"] ?>" disabled="disabled">
                     </fieldset>
                 </div>
                 <div class="col-12 col-md-6">
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('LAST_NAME') ?></legend>
-                        <input type="text" class="inp" name="last-name" id="last-name" value="<?= $userFields["LAST_NAME"] ?>">
+                        <input type="text" class="inp" name="last-name" id="last-name" value="<?= $userFields["LAST_NAME"] ?>" disabled="disabled">
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('EMAIL') ?></legend>
-                        <input type="email" class="inp" name="email" id="email" value="<?= $userFields["EMAIL"] ?>">
+                        <input type="email" class="inp" name="email" id="email" value="<?= $userFields["EMAIL"] ?>" disabled="disabled">
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('CITY') ?></legend>
-                        <input type="text" class="inp" name="city" id="city" value="<?= $userFields["PERSONAL_CITY"] ?>">
+                        <input type="text" class="inp" name="city" id="city" value="<?= $userFields["PERSONAL_CITY"] ?>" disabled="disabled">
                     </fieldset>
-                    <button type="submit" class="profile__btn btn btn_fill"><?= Loc::getMessage('SAVE') ?></button>
+                    <button class="profile__btn btn btn_fill js-init-change-delail"><?= Loc::getMessage('CHANGE') ?></button>
+                    <button type="submit" class="profile__btn btn btn_fill js-init-save-detail" style="display: none"><?= Loc::getMessage('SAVE') ?></button>
                 </div>
             </div>
         </form>

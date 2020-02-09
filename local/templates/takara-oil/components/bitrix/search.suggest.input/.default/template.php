@@ -9,7 +9,7 @@ Loc::loadMessages(__FILE__);
             <ul class="search-result__list row"></ul>
         </div>
     </div>
-    <input class="search-form__input inp js-init-fast__search" autocomplete="off" placeholder="<?=Loc::getMessage('SEARCH_PLACEHOLDER_FULL')?>" type="text" name="q" value="" size="40">
+    <input class="search-form__input inp js-init-fast__search" autocomplete="off" placeholder="<?=$arParams['VALUE']?>" type="text" name="q" value="" size="40">
     <button type="reset" class="search-form__close"><?=GetContentSvgIcon('icon-close')?></button>
     <div class="search-form__button" title="<?=Loc::getMessage('SEARCH_PLACEHOLDER')?>">
         <?=GetContentSvgIcon('icon-search')?>

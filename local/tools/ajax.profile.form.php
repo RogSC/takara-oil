@@ -34,7 +34,7 @@ if ($arData['data-change'] == 'Y') {
             case 'phone':
                 if (strlen($value) <= 0) {
                     $error[$name] = Loc::getMessage('ERROR_EMPTY_PHONE');
-                } elseif (strlen(str_replace('_', '', urldecode($arData['phone']))) < 11) {
+                } elseif (strlen(preg_replace('/[^0-9]/', '', urldecode($arData['phone']))) < 11) {
                     $error[$name] = Loc::getMessage('ERROR_INCORRECT_PHONE');
                 } else {
                     $arFields['PERSONAL_PHONE'] = urldecode($value);

@@ -1,0 +1,1 @@
+<img src="/local/templates/takara-oil/frontend/img/callback-img.jpg">

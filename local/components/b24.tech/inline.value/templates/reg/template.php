@@ -16,9 +16,6 @@ Loc::loadMessages(__FILE__);
         <h2><?= Loc::getMessage('SEC_NAME') ?></h2>
     </div>
 
-    <div class="modal__errors">
-    </div>
-
     <form class="registration-form">
         <input type="hidden" name="registration" value="Y">
         <div class="q__items row">
@@ -62,6 +59,7 @@ Loc::loadMessages(__FILE__);
 
         <div class="g-recaptcha" data-sitekey="<?= RE_SITE_KEY ?>"></div>
         <div id="g-recaptcha"></div>
+        <div class="modal__errors"></div>
 
         <div class="filter__checkbox personal-policy">
             <label>

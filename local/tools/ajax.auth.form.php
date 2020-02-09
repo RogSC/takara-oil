@@ -5,6 +5,13 @@ define('NO_AGENT_STATISTIC', 'Y');
 define('DisableEventsCheck', true);
 define('BX_SECURITY_SHOW_MESSAGE', true);
 define('XHR_REQUEST', true);
+define('LANGUAGE_ID', $_REQUEST['lang']);
+
+if (LANGUAGE_ID == 'en') {
+    define('SITE_DIR', '/en/');
+} elseif (LANGUAGE_ID == 'ja') {
+    define('SITE_DIR', '/jp/');
+}
 
 use Bitrix\Main\Localization\Loc;
 
@@ -17,7 +24,6 @@ $us = new CUser();
 $arData = $_REQUEST;
 $json = array();
 if ($arData['authorize'] == 'Y') {
-
     if (strlen($arData['g-recaptcha-response']) == 0) {
         $error["captcha"] = Loc::getMessage('ERROR_RECAPTCHA');
     } else {
@@ -61,13 +67,10 @@ if ($arData['authorize'] == 'Y') {
         } else {
             $json['error']['auth'] = Loc::getMessage('ERROR_EMAIL_OR_PASS');
         }
-
     } else {
         $json['error'] = $error;
     }
-} elseif (isset($arData['show_form']) && $arData['show_form'] == 'Y') {
-    dump(SITE_ID)
-    ?>
+} elseif (isset($arData['show_form']) && $arData['show_form'] == 'Y') { ?>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
             defer></script>
     <section class="modal-window">
@@ -76,9 +79,6 @@ if ($arData['authorize'] == 'Y') {
         </div>
         <div class="auth__title">
             <h2 class="title-red-line"><?= Loc::getMessage('SIGN') ?><br><?= Loc::getMessage('IN_PROFILE') ?></h2>
-        </div>
-
-        <div class="modal__errors">
         </div>
 
         <form name="auth-form__form" method="post" action>
@@ -95,6 +95,7 @@ if ($arData['authorize'] == 'Y') {
 
             <div class="g-recaptcha-13" data-sitekey="<?= RE_SITE_KEY ?>"></div>
             <div id="g-recaptcha-13" class="g-recaptcha"></div>
+            <div class="modal__errors"></div>
 
             <button type="submit" class="auth-form__button btn btn_fill"><?= Loc::getMessage('SIGN') ?></button>
 

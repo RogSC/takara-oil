@@ -1,9 +1,10 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
 
+<button class="btn-show-menu btn btn-not_fill btn-small js-init-show-menu">Меню</button>
+
 <? if (!empty($arResult)) {?>
     <ul class="main-header__navbar-items">
-
         <?
         foreach ($arResult as $index => $arItem) {
             if ($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) {

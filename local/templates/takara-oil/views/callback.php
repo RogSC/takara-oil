@@ -1,4 +1,13 @@
 <section class="callback container">
+    <?
+    $APPLICATION->IncludeFile(
+        "/include/" . SITE_ID . "/callback-img.php",
+        array(),
+        array(
+            "MODE" => "html",
+        )
+    );
+    ?>
     <div class="frames__container">
         <div class="inner-container">
             <div class="frame frame_1"></div>

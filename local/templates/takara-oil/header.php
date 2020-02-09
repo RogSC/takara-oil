@@ -12,22 +12,16 @@ Loc::loadMessages(__FILE__);
 
 CJSCore::Init('jquery');
 
+foreach (glob( $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . "/frontend/js/*.js") as $jsFile) {
+    Asset::getInstance()->addJs(str_replace($_SERVER['DOCUMENT_ROOT'], '', $jsFile));
+}
+
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/style.css"));
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/bootstrap-grid.css"));
+
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.css"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.min.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/catalog_tabs.js"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/arcticmodal/jquery.arcticmodal-0.3.min.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/modal_form.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/auth.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/slider.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/search.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/filter.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/profile.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/pickUpOilForm.js"));
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/productCatalog.js"));
-
-Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/app.js"));
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/arcticmodal/jquery.arcticmodal-0.3.css"));
 
 Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|Montserrat&display=swap&subset=cyrillic");
@@ -60,14 +54,11 @@ Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|M
             ?>
         </div>
         <div class="header__search col-12 col-md-1 col-lg-4 col-xl-5" data-site-id="<?= SITE_ID ?>">
-            <? $APPLICATION->IncludeComponent(
-                "bitrix:search.suggest.input",
-                "",
-                Array(
-                    "DROPDOWN_SIZE" => "10",
-                    "INPUT_SIZE" => "40",
-                    "NAME" => "q",
-                    "VALUE" => ""
+            <? $APPLICATION->IncludeFile(
+                "/include/" . SITE_ID . "/header/search.php",
+                array(),
+                array(
+                    "MODE" => "text",
                 )
             ); ?>
         </div>

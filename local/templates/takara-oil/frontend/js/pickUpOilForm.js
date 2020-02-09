@@ -8,6 +8,27 @@ $(window).load(function () {
         let selectCar = $(".pick-up-oil__select_car-model");
         let selectEngine = $(".pick-up-oil__select_engine-type");
         let submitBtn = $(".pick-up-oil__form_button");
+        let msg = [];
+
+        if ($('html').attr('lang') === 'ru') {
+            msg['oilTypeGas'] = 'Бензиновый двигатель';
+            msg['oilTypeDiesel'] = 'Дизельный двигатель';
+            msg['carMark'] = "Марка автомобиля";
+            msg['carModel'] = "Модель автомобиля";
+            msg['carEngine'] = "Тип двигателя";
+        } else if ($('html').attr('lang') === 'en') {
+            msg['oilTypeGas'] = 'Gas engine';
+            msg['oilTypeDiesel'] = 'Diesel engine';
+            msg['carMark'] = "Car make";
+            msg['carModel'] = "Car Model";
+            msg['carEngine'] = "Engine Type";
+        } else {
+            msg['oilTypeGas'] = 'ガソリンエンジン';
+            msg['oilTypeDiesel'] = 'ディーゼルエンジン';
+            msg['carMark'] = "自動車メーカー";
+            msg['carModel'] = "車のモデル";
+            msg['carEngine'] = "エンジンタイプ";
+        }
 
         /** get array cars **/
 
@@ -24,7 +45,7 @@ $(window).load(function () {
                     if (car) {
                         let engine;
                         for (let key in res[brand][car]) {
-                            key == 0 ? engine = "Бензиновый двигатель" : engine = "Дизельный двигатель";
+                            key == 0 ? engine =  msg['oilTypeGas'] : engine = msg['oilTypeDiesel'];
                             obj.append("<option class='pick-up-oil__option' value='"+engine+"'>"+engine+"</option>");
                         }
                         return;
@@ -53,14 +74,14 @@ $(window).load(function () {
         selectBrand.change(function () {
             selectCar.empty();
             getCars(selectCar, selectBrand.val());
-            selectTitle.eq(1).text("Модель автомобиля");
-            selectTitle.eq(2).text("Тип двигателя");
+            selectTitle.eq(1).text(msg['carModel']);
+            selectTitle.eq(2).text(msg['carEngine']);
         });
 
         selectCar.change(function () {
             selectEngine.empty();
             getCars(selectEngine, selectBrand.val(), selectCar.val());
-            selectTitle.eq(2).text("Тип двигателя");
+            selectTitle.eq(2).text(msg['carEngine']);
         });
 
 
@@ -97,9 +118,9 @@ $(window).load(function () {
         /** resetButton **/
 
         resetBtn.on("click", function () {
-            selectTitle.eq(0).text("Марка автомобиля");
-            selectTitle.eq(1).text("Модель автомобиля");
-            selectTitle.eq(2).text("Тип двигателя");
+            selectTitle.eq(0).text(msg['carMark']);
+            selectTitle.eq(1).text(msg['carModel']);
+            selectTitle.eq(2).text(msg['carEngine']);
         });
 
 

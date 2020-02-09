@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    let form = $('[data-id=6]');
+    let form = $('[data-id="6"]');
 
     form.off('submit.ajax-form').on('submit.ajax-form', function (e) {
         e.preventDefault();
@@ -9,21 +9,32 @@ $(document).ready(function () {
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
+            beforeSend: function () {
+                console.log(formValidate(form));
+                if(!formValidate(form)) {
+                    return false;
+                }
+            },
             success: function (res) {
-                $('#quest__errors').children().remove();
-                if (typeof res !== 'undefined') {
+                $('.input-error').remove();
+                $('.modal__error').remove();
+                if(typeof res !== 'undefined') {
                     if (res.hasOwnProperty('message')) {
-                        $('#quest__errors').append("<div class='modal__error'>" + res['message'] + "</div>");
+                        $('#callback__errors').append("<div class='modal__error'>" + res['message'] + "</div>");
                     }
                     if (res.hasOwnProperty('result') && res['result'] === true) {
-                        $('#quest__errors').append("<div class='modal__error'>Вопрос успешно отправлен</div>");
+                        let result = '<div class="modal-window"><h4 class="">Вопрос успешно отправлен</h4></div>';
+                        $.arcticmodal({
+                            content: result
+                        });
+                        setTimeout(function () {
+                            $.arcticmodal('close')
+                        }, 2000);
                     }
                 }
-                console.log(res);
             }
         });
         return false;
     });
-
 });
 
