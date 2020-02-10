@@ -1,8 +1,6 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
-
-
 <?
-if (SIITE_ID == 's1') {
+if (SITE_ID == 's1') {
     $arParams['IBLOCK_ID'] = 23;
 } elseif (SITE_ID == 's2') {
     $arParams['IBLOCK_ID'] = 36;
