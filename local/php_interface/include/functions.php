@@ -40,9 +40,9 @@ function dump($var)
     echo '</pre>';
 }
 
-function OnAfterUserRegisterHandler(&$arFields)
+function OnAfterUserRegisterHandler($arFields)
 {
-    if (intval($arFields["ID"])>0)
+    if (intval($arFields["ID"]) > 0)
     {
         $toSend = Array();
         $toSend["EMAIL"] = $arFields["EMAIL"];
@@ -56,6 +56,7 @@ function OnAfterUserRegisterHandler(&$arFields)
         $toSend["NAME"] = (trim ($arFields["NAME"]) == "")? $toSend["NAME"] = htmlspecialchars('<Не указано>'): $arFields["NAME"];
         $toSend["LAST_NAME"] = (trim ($arFields["LAST_NAME"]) == "")? $toSend["LAST_NAME"] = htmlspecialchars('<Не указано>'): $arFields["LAST_NAME"];
         CEvent::SendImmediate ("NEW_USER", SITE_ID, $toSend);
+        CEvent::SendImmediate ("USER_INFO", SITE_ID, $toSend);
     }
     return $arFields;
 }
