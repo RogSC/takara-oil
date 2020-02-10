@@ -117,6 +117,7 @@ if ($arData['registration'] == 'Y') {
         $ID = $us->Add($arFields);
         if (intval($ID) > 0) {
             $USER->Authorize($ID);
+            OnAfterUserRegisterHandler($arFields);
             $json['success'] = Loc::getMessage('SUCCESS_REG');
         } else {
             $json['error']['warning'] = explode('<br>', $us->LAST_ERROR)[0];
