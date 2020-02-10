@@ -73,7 +73,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                     case 'text':
                         ?>
                         <input id="<?= $SID ?>"
-                               type="<?= $SID == 'PHONE' ? 'tel' : 'text' ?>"
+                               type="<?= $SID == 'PERSONAL_PHONE' ? 'tel' : 'text' ?>"
                                name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
                                data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
                                class="inp"
