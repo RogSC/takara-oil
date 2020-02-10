@@ -34,6 +34,12 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
     echo json_encode($arResponse);
     die();
 } else { ?>
+    <?
+    global $USER;
+
+    $authUser = CUser::GetByID($USER->GetParam('USER_ID'));
+    $userFields = $authUser->arResult[0];
+    ?>
     <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
                 defer></script>
@@ -70,7 +76,8 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                                type="<?= $SID == 'PHONE' ? 'tel' : 'text' ?>"
                                name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
                                data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
-                               class="inp">
+                               class="inp"
+                               value="<?= $SID == 'NAME' ? $userFields['NAME'].' '.$userFields['LAST_NAME'] : $userFields[$SID] ?>">
                         <?
                         break;
                     case 'textarea':
