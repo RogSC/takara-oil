@@ -75,7 +75,7 @@ $(document).ready(function() {
         $.ajax({
             url: $(this).attr('action'),
             type: 'POST',
-            data: $(this).serialize() + '&lang=' + $('html').attr('lang') + '&email=' + form.find('#email').val(),
+            data: $(this).serialize(),
             dataType: 'json',
             beforeSend: function (xHR) {
                 console.log(xHR);

@@ -17,18 +17,8 @@ use Bitrix\Main\PhoneNumber\Format,
 
 Loc::loadMessages(__FILE__);
 
-$arData = $_POST;
-
-if ($_REQUEST['WEB_FORM_ID'] == '5') {
-    dump($_REQUEST);
-}
-
-//takara-oil/?sessid=d60747b7730537ea1748c837329d435b&web_form_submit=Y&WEB_FORM_ID=5&form_text_34=RogSC2%40gmail.com&lang=ru&email=undefined
-if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' || isset($_REQUEST['formresult'])) {
-//if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && ($_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID'] || $_REQUEST['WEB_FORM_ID'] == 5)) {
+if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID'] || isset($_REQUEST['formresult'])) {
     $APPLICATION->RestartBuffer();
-    dump($_REQUEST);
-
     if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && strlen($_REQUEST['g-recaptcha-response']) == 0) {
         $arResponse = array(
             'error' => true,
@@ -59,7 +49,6 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' |
             }
         }
     }
-    echo $error;
     echo json_encode($arResponse);
     die();
 } else { ?>
