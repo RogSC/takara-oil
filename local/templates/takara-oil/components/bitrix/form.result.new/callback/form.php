@@ -20,7 +20,7 @@ Loc::loadMessages(__FILE__);
 if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID'] || isset($_REQUEST['formresult'])) {
 
     $APPLICATION->RestartBuffer();
-    if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && strlen($arData['g-recaptcha-response']) == 0) {
+    if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && strlen($_REQUEST['g-recaptcha-response']) == 0) {
         $arResponse = array(
             'error' => true,
             'result' => false,
@@ -30,16 +30,27 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
         $arResponse = array(
             'result' => true
         );
+        dump($_REQUEST);
         if ($_REQUEST['WEB_FORM_ID'] == 5) {
-            CSubscription::Add(
-                array(
-                    "RUB_ID" => array(1, 2),
-                    "SEND_CONFIRM" => 'Y'
-                )
+            $arFields = Array(
+                "USER_ID" => ($USER->IsAuthorized() ? $USER->GetID() : false),
+                "FORMAT" => "text",
+                "EMAIL" => $_REQUEST['form_text_34'],
+                "ACTIVE" => "Y",
+                "RUB_ID" => array(1, 2),
+                "SEND_CONFIRM" => 'Y'
             );
+            $subscr = new CSubscription;
+
+            //can add without authorization
+            $ID = $subscr->Add($arFields);
+            if ($ID > 0)
+                CSubscription::Authorize($ID);
+            else
+                $arResponse .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
         }
     }
-    echo json_encode($arResponse);
+    echo json_encode($_REQUEST);
     die();
 } else { ?>
     <?
