@@ -17,7 +17,7 @@ use Bitrix\Main\PhoneNumber\Format,
 
 Loc::loadMessages(__FILE__);
 
-if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID']  || isset($_REQUEST['formresult'])) {
+if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID'] || isset($_REQUEST['formresult'])) {
 
     $APPLICATION->RestartBuffer();
     if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && strlen($arData['g-recaptcha-response']) == 0) {
@@ -30,6 +30,14 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
         $arResponse = array(
             'result' => true
         );
+        if ($_REQUEST['WEB_FORM_ID'] == 5) {
+            CSubscription::Add(
+                array(
+                    "RUB_ID" => array(1, 2),
+                    "SEND_CONFIRM" => 'Y'
+                )
+            );
+        }
     }
     echo json_encode($arResponse);
     die();
@@ -41,7 +49,8 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
     $userFields = $authUser->arResult[0];
     ?>
     <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>" async
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=<?= LANGUAGE_ID ?>"
+                async
                 defer></script>
     <? } ?>
     <div class="<?= $arParams['MODAL_FORM'] == 'Y' ? 'modal-window' : '' ?>" id="callback-form">
@@ -77,7 +86,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                                name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
                                data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
                                class="inp"
-                               value="<?= $SID == 'NAME' ? $userFields['NAME'].' '.$userFields['LAST_NAME'] : $userFields[$SID] ?>">
+                               value="<?= $SID == 'NAME' ? $userFields['NAME'] . ' ' . $userFields['LAST_NAME'] : $userFields[$SID] ?>">
                         <?
                         break;
                     case 'textarea':
@@ -99,22 +108,22 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                 <? } ?>
                 <? $i++; ?>
             <? } ?>
-            <? if (isset($checkbox)) {?>
-            <div class="filter__checkbox">
-                <label for="<?= $checkbox['SID'] ?>">
-                    <input class="filter__checkbox-input"
-                           type="checkbox"
-                           checked="checked"
-                           id="<?= $checkbox['SID'] ?>"
-                           name="form_checkbox_<?= $checkbox['SID'] ?>[]"
-                           value="<?= $checkbox['ID'] ?>"
-                    >
-                    <p class="personal-policy__font">
-                        <?= $checkbox['TITLE'] ?>
-                    </p>
-                </label>
-            </div>
-            <?}?>
+            <? if (isset($checkbox)) { ?>
+                <div class="filter__checkbox">
+                    <label for="<?= $checkbox['SID'] ?>">
+                        <input class="filter__checkbox-input"
+                               type="checkbox"
+                               checked="checked"
+                               id="<?= $checkbox['SID'] ?>"
+                               name="form_checkbox_<?= $checkbox['SID'] ?>[]"
+                               value="<?= $checkbox['ID'] ?>"
+                        >
+                        <p class="personal-policy__font">
+                            <?= $checkbox['TITLE'] ?>
+                        </p>
+                    </label>
+                </div>
+            <? } ?>
             <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>
                 <div class="g-recaptcha-<?= $arResult['arForm']['ID'] ?>"
                      data-sitekey="<?= RE_SITE_KEY ?>"></div>

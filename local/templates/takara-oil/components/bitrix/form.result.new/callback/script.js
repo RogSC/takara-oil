@@ -1,5 +1,17 @@
 $(document).ready(function() {
-    let modal_init = $('.js-init-modal');
+    let modal_init = $('.js-init-modal'),
+        msg = [];
+
+    if ($('html').attr('lang') === 'ru') {
+        msg['request'] = 'Ваша заявка успешно отправлена';
+        msg['sendEmail'] = 'На ваш e-mail отправлено письмо с подтверждением подписки';
+    } else if ($('html').attr('lang') === 'en') {
+        msg['request'] = 'Your request has been sent successfully';
+        msg['sendEmail'] = 'Subscription confirmation email sent to your e-mail';
+    } else {
+        msg['request'] = 'リクエストは正常に送信されました';
+        msg['sendEmail'] = 'あなたのメールに送信されたサブスクリプション確認メール';
+    }
 
     modal_init.on('click', function (e) {
         e.preventDefault();
@@ -37,7 +49,7 @@ $(document).ready(function() {
                                         $('#callback__errors').append("<div class='modal__error'>" + res['message'] + "</div>");
                                     }
                                     if (res.hasOwnProperty('result') && res['result'] === true) {
-                                        let result = '<div class="modal-window"><h4 class="">Ваша заявка успешно отправлена</h4></div>';
+                                        let result = '<div class="modal-window"><h4 class="">' + msg['request'] + '</h4></div>';
                                         $.arcticmodal({
                                             content: result
                                         });
@@ -79,7 +91,7 @@ $(document).ready(function() {
                         $('#callback__errors').append("<div class='modal__error'>" + res['message'] + "</div>");
                     }
                     if (res.hasOwnProperty('result') && res['result'] === true) {
-                        let result = '<div class="modal-window"><h4 class="">Ваша заявка успешно отправлена</h4></div>';
+                        let result = '<div class="modal-window"><h4 class="">' + msg['sendEmail'] + '</h4></div>';
                         $.arcticmodal({
                             content: result
                         });
