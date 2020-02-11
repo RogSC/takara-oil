@@ -30,6 +30,7 @@ $(document).ready(function() {
 
                     form.off('submit.ajax-form').on('submit.ajax-form', function (e) {
                         e.preventDefault();
+                        console.log($(this).serialize());
                         $.ajax({
                             url: $(this).attr('action'),
                             type: 'POST',
