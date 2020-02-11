@@ -17,9 +17,18 @@ use Bitrix\Main\PhoneNumber\Format,
 
 Loc::loadMessages(__FILE__);
 
-if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID'] || isset($_REQUEST['formresult'])) {
+$arData = $_POST;
 
+if ($_REQUEST['WEB_FORM_ID'] == '5') {
+    dump($_REQUEST);
+}
+
+//takara-oil/?sessid=d60747b7730537ea1748c837329d435b&web_form_submit=Y&WEB_FORM_ID=5&form_text_34=RogSC2%40gmail.com&lang=ru&email=undefined
+if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' || isset($_REQUEST['formresult'])) {
+//if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && ($_REQUEST['WEB_FORM_ID'] == $arResult['arForm']['ID'] || $_REQUEST['WEB_FORM_ID'] == 5)) {
     $APPLICATION->RestartBuffer();
+    dump($_REQUEST);
+
     if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && strlen($_REQUEST['g-recaptcha-response']) == 0) {
         $arResponse = array(
             'error' => true,
@@ -30,7 +39,6 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
         $arResponse = array(
             'result' => true
         );
-        dump($_REQUEST);
         if ($_REQUEST['WEB_FORM_ID'] == 5) {
             $arFields = Array(
                 "USER_ID" => ($USER->IsAuthorized() ? $USER->GetID() : false),
@@ -40,17 +48,19 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                 "RUB_ID" => array(1, 2),
                 "SEND_CONFIRM" => 'Y'
             );
-            $subscr = new CSubscription;
+            if(CModule::IncludeModule('subscribe')) {
+                $subscr = new CSubscription;
 
-            //can add without authorization
-            $ID = $subscr->Add($arFields);
-            if ($ID > 0)
-                CSubscription::Authorize($ID);
-            else
-                $arResponse .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
+                $ID = $subscr->Add($arFields);
+                if ($ID > 0)
+                    CSubscription::Authorize($ID);
+                else
+                    $error .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
+            }
         }
     }
-    echo json_encode($_REQUEST);
+    echo $error;
+    echo json_encode($arResponse);
     die();
 } else { ?>
     <?

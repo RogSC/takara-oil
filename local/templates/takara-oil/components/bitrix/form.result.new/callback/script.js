@@ -75,10 +75,10 @@ $(document).ready(function() {
         $.ajax({
             url: $(this).attr('action'),
             type: 'POST',
-            data: $(this).serialize() + '&lang=' + $('html').attr('lang'),
+            data: $(this).serialize() + '&lang=' + $('html').attr('lang') + '&email=' + form.find('#email').val(),
             dataType: 'json',
-            beforeSend: function () {
-                console.log(formValidate(form));
+            beforeSend: function (xHR) {
+                console.log(xHR);
                 if(!formValidate(form)) {
                     return false;
                 }
@@ -86,6 +86,7 @@ $(document).ready(function() {
             success: function (res) {
                 $('.input-error').remove();
                 $('.modal__error').remove();
+                console.log(res);
                 if(typeof res !== 'undefined') {
                     if (res.hasOwnProperty('message')) {
                         $('#callback__errors').append("<div class='modal__error'>" + res['message'] + "</div>");

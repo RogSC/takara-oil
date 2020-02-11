@@ -294,11 +294,11 @@ if (CModule::IncludeModule("form")) {
                                     array('formresult', 'strFormNote', 'WEB_FORM_ID', 'RESULT_ID')
                                 )
                             );*/
-                            $APPLICATION->RestartBuffer();
+                            /*$APPLICATION->RestartBuffer();
                             $arResponse = array(
                                 'result' => true
                             );
-                            echo json_encode($arResponse);
+                            echo json_encode($arResponse);*/
                             die();
                             //LocalRedirect($APPLICATION->GetCurPage()."?WEB_FORM_ID=".$arParams["WEB_FORM_ID"]."&strFormNote=".urlencode($arResult["FORM_NOTE"]));
                         }
@@ -851,7 +851,6 @@ if (CModule::IncludeModule("form")) {
             $arResult["FORM_ERRORS_TEXT"] = ob_get_contents();
             ob_end_clean();
         }
-
         $arResult["SUBMIT_BUTTON"] = "<input " . (intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : "") . " type=\"submit\" name=\"web_form_submit\" value=\"" . (strlen(trim($arResult["arForm"]["BUTTON"])) <= 0 ? GetMessage("FORM_ADD") : $arResult["arForm"]["BUTTON"]) . "\" />";
         $arResult["APPLY_BUTTON"] = "<input type=\"hidden\" name=\"web_form_apply\" value=\"Y\" /><input type=\"submit\" name=\"web_form_apply\" value=\"" . GetMessage("FORM_APPLY") . "\" />";
         $arResult["RESET_BUTTON"] = "<input type=\"reset\" value=\"" . GetMessage("FORM_RESET") . "\" />";
