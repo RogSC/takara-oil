@@ -14,7 +14,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
 $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 
-/*if (isset($_REQUEST['web_worm_submit']) && $_REQUEST['web_worm_submit'] == 'Y' && $arResult["isUseCaptcha"]) {
+if (isset($_REQUEST['web_worm_submit']) && $_REQUEST['web_worm_submit'] == 'Y' && $arResult["isUseCaptcha"]) {
 
     $arResponse = array(
         'result' => true
@@ -33,7 +33,7 @@ $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_A
         echo json_encode($arResponse);
         die();
     }
-}*/
+}
 if (!isset($_REQUEST["ajax_form"]) || empty($_REQUEST["ajax_form"])) {
     $signer = new \Bitrix\Main\Security\Sign\Signer;
     $params = $arParams;
