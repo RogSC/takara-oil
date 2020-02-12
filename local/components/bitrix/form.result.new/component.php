@@ -298,6 +298,31 @@ if (CModule::IncludeModule("form")) {
                             $arResponse = array(
                                 'result' => true
                             );
+                            if ($_REQUEST['WEB_FORM_ID'] == 5) {
+                                $arFields = Array(
+                                    "USER_ID" => ($USER->IsAuthorized() ? $USER->GetID() : false),
+                                    "FORMAT" => "text",
+                                    "EMAIL" => $_REQUEST['form_text_34'],
+                                    "ACTIVE" => "Y",
+                                    "RUB_ID" => array(1, 2),
+                                    "SEND_CONFIRM" => 'Y'
+                                );
+                                if(CModule::IncludeModule('subscribe')) {
+                                    $subscr = new CSubscription;
+
+                                    //can add without authorization
+                                    $ID = $subscr->Add($arFields);
+                                    if ($ID > 0) {
+                                        CSubscription::Authorize($ID);
+                                        $arResponse = array(
+                                            'result' => true,
+                                            'message' => 'add subscription'
+                                        );
+                                    } else {
+                                        $arResponse .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
+                                    }
+                                }
+                            }
                             echo json_encode($arResponse);
                             die();
                             //LocalRedirect($APPLICATION->GetCurPage()."?WEB_FORM_ID=".$arParams["WEB_FORM_ID"]."&strFormNote=".urlencode($arResult["FORM_NOTE"]));
