@@ -27,7 +27,7 @@ if ($arData['authorize'] == 'Y') {
     if (strlen($arData['g-recaptcha-response']) == 0) {
         $error["captcha"] = Loc::getMessage('ERROR_RECAPTCHA');
     } else {
-        $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
+       /* $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
         $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 
         if (!$resp->isSuccess()) {
@@ -35,7 +35,7 @@ if ($arData['authorize'] == 'Y') {
                 $error["captcha"] = $code;
                 return;
             }
-        }
+        }*/
     }
 
     if (strlen($arData['login']) <= 0) {
