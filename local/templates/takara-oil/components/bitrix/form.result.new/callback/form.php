@@ -48,7 +48,6 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                 CSubscription::Authorize($ID);
                 $arResponse = array(
                     'result' => true,
-                    'message' => 'add subscription'
                 );
             } else {
                 $arResponse .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
@@ -144,8 +143,8 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                 <div class="g-recaptcha-<?= $arResult['arForm']['ID'] ?>"
                      data-sitekey="<?= RE_SITE_KEY ?>"></div>
                 <div id="g-recaptcha-<?= $arResult['arForm']['ID'] ?>" class="g-recaptcha"></div>
-                <div class="modal__errors" id="callback__errors"></div>
             <? } ?>
+            <div class="modal__errors" id="callback__errors"></div>
             <button type="submit"
                     class="btn
                         <?= $arParams['MODAL_FORM'] == 'N' ? 'main-footer__btn' : '' ?>

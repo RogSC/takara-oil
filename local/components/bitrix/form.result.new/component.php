@@ -319,7 +319,6 @@ if (CModule::IncludeModule("form")) {
                                         CSubscription::Authorize($ID);
                                         $arResponse = array(
                                             'result' => true,
-                                            'message' => 'add subscription'
                                         );
                                     } else {
                                         $arResponse = array(
