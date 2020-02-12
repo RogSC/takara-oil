@@ -55,7 +55,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
             'result' => true
         );
     //}
-    echo json_encode($arResponse);
+    echo json_encode($PRODUCT_ID);
     die();
 } else { ?>
     <? if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') { ?>

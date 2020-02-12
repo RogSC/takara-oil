@@ -329,7 +329,28 @@ if (CModule::IncludeModule("form")) {
                                     }
                                 }
                             }
-                            echo json_encode($arResponse);
+                            if ($_REQUEST['WEB_FORM_ID'] == 6) {
+                                if ($USER->IsAuthorized()) {
+                                    $el = new CIBlockElement;
+                                    $PROP = array();
+                                    $PROP[88] = $USER->GetID();
+                                    $PROP[92] = $arParams['PRODUCT_ID'];
+
+                                    $arLoadProductArray = Array(
+                                        "MODIFIED_BY" => $USER->GetID(),
+                                        "IBLOCK_SECTION_ID" => false,
+                                        "IBLOCK_ID" => $arParams["QUESTIONS_IBLOCK_ID"],
+                                        "PROPERTY_VALUES" => $PROP,
+                                        "NAME" => $_REQUEST['form_textarea_42'],
+                                        "ACTIVE" => "Y",
+                                        "ACTIVE_FROM" => date('d.m.Y'),
+                                        "PREVIEW_TEXT" => $_REQUEST['form_textarea_42'],
+                                    );
+
+                                    $PRODUCT_ID = $el->Add($arLoadProductArray);
+                                }
+                            }
+                                echo json_encode($arResponse);
                             die();
                             //LocalRedirect($APPLICATION->GetCurPage()."?WEB_FORM_ID=".$arParams["WEB_FORM_ID"]."&strFormNote=".urlencode($arResult["FORM_NOTE"]));
                         }
