@@ -1,5 +1,8 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?><?
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+<?
+use Bitrix\Main\Localization\Loc;
 
+Loc::loadMessages(__FILE__);
 
 if (CModule::IncludeModule("form")) {
     $GLOBALS['strError'] = '';
@@ -319,7 +322,11 @@ if (CModule::IncludeModule("form")) {
                                             'message' => 'add subscription'
                                         );
                                     } else {
-                                        $arResponse .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
+                                        $arResponse = array(
+                                            'error' => true,
+                                            'result' => false,
+                                            'message' => Loc::getMessage('ERROR_SUBSCRIBE'). $subscr->LAST_ERROR
+                                        );
                                     }
                                 }
                             }
