@@ -26,7 +26,7 @@ JCSmartFilter.prototype.keyup = function(input)
 	}
 	this.timer = setTimeout(BX.delegate(function(){
 		this.reload(input);
-	}, this), 500);
+	}, this), 200);
 };
 
 JCSmartFilter.prototype.click = function(checkbox)
@@ -38,7 +38,7 @@ JCSmartFilter.prototype.click = function(checkbox)
 
 	this.timer = setTimeout(BX.delegate(function(){
 		this.reload(checkbox);
-	}, this), 500);
+	}, this), 200);
 };
 
 JCSmartFilter.prototype.reload = function(input)
@@ -52,7 +52,7 @@ JCSmartFilter.prototype.reload = function(input)
 		}
 		this.timer = setTimeout(BX.delegate(function(){
 			this.reload(input);
-		}, this), 1000);
+		}, this), 200);
 		return;
 	}
 	this.cacheKey = '|';

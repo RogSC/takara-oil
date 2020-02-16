@@ -45,7 +45,7 @@ $APPLICATION->IncludeComponent(
     array("HIDE_ICONS" => "Y")
 ); ?>
     <div class="col-xs-12<?= (isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '') ?>">
-        <button class="catalog__filter-btn js-init-filter-btn">
+        <div class="catalog__filter-btn js-init-filter-btn">
             <span class="catalog__filter-text"><?= Loc::getMessage('FILTER') ?></span>
             <div class="filter">
                 <? $APPLICATION->IncludeComponent(
@@ -75,7 +75,7 @@ $APPLICATION->IncludeComponent(
                     false
                 ); ?>
             </div>
-        </button>
+        </div>
     </div>
     <div class="col-xs-12">
         <?

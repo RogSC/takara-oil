@@ -8,13 +8,15 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/choose_addr.js"));
 
-function ShowBranchAttr($class, $attr_type, $isSpan = false)
+function ShowBranchAttr($class, $attr_type, $isSpan = false, $isEmail = false)
 {
     global $arResult;
     $isFirstEl = true;
     foreach ($arResult['BRANCHES'] as $arBranch) { ?>
         <<?= $isSpan ? 'span' : 'div' ?> class="<?= $isFirstEl ? $class.' active' : $class ?>">
+        <?= $isEmail ? '<a href="mailto:'.$arBranch[$attr_type].'" class="red-font">' : '' ?>
         <?= $arBranch[$attr_type] ?>
+        <?= $isEmail ? '</a>' : '' ?>
         </<?= $isSpan ? 'span' : 'div' ?>>
         <?$isFirstEl = false?>
     <? }
@@ -93,7 +95,7 @@ foreach ($arResult['BRANCHES'] as $key => $arBranch) {
                 <div class="contacts__title">
                     <?=Loc::getMessage('CONTACTS_EMAIL')?>
                 </div>
-                <? ShowBranchAttr('red-font e-mail', 'EMAIL') ?>
+                <? ShowBranchAttr('red-font e-mail', 'EMAIL', false, true) ?>
             </div>
         </div>
     </section>

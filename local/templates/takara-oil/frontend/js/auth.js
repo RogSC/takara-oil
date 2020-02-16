@@ -66,13 +66,13 @@ $(document).ready(function () {
                         return false;
                     });
 
-                    btn_forgot_form = $('.js-init-forgot_form');
+                    let btn_forgot_form = $('.js-init-forgot_form');
 
                     btn_forgot_form.on('click', function (e) {
                         e.preventDefault();
                         $.arcticmodal({
                             type: 'ajax',
-                            url: '/local/tools/ajax.forgot.php?show_form=Y',
+                            url: '/local/tools/ajax.forgot.php?show_form=Y&lang=' + $('html').attr('lang'),
                             ajax: {
                                 type: 'GET',
                                 dataType: 'html',

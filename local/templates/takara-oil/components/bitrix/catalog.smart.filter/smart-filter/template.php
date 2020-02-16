@@ -37,19 +37,22 @@ $this->setFrameMode(true);
                                    value="<?= $arFilterItem["VALUES"]["MIN"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MIN"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
+                                   onkeyup="smartFilter.keyup(this)"
                                    size="5"
-                                   data-minpricerange="<?= $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>"
-                                   onkeyup="smartFilter.keyup(this)">
+                                   data-min="<?= $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>">
                             <span class="filter__font"> - </span>
                             <input class="filter__price-max filter__price-input inp filter__font" type="text"
                                    value="<?= $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
+                                   onkeyup="smartFilter.keyup(this)"
                                    size="5"
-                                   data-maxpricerange="<?= $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>"
-                                   onkeyup="smartFilter.keyup(this)">
+                                   data-max="<?= $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>">
                         </div>
                         <div class="filter__price-slider-container">
+                            <div id="polzunok"></div>
+                        </div>
+                        <!--<div class="filter__price-slider-container">
                             <div class="filter__price-slider">
                                 <div class="filter__price-slider-area"></div>
                             </div>
@@ -57,7 +60,7 @@ $this->setFrameMode(true);
                                  class="filter__price-slider-thumb filter__price-slider-thumb_min"></div>
                             <div onmouseup="smartFilter.keyup(this)"
                                  class="filter__price-slider-thumb filter__price-slider-thumb_max"></div>
-                        </div>
+                        </div>-->
                     </div>
 
                     <? break;
@@ -160,7 +163,7 @@ $this->setFrameMode(true);
         <? } ?>
     </div>
     <div class="filter__btn-container">
-        <input type="submit" name="del_filter" value="<?= Loc::getMessage('BTN_RESET') ?>" onclick="resetForm()"
+        <input type="submit" name="del_filter" value="<?= Loc::getMessage('BTN_RESET') ?>"
                class="inp filter__btn-reset btn btn_large"/>
     </div>
     <div class="filter__btn-container filter__btn-submit-container">
