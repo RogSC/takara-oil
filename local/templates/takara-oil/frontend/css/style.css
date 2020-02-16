@@ -739,7 +739,7 @@ button {
 @media screen and (max-width: 575px) {
     .main-header__bottom {
         border-top: none;
-        padding-top: 0!important;
+        padding-top: 0 ! important;
         padding: 0 15px;
     }
     .main-header__btn {
@@ -760,6 +760,7 @@ button {
     position: relative;
     box-sizing: border-box;
     border: 2px solid #E60013;
+    transition: 0.3s;
 }
 
 .btn:hover {
@@ -1035,6 +1036,7 @@ button {
 .pag__arrow_active {
     background-size: 100%;
     opacity: 1;
+    transition: 0.3s;
 }
 
 .slider__pagination-border-right,
@@ -1217,6 +1219,12 @@ button {
     line-height: 1.3;
     text-align: center;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 575px) {
+    .product-catalog__section {
+        font-size: 1.5em;
+    }
 }
 
 .products-catalog__car-part {
@@ -2034,6 +2042,12 @@ button {
     margin-right: 20px;
 }
 
+.main-footer__social a path,
+.main-footer__social a path {
+    fill: #fff;
+    transition: 0.3s;
+}
+
 .main-footer__social a:hover path,
 .main-footer__social a:active path {
     fill: #E60013;
@@ -2164,6 +2178,11 @@ button {
     justify-content: center;
     background: none;
     border: 1px solid #5D5B5A;
+    transition: 0.3s;
+}
+
+.catalog__filter-btn:hover {
+    color: #E60013;
 }
 
 .catalog__filter-text:after {
@@ -2696,7 +2715,15 @@ button {
     border: 1px solid #5D5B5A;
     text-transform: uppercase;
     font-size: 1.2em;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+.tab__item:hover {
+    color: #E60013;
+}
+
 
 .tab__item:not(:first-child) {
     margin-left: -1px;
@@ -2896,7 +2923,10 @@ button {
 }
 
 .select-addr {
-    color: rgba(255, 255, 255, 0.5)
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+    user-select: none;
+    cursor: pointer;
 }
 
 .addr,
@@ -3736,6 +3766,11 @@ a.lk__item-title {
     right: 50px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.to-top-btn:hover {
+    transform: scale(1.2);
 }
 .to-top-btn svg {
     width: 100%;
