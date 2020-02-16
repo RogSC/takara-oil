@@ -53,7 +53,7 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
                 );
                 ?>
                 <p class="agreement"><?= Loc::getMessage('FOOTER_AGREEMENT') ?>
-                    <a class="red-font" href="<?= $_SERVER['REMOTE_ADDR'] ?>/politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
+                    <a class="red-font" href="/politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
                 <div class="main-footer__copyright">
                     <h4><?
                         $APPLICATION->IncludeFile(
