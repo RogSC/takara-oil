@@ -269,7 +269,6 @@ button {
     border: none;
     opacity: 0.3;
     text-align: center;
-    pointer-events: none;
     z-index: 122;
     transition: 0.5s;
 }
