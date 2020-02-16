@@ -15,9 +15,8 @@ CJSCore::Init('jquery');
 foreach (glob( $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . "/frontend/js/*.js") as $jsFile) {
     Asset::getInstance()->addJs(str_replace($_SERVER['DOCUMENT_ROOT'], '', $jsFile));
 }
-
-Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/style.css"));
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/bootstrap-grid.css"));
+Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/style.css"));
 
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.css"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.min.js"));

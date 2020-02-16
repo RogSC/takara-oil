@@ -21,11 +21,11 @@ $pagePath = $APPLICATION->GetCurPage(false);
     <div class="float-block">
         <ul class="float-menu">
             <? foreach ($arResult['FLOAT_MENU'] as $arItem) { ?>
-                <? $linkPath = explode('/', $arItem["PROPERTY_LINK_VALUE"]) ?>
+                <? $linkPath = $arItem["PROPERTY_LINK_VALUE"] ?>
                 <li class="float-menu__el">
                     <a href="<?= SITE_DIR.$arItem["PROPERTY_LINK_VALUE"] ?>">
                         <img src="<?= CFile::GetPath($arItem["PROPERTY_ICON_VALUE"]) ?: SITE_TEMPLATE_PATH.'/frontend/img/float-menu-el.svg' ?>">
-                        <div class="float-menu__title <?= strpos($pagePath, $linkPath[1]) !== false ? 'active' : '' ?>">
+                        <div class="float-menu__title <?= strpos($pagePath, $linkPath) !== false ? 'active' : '' ?>">
                             <?= $arItem["NAME"] ?>
                         </div>
                     </a>
