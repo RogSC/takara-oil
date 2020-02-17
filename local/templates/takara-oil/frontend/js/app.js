@@ -125,10 +125,10 @@ $(document).ready(function () {
     });
 
     $(window).scroll(function() {
-        if ($(this).scrollTop() != 0) {
-            $('.to-top-btn').fadeIn();
+        if ($(this).scrollTop() > 300) {
+            $('.to-top-btn').fadeTo(10, 1);
         } else {
-            $('.to-top-btn').fadeOut();
+            $('.to-top-btn').fadeTo(10, 0);
         }
     });
 

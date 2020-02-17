@@ -25,7 +25,9 @@ Loc::loadMessages(__FILE__);
             </div>
         <? } ?>
     <? } else { ?>
-        <p style="padding-top: 40px"><?= Loc::getMessage('NO_PRODUCTS') ?></p>
+        <div class="col">
+            <p style="padding-top: 40px"><?= Loc::getMessage('NO_PRODUCTS') ?></p>
+        </div>
     <? } ?>
 </div>
 <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>

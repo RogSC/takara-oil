@@ -13,6 +13,7 @@
 $this->setFrameMode(true);
 
 use Bitrix\Main\Localization\Loc;
+
 Loc::loadMessages(__FILE__);
 ?>
 <div class="articles__items row">
@@ -34,10 +35,12 @@ Loc::loadMessages(__FILE__);
                     </a>
                 </div>
                 <div class="articles__item_description">
+                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
                         <p><?= $arItem["PREVIEW_TEXT"] ?></p>
+                    </a>
                 </div>
                 <div class="articles__item_btn">
-                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn__more"><?=Loc::getMessage('BTN_MORE')?></a>
+                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>" class="btn__more"><?= Loc::getMessage('BTN_MORE') ?></a>
                 </div>
             </div>
         </div>
@@ -45,7 +48,7 @@ Loc::loadMessages(__FILE__);
 </div>
 
 <div class="articles__pagination">
-<? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>
-    <?= $arResult["NAV_STRING"] ?>
-<? } ?>
+    <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>
+        <?= $arResult["NAV_STRING"] ?>
+    <? } ?>
 </div>
