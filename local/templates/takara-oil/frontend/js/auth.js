@@ -85,7 +85,7 @@ $(document).ready(function () {
                                         $.ajax({
                                             url: '/local/tools/ajax.forgot.php',
                                             type: 'POST',
-                                            data: $(this).serialize(),
+                                            data: $(this).serialize() + '&lang=' + $('html').attr('lang'),
                                             dataType: 'json',
                                             success: function (res) {
                                                 form.parent().find('.modal__errors').children().remove();

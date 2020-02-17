@@ -5,21 +5,22 @@ $(window).load(function () {
         var arr = {
             current: 0
         };
-        let items = {};
-        home_page.find('section').each(function (index, element) {
+        let items = {},
+            slide = $('.nav-list__items'),
+            slides = $('.nav__item');
+            home_page.find('section').each(function (index, element) {
             items[index] = {
                 height: $(element).outerHeight(),
                 index: index,
-                current: false
+                current: false,
+                position: $(element).offset().top
             };
         });
         arr['items'] = items;
-        console.log(arr);
 
         $(window).on('load scroll', function () {
             var top = $(window).scrollTop() - 100,
                 hBl = 0,
-                slide = $('.nav-list__items'),
                 curSlide = slide.attr('data-current-slide');
 
             $.each(arr['items'], function (k, vl) {
@@ -32,6 +33,16 @@ $(window).load(function () {
                 $('.nav-list__items').slick('slickGoTo', arr['current']);
                 slide.attr('data-current-slide', arr['current']);
             }
+        });
+
+        slides.each(function (i, e) {
+            $(this).on('click', function () {
+                $('body,html').animate({scrollTop:items[i]['position']},400);
+            });
+        });
+
+        $('.nav-list__arrow').on('click', function () {
+            $('body,html').animate({scrollTop:items[i]['position']},400);
         });
     }
 });
