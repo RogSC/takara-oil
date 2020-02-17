@@ -31,12 +31,11 @@ $(document).ready(function () {
             dropDawn.addClass("filter__dropdown-selector_active");
         });
 
-        $(document).on("click", function (evt) {
-            let target = $(evt.target);
-
-            if (target.is(dropDawnBtn) || target.is(dropDawn) || target.is(dropDawn.find('*'))) {
-                return;
-            } else {
+        $(document).mousedown(function (e) {
+            if (!(($(e.target).parents('.js-init-filter__dropdown-btn').length)
+                || ($(e.target).hasClass('js-init-filter__dropdown-btn'))
+                || ($(e.target).parents('.filter__dropdown-selector').length)
+                || ($(e.target).hasClass('filter__dropdown-selector')))) {
                 dropDawn.removeClass("filter__dropdown-selector_active");
             }
         });
