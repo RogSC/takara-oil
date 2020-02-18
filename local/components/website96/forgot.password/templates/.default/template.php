@@ -25,12 +25,12 @@ $arData = $_REQUEST;
 $json = array();
 if ($arData['change_new_password'] == 'Y') {
     if (strlen($arData['USER_LOGIN']) <= 0) {
-        $error['login'] = Loc::getMessage('ERROR');
+        //$error['login'] = Loc::getMessage('ERROR');
     } else {
         $LOGIN = urldecode($arData['USER_LOGIN']);
     }
     if (strlen($arData['USER_CHECKWORD']) <= 0) {
-        $error['checkword'] = Loc::getMessage('ERROR');
+        //$error['checkword'] = Loc::getMessage('ERROR');
     } else {
         $CHECKWORD = $arData['USER_CHECKWORD'];
     }
@@ -77,6 +77,7 @@ if ($arData['change_new_password'] == 'Y') {
                             <input type="password" class="inp" name="password" id="password">
                         </fieldset>
                     </div>
+                    <div class="modal__errors col-12" id="callback__errors"></div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="q__form-item-container">
@@ -85,10 +86,10 @@ if ($arData['change_new_password'] == 'Y') {
                             <input type="password" class="inp" name="re-password" id="re-password">
                         </fieldset>
                     </div>
-                    <button type="submit"
-                            class="profile__btn btn btn_fill"><?= Loc::getMessage('CHANGE_PASS') ?></button>
+                    <button type="submit" class="profile__btn btn btn_fill">
+                        <?= Loc::getMessage('CHANGE_PASS') ?>
+                    </button>
                 </div>
-                <div class="modal__errors col-12" id="callback__errors"></div>
             </div>
         </form>
     </section>

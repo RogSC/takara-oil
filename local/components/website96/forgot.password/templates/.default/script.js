@@ -24,8 +24,8 @@ $(document).ready(function () {
                             form.parent().find('.modal__errors').append("<div class='modal__error'>" + res['success'] + "</div>");
                             setTimeout(function () {
                                 $.arcticmodal('close')
+                                forgotModal.hide();
                             }, 1000);
-                            forgotModal.hide();
                         }
                     }
                 }
