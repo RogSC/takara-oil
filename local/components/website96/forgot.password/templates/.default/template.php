@@ -70,8 +70,8 @@ if ($arData['change_new_password'] == 'Y') {
         <form class="forgot-password" action="<?= POST_FORM_ACTION_URI ?>" >
             <?= bitrix_sessid_post() ?>
             <input type="hidden" name="change_new_password" value="Y"/>
-            <input type="hidden" name="USER_CHECKWORD" value="<? $arData['USER_CHECKWORD'] ?>"/>
-            <input type="hidden" name="USER_LOGIN" value="<? $arData['USER_LOGIN'] ?>"/>
+            <!--<input type="hidden" name="USER_CHECKWORD" value="<?/* $arData['USER_CHECKWORD'] */?>"/>
+            <input type="hidden" name="USER_LOGIN" value="<?/* $arData['USER_LOGIN'] */?>"/>-->
             <div class="profile__item row">
                 <div class="col-12 col-md-6">
                     <div class="q__form-item-container">
