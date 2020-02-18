@@ -132,3 +132,10 @@ Asset::getInstance()->addCss("https://fonts.googleapis.com/css?family=Days+One|M
     </nav>
 </header>
 <main class="main-page <?= $APPLICATION->GetCurPage(false) == SITE_DIR ? 'home-page' : '' ?>">
+    <? $APPLICATION->IncludeComponent(
+        "website96:forgot.password",
+        "",
+        Array(
+
+        )
+    ); ?>
