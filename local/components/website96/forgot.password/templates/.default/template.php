@@ -50,12 +50,11 @@ if ($arData['change_new_password'] == 'Y') {
     }
     if (!$error) {
         $forgotResult = $us->ChangePassword($LOGIN, $CHECKWORD, $PASSWORD, $CONFIRM_PASSWORD);
-        if (!is_array($forgotResult) && $forgotResult == true) {
-            $json['success'] = Loc::getMessage('SUCCESS');
+        if ($forgotResult['TYPE'] != "ERROR") {
+            $json['success'] = $forgotResult['MESSAGE'];
         } else {
-            $json['error']['forgot'] = $us->LAST_ERROR;
+            $json['error']['forgot'] = $forgotResult['MESSAGE'];
         }
-        $json['result'] = $forgotResult;
     } else {
         $json['error'] = $error;
     }
@@ -94,34 +93,6 @@ if ($arData['change_new_password'] == 'Y') {
                 </div>
             </div>
         </form>
-        <!--<form name="auth-form__form" method="post" action>
-            <input type="hidden" name="authorize" value="Y"/>
-            <?/*= bitrix_sessid_post() */ ?>
-            <fieldset class="q__form-item">
-                <legend><?/*= Loc::getMessage('EMAIL') */ ?></legend>
-                <input type="email" class="inp" name="login" id="login">
-            </fieldset>
-            <fieldset class="q__form-item">
-                <legend><?/*= Loc::getMessage('PASS') */ ?></legend>
-                <input type="password" class="inp" name="pass" id="pass">
-            </fieldset>
-
-            <div class="modal__errors"></div>
-
-            <button type="submit" class="auth-form__button btn btn_fill"><?/*= Loc::getMessage('SIGN') */ ?></button>
-
-            <div class="auth-form__forgot-pass">
-                <span class="js-init-forgot_form"><?/*= Loc::getMessage('FORGOT_PASS') */ ?></span>
-            </div>
-
-            <div class="modal-window_sep">
-                <span><?/*= Loc::getMessage('OR') */ ?></span>
-            </div>
-
-            <a href="<?/*= SITE_DIR */ ?>registration/" class="auth-form__button_reg btn btn-small">
-                <?/*= Loc::getMessage('REG') */ ?>
-            </a>
-        </form>-->
     </section>
     <?
 }
