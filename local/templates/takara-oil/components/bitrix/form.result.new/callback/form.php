@@ -46,12 +46,21 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
             $ID = $subscr->Add($arFields);
             if ($ID > 0) {
                 CSubscription::Authorize($ID);
-                $arResponse = array(
-                    'result' => true,
-                );
+                $msg = Loc::getMessage('SUBSCRIBE_CONFIRM');
             } else {
-                $arResponse .= "Error adding subscription: " . $subscr->LAST_ERROR . "<br>";
+                $msg = Loc::getMessage('SUBSCRIBE_ERROR');
             }
+            ?>
+            <script>
+                let result = '<div class="modal-window"><h4 class=""><?= $msg ?></h4></div>';
+                $.arcticmodal({
+                    content: result
+                });
+                setTimeout(function () {
+                    $.arcticmodal('close')
+                }, 2000);
+            </script>
+            <?
         }
     }
     echo json_encode($arResponse);

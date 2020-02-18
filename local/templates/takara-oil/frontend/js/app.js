@@ -42,7 +42,19 @@ $(window).load(function () {
         });
 
         $('.nav-list__arrow').on('click', function () {
-            $('body,html').animate({scrollTop:items[i]['position']},400);
+            let pos = 0;
+            $.each(arr['items'], function (i, e) {
+                console.log($(window).scrollTop());
+                console.log(Math.round(e['position']).toFixed(0));
+                if ($(window).scrollTop() <  Math.round(e['position']).toFixed(0)-2) {
+                    pos = e['position'];
+                    return false;
+                }
+            });
+            if (pos/arr['items'][Object.keys(arr['items']).length - 1]['position'] === 1) {
+                pos = $(document).height() - $(window).height();
+            }
+            $('body,html').animate({scrollTop:pos},400);
         });
     }
 });

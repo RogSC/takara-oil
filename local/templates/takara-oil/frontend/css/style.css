@@ -3677,6 +3677,7 @@ a.lk__item-title {
     display: block;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 .nav-list__arrow:after {
@@ -3712,6 +3713,7 @@ a.lk__item-title {
     margin-bottom: 35px;
     background: transparent;
     outline: none;
+    cursor: pointer;
 }
 
 .nav__item span:before {

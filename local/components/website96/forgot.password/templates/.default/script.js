@@ -25,7 +25,7 @@ $(document).ready(function () {
                             setTimeout(function () {
                                 $.arcticmodal('close')
                                 forgotModal.hide();
-                            }, 1000);
+                            }, 2000);
                         }
                     }
                 }
