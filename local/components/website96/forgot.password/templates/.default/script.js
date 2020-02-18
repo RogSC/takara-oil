@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.js-init-forgot-modal').show();
     $('.js-init-forgot-modal').arcticmodal();
 
     let form = $('form.forgot-password');
@@ -19,6 +20,10 @@ $(document).ready(function () {
                     } else {
                         if (res['success'] !== 'undefined') {
                             form.parent().find('.modal__errors').append("<div class='modal__error'>" + res['success'] + "</div>");
+                            setTimeout(function () {
+                                $.arcticmodal('close')
+                            }, 1000);
+                            $('.js-init-forgot-modal').hide();
                         }
                     }
                 }
