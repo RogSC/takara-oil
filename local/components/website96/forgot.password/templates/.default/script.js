@@ -1,6 +1,8 @@
 $(document).ready(function () {
-    $('.js-init-forgot-modal').show();
-    $('.js-init-forgot-modal').arcticmodal();
+    let forgotModal = $('.js-init-forgot-modal'),
+        forgotModalClose = $('.js-init-forgot-modal .js-init-modal__close');
+
+    forgotModal.show().arcticmodal();
 
     let form = $('form.forgot-password');
     form.off('submit.ajax-form').on('submit.ajax-form', function (e) {
@@ -23,12 +25,23 @@ $(document).ready(function () {
                             setTimeout(function () {
                                 $.arcticmodal('close')
                             }, 1000);
-                            $('.js-init-forgot-modal').hide();
+                            forgotModal.hide();
                         }
                     }
                 }
             }
         });
         return false;
+    });
+
+    forgotModalClose.click(function () {
+        forgotModal.hide();
+    });
+
+    $(document).click(function (e) {
+        if (!(($(e.target).parents('.js-init-forgot-modal').length)
+            || ($(e.target).hasClass('js-init-forgot-modal')))) {
+            forgotModal.hide();
+        }
     });
 });

@@ -19,3 +19,4 @@ Thumbs.db
 /.idea/
 /examples/
 /images/
+/local/php_interface/init.php
