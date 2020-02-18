@@ -87,8 +87,8 @@ if ($arData['change_new_password'] == 'Y') {
                     </div>
                     <button type="submit"
                             class="profile__btn btn btn_fill"><?= Loc::getMessage('CHANGE_PASS') ?></button>
-                    <div class="modal__errors" id="callback__errors"></div>
                 </div>
+                <div class="modal__errors col-12" id="callback__errors"></div>
             </div>
         </form>
     </section>
