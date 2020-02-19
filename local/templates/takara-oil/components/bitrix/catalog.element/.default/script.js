@@ -7,11 +7,12 @@ tabsBtn.on('click', 'li:not(.active)', function() {
 });
 
 $('.js-init-btn-chars').on('click', function () {
-    let tabChars = $('[data-name=tab_options]');
+    let tabChars = $('.tab__item[data-name="tab_options"]');
     let scrollTop = tabChars.offset().top;
 
     tabsBtn.find('li').removeClass('active');
     tab.removeClass('active');
     tabChars.addClass('active');
-    $(document).scrollTop(scrollTop + 500);
+    $('.tab__item-content[data-name="tab_options"]').addClass('active');
+    $(document).scrollTop(scrollTop);
 });

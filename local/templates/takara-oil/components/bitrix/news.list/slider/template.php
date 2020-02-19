@@ -15,8 +15,8 @@ $this->setFrameMode(true);
 
 <section class="slider container" id="slider" data-slideinterval="<?= $arParams["SLIDER_TIME"] ?>">
     <div class="slider__viewport" id="viewport">
-        <ul id="slide-wrapper"
-            style="width: calc(100% * <?= count($arResult["ITEMS"]) ?>);">
+        <!--<ul id="slide-wrapper" style="width: calc(100% * <?/*= count($arResult["ITEMS"]) */?>);">-->
+        <ul id="slide-wrapper">
             <? foreach ($arResult["ITEMS"] as $key => $arItem) { ?>
                 <li class="slide">
                     <? if (!empty($arItem["PROPERTIES"]["SLIDER_MOVIE"]["VALUE"])) { ?>

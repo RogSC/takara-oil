@@ -24,11 +24,15 @@ Loc::loadMessages(__FILE__);
                 </div>
             </div>
         <? } ?>
+    <? } elseif ($_REQUEST['set_filter'] == 'Применить') { ?>
+        <div class="col">
+            <p style="padding-top: 40px"><?= Loc::getMessage('NO_FILTER') ?></p>
+        </div>
     <? } else { ?>
         <div class="col">
             <p style="padding-top: 40px"><?= Loc::getMessage('NO_PRODUCTS') ?></p>
         </div>
-    <? } ?>
+    <?}?>
 </div>
 <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) { ?>
     <div class="catalog__pagination row">

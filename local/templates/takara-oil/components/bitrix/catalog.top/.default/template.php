@@ -2,7 +2,7 @@
 
 use \Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Page\Asset; ?>
-    <div class="catalog__items row">
+    <div class="catalog__items">
         <? if ($arResult['ITEMS']) {
             foreach ($arResult['ITEMS'] as $key => $arItem) { ?>
                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
