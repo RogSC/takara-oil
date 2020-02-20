@@ -5,14 +5,12 @@ use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
 
-$arrFilter = array(
-    "?NAME" => $_REQUEST['q']
-);
+global $arrFilter;
 
-$rs = CIBlockElement::GetList(array(), array(
-    'IBLOCK_ID' => 14,
-    '?NAME' => urldecode($_REQUEST['q'])
-), false, false, array('ID')
+$arrFilter["?NAME"] = $_REQUEST['q'];
+$arrFilter["IBLOCK_ID"] = 14;
+
+$rs = CIBlockElement::GetList(array(), $arrFilter, false, false, array('ID')
 );
 while ($ar_res = $rs->GetNext()) {
     $arItem[] = $ar_res['ID'];

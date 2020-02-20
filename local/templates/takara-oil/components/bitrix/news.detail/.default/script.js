@@ -3,6 +3,10 @@ $('.show-pic').eq(0).show();
 
 $('.article__pictures img').on('click', function () {
     $('.big-picture img').attr('src', $(this).attr('src'));
+
+    if ($(window).width() <= 767) {
+        $('.big-picture img').arcticmodal().css('width', '100%');
+    }
 });
 
 let slides = $('.show-pic');
