@@ -24,7 +24,7 @@ Loc::loadMessages(__FILE__);
                 </div>
             </div>
         <? } ?>
-    <? } elseif ($_REQUEST['set_filter'] == 'Применить') { ?>
+    <? } elseif ($_REQUEST['set_filter'] == 'y') { ?>
         <div class="col">
             <p style="padding-top: 40px"><?= Loc::getMessage('NO_FILTER') ?></p>
         </div>

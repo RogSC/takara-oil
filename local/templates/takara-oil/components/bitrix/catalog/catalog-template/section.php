@@ -77,7 +77,6 @@ $APPLICATION->IncludeComponent(
             </div>
         </div>
     </div>
-    <div class="col-xs-12">
         <?
         $intSectionID = $APPLICATION->IncludeComponent(
             "bitrix:catalog.section",
@@ -208,7 +207,6 @@ $APPLICATION->IncludeComponent(
             $component
         );
         ?>
-    </div>
     </div>
 </section>
 <?

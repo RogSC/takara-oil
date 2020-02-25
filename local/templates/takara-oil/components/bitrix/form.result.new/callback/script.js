@@ -23,8 +23,8 @@ $(document).ready(function() {
             ajax: {
                 type: 'GET',
                 dataType: 'html',
-                success: function (data, el, responce) {
-                    data.body.html(responce);
+                success: function (data, el, response) {
+                    data.body.html(response);
 
                     let form = $('[data-id=' + form_id + ']');
 
@@ -69,7 +69,8 @@ $(document).ready(function() {
         return false;
     });
 
-    let form = $('[data-id="5"]');
+    let btnSubscribe = $('.js-init-subscribe'),
+        form = btnSubscribe.closest('form');
 
     form.off('submit.ajax-form').on('submit.ajax-form', function (e) {
         e.preventDefault();

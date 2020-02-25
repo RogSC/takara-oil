@@ -177,4 +177,16 @@ $(document).ready(function () {
     $('.main-header__navbar-nested svg').click(function () {
         $(this).closest('.main-header__navbar-nested').css('opacity', 0).css('visibility', 'hidden');
     });
+
+    $.arcticmodal('setDefault', {
+        closeOnOverlayClick: false
+    });
+
+    $(document).on('mousedown', function (e) {
+        let modal = $('.modal-window');
+
+        if (!modal.is(e.target) && modal.has(e.target).length === 0) {
+            $.arcticmodal('close');
+        }
+    });
 });

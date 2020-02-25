@@ -161,6 +161,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                         <?= $arParams['BUTTON_SUBMIT_TYPE'] ? 'btn_' . $arParams['BUTTON_SUBMIT_TYPE'] . ' ' : '' ?>
                         <?= $arParams['BUTTON_SUBMIT_SIZE'] ? 'btn-' . $arParams['BUTTON_SUBMIT_SIZE'] . ' ' : '' ?>
                         <?= $arParams['MODAL_FORM'] == 'Y' ? 'btn-modal__submit ' : '' ?>
+                        <?= $arParams['FORM_ACTION'] ?: '' ?>
                         js-init-modal__submit">
                 <?= $arParams['BUTTON_SUBMIT_ICON'] ? GetContentSvgIcon($arParams['BUTTON_SUBMIT_ICON']) : '' ?>
                 <?= $arParams['BUTTON_SUBMIT_TEXT'] ?>

@@ -10,7 +10,7 @@ $(document).ready(function () {
             myFilter.addClass("filter_active");
         });
 
-        $(document).on("click", function (evt) {
+        $(document).on("mousedown", function (evt) {
             let target = $(evt.target);
 
             if (target.is(myFilterBtn) || target.is(myFilterBtn.find('*'))) {
@@ -65,8 +65,9 @@ $(document).ready(function () {
         },
         change: function (event, ui) {
             if (ui.handleIndex === 0) {
-                JCSmartFilter.reload();
+                //JCSmartFilter.reload();
                 outputs.eq(0).change();
+                smartFilter.keyup(outputs.eq(0));
             } else {
                 outputs.eq(1).change();
                 smartFilter.keyup(outputs.eq(1));

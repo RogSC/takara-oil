@@ -8,6 +8,8 @@
         "BUTTON_SUBMIT_TYPE" => "not_fill",
         "BUTTON_SUBMIT_SIZE" => "small",
         "BUTTON_SUBMIT_ICON" => "no_icon",
+        "FORM_ACTION" => "js-init-subscribe",
+        "BUTTON_ACTION" => "subscribe",
         "MODAL_FORM" => "N",
         "SEF_MODE" => "N",
         "CACHE_TYPE" => "A",

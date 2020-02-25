@@ -1,11 +1,16 @@
-$('.select-addr').on('click', function () {
-    $(this).addClass('active').siblings().removeClass('active');
-    $('div.addr').removeClass('active').eq($(this).index()).addClass('active');
-    $('div.w-time').removeClass('active').eq($(this).index()).addClass('active');
-    $('div.phone').removeClass('active').eq($(this).index()).addClass('active');
-    $('div.e-mail').removeClass('active').eq($(this).index()).addClass('active');
-    initMap(posList[$(this).index()]['lat'], posList[$(this).index()]['lng']);
+$('.contacts-item').each(function () {
+    $(this).find('.select-addr').each(function (i, e) {
+        $(this).click(function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.contacts-item').hide().eq(i).show();
+            $('.contacts-item').each(function () {
+                $(this).find('.select-addr').eq(i).addClass('active').siblings().removeClass('active');
+            });
+            initMap(posList[$(this).index()]['lat'], posList[$(this).index()]['lng']);
+        });
+    });
 });
+
 
 function initMap(lat = posList[0]['lat'], lng = posList[0]['lng']) {
     let pos = {lat: lat, lng: lng};

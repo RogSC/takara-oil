@@ -7,8 +7,10 @@ $this->setFrameMode(true);
 ?>
 
 <form class="filter__form"
+      id="popupSmartFilter"
       name="<?= $arResult["FILTER_NAME"] . "_form" ?>"
       method="get"
+      data-url="<?=$APPLICATION->GetCurPage()?>"
       action="<?= $arResult["FORM_ACTION"] ?>">
     <? foreach ($arResult["HIDDEN"] as $arItem) { ?>
         <input type="hidden" name="<?= $arItem["CONTROL_NAME"] ?>" id="<?= $arItem["CONTROL_ID"] ?>"
@@ -33,7 +35,7 @@ $this->setFrameMode(true);
                             </div>
                         </div>
                         <div class="filter__price-inputs">
-                            <input class="filter__price-min filter__price-input inp filter__font" type="text"
+                            <input class="filter__price-min filter__price-input inp filter__font js-init-filter" type="text"
                                    value="<?= $arFilterItem["VALUES"]["MIN"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MIN"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
@@ -41,7 +43,7 @@ $this->setFrameMode(true);
                                    size="5"
                                    data-min="<?= $arFilterItem["VALUES"]["MIN"]["VALUE"] ?>">
                             <span class="filter__font"> - </span>
-                            <input class="filter__price-max filter__price-input inp filter__font" type="text"
+                            <input class="filter__price-max filter__price-input inp filter__font js-init-filter" type="text"
                                    value="<?= $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
@@ -52,15 +54,6 @@ $this->setFrameMode(true);
                         <div class="filter__price-slider-container">
                             <div id="polzunok"></div>
                         </div>
-                        <!--<div class="filter__price-slider-container">
-                            <div class="filter__price-slider">
-                                <div class="filter__price-slider-area"></div>
-                            </div>
-                            <div onmouseup="smartFilter.keyup(this)"
-                                 class="filter__price-slider-thumb filter__price-slider-thumb_min"></div>
-                            <div onmouseup="smartFilter.keyup(this)"
-                                 class="filter__price-slider-thumb filter__price-slider-thumb_max"></div>
-                        </div>-->
                     </div>
 
                     <? break;
@@ -69,7 +62,7 @@ $this->setFrameMode(true);
                     <div class="filter__section filter__dropdown">
                         <?
                         foreach ($arFilterItem["VALUES"] as $val => $ar) { ?>
-                            <input
+                            <input class="js-init-filter"
                                     style="display: none"
                                     type="radio"
                                     name="<?= $ar["CONTROL_NAME_ALT"] ?>"
@@ -124,7 +117,7 @@ $this->setFrameMode(true);
                             <? foreach ($arFilterItem['VALUES'] as $value) { ?>
                                 <div class="filter__checkbox">
                                     <label class="filter__font">
-                                        <input class="filter__checkbox-input" type="checkbox"
+                                        <input class="filter__checkbox-input js-init-filter" type="checkbox"
                                                name="<?= $value['CONTROL_NAME'] ?>"
                                                id="<?= $value['CONTROL_ID'] ?>"
                                                value="<?= $value['HTML_VALUE'] ?>"
@@ -147,7 +140,7 @@ $this->setFrameMode(true);
                             <? foreach ($arFilterItem['VALUES'] as $value) { ?>
                                 <div class="filter__radio">
                                     <label class="filter__font">
-                                        <input class="filter__radio-input" type="radio"
+                                        <input class="filter__radio-input js-init-filter" type="radio"
                                                id="<?= $value["CONTROL_ID"] ?>"
                                                value="<?= $value["HTML_VALUE_ALT"] ?>"
                                                name="<?= $value["CONTROL_NAME_ALT"] ?>"
