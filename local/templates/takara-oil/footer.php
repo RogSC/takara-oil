@@ -17,12 +17,10 @@ Loc::loadMessages(__FILE__);
         )
     );
 }
-?>
-<?
 
 $pagePath = $APPLICATION->GetCurPage(false);
 
-if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
+if ($pagePath != SITE_DIR && strpos($pagePath, '/catalog/') === false) {
     $APPLICATION->IncludeFile(
         "views/floating-block.php",
         array(),
@@ -53,25 +51,15 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
                 );
                 ?>
                 <p class="agreement"><?= Loc::getMessage('FOOTER_AGREEMENT') ?>
-                    <a class="red-font" href="<?= SITE_DIR ?>politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
-                <div class="main-footer__copyright">
-                    <h4><?
-                        $APPLICATION->IncludeFile(
-                            "/include/copyright.php",
-                            array(),
-                            array(
-                                "MODE" => "text",
-                            )
-                        );
-                        ?></h4>
-                </div>
+                    <a class="red-font"
+                       href="<?= SITE_DIR ?>politic.php"><?= Loc::getMessage('FOOTER_AGREEMENT_LINK') ?></a></p>
             </div>
         </div>
         <div class="main-footer__col main-footer__center col-12 col-lg-4 col-xl-4">
             <div>
                 <div class="main-footer__nav">
                     <ul>
-                        <?$APPLICATION->IncludeComponent(
+                        <? $APPLICATION->IncludeComponent(
                             "bitrix:menu",
                             "bottom",
                             array(
@@ -82,34 +70,13 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
                                 "MENU_CACHE_TYPE" => "A",
                                 "MENU_CACHE_TIME" => "3600",
                                 "MENU_CACHE_USE_GROUPS" => "N",
-                                "MENU_CACHE_GET_VARS" => array(
-                                ),
+                                "MENU_CACHE_GET_VARS" => array(),
                                 "DELAY" => "N",
                                 "ALLOW_MULTI_SELECT" => "N",
                                 "CHILD_MENU_TYPE" => "left"
                             ),
                             false
-                        );?>
-                    </ul>
-                </div>
-                <div class="main-footer__social">
-                    <ul>
-                        <?$APPLICATION->IncludeComponent(
-                            "bitrix:menu",
-                            "social",
-                            array(
-                                "ROOT_MENU_TYPE" => "social",
-                                "MAX_LEVEL" => "1",
-                                "USE_EXT" => "N",
-                                "COMPONENT_TEMPLATE" => "social",
-                                "MENU_CACHE_TYPE" => "A",
-                                "MENU_CACHE_TIME" => "3600",
-                                "MENU_CACHE_USE_GROUPS" => "N",
-                                "DELAY" => "N",
-                                "ALLOW_MULTI_SELECT" => "N"
-                            ),
-                            false
-                        );?>
+                        ); ?>
                     </ul>
                 </div>
             </div>
@@ -118,7 +85,7 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
             <div>
                 <div class="main-footer__nav">
                     <ul>
-                        <?$APPLICATION->IncludeComponent(
+                        <? $APPLICATION->IncludeComponent(
                             "bitrix:menu",
                             "bottom",
                             array(
@@ -129,23 +96,61 @@ if ($pagePath != SITE_DIR &&  strpos($pagePath, '/catalog/') === false ) {
                                 "MENU_CACHE_TYPE" => "A",
                                 "MENU_CACHE_TIME" => "3600",
                                 "MENU_CACHE_USE_GROUPS" => "N",
-                                "MENU_CACHE_GET_VARS" => array(
-                                ),
+                                "MENU_CACHE_GET_VARS" => array(),
                                 "DELAY" => "N",
                                 "ALLOW_MULTI_SELECT" => "N",
                                 "CHILD_MENU_TYPE" => "left"
                             ),
                             false
-                        );?>
+                        ); ?>
                     </ul>
                 </div>
-                <?if(strcasecmp(SITE_ID,"S1") == 0) {?>
-                    <div class="main-footer__dev">
-                        <h4>дизайн и разработка сайта: <a href="https://website96.ru/" target="_blank">
-                                <span class="red-font">website96</span></a></h4>
-                    </div>
-                <?}?>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="main-footer__bottom col-12 col-lg-4 col-xl-4">
+            <div class="main-footer__copyright">
+                <h4><?
+                    $APPLICATION->IncludeFile(
+                        "/include/copyright.php",
+                        array(),
+                        array(
+                            "MODE" => "text",
+                        )
+                    );
+                    ?></h4>
+            </div>
+        </div>
+        <div class="main-footer__bottom col-12 col-lg-4 col-xl-4">
+            <div class="main-footer__social">
+                <ul>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "social",
+                        array(
+                            "ROOT_MENU_TYPE" => "social",
+                            "MAX_LEVEL" => "1",
+                            "USE_EXT" => "N",
+                            "COMPONENT_TEMPLATE" => "social",
+                            "MENU_CACHE_TYPE" => "A",
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_USE_GROUPS" => "N",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N"
+                        ),
+                        false
+                    ); ?>
+                </ul>
+            </div>
+        </div>
+        <div class="main-footer__bottom col-12 col-lg-4 col-xl-4">
+            <? if (strcasecmp(SITE_ID, "S1") == 0) { ?>
+                <div class="main-footer__dev">
+                    <h4>дизайн и разработка сайта: <a href="https://website96.ru/" target="_blank">
+                            <span class="red-font">website96</span></a></h4>
+                </div>
+            <? } ?>
         </div>
     </div>
 </footer>

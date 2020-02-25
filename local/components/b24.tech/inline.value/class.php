@@ -6,7 +6,7 @@
 /**
  * Class ItexInlineValue
  */
-class ItexInlineValue extends CBitrixComponent
+class MyInlineValue extends CBitrixComponent
 {
     public function executeComponent()
     {

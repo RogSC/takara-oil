@@ -37,6 +37,7 @@ a {
 }
 
 a:hover,
+a:focus,
 a:active {
     color: #E60013;
     text-decoration: none;
@@ -497,7 +498,9 @@ button {
     height: 15px;
 }
 
-.header__user-menu a:hover path {
+.header__user-menu a:hover path,
+.header__user-menu a:focus path,
+.header__user-menu a:active path {
     fill: #E60013;
     transition: 0.25s;
 }
@@ -2014,11 +2017,6 @@ path {
 /**-----------------main-footer styles------------------------**/
 
 .main-footer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
     text-transform: uppercase;
 }
 
@@ -2027,10 +2025,9 @@ path {
 }
 
 .main-footer__col {
-    margin: 6% 0 5%;
+    margin: 6% 0 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 @media screen and (max-width: 991px) {
@@ -2065,20 +2062,12 @@ path {
     text-transform: none;
 }
 
-.main-footer__copyright {
-    margin-top: 43px;
-}
-
 .main-footer__nav li {
     margin-bottom: 20px;
 }
 
 .main-footer__nav li:first-of-type a {
     color: #E60013;
-}
-
-.main-footer__social {
-    margin-top: 97px;
 }
 
 .main-footer__social ul {
@@ -2103,16 +2092,16 @@ path {
     fill: #E60013;
 }
 
-.main-footer__dev {
-    margin-top: 97px;
-}
-
 @media screen and (max-width: 991px) {
     .main-footer__copyright,
     .main-footer__social,
     .main-footer__dev {
         margin-top: 30px;
     }
+}
+
+.main-footer__bottom {
+    margin: 20px 0 20px;
 }
 
 .main-page__nav {
@@ -2954,6 +2943,7 @@ path {
     padding-left: 20px;
     margin-top: 15px;
     margin-bottom: 80px;
+    justify-content: flex-start;
 }
 
 .q__form_btn:after {
@@ -3548,7 +3538,7 @@ a.lk__item-title {
 }
 
 .modal__errors {
-    font-size: 1.33em;
+    font-size: 1.33em !important;
     color: #E60013;
 }
 .modal__error {
@@ -3824,9 +3814,6 @@ a.lk__item-title {
 
 /**-----------------other styles------------------------**/
 
-.catalog-container {
-    min-height: 1000px;
-}
 .input-error {
     position: absolute;
     min-height: 26px;
@@ -3883,4 +3870,8 @@ a.lk__item-title {
     .f-count {
         left: 140px;
     }
+}
+
+.section__item {
+    margin-top: 100px;
 }

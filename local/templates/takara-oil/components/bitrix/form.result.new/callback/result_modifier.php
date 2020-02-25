@@ -31,7 +31,6 @@ if (isset($_REQUEST['web_worm_submit']) && $_REQUEST['web_worm_submit'] == 'Y' &
         }
     }
 
-
     if ($arResponse['result'] === false) {
         $APPLICATION->RestartBuffer();
         echo json_encode($arResponse);

@@ -13,7 +13,7 @@ ob_start();
     <? if ($key == count($arResult) - 1) { ?>
         <span class="bread-crumb-p_select"><?= $arLink["TITLE"] ?></span>
     <?}?>
-    <? if($key == 0) {?>
+    <? if($key == 0 || ($key == 2 && $key != count($arResult) - 1)) {?>
         <a href="<?= $arLink["LINK"] ?>"><?= $arLink["TITLE"] ?></a>
         <span class="sep"> — </span>
     <? } ?>

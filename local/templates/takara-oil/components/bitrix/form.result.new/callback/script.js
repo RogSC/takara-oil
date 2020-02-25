@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     if ($('html').attr('lang') === 'ru') {
         msg['request'] = 'Ваша заявка успешно отправлена';
-        msg['sendEmail'] = 'На ваш e-mail отправлено письмо с подтверждением подписки';
+        msg['sendEmail'] = 'На ваш e-mail отправлено письмо с подтверждением подписки. Если вы не получили данное письмо, проверьте папки «Спам» и «Удаленные»';
     } else if ($('html').attr('lang') === 'en') {
         msg['request'] = 'Your request has been sent successfully';
         msg['sendEmail'] = 'Subscription confirmation email sent to your e-mail';

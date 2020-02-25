@@ -281,8 +281,8 @@ Loc::loadMessages(__FILE__);
 		"CHAIN_ITEM_TEXT" => "",
 		"CHAIN_ITEM_LINK" => "",
 		"BUTTON_SUBMIT_TEXT" => "質問する",
-		"BUTTON_SUBMIT_TEXT_RU" => "Отправить",
-		"BUTTON_SUBMIT_TEXT_EN" => "Submit",
+		"BUTTON_SUBMIT_TEXT_RU" => "Задать вопрос",
+		"BUTTON_SUBMIT_TEXT_EN" => "Ask question",
 		"BUTTON_SUBMIT_TEXT_JA" => "提出する",
 		"VARIABLE_ALIASES" => array(
 			"WEB_FORM_ID" => "WEB_FORM_ID",

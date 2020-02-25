@@ -4,6 +4,9 @@ use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
+
+$arrFilter["?NAME"] = $_REQUEST['q'];
+$arrFilter["IBLOCK_ID"] = 14;
 ?>
 
     <section class="catalog container">
@@ -104,9 +107,6 @@ $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
                     $arItem[] = $ar_res['ID'];
                 } ?>
                 <?$APPLICATION->AddViewContent('search_result', isset($arItem) ? count($arItem) : '0') ?>
-                <?/*$this->SetViewTarget('search_result');*/?><!--
-                <?/*= Loc::getMessage('FOUND') */?> <?/*= isset($arItem) ? count($arItem) : '0' */?> <?/*= Loc::getMessage('PRODUCTS') */?>
-                --><?/*$this->EndViewTarget();*/?>
             </div>
         </div>
     </section>
