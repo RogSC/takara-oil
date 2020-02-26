@@ -26,6 +26,8 @@ $(document).ready(function() {
                 success: function (data, el, response) {
                     data.body.html(response);
 
+                    $('input[type=tel]').inputmasks(phoneMask());
+
                     let form = $('[data-id=' + form_id + ']');
 
                     form.off('submit.ajax-form').on('submit.ajax-form', function (e) {
