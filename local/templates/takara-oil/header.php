@@ -20,6 +20,7 @@ Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/css/style.c
 
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.css"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/slick/slick.min.js"));
+Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/inputmask.multi/js/jquery.inputmask-multi.min.js"));
 Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("frontend/js/libs/arcticmodal/jquery.arcticmodal-0.3.min.js"));
 Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("frontend/js/libs/arcticmodal/jquery.arcticmodal-0.3.css"));
 

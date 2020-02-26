@@ -108,10 +108,45 @@ function formValidate(form) {
 }
 
 $(document).ready(function () {
-    $("input[type=tel]").live('focus', function () {
+    /*$("input[type=tel]").live('focus', function () {
         $(this).inputmask({
             mask: "+7(999)-999-99-99",
             showMaskOnHover: false
         });
-    });
+    });*/
+
+    var maskList = $.masksSort($.masksLoad("/local/templates/takara-oil/frontend/js/libs/inputmask.multi/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+     var maskOpts = {
+         inputmask: {
+             definitions: {
+                 '#': {
+                     validator: "[0-9]",
+                     cardinality: 1
+                 }
+             },
+             //clearIncomplete: true,
+             showMaskOnHover: false,
+             autoUnmask: true
+         },
+         match: /[0-9]/,
+         replace: '#',
+         list: maskList,
+         listKey: "mask",
+         onMaskChange: function (maskObj, completed) {
+             if (completed) {
+                 var hint = maskObj.name_ru;
+                 if (maskObj.desc_ru && maskObj.desc_ru != "") {
+                     hint += " (" + maskObj.desc_ru + ")";
+                 }
+                 $("#descr").html(hint);
+             } else {
+                 $("#descr").html("Маска ввода");
+             }
+             $(this).attr("placeholder", $(this).inputmask("getemptymask"));
+         }
+     };
+
+    $('input[type=tel]').inputmasks(maskOpts);
+    //$('input[type=tel]').inputmask("+[####################]", maskOpts.inputmask).attr("placeholder", $('input[type=tel]').inputmask("getemptymask"));
+
 });

@@ -114,7 +114,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                                if ($SID == 'NAME') {
                                    echo $userFields['NAME'] . ' ' . $userFields['LAST_NAME'];
                                } elseif ($SID == 'PERSONAL_PHONE') {
-                                   echo substr(trim($userFields["PERSONAL_PHONE"]), 1);
+                                   echo trim($userFields["PERSONAL_PHONE"]);
                                } else {
                                    echo $userFields[$SID];
                                }
