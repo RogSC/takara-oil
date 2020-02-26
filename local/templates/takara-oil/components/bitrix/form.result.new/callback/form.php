@@ -110,7 +110,15 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
                                name="form_<?= $arAnswer[0]['FIELD_TYPE'] ?>_<?= $arAnswer[0]['ID'] ?>"
                                data-req="<?= $arResult["arQuestions"][$SID]["REQUIRED"] == "Y" ? 'Y' : 'N' ?>"
                                class="inp"
-                               value="<?= $SID == 'NAME' ? $userFields['NAME'] . ' ' . $userFields['LAST_NAME'] : $userFields[$SID] ?>">
+                               value="<?
+                               if ($SID == 'NAME') {
+                                   echo $userFields['NAME'] . ' ' . $userFields['LAST_NAME'];
+                               } elseif ($SID == 'PERSONAL_PHONE') {
+                                   echo substr(trim($userFields["PERSONAL_PHONE"]), 1);
+                               } else {
+                                   echo $userFields[$SID];
+                               }
+                               ?>">
                         <?
                         break;
                     case 'textarea':

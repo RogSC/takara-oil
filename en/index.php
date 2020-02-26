@@ -302,7 +302,7 @@ Loc::loadMessages(__FILE__);
                         ?>
                     </p>
                     <div class="about-brand__btn">
-                        <a href="/about/" class="btn__more"><?
+                        <a href="/en/about/" class="btn__more"><?
                             $APPLICATION->IncludeFile(
                                 "/include/" . SITE_ID . "/about-link-text.php",
                                 array(),
@@ -401,7 +401,7 @@ Loc::loadMessages(__FILE__);
 	false
 ); ?>
         <div class="articles__btn">
-            <a href="/articles/">
+            <a href="<?= SITE_DIR ?>/articles/">
                 <button class="btn btn-small"><?
                     $APPLICATION->IncludeFile(
                         "/include/" . SITE_ID . "/articles-link-text.php",

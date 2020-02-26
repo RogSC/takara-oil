@@ -32,7 +32,7 @@ $userFields = $authUser->arResult[0];
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('PHONE') ?></legend>
-                        <input type="tel" class="inp" name="phone" id="phone" value="<?= $userFields["PERSONAL_PHONE"] ?>" disabled="disabled">
+                        <input type="tel" class="inp" name="phone" id="phone" value="<?= substr(trim($userFields["PERSONAL_PHONE"]), 1) ?>" disabled="disabled">
                     </fieldset>
                     <fieldset class="q__form-item">
                         <legend><?= Loc::getMessage('COMPANY') ?></legend>

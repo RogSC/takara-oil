@@ -25,7 +25,8 @@ $(document).ready(function () {
         /**Dropdawn selector**/
 
         let dropDawnBtn = $('.js-init-filter__dropdown-btn'),
-            dropDawn = $('.filter__dropdown-selector');
+            dropDawn = $('.filter__dropdown-selector'),
+            dropDawnOption = $('.js-init-dropdown-select');
 
         dropDawnBtn.on('click', function () {
             dropDawn.addClass("filter__dropdown-selector_active");
@@ -40,9 +41,11 @@ $(document).ready(function () {
             }
         });
 
-        dropDawn.on('click', 'filter__dropdown-select', function () {
-            dropDawnBtn.find('p').text($(this).find('p').text());
-            dropDawn.removeClass("filter__dropdown-selector_active");
+        dropDawnOption.each(function () {
+            $(this).click(function () {
+                dropDawnBtn.find('p').text($(this).find('p').text());
+                dropDawn.removeClass("filter__dropdown-selector_active");
+            });
         });
     }
 });

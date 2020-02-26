@@ -47,7 +47,6 @@ $this->setFrameMode(true);
                                    value="<?= $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] ? $arFilterItem["VALUES"]["MAX"]["HTML_VALUE"] : $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>"
                                    name="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                    id="<?= $arFilterItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                   onkeyup="smartFilter.keyup(this)"
                                    size="5"
                                    data-max="<?= $arFilterItem["VALUES"]["MAX"]["VALUE"] ?>">
                         </div>
@@ -98,9 +97,8 @@ $this->setFrameMode(true);
                                 if ($ar["DISABLED"])
                                     $class .= " disabled";
                                 ?>
-                                <li class="filter__dropdown-select"
-                                    data-role="label_<?= $ar["CONTROL_ID"] ?>"
-                                    onclick="smartFilter.selectDropDownItem(this, '<?= CUtil::JSEscape($ar["CONTROL_ID"]) ?>')">
+                                <li class="filter__dropdown-select js-init-dropdown-select"
+                                    data-role="label_<?= $ar["CONTROL_ID"] ?>">
                                     <label for="<?= $ar["CONTROL_ID"] ?>"><p><?= $ar['VALUE'] ?></p></label>
                                 </li>
                             <? } ?>
@@ -121,8 +119,7 @@ $this->setFrameMode(true);
                                                name="<?= $value['CONTROL_NAME'] ?>"
                                                id="<?= $value['CONTROL_ID'] ?>"
                                                value="<?= $value['HTML_VALUE'] ?>"
-                                            <?= $value['CHECKED'] ? 'checked="checked"' : '' ?>
-                                               onclick="smartFilter.click(this)">
+                                            <?= $value['CHECKED'] ? 'checked="checked"' : '' ?>>
                                         <?= $value['VALUE'] ?>
                                     </label>
                                 </div>
@@ -144,8 +141,7 @@ $this->setFrameMode(true);
                                                id="<?= $value["CONTROL_ID"] ?>"
                                                value="<?= $value["HTML_VALUE_ALT"] ?>"
                                                name="<?= $value["CONTROL_NAME_ALT"] ?>"
-                                            <?= $value['CHECKED'] ? 'checked="checked"' : '' ?>
-                                               onclick="smartFilter.click(this)">
+                                            <?= $value['CHECKED'] ? 'checked="checked"' : '' ?>>
                                         <?= $value['VALUE'] ?>
                                     </label>
                                 </div>
@@ -169,6 +165,3 @@ $this->setFrameMode(true);
         <a href="<?= $arResult["FILTER_URL"] ?>" target=""><?= Loc::getMessage('SHOW') ?></a>
     </div>
 </form>
-<script type="text/javascript">
-    let smartFilter = new JCSmartFilter('<?=CUtil::JSEscape($arResult["FORM_ACTION"])?>', '<?=CUtil::JSEscape($arParams["FILTER_VIEW_MODE"])?>', <?=CUtil::PhpToJSObject($arResult["JS_FILTER_PARAMS"])?>);
-</script>

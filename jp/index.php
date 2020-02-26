@@ -293,7 +293,7 @@ Loc::loadMessages(__FILE__);
                         ?>
                     </p>
                     <div class="about-brand__btn">
-                        <a href="/about/" class="btn__more"><?
+                        <a href="/jp/about/" class="btn__more"><?
                             $APPLICATION->IncludeFile(
                                 "/include/" . SITE_ID . "/about-link-text.php",
                                 array(),
