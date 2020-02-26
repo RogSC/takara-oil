@@ -6,6 +6,10 @@ Loc::loadMessages(__FILE__);
 
 global $USER;
 
+if (!$USER->IsAuthorized()) {
+    LocalRedirect("/index.php");
+}
+
 $authUser = CUser::GetByID($USER->GetParam('USER_ID'));
 $userFields = $authUser->arResult[0];
 ?>

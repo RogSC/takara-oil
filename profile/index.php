@@ -4,6 +4,8 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 $APPLICATION->SetTitle(Loc::getMessage('SEC_NAME'));
+
+if (!$USER->IsAuthorized()) LocalRedirect("/");
 ?>
 
 <section class="lk container">
