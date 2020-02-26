@@ -18,13 +18,13 @@ Loc::loadMessages(__FILE__);
 
 $BUTTON_SUBMIT_TEXT = 'BUTTON_SUBMIT_TEXT_' . strtoupper(LANGUAGE_ID);
 
-if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && $_REQUEST['WEB_FORM_ID'] == '6' || isset($_REQUEST['formresult'])) {
+if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' && ($_REQUEST['WEB_FORM_ID'] == 6 || $_REQUEST['WEB_FORM_ID'] == 9 || $_REQUEST['WEB_FORM_ID'] == 12) || isset($_REQUEST['formresult'])) {
 
     $arData = $_REQUEST;
 
     $APPLICATION->RestartBuffer();
 
-    /*if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && empty($_REQUEST['g-recaptcha-response'])) {
+    /*if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && $arData['g-recaptcha-response'] == '') {
         $arResponse = array(
             'error' => true,
             'result' => false,

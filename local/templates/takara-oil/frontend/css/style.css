@@ -1285,6 +1285,26 @@ path {
     left: 845px;
 }
 
+.products-catalog__steering-oils {
+    top: 371px;
+    left: 108px;
+}
+
+.products-catalog__suspension-oils {
+    top: 427px;
+    left: 310px;
+}
+
+.products-catalog__additives {
+    top: 390px;
+    left: 900px;
+}
+
+.products-catalog__oils-brake {
+    top: 466px;
+    left: 528px;
+}
+
 @media screen and (max-width: 1199px) {
     .products-catalog__motor-oils {
         top: auto;

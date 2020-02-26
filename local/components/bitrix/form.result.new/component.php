@@ -170,23 +170,23 @@ if (CModule::IncludeModule("form")) {
             // check errors
             $arResult["FORM_ERRORS"] = CForm::Check($arParams["WEB_FORM_ID"], $arResult["arrVALUES"], false, "Y", $arParams['USE_EXTENDED_ERRORS']);
 
+            if (($_REQUEST['WEB_FORM_ID']) != 6) {
+                if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') {
+                    if ($_REQUEST['g-recaptcha-response'] == '') {
+                        $arResult["FORM_ERRORS"] = 'Проверка не пройдена';
+                    } else {
+                        $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
+                        $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 
-            if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y') {
-                if (strlen($_REQUEST['g-recaptcha-response']) == 0) {
-                    $arResult["FORM_ERRORS"] = 'Проверка не пройдена';
-                } else {
-                    $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
-                    $resp = $recaptcha->verify($_REQUEST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-
-                    if (!$resp->isSuccess()) {
-                        foreach ($resp->getErrorCodes() as $code) {
-                            $arResult["FORM_ERRORS"] = $code;
-                            return;
+                        if (!$resp->isSuccess()) {
+                            foreach ($resp->getErrorCodes() as $code) {
+                                $arResult["FORM_ERRORS"] = $code;
+                                return;
+                            }
                         }
                     }
                 }
             }
-
 
             if (
                 $arParams['USE_EXTENDED_ERRORS'] == 'Y' && (!is_array($arResult["FORM_ERRORS"]) || count($arResult["FORM_ERRORS"]) <= 0)
@@ -301,7 +301,7 @@ if (CModule::IncludeModule("form")) {
                             $arResponse = array(
                                 'result' => true
                             );
-                            if ($_REQUEST['WEB_FORM_ID'] == 5) {
+                            if ($_REQUEST['WEB_FORM_ID'] == 5 || $_REQUEST['WEB_FORM_ID'] == 8 || $_REQUEST['WEB_FORM_ID'] == 11) {
                                 $arFields = Array(
                                     "USER_ID" => ($USER->IsAuthorized() ? $USER->GetID() : false),
                                     "FORMAT" => "text",
@@ -329,28 +329,39 @@ if (CModule::IncludeModule("form")) {
                                     }
                                 }
                             }
-                            if ($_REQUEST['WEB_FORM_ID'] == 6) {
-                                if ($USER->IsAuthorized()) {
-                                    $el = new CIBlockElement;
-                                    $PROP = array();
-                                    $PROP[88] = $USER->GetID();
-                                    $PROP[92] = $arParams['PRODUCT_ID'];
-
-                                    $arLoadProductArray = Array(
-                                        "MODIFIED_BY" => $USER->GetID(),
-                                        "IBLOCK_SECTION_ID" => false,
-                                        "IBLOCK_ID" => $arParams["QUESTIONS_IBLOCK_ID"],
-                                        "PROPERTY_VALUES" => $PROP,
-                                        "NAME" => $_REQUEST['form_textarea_42'],
-                                        "ACTIVE" => "Y",
-                                        "ACTIVE_FROM" => date('d.m.Y'),
-                                        "PREVIEW_TEXT" => $_REQUEST['form_textarea_42'],
+                            if ($_REQUEST['WEB_FORM_ID'] == 6 || $_REQUEST['WEB_FORM_ID'] == 9 || $_REQUEST['WEB_FORM_ID'] == 12) {
+                                if ($arParams['USE_GOOGLE_CAPTCHA'] == 'Y' && !($_REQUEST['g-recaptcha-response'] || (is_scalar($_REQUEST['g-recaptcha-response']) && strlen($_REQUEST['g-recaptcha-response'])))) {
+                                    $arResponse = array(
+                                        'error' => true,
+                                        'result' => false,
+                                        'message' => Loc::getMessage('ERROR_RECAPTCHA')
                                     );
+                                } else {
+                                    if ($USER->IsAuthorized()) {
+                                        $el = new CIBlockElement;
+                                        $PROP = array();
+                                        $PROP[88] = $USER->GetID();
+                                        $PROP[92] = $arParams['PRODUCT_ID'];
 
-                                    $PRODUCT_ID = $el->Add($arLoadProductArray);
+                                        $arLoadProductArray = Array(
+                                            "MODIFIED_BY" => $USER->GetID(),
+                                            "IBLOCK_SECTION_ID" => false,
+                                            "IBLOCK_ID" => $arParams["QUESTIONS_IBLOCK_ID"],
+                                            "PROPERTY_VALUES" => $PROP,
+                                            "NAME" => $_REQUEST['form_textarea_42'],
+                                            "ACTIVE" => "Y",
+                                            "ACTIVE_FROM" => date('d.m.Y'),
+                                            "PREVIEW_TEXT" => $_REQUEST['form_textarea_42'],
+                                        );
+
+                                        $PRODUCT_ID = $el->Add($arLoadProductArray);
+                                    }
+                                    $arResponse = array(
+                                        'result' => true
+                                    );
                                 }
                             }
-                                echo json_encode($arResponse);
+                            echo json_encode($arResponse);
                             die();
                             //LocalRedirect($APPLICATION->GetCurPage()."?WEB_FORM_ID=".$arParams["WEB_FORM_ID"]."&strFormNote=".urlencode($arResult["FORM_NOTE"]));
                         }

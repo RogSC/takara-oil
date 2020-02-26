@@ -31,7 +31,7 @@ if (isset($_REQUEST['web_form_submit']) && $_REQUEST['web_form_submit'] == 'Y' &
             'result' => true
         );
 
-        if ($_REQUEST['WEB_FORM_ID'] == 5) {
+        if ($_REQUEST['WEB_FORM_ID'] == 5 || $_REQUEST['WEB_FORM_ID'] == 8 || $_REQUEST['WEB_FORM_ID'] == 11) {
             $arFields = Array(
                 "USER_ID" => ($USER->IsAuthorized() ? $USER->GetID() : false),
                 "FORMAT" => "text",

@@ -262,7 +262,7 @@ Loc::loadMessages(__FILE__);
 	"question", 
 	array(
 		"COMPONENT_TEMPLATE" => "question",
-		"USE_GOOGLE_CAPTCHA" => "N",
+		"USE_GOOGLE_CAPTCHA" => "Y",
 		"WEB_FORM_ID" => $arParams["QUESTIONS"]["WEB_FORM_ID"],
 		"QUESTIONS_IBLOCK_ID" => $arParams["QUESTIONS"]["IBLOCK_ID"],
 		"PRODUCT_ID" => $arResult["ID"],

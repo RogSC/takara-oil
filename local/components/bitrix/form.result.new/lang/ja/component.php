@@ -9,8 +9,8 @@ $MESS ['FORM_MODULE_NOT_INSTALLED'] = "Web-form module is not installed.";
 $MESS ['FORM_NOT_FOUND'] = "Web-form is not found.";
 $MESS ['FORM_PUBLIC_ICON_EDIT_TPL'] = "Edit Web-form template";
 $MESS ['FORM_PUBLIC_ICON_EDIT'] = "Edit Web-form parameters";
-$MESS ['ERROR_SUBSCRIBE'] = "Error adding subscription. ";
-$MESS ['ERROR_RECAPTCHA'] = "Confirm that you are not a robot";
+$MESS ['ERROR_SUBSCRIBE'] = "サブスクリプションの追加エラー。";
+$MESS ['ERROR_RECAPTCHA'] = "ロボットではないことを確認してください";
 $MESS ['FORM_NOTE_ADDOK'] = "Thank you. 
 
 Your application form #RESULT_ID# was received.";

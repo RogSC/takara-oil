@@ -10,6 +10,7 @@ $MESS ['FORM_NOT_FOUND'] = "Веб-форма не найдена.";
 $MESS ['FORM_PUBLIC_ICON_EDIT_TPL'] = "Редактировать шаблон веб-формы";
 $MESS ['FORM_PUBLIC_ICON_EDIT'] = "Редактировать параметры веб-формы";
 $MESS ['ERROR_SUBSCRIBE'] = "Ошибка добавления подписки. ";
+$MESS ['ERROR_RECAPTCHA'] = "Подтвердите, что вы не робот";
 $MESS ['FORM_NOTE_ADDOK'] = "Спасибо!
 
 Ваша заявка #RESULT_ID# принята!";

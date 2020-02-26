@@ -74,6 +74,13 @@ $(document).ready(function() {
     let btnSubscribe = $('.js-init-subscribe'),
         form = btnSubscribe.closest('form');
 
+    /*btnSubscribe.click(function () {
+        let result = $('#g-recaptcha-5');
+        $.arcticmodal({
+            content: result
+        });
+    });*/
+
     form.off('submit.ajax-form').on('submit.ajax-form', function (e) {
         e.preventDefault();
         $.ajax({
